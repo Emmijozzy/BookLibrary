@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "",
+"RedirectUrl": "",
+"LaunchCommand": "",
+"WorkingDirectory": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}

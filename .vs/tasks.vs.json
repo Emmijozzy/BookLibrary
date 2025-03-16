@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-BookLibrary.Server.Host",
+      "appliesTo": "BookLibary.Server/BookLibrary.Server.Host/BookLibrary.Server.Host.sln",
+      "type": "launch"
+    }
+  ]
+}

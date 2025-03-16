@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\BookLibrary.Server.Host.props" />
+</Project>

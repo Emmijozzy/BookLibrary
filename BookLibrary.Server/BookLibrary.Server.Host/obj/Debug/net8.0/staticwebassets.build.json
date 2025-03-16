@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "ng5PfcU9kXjlyF+WXa3rDBVS/F9mSav1U43gS53YK5M=",
+  "Source": "BookLibrary.Server.Host",
+  "BasePath": "_content/BookLibrary.Server.Host",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

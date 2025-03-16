@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BookLibrary.Server.Host.props" />
+</Project>

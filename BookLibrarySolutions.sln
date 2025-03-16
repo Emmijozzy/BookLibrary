@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspDotNetMVC", "AspDotNetMVC\AspDotNetMVC.csproj", "{0D808AEC-2508-463D-B151-FC9910A50321}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Client.MVC", "BookLibrary.Client.MVC\BookLibrary.Client.MVC.csproj", "{0D808AEC-2508-463D-B151-FC9910A50321}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspDotNetMVCwithReact.Server", "AspDotNetMVCwithReact.Server\AspDotNetMVCwithReact.Server.csproj", "{B548F758-F84B-43DC-81C2-8A938079E25F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Server.Host", "BookLibrary.Server\BookLibrary.Server.Host\BookLibrary.Server.Host.csproj", "{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Server.Host", "BookLibary.Server\BookLibrary.Server.Host\BookLibrary.Server.Host.csproj", "{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Server.Domain", "BookLibrary.Server\BookLibrary.Server.Domain\BookLibrary.Server.Domain.csproj", "{FB488EAC-0582-4187-8692-5F63FA985A11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Server.Domain", "BookLibary.Server\BookLibrary.Server.Domain\BookLibrary.Server.Domain.csproj", "{FB488EAC-0582-4187-8692-5F63FA985A11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Server.Infrastructure", "BookLibrary.Server\BookLibrary.Server.Infrastructure\BookLibrary.Server.Infrastructure.csproj", "{9A0ECE4B-0BCA-4F1F-82DB-60595577EFD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Server.Infrastructure", "BookLibary.Server\BookLibrary.Server.Infrastructure\BookLibrary.Server.Infrastructure.csproj", "{9A0ECE4B-0BCA-4F1F-82DB-60595577EFD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Server.Application", "BookLibrary.Server\BookLibrary.Server.Application\BookLibrary.Server.Application.csproj", "{62E9879B-1716-4BC3-9A6E-919075D40745}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Server.Application", "BookLibary.Server\BookLibrary.Server.Application\BookLibrary.Server.Application.csproj", "{62E9879B-1716-4BC3-9A6E-919075D40745}"
+Project("{54a90642-561a-4bb1-a94e-469adee60c69}") = "BookLibrary.Client.React", "BookLibrary.Client.React\BookLibrary.Client.React.esproj", "{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,6 @@ Global
 		{0D808AEC-2508-463D-B151-FC9910A50321}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D808AEC-2508-463D-B151-FC9910A50321}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D808AEC-2508-463D-B151-FC9910A50321}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B548F758-F84B-43DC-81C2-8A938079E25F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B548F758-F84B-43DC-81C2-8A938079E25F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B548F758-F84B-43DC-81C2-8A938079E25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B548F758-F84B-43DC-81C2-8A938079E25F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{62E9879B-1716-4BC3-9A6E-919075D40745}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62E9879B-1716-4BC3-9A6E-919075D40745}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62E9879B-1716-4BC3-9A6E-919075D40745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
