@@ -3,20 +3,83 @@
   "WorkspaceRootPath": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/AspBookProject/True/SqlTable/dbo.RefreshTokens.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.client.react\\src\\hooks\\usefetch.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|solutionrelative:booklibrary.client.react\\src\\hooks\\usefetch.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.server\\booklibrary.server.host\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|solutionrelative:booklibrary.server\\booklibrary.server.host\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.server\\booklibrary.server.host\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|solutionrelative:booklibrary.server\\booklibrary.server.host\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB488EAC-0582-4187-8692-5F63FA985A11}|BookLibrary.Server\\BookLibrary.Server.Domain\\BookLibrary.Server.Domain.csproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.server\\booklibrary.server.domain\\entities\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB488EAC-0582-4187-8692-5F63FA985A11}|BookLibrary.Server\\BookLibrary.Server.Domain\\BookLibrary.Server.Domain.csproj|solutionrelative:booklibrary.server\\booklibrary.server.domain\\entities\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A0ECE4B-0BCA-4F1F-82DB-60595577EFD8}|BookLibrary.Server\\BookLibrary.Server.Infrastructure\\BookLibrary.Server.Infrastructure.csproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.server\\booklibrary.server.infrastructure\\dependencyinjection\\servicecontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A0ECE4B-0BCA-4F1F-82DB-60595577EFD8}|BookLibrary.Server\\BookLibrary.Server.Infrastructure\\BookLibrary.Server.Infrastructure.csproj|solutionrelative:booklibrary.server\\booklibrary.server.infrastructure\\dependencyinjection\\servicecontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62E9879B-1716-4BC3-9A6E-919075D40745}|BookLibrary.Server\\BookLibrary.Server.Application\\BookLibrary.Server.Application.csproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.server\\booklibrary.server.application\\validation\\book\\createbookvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62E9879B-1716-4BC3-9A6E-919075D40745}|BookLibrary.Server\\BookLibrary.Server.Application\\BookLibrary.Server.Application.csproj|solutionrelative:booklibrary.server\\booklibrary.server.application\\validation\\book\\createbookvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62E9879B-1716-4BC3-9A6E-919075D40745}|BookLibrary.Server\\BookLibrary.Server.Application\\BookLibrary.Server.Application.csproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.server\\booklibrary.server.application\\services\\implementation\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62E9879B-1716-4BC3-9A6E-919075D40745}|BookLibrary.Server\\BookLibrary.Server.Application\\BookLibrary.Server.Application.csproj|solutionrelative:booklibrary.server\\booklibrary.server.application\\services\\implementation\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.client.react\\src\\auth\\verifyauth.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|solutionrelative:booklibrary.client.react\\src\\auth\\verifyauth.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.client.react\\src\\app.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|solutionrelative:booklibrary.client.react\\src\\app.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A0ECE4B-0BCA-4F1F-82DB-60595577EFD8}|BookLibrary.Server\\BookLibrary.Server.Infrastructure\\BookLibrary.Server.Infrastructure.csproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.server\\booklibrary.server.infrastructure\\security\\tokenmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A0ECE4B-0BCA-4F1F-82DB-60595577EFD8}|BookLibrary.Server\\BookLibrary.Server.Infrastructure\\BookLibrary.Server.Infrastructure.csproj|solutionrelative:booklibrary.server\\booklibrary.server.infrastructure\\security\\tokenmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.server\\booklibrary.server.host\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|solutionrelative:booklibrary.server\\booklibrary.server.host\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.client.react\\src\\validation\\bookvalidation.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|solutionrelative:booklibrary.client.react\\src\\validation\\bookvalidation.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.client.react\\src\\types\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|solutionrelative:booklibrary.client.react\\src\\types\\index.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.server\\booklibrary.server.host\\controllers\\authapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|solutionrelative:booklibrary.server\\booklibrary.server.host\\controllers\\authapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.client.react\\src\\types\\book.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|solutionrelative:booklibrary.client.react\\src\\types\\book.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.server\\booklibrary.server.host\\middleware\\errorhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|solutionrelative:booklibrary.server\\booklibrary.server.host\\middleware\\errorhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.server\\booklibrary.server.host\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|solutionrelative:booklibrary.server\\booklibrary.server.host\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.client.react\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|solutionrelative:booklibrary.client.react\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.client.react\\vite.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|solutionrelative:booklibrary.client.react\\vite.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.client.react\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{BD86A566-BC34-408C-AD7B-8A3E6BBF77FA}|BookLibrary.Client.React\\BookLibrary.Client.React.esproj|solutionrelative:booklibrary.client.react\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
@@ -63,28 +126,44 @@
       "RelativeMoniker": "D:0:0:{0D808AEC-2508-463D-B151-FC9910A50321}|BookLibrary.Client.MVC\\BookLibrary.Client.MVC.csproj|solutionrelative:booklibrary.client.mvc\\booklibrary.client.mvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Server\\BookLibrary.Server.Host\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Client.React\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Middleware\\ErrorHandlingMiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Server\\BookLibrary.Server.Host\\Middleware\\ErrorHandlingMiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.server\\booklibrary.server.host\\booklibrary.server.host.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|solutionrelative:booklibrary.server\\booklibrary.server.host\\booklibrary.server.host.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\CategoryController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\CategoryController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|c:\\users\\emmijozzy\\desktop\\c-sharp\\booklibrary\\booklibrary.server\\booklibrary.server.host\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7270FE1A-F4BB-4F35-BFC4-96C5ABCC06B0}|BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj|solutionrelative:booklibrary.server\\booklibrary.server.host\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BookController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BookController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Pages\\Create.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Client.React\\src\\Pages\\Create.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BaseController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BaseController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Pages\\Edit.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Client.React\\src\\Pages\\Edit.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\AuthApiController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\AuthApiController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Hooks\\UseCreate.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Client.React\\src\\Hooks\\UseCreate.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Hooks\\UseEdit.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Client.React\\src\\Hooks\\UseEdit.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Pages\\Index.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Client.React\\src\\Pages\\Index.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Pages\\Details.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Client.React\\src\\Pages\\Details.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Hooks\\UseLogin.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookLibrary.Client.React\\src\\Hooks\\UseLogin.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -119,68 +198,301 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "package.json",
-              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\package.json",
-              "RelativeDocumentMoniker": "BookLibrary.Client.React\\package.json",
-              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\package.json",
-              "RelativeToolTip": "BookLibrary.Client.React\\package.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAACbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-16T22:38:19.569Z",
+              "Title": "dbo.RefreshTokens [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/AspBookProject/True/SqlTable/dbo.RefreshTokens.sql",
+              "ToolTip": "dbo.RefreshTokens [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-30T02:51:11.209Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": ".env",
-              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\.env",
-              "RelativeDocumentMoniker": "BookLibrary.Client.React\\.env",
-              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\.env",
-              "RelativeToolTip": "BookLibrary.Client.React\\.env",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-16T22:00:08.977Z"
+              "DocumentIndex": 7,
+              "Title": "BookService.cs",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Application\\Services\\Implementation\\BookService.cs",
+              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Application\\Services\\Implementation\\BookService.cs",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Application\\Services\\Implementation\\BookService.cs",
+              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Application\\Services\\Implementation\\BookService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T23:32:19.235Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "vite.config.ts",
-              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\vite.config.ts",
-              "RelativeDocumentMoniker": "BookLibrary.Client.React\\vite.config.ts",
-              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\vite.config.ts",
-              "RelativeToolTip": "BookLibrary.Client.React\\vite.config.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABCAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "VerifyAuth.tsx",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Auth\\VerifyAuth.tsx",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\src\\Auth\\VerifyAuth.tsx",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Auth\\VerifyAuth.tsx",
+              "RelativeToolTip": "BookLibrary.Client.React\\src\\Auth\\VerifyAuth.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-03-16T21:54:05.461Z"
+              "WhenOpened": "2025-03-25T23:22:06.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "App.tsx",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\App.tsx",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\src\\App.tsx",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\App.tsx",
+              "RelativeToolTip": "BookLibrary.Client.React\\src\\App.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-25T23:22:02.77Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Create.tsx",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Pages\\Create.tsx",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\src\\Pages\\Create.tsx",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Pages\\Create.tsx",
+              "RelativeToolTip": "BookLibrary.Client.React\\src\\Pages\\Create.tsx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-25T23:06:28.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Book.cs",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Domain\\Entities\\Book.cs",
+              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Domain\\Entities\\Book.cs",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Domain\\Entities\\Book.cs",
+              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Domain\\Entities\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T23:01:04.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Edit.tsx",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Pages\\Edit.tsx",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\src\\Pages\\Edit.tsx",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Pages\\Edit.tsx",
+              "RelativeToolTip": "BookLibrary.Client.React\\src\\Pages\\Edit.tsx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-25T22:12:18.35Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BookLibrary.Server.Host.csproj",
-              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj",
-              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj",
-              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj",
-              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAmwBgAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-16T21:26:33.511Z",
+              "Title": "UseFetch.tsx",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Hooks\\UseFetch.tsx",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\src\\Hooks\\UseFetch.tsx",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Hooks\\UseFetch.tsx",
+              "RelativeToolTip": "BookLibrary.Client.React\\src\\Hooks\\UseFetch.tsx",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-18T16:56:30.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ServiceContainer.cs",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Infrastructure\\DependencyInjection\\ServiceContainer.cs",
+              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Infrastructure\\DependencyInjection\\ServiceContainer.cs",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Infrastructure\\DependencyInjection\\ServiceContainer.cs",
+              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Infrastructure\\DependencyInjection\\ServiceContainer.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAUwEsAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T13:05:07.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Program.cs",
+              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\Program.cs",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Program.cs",
+              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\Program.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACAAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T20:51:01.53Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "package.json",
-              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\package.json",
-              "RelativeDocumentMoniker": "BookLibrary.Client.MVC\\package.json",
-              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\package.json",
-              "RelativeToolTip": "BookLibrary.Client.MVC\\package.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-16T21:21:24.69Z"
+              "Title": "ErrorHandlingMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Middleware\\ErrorHandlingMiddleware.cs",
+              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\Middleware\\ErrorHandlingMiddleware.cs",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Middleware\\ErrorHandlingMiddleware.cs",
+              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\Middleware\\ErrorHandlingMiddleware.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAYwBcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T20:48:12.232Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 3,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BookController.cs",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BookController.cs",
+              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BookController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T20:47:45.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CreateBookValidator.cs",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Application\\Validation\\Book\\CreateBookValidator.cs",
+              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Application\\Validation\\Book\\CreateBookValidator.cs",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Application\\Validation\\Book\\CreateBookValidator.cs",
+              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Application\\Validation\\Book\\CreateBookValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T23:34:51.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "bookValidation.ts",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\validation\\bookValidation.ts",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\src\\validation\\bookValidation.ts",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\validation\\bookValidation.ts",
+              "RelativeToolTip": "BookLibrary.Client.React\\src\\validation\\bookValidation.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-25T22:49:31.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TokenManagement.cs",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Infrastructure\\Security\\TokenManagement.cs",
+              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Infrastructure\\Security\\TokenManagement.cs",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Infrastructure\\Security\\TokenManagement.cs",
+              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Infrastructure\\Security\\TokenManagement.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAcwKIAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T13:11:01.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "UseCreate.tsx",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Hooks\\UseCreate.tsx",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\src\\Hooks\\UseCreate.tsx",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Hooks\\UseCreate.tsx",
+              "RelativeToolTip": "BookLibrary.Client.React\\src\\Hooks\\UseCreate.tsx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-25T23:06:34.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "UseEdit.tsx",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Hooks\\UseEdit.tsx",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\src\\Hooks\\UseEdit.tsx",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Hooks\\UseEdit.tsx",
+              "RelativeToolTip": "BookLibrary.Client.React\\src\\Hooks\\UseEdit.tsx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-25T22:12:42.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "index.ts",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Types\\index.ts",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\src\\Types\\index.ts",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Types\\index.ts",
+              "RelativeToolTip": "BookLibrary.Client.React\\src\\Types\\index.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-25T22:44:42.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AuthApiController.cs",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\AuthApiController.cs",
+              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\AuthApiController.cs",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\AuthApiController.cs",
+              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\AuthApiController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA1wDMAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T20:44:53.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BaseController.cs",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BaseController.cs",
+              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BaseController.cs",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BaseController.cs",
+              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BaseController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAACYAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T20:47:29.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Index.tsx",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Pages\\Index.tsx",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\src\\Pages\\Index.tsx",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Pages\\Index.tsx",
+              "RelativeToolTip": "BookLibrary.Client.React\\src\\Pages\\Index.tsx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-25T21:46:30.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "book.tsx",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Types\\book.tsx",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\src\\Types\\book.tsx",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Types\\book.tsx",
+              "RelativeToolTip": "BookLibrary.Client.React\\src\\Types\\book.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAEAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-25T21:58:56.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Details.tsx",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Pages\\Details.tsx",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\src\\Pages\\Details.tsx",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Pages\\Details.tsx",
+              "RelativeToolTip": "BookLibrary.Client.React\\src\\Pages\\Details.tsx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-25T22:00:40.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "UseLogin.tsx",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Hooks\\UseLogin.tsx",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\src\\Hooks\\UseLogin.tsx",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\src\\Hooks\\UseLogin.tsx",
+              "RelativeToolTip": "BookLibrary.Client.React\\src\\Hooks\\UseLogin.tsx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-18T16:58:54.014Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
               "Title": "BookLibrary.Client.MVC.csproj",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\BookLibrary.Client.MVC.csproj",
               "RelativeDocumentMoniker": "BookLibrary.Client.MVC\\BookLibrary.Client.MVC.csproj",
@@ -193,31 +505,83 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Program.cs",
-              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\Program.cs",
-              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Program.cs",
-              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\Program.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T20:51:01.53Z"
+              "DocumentIndex": 32,
+              "Title": "package.json",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\package.json",
+              "RelativeDocumentMoniker": "BookLibrary.Client.MVC\\package.json",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\package.json",
+              "RelativeToolTip": "BookLibrary.Client.MVC\\package.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-16T21:21:24.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\appsettings.json",
+              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\appsettings.json",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\appsettings.json",
+              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-18T13:26:44.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "BookLibrary.Server.Host.csproj",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj",
+              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj",
+              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAmwBgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-16T21:26:33.511Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "ErrorHandlingMiddleware.cs",
-              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Middleware\\ErrorHandlingMiddleware.cs",
-              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\Middleware\\ErrorHandlingMiddleware.cs",
-              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Middleware\\ErrorHandlingMiddleware.cs",
-              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\Middleware\\ErrorHandlingMiddleware.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAowFUAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T20:48:12.232Z"
+              "Title": "vite.config.ts",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\vite.config.ts",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\vite.config.ts",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\vite.config.ts",
+              "RelativeToolTip": "BookLibrary.Client.React\\vite.config.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-16T21:54:05.461Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 34,
+              "Title": ".env",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\.env",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\.env",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\.env",
+              "RelativeToolTip": "BookLibrary.Client.React\\.env",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-16T22:00:08.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "package.json",
+              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\package.json",
+              "RelativeDocumentMoniker": "BookLibrary.Client.React\\package.json",
+              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.React\\package.json",
+              "RelativeToolTip": "BookLibrary.Client.React\\package.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-16T22:38:19.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\CategoryController.cs",
@@ -225,47 +589,12 @@
               "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\CategoryController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T20:47:51.252Z"
+              "WhenOpened": "2025-03-16T20:47:51.252Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "BookController.cs",
-              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BookController.cs",
-              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BookController.cs",
-              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BookController.cs",
-              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BookController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T20:47:45.547Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "BaseController.cs",
-              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BaseController.cs",
-              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BaseController.cs",
-              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BaseController.cs",
-              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\BaseController.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAIAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T20:47:29.311Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "AuthApiController.cs",
-              "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\AuthApiController.cs",
-              "RelativeDocumentMoniker": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\AuthApiController.cs",
-              "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\AuthApiController.cs",
-              "RelativeToolTip": "BookLibrary.Server\\BookLibrary.Server.Host\\Controllers\\AuthApiController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBIAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T20:44:53.779Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 20,
               "Title": "BookLibrary.Server.Host.http",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.http",
               "RelativeDocumentMoniker": "..\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.http",
@@ -273,137 +602,127 @@
               "RelativeToolTip": "..\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-03-16T12:36:55.022Z"
+              "WhenOpened": "2025-03-16T12:36:55.022Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 21,
               "Title": "BookLibrary.Server.Host.csproj.user",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj.user",
               "RelativeDocumentMoniker": "..\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj.user",
               "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj.user",
               "RelativeToolTip": "..\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj.user",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003464|",
               "WhenOpened": "2025-03-16T12:36:48.516Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 22,
               "Title": "aspdotnetmvcwithreact.client.esproj",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\aspdotnetmvcwithreact.client\\aspdotnetmvcwithreact.client.esproj",
               "RelativeDocumentMoniker": "..\\AspDotNetMVCwithReact\\aspdotnetmvcwithreact.client\\aspdotnetmvcwithreact.client.esproj",
               "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\aspdotnetmvcwithreact.client\\aspdotnetmvcwithreact.client.esproj",
               "RelativeToolTip": "..\\AspDotNetMVCwithReact\\aspdotnetmvcwithreact.client\\aspdotnetmvcwithreact.client.esproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-03-16T12:02:52.931Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 26,
               "Title": "BookLibrary.Server.Host.csproj",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj",
               "RelativeDocumentMoniker": "..\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj",
               "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj",
               "RelativeToolTip": "..\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\BookLibrary.Server.Host.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-03-16T11:55:38.205Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 23,
               "Title": "BookLibarry.sln",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\BookLibarry.sln",
               "RelativeDocumentMoniker": "..\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\BookLibarry.sln",
               "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\BookLibarry.sln",
               "RelativeToolTip": "..\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\BookLibarry.sln",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002855|",
               "WhenOpened": "2025-03-16T11:54:39.891Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 24,
               "Title": "BookLibrary.csproj",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\BookLibrary.csproj",
               "RelativeDocumentMoniker": "..\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\BookLibrary.csproj",
               "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\BookLibrary.csproj",
               "RelativeToolTip": "..\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\BookLibrary.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-03-16T11:54:34.856Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 27,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\appsettings.json",
               "RelativeDocumentMoniker": "..\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\appsettings.json",
               "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\appsettings.json",
               "RelativeToolTip": "..\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-03-16T11:40:36.283Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 28,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "..\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\Properties\\launchSettings.json",
               "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\Properties\\launchSettings.json",
               "RelativeToolTip": "..\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-03-16T11:40:49.612Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 25,
               "Title": "AspDotNetMVCwithReact.Server.sln",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\AspDotNetMVCwithReact.Server.sln",
               "RelativeDocumentMoniker": "..\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\AspDotNetMVCwithReact.Server.sln",
               "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\AspDotNetMVCwithReact.Server.sln",
               "RelativeToolTip": "..\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\AspDotNetMVCwithReact.Server.sln",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002855|",
               "WhenOpened": "2025-03-16T11:24:05.298Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 29,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\Program.cs",
               "RelativeDocumentMoniker": "..\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\Program.cs",
               "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\Program.cs",
               "RelativeToolTip": "..\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\Program.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAqwDsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T11:23:27.194Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 30,
               "Title": "AspDotNetMVCwithReact.Server.http",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\AspDotNetMVCwithReact.Server.http",
               "RelativeDocumentMoniker": "..\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\AspDotNetMVCwithReact.Server.http",
               "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\AspDotNetMVCwithReact.Server.http",
               "RelativeToolTip": "..\\AspDotNetMVCwithReact\\AspDotNetMVCwithReact.Server\\AspDotNetMVCwithReact.Server.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
               "WhenOpened": "2025-03-16T11:23:16.745Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 31,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\Program.cs",
               "RelativeDocumentMoniker": "..\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\Program.cs",
               "ToolTip": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\Program.cs",
               "RelativeToolTip": "..\\AspDotNetMVCwithReact\\BookLibary.Server\\BookLibrary.Server.Host\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T11:19:08.943Z"
             }

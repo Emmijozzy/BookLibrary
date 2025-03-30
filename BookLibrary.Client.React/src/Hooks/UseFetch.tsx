@@ -1,119 +1,72 @@
-import { useCallback, useContext, useState } from "react";
-import axios from "axios";
-import { AppContext } from "../context/AppContext";
+import { useCallback, useState } from "react";
+import { ApiError, ApiResponse, FetchOptions } from "../Types";
+import { useApi } from "./useApi";
 
-interface Options {
-  method: 'post' | 'get'| 'put' | 'delete' | 'patch';
-  data?: Record<string, string>
-  config?:Record<string, string>
-}
 
-interface Error {
-  response?: {
-    data?: Record<string, string | number> | string;
-    status: number;
-    title: string;
-  };
-  message: unknown;
-}
+const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>() => {
+    const [data, setData] = useState<T | null>(null);
+    const [metadata, setMetadata] = useState<Record<string, unknown> | null>(null);
+    const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
+    const { api } = useApi();
 
-const UseFetch = () => {
-  const [data, setData] = useState<Record<string, string>>({});
-  const [error, setError] = useState<Error | null | string>(null);
-  const [loading, setLoading] = useState(false);
-
-  const { token } = useContext(AppContext);
-
-  const authToken = token || localStorage.getItem('authToken')
-
-  const api = axios.create({
-    baseURL: 'http://localhost:5168/api/', // Replace with your API base URL
-    headers: {
-        'Content-Type': 'application/json', // Wrap the key in quotes
-        'Authorization': `Bearer ${authToken ? authToken : "" }`  // Wrap the key in quotes
-    }
-  });
-
-  api.interceptors.response.use(
-    response => response,  async error =>  {
-      const originalRequest = error.config;
-
-      if (error.response.status === 401) {
-        originalRequest._retry = true;
+    const fetchData = useCallback(async <R = T>(url = "", options: FetchOptions): Promise<R> => {
+        const { method, data: requestData, config } = options;
 
         try {
-          const data = await refreshAuthToken();
-          const newAuthToken = data.token;
+            setLoading(true);
+            setError(null);
 
-          localStorage.setItem('authToken', newAuthToken)
+            const response = await api({
+                method: method.toLowerCase(),
+                url,
+                data: requestData,
+                ...config,
+            });
 
-          // Update the Authorization header with the new token
-          api.defaults.headers['Authorization'] = `Bearer ${newAuthToken}`;
-          originalRequest.headers['Authorization'] = `Bearer ${newAuthToken}`;
+            const responseData = response.data as ApiResponse<R>;
 
-          return api(originalRequest);
-        }  catch (refreshError) {
-          // Handle the case where refreshing the token fails (e.g., redirect to login)
-          console.error('Token refresh failed:', refreshError);
-          // Optionally, redirect to login page or clear stored tokens
-          return Promise.reject(refreshError);
-          }
+            // console.log('API Response:', responseData);
 
-      }
-    }
-  )
+            if (responseData.data) {
+                setData(responseData.data as unknown as T);
+            }
 
-  const refreshAuthToken = async () => {
-    console.log(authToken, "yiyiyiyyyyi")
-    try {
-        api.defaults.headers.common['Authorization'] = `Bearer ${authToken}`;
-        const response = await api.get('AuthApi/refresh-token')
+            if (responseData.metadata) {
+                setMetadata(responseData.metadata);
+            }
 
-        return response.data; // Assuming the response contains the new token and refresh token
-    } catch (error) {
-        console.error('Error refreshing token:', error);
-        throw error; // Handle this case if the refresh token fails
-    }
- };
+            return responseData.data;
+        } catch (err) {
+            const apiError = err as ApiError;
 
-  const fetchData = useCallback(async (url="", options: Options) => {
-    // const responses = await api.post("/api/Authapi/login", options.body)
+            // Handle different error scenarios
+            if (apiError.data) {
+                const errorMessage = apiError.data.message || apiError.data.errors?.join(', ') || 'An error occurred';
+                setError(errorMessage);
+                console.error('API Error:', apiError.data.code, apiError.data.errors);
+                throw new Error(errorMessage);
+            } else {
+                const errorMessage = 'Network error or server unavailable';
+                setError(errorMessage);
+                console.error('Network Error:', err);
+                throw new Error(errorMessage);
+            }
+        } finally {
+            setLoading(false);
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-    const { method, data, config} = options;
-    
-    try {
-      setLoading(true);
-      setError(null);
-      console.log("fetch")
-      const response = await api({
-        method: method ? method : 'get',
-        url,
+    return {
         data,
-        ...config
-      });
+        metadata,
+        error,
+        loading,
+        fetchData,
+        clearError: () => setError(null),
+        clearData: () => setData(null)
+    };
+};
 
-      console.log(response);
-
-      if(response.status == 200) {
-        response.data.status = response?.status as number
-        setData(response.data);
-        console.log(response);
-        setLoading(false)
-      }
-      return response.data;
-    } catch (error) {
-      const erro = error as unknown as Error
-      const errMsa: string =  typeof erro?.response?.data == "string"  ? erro.response?.data as string : `${erro.message}:  ${erro.response?.data?.title}` as string
-      // console.log(erro.message);
-      console.log(errMsa)
-      setError(errMsa) //major error
-      setLoading(false);
-      // console.error('Error:',  err, erro.response?.status, erro.message, erro.response?.data); 
-      // throw new Error(erro.message as string);
-    }
-  }, [api] )
-
-
-  return { data, error, loading, fetchData }
-}
-export default UseFetch
+export default useFetch;

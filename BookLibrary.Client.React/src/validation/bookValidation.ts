@@ -16,7 +16,7 @@ const bookSchema = yup.object().shape({
         .required('Publication Date is required'),
     description: yup.string()
         .max(1000, 'Description cannot be longer than 1000 characters'),
-    numberOfPages: yup.number()
+    numberOfPage: yup.number()
         .integer('Number of pages must be a positive number')
         .min(0, 'Number of pages must be a positive number')
         .required('Number of pages is required'),

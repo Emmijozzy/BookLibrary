@@ -1,5 +1,6 @@
 ﻿// Ignore Spelling: metadata
 
+using BookLibrary.BookLibrary.Server.BookLibrary.Server.Host.Extensions;
 using BookLibrary.Server.Application.Common;
 using BookLibrary.Server.Host.Common;
 using Microsoft.AspNetCore.Mvc;
@@ -24,15 +25,22 @@ namespace BookLibrary.Server.Host.Controllers
             };
             if (result != null && result.IsSuccess)
             {
+                var metadata = result.Metadata != null
+                    ? ObjectExtensions.CombineObjects(result.Metadata, new
+                    {
+                        TraceId = HttpContext.TraceIdentifier,
+                        Timestamp = DateTime.UtcNow
+                    })
+                    : new
+                    {
+                        TraceId = HttpContext.TraceIdentifier,
+                        Timestamp = DateTime.UtcNow
+                    };
                 var response = ApiResponse<T>.Success(
                     result.Result,
                     result.Message,
-                    new
-                    {
-                        metadata = result.Metadata,
-                        TraceId = HttpContext.TraceIdentifier,
-                        Timestamp = DateTime.UtcNow
-                    });
+                    metadata
+                    );
 
                 // Ensure Metadata does not serialize with $id
 
@@ -42,11 +50,11 @@ namespace BookLibrary.Server.Host.Controllers
 
                     if (accessToken != null && !string.IsNullOrEmpty(accessToken.ToString()))
                     {
-                        Response.Cookies.Append("access_token", accessToken.ToString(), new CookieOptions
+                        Response.Cookies.Append("access_token", accessToken.ToString()!, new CookieOptions
                         {
                             HttpOnly = true,
                             Secure = true,
-                            SameSite = SameSiteMode.Strict,
+                            SameSite = SameSiteMode.None,
                             Expires = DateTime.UtcNow.AddDays(7)
                         });
                     }

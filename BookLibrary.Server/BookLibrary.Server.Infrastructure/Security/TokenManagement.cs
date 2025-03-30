@@ -1,4 +1,6 @@
-﻿using BookLibrary.Server.Application.Common;
+﻿
+
+using BookLibrary.Server.Application.Common;
 using BookLibrary.Server.Application.Interface;
 using BookLibrary.Server.Domain.Entities;
 using BookLibrary.Server.Infrastructure.Data;
@@ -141,10 +143,16 @@ namespace BookLibrary.Server.Infrastructure.Security
         {
             try
             {
+                logger.LogInformation($"Removing refresh token for user {userId}");
                 if (userId == null) throw new ArgumentNullException("User id can not be null");
 
                 var refreshToken = context.RefreshTokens.FirstOrDefault(r => r.UserId == userId);
-                if (refreshToken == null) throw new KeyNotFoundException("Refresh token not found");
+                if (refreshToken == null) 
+                {
+                    // logger.LogWarning($"Refresh token not found for user {userId}");
+                    throw new KeyNotFoundException("Refresh token not found");
+                }
+                // logger.LogInformation($"Refresh token found for user {refreshToken.UserId}");
 
                 context.RefreshTokens.Remove(refreshToken);
                 await context.SaveChangesAsync();
@@ -160,14 +168,20 @@ namespace BookLibrary.Server.Infrastructure.Security
 
         public string GenerateToken(List<Claim> claims)
         {
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:AccessTokenSecretKey"]));
+            string secretKey = configuration["Jwt:AccessTokenSecretKey"]!;
+            Console.WriteLine($"Raw Secret Key from Config: {secretKey}");
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(15),
+                expires: DateTime.Now.AddMinutes(10),
                 signingCredentials: creds);
             var tokenHandler = new JwtSecurityTokenHandler();
             var generatedToken = tokenHandler.WriteToken(token);
+
+            Console.WriteLine($"Generated Token: {generatedToken}");
+
             return generatedToken;
         }
 

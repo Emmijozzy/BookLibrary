@@ -1,36 +1,24 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
-import { jwtDecode } from "jwt-decode";
 import { Navigate, Outlet } from "react-router-dom";
+import { useApi } from "../Hooks/useApi";
 
 const VerifyAuth = () => {
-  console.log("Veri");
-  const { token, appUser } = useContext(AppContext);
+    console.log("Verifying User ...");
+    const { isAuthenticated, isInitialized } = useApi();
+    let content;
 
-  const authToken = token || localStorage.getItem('authToken')
-  // console.log(authToken, "AttaToken")
-  const expAppUser = appUser || localStorage.getItem('appUser')
+    console.log("isAuthenticated", isAuthenticated);
 
-  // console.log(expAppUser, " expuser", typeof expAppUser)
-
-  let content;
-
-  if(authToken) {
-    const decode = jwtDecode(authToken as string)
-    console.log("user", decode, expAppUser, decode.sub == expAppUser )
-    if (decode.sub == expAppUser) {
-      console.log("verified")
-      content = <Outlet />
+    if (isAuthenticated) {
+        console.log("User is authenticated", "initializing");
+        if (!isInitialized) {
+            content = <p>Loading...</p>
+        } else {
+            content = <Outlet />
+        }
     } else {
-      content = <Navigate to="/Auth/Login" />
+        content = <Navigate to="/Auth/Login" />
     }
-  }
 
-  
-
-
-
-  return content
+    return content
 }
 export default VerifyAuth

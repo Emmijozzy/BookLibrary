@@ -1,17 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
 import './index.css'
-import { BrowserRouter } from 'react-router-dom'
-import AppContextProvide from './context/AppContext.tsx'
+import { ApiProvider } from './context/ApiProvider.tsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
-      <AppContextProvide>
+      <ApiProvider>
         <App />    
-      </AppContextProvide>
+      </ApiProvider>
     </BrowserRouter>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )

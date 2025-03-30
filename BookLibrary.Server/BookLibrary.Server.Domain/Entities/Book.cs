@@ -14,7 +14,7 @@
         public required string Publisher { get; set; }
         public required string Language { get; set; }
         public Category? Category { get; set; }
-        public Guid CategoryId { get; set; }
+        public Guid CategoryId { get; set; } = Guid.Parse("00000000-0000-0000-0000-000000000001");
         public DateTime CreatedAt
         { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;

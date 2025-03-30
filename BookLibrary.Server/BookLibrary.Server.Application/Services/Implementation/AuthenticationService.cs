@@ -28,14 +28,14 @@ namespace BookLibrary.Server.Application.Services.Implementation
 
             if (!validationResult.IsSuccess)
             {
-                return ServiceResult<UserDto>.Failure(validationResult.Message, validationResult.Errors);
+                return ServiceResult<UserDto>.Failure(validationResult.Message, validationResult.Errors!);
             }
 
             var (isSuccess, result, errorMsg) = await userManagement.CreateUser(user);
 
             if (!isSuccess)
             {
-                throw new UserCreationException(errorMsg); // Throw a specific exception
+                throw new UserCreationException(errorMsg!); // Throw a specific exception
             }
 
             var mappedUser = mapper.Map<UserDto>(result);
@@ -48,15 +48,15 @@ namespace BookLibrary.Server.Application.Services.Implementation
             if (user == null) throw new ArgumentNullException(nameof(user), "User data is required.");
 
             var (isSuccess, result, message, metadata, errors) = await validationService.validateAsync<LoginUser>(user, LoginUserValidator);
-            if (!isSuccess) return ServiceResult<UserDto>.Failure(message, errors);
+            if (!isSuccess) return ServiceResult<UserDto>.Failure(message!, errors!);
 
             var (success, userFromDb, errorMsg) = await userManagement.GetUserByEmail(user.Email);
-            if (!success || userFromDb == null) throw new NotFoundException($"User with email '{user.Email}' not found.", userFromDb.GetType());
+            if (!success || userFromDb == null) throw new NotFoundException($"User with email '{user.Email}' not found.", userFromDb!.GetType());
 
             var passwordCheck = await userManagement.CheckPassword(userFromDb, user.Password);
             if (!passwordCheck) throw new InvalidPasswordException("Invalid password.");
 
-            var userClaimResult = await userManagement.GetUserClaims(userFromDb.Email);
+            var userClaimResult = await userManagement.GetUserClaims(userFromDb!.Email!);
             if (!userClaimResult.IsSuccess) throw new UserClaimException("Error while retrieving user claims.");
 
             List<Claim> claims = userClaimResult.Result!;
@@ -69,7 +69,7 @@ namespace BookLibrary.Server.Application.Services.Implementation
 
             return ServiceResult<UserDto>.Success(new UserDto
             {
-                Email = userFromDb.Email,
+                Email = userFromDb!.Email!,
                 FullName = userFromDb.FullName,
                 Id = userFromDb.Id,
                 isAuthenticated = true,
@@ -81,7 +81,9 @@ namespace BookLibrary.Server.Application.Services.Implementation
             if (string.IsNullOrWhiteSpace(token)) throw new ArgumentNullException(nameof(token), "Token is required.");
 
             ClaimsPrincipal principalClaims = tokenManagement.GetPrincipalFromExpiredToken(token);
-            var userIdClaim = principalClaims.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            var userIdClaim = principalClaims.Claims.FirstOrDefault(c => c.Type == "Id");
+
+            // Console.WriteLine("User ID Claim: " + userIdClaim.Value);
 
             if (userIdClaim == null || string.IsNullOrWhiteSpace(userIdClaim.Value))
                 throw new InvalidTokenException("Invalid token: User ID is missing.");
@@ -98,7 +100,7 @@ namespace BookLibrary.Server.Application.Services.Implementation
             if (string.IsNullOrEmpty(token)) throw new ArgumentNullException(nameof(token), "Token is required.");
 
             ClaimsPrincipal claimsPrincipal = tokenManagement.GetPrincipalFromExpiredToken(token);
-            var userId = claimsPrincipal.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            var userId = claimsPrincipal.Claims.First(c => c.Type == "Id").Value;
             if (string.IsNullOrEmpty(userId))
                 throw new InvalidTokenException("Invalid token: User ID is missing.");
 

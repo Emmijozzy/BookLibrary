@@ -13,6 +13,7 @@ namespace BookLibrary.Server.Host.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginUser loginRequest)
         {
+            logger.LogInformation("Received Login Request: {@loginRequest}", loginRequest);
             var serviceResult = await authenticationService.LoginAsync(loginRequest);
 
             return serviceResult != null && serviceResult.IsSuccess
@@ -45,6 +46,7 @@ namespace BookLibrary.Server.Host.Controllers
         public async Task<IActionResult> RefreshToken()
         {
             Request.Cookies.TryGetValue("access_token", out var accessToken);
+            Console.WriteLine($"Access Token: {accessToken} as refreshtoken");
             var serviceResult = await authenticationService.RefreshTokenAsync(accessToken);
             return serviceResult != null && serviceResult.IsSuccess
                 ? LogAndResponse<AuthResponseDto>(serviceResult, successStatusCode: StatusCodes.Status200OK)

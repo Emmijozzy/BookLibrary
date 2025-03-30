@@ -2,6 +2,7 @@ using BookLibrary.Server.Application.DependencyInjection;
 using BookLibrary.Server.Host.Middleware;
 using BookLibrary.Server.Infrastructure.DependencyInjection;
 using Serilog;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,19 +24,33 @@ builder.WebHost.ConfigureKestrel(options =>
 // Add services to the container.
 Log.Information("Application is starting");
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactVite", policy =>
+    {
+        policy.WithOrigins("http://localhost:5099", "https://localhost:7257", "http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
+
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; // Remove $id & $ref
         options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull; // Ignore nulls
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
         options.JsonSerializerOptions.WriteIndented = true; // Pretty JSON
     });
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+builder.Services.AddMvc();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructureService(builder.Configuration);
 builder.Services.AddApplicationService();
+
 
 try
 {
@@ -48,12 +63,45 @@ try
         app.UseSwaggerUI();
     }
 
-    app.UseAuthentication();
+    // app.Use(async (context, next) =>
+    // {
+    //     var authHeader = context.Request.Headers["Authorization"].FirstOrDefault();
+
+    //     if (!string.IsNullOrEmpty(authHeader))
+    //     {
+    //         Console.WriteLine($"Authorization Header: {authHeader}");
+    //     }
+
+    //     await next();
+    // });
+
+    app.UseCors("AllowReactVite");
+    // Add this after your CORS configuration
+    app.Use(async (context, next) =>
+    {
+        Console.WriteLine($"Request from: {context.Request.Headers["Origin"]}");
+        await next.Invoke();
+    });
     app.UseMiddleware<ErrorHandlingMiddleware>();
-    app.UseHttpsRedirection();
+    app.UseAuthentication();
     app.UseAuthorization();
+    app.UseHttpsRedirection();
     app.MapControllers();
 
+    //app.Use(async (context, next) =>
+    //{
+    //    Log.Information("Incoming Request: {Method} {Path}", context.Request.Method, context.Request.Path);
+
+    //    context.Request.EnableBuffering();
+    //    var reader = new StreamReader(context.Request.Body);
+    //    var requestBody = await reader.ReadToEndAsync();
+    //    context.Request.Body.Position = 0;
+    //    Log.Information("Request Body: {RequestBody}", requestBody);
+
+    //    await next();
+
+    //    Log.Information("Response Status: {StatusCode}", context.Response.StatusCode);
+    //});
 
     Log.Information("Application is running...");
 

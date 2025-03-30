@@ -1,0 +1,70 @@
+import { useFormik } from "formik";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { Book } from "../../Types/book";
+import bookSchema from "../../validation/bookValidation";
+import UseFetch from "../UseFetch";
+
+const UseEdit = () => {
+    const [dataLoading, setDataLoading] = useState(false);
+    const { id } = useParams();
+    const navigate = useNavigate()
+    const [initialValues, setInitialValues] = useState<Book>({
+        title: '',
+        author: '',
+        isbn: '',
+        publicationDate: '',
+        description: '',
+        numberOfPage: 0,
+        genre: '',
+        publisher: '',
+        language: ''
+    });
+
+    const { error, fetchData } = UseFetch()
+
+    useEffect(() => {
+        const fetchInitial = async () => {
+            setDataLoading(true);
+            await fetchData<Book>("/Book/" + id, { method: 'get' })
+                .then((fetchedData) => {
+                    if (!fetchedData) return;
+                    setInitialValues(fetchedData);
+                    formik.setValues(fetchedData);
+                })
+                .catch(err => {
+                    console.log(error)
+                    console.error('There was an error fetching the book!', err);
+                })
+                .finally(() => {
+                    setDataLoading(false);
+                })
+        }
+        fetchInitial();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [id]);
+
+
+    const formik = useFormik({
+        enableReinitialize: true,
+        validationSchema: bookSchema,
+        initialValues: initialValues,
+        onSubmit: values => {
+            fetchData<Book>("Book/update", { method: 'put', data: values })
+                .then(() => {
+                    navigate("/books")
+                })
+                .catch(error => {
+                    console.error('There was an error updating the book!', error);
+                });
+        },
+    });
+
+    const { handleChange, handleSubmit, values, errors } = formik;
+
+
+
+    return { handleChange, handleSubmit, values, errors, dataLoading };
+}
+export default UseEdit

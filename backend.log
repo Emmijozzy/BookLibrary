@@ -1,0 +1,8 @@
+Using launch settings from BookLibrary.Server\BookLibrary.Server.Host\Properties\launchSettings.json...
+Building...
+[00:07:09 INF] Application is running... <s:>
+[00:07:09 WRN] Overriding address(es) 'http://localhost:5099'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead. <s:Microsoft.AspNetCore.Server.Kestrel>
+[00:07:09 INF] Server running on http://[::]:5099 <s:>
+Server running on http://[::]:5099
+[00:07:09 INF] Server running on https://[::]:7257 <s:>
+Server running on https://[::]:7257

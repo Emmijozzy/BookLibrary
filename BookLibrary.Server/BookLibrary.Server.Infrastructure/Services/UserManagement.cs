@@ -6,6 +6,7 @@ using BookLibrary.Server.Infrastructure.Data;
 using BookLibrary.Server.Infrastructure.Exceptions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
 namespace BookLibrary.Server.Infrastructure.Services
@@ -71,8 +72,8 @@ namespace BookLibrary.Server.Infrastructure.Services
             List<Claim> claims = new List<Claim>
                 {
                     new Claim("FullName", user.FullName),
-                    new Claim(ClaimTypes.NameIdentifier, user.Id),
-                    new Claim(ClaimTypes.Email, user.Email)
+                    new Claim("Id", user.Id),
+                    new Claim(JwtRegisteredClaimNames.Sub, user.Email!)
                 };
 
             return RepositoryResult<List<Claim>>.Success(claims);

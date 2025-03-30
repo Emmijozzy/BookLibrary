@@ -26,7 +26,7 @@ namespace BookLibrary.Server.Host.Middleware
             catch (Exception ex)
             {
                 Console.WriteLine($"Exception Type: {ex.GetType().Name}");
-                Console.WriteLine($"Exception Message: {ex.Message}");
+                // Console.WriteLine($"Exception Message: {ex.Message}");
                 await HandleExceptionAsync(context, ex);
             }
         }
@@ -49,7 +49,7 @@ namespace BookLibrary.Server.Host.Middleware
 
                 SecurityTokenExpiredException tokenExpireEx => (
                      StatusCodes.Status401Unauthorized,
-                     CreateErrorResponse("UNAUTHORIZED", tokenExpireEx)),
+                     CreateErrorResponse("EXPIRED_TOKEN", tokenExpireEx)),
 
                 SecurityTokenValidationException tokenValidationEx => (
                     StatusCodes.Status401Unauthorized,

@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom"
-import UserLogin from "../Hooks/UseLogin";
+import { Link } from "react-router-dom";
+import UserLogin from "../Hooks/Auth/UseLogin";
 
 const Login = () => {
   
@@ -13,7 +13,6 @@ const Login = () => {
     resErrMes
   } = UserLogin();
 
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
@@ -25,9 +24,9 @@ const Login = () => {
                 <div  className="text-red-500">{resErrMes}</div>
                 <div className="rounded-md shadow-sm -space-y-px">
                     <div>
-                        <label htmlFor="userName" className="sr-only">Username</label>
-                        <input id="userName" name="userName" value={values.userName} onChange={handleChange} onBlur={handleBlur} className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Username" />
-                        <span className="text-red-500">{errors.userName}</span>
+                        <label htmlFor="userName" className="sr-only">Email</label>
+                        <input id="email" name="email" value={values.email} onChange={handleChange} onBlur={handleBlur} className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Username" />
+                        <span className="text-red-500">{errors.email}</span>
                     </div>
                     <div>
                         <label htmlFor="password" className="sr-only">Password</label>

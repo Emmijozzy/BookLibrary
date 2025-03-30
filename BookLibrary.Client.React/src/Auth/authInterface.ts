@@ -1,10 +1,10 @@
 export interface Login {
-  userName: string;
+  email: string;
   password: string;
 }
 
 export interface Register {
-  userName: string;
+  fullName: string;
   email: string;
   password: string;
   confirmPassword: string;

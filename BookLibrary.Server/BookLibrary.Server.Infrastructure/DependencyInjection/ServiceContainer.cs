@@ -32,23 +32,50 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options =>
             {
+                var secretKey = configuration["Jwt:AccessTokenSecretKey"];
+                Console.WriteLine($"Raw Secret Key from Config: {secretKey}");
+
+                // If using Base64-encoded key, decode it
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
                 options.SaveToken = true;
-                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                options.TokenValidationParameters = new TokenValidationParameters()
                 {
                     ValidateAudience = false,
                     ValidateIssuer = false,
                     ValidateLifetime = true,
-                    RequireExpirationTime = true,
+                    //RequireExpirationTime = true,
                     ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = key,
                     ClockSkew = TimeSpan.Zero,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:AccessTokenSecretKey"]!))
                 };
                 options.Events = new JwtBearerEvents
                 {
+
+
+                    OnMessageReceived = context =>
+                    {
+                        var authHeader = context.Request.Headers["Authorization"].FirstOrDefault();
+                        if (!string.IsNullOrEmpty(authHeader) && authHeader.StartsWith("Bearer "))
+                        {
+                            context.Token = authHeader.Substring("Bearer ".Length).Trim();
+                            // Console.WriteLine($"Extracted Token: {context.Token}");
+                        }
+                        return Task.CompletedTask;
+                    },
+
                     OnChallenge = context =>
                     {
                         // Skip the default behavior
-                        context.HandleResponse();
+                        //context.HandleResponse();
+
+                        Console.WriteLine(context.Error);
+                        Console.WriteLine(context);
+
+                        if (context.Request.Path.StartsWithSegments("/api/AuthApi/RefreshToken"))
+                        {
+                            context.HandleResponse();
+                            return Task.CompletedTask;
+                        }
 
                         if (context.AuthenticateFailure is SecurityTokenExpiredException)
                         {
@@ -58,7 +85,18 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
                         {
                             throw new UnauthorizedAccessException("Unauthorized: Invalid or missing token.");
                         }
+                    },
 
+                    OnAuthenticationFailed = context =>
+                    {
+                        Console.WriteLine($"Authentication Failed: {context.Exception.Message}");
+                        return Task.CompletedTask;
+                    },
+
+                    OnTokenValidated = context =>
+                    {
+                        Console.WriteLine("Token validated successfully.");
+                        return Task.CompletedTask;
                     }
                 };
             });
