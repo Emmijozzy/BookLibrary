@@ -36,9 +36,9 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
   }
   
   // Token refresh function
-  const refreshAuthToken = async (): Promise<{ AccessToken: string }> => {
+  const refreshAuthToken = async (): Promise<{ accessToken: string }> => {
     try {
-      const response = await apiInstance.post<ApiResponse<{ AccessToken: string }>>('AuthApi/RefreshToken');
+      const response = await apiInstance.post<ApiResponse<{ accessToken: string }>>('AuthApi/RefreshToken');
       return response.data.data;
     } catch (error) {
       console.error('Error refreshing token:', error);
@@ -87,13 +87,18 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
           
           try {
             const data = await refreshAuthToken();
-            const newAuthToken = data.AccessToken;
             
+            // console.log('New token:', data.accessToken, "whole data",  data);
+            if (data.accessToken) {       
+            const newAuthToken = data.accessToken;
             updateAuthToken(newAuthToken);
             originalRequest.headers['Authorization'] = `Bearer ${newAuthToken}`;
-            
+            } else {
+              throw new Error('Failed to refresh token');
+            }        
             return apiInstance(originalRequest);
           } catch (refreshError) {
+            console.error('Error refreshing token:', refreshError);
             updateAuthToken(null);
             return Promise.reject(refreshError);
           }

@@ -119,8 +119,8 @@ namespace BookLibrary.Server.Application.Services.Implementation
                 throw new UnauthorizedAccessException("Unauthorized: New device detected. Kindly login again.");
             }
 
-            var reFreshtokenIsValid = await tokenManagement.ValidateRefreshToken(refreshToken.Token, out string refreshUserId);
-            if (!reFreshtokenIsValid.IsSuccess && !reFreshtokenIsValid.Result) throw new UnauthorizedAccessException("Access denied, invalid or expired refresh token");
+            var refreshTokenIsValid = await tokenManagement.ValidateRefreshToken(refreshToken.Token, out string refreshUserId);
+            if (!refreshTokenIsValid.IsSuccess && !refreshTokenIsValid.Result) throw new UnauthorizedAccessException("Access denied, invalid or expired refresh token");
 
             var (success, fetchedUser, errMsg) = await userManagement.GetUserById(refreshUserId);
             if (!success && fetchedUser == null) throw new NotFoundException("User not found", fetchedUser.GetType());

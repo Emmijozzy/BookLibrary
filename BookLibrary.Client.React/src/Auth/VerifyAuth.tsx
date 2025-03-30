@@ -6,8 +6,6 @@ const VerifyAuth = () => {
     const { isAuthenticated, isInitialized } = useApi();
     let content;
 
-    console.log("isAuthenticated", isAuthenticated);
-
     if (isAuthenticated) {
         console.log("User is authenticated", "initializing");
         if (!isInitialized) {

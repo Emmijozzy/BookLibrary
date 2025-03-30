@@ -175,7 +175,7 @@ namespace BookLibrary.Server.Infrastructure.Security
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(10),
+                expires: DateTime.Now.AddMinutes(15),
                 signingCredentials: creds);
             var tokenHandler = new JwtSecurityTokenHandler();
             var generatedToken = tokenHandler.WriteToken(token);

@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\BookLibrary.Client.MVC.csproj": {}
+    "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\BooKLibrary.Client.MVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\BookLibrary.Client.MVC.csproj": {
+    "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\BooKLibrary.Client.MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\BookLibrary.Client.MVC.csproj",
-        "projectName": "BookLibrary.Client.MVC",
-        "projectPath": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\BookLibrary.Client.MVC.csproj",
+        "projectUniqueName": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\BooKLibrary.Client.MVC.csproj",
+        "projectName": "BooKLibrary.Client.MVC",
+        "projectPath": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\BooKLibrary.Client.MVC.csproj",
         "packagesPath": "C:\\Users\\Emmijozzy\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\",
         "projectStyle": "PackageReference",

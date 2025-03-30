@@ -535,10 +535,9 @@ C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Client.MVC\obj\Debug\
 C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Client.MVC\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BookLibrary.Client.MVC.props
 C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Client.MVC\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BookLibrary.Client.MVC.props
 C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Client.MVC\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Client.MVC\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
-C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Client.MVC\obj\Debug\net8.0\BookLibr.98F71A25.Up2Date
 C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Client.MVC\obj\Debug\net8.0\BookLibrary.Client.MVC.dll
 C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Client.MVC\obj\Debug\net8.0\refint\BookLibrary.Client.MVC.dll
 C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Client.MVC\obj\Debug\net8.0\BookLibrary.Client.MVC.pdb
 C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Client.MVC\obj\Debug\net8.0\BookLibrary.Client.MVC.genruntimeconfig.cache
 C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Client.MVC\obj\Debug\net8.0\ref\BookLibrary.Client.MVC.dll
+C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Client.MVC\obj\Debug\net8.0\BooKLibr.6558B539.Up2Date

@@ -2142,3 +2142,262 @@ BookLibrary.Server.Infrastructure.Exceptions.UserAlreadyExistsException: User wi
 2025-03-30 05:07:38.121 +01:00 [INF] Request 0HNBF7IPT6F16:00000003 completed successfully. Path: /api/Book/all
 2025-03-30 05:07:40.806 +01:00 [INF] Removing refresh token for user 6dd0fa28-1a47-4065-b23f-318eabc10a3f
 2025-03-30 05:07:40.817 +01:00 [INF] Request 0HNBF7IPT6F16:00000005 completed successfully. Path: /api/AuthApi/logout
+2025-03-30 05:09:19.333 +01:00 [INF] Received Login Request: {"Email":"josephogunsuyi@gmail.com","Password":"@Emmi360","$type":"LoginUser"}
+2025-03-30 05:09:19.579 +01:00 [INF] Request 0HNBF7IPT6F18:00000001 completed successfully. Path: /api/AuthApi/login
+2025-03-30 05:09:19.761 +01:00 [INF] Request 0HNBF7IPT6F18:00000003 completed successfully. Path: /api/Book/all
+2025-03-30 05:09:26.819 +01:00 [INF] Request 0HNBF7IPT6F1A:00000001 completed successfully. Path: /api/Category/all
+2025-03-30 05:09:35.529 +01:00 [INF] Request 0HNBF7IPT6F1C:00000001 completed successfully. Path: /api/Category/b3d55cd1-806f-4ace-6868-08dd6f160c23
+2025-03-30 05:09:39.175 +01:00 [INF] Request 0HNBF7IPT6F1C:00000003 completed successfully. Path: /api/Category/all
+2025-03-30 05:09:42.931 +01:00 [INF] Request 0HNBF7IPT6F1E:00000001 completed successfully. Path: /api/Category/b3d55cd1-806f-4ace-6868-08dd6f160c23
+2025-03-30 05:09:51.494 +01:00 [INF] Request 0HNBF7IPT6F1E:00000003 completed successfully. Path: /api/Category/all
+2025-03-30 05:09:54.058 +01:00 [INF] Request 0HNBF7IPT6F1G:00000001 completed successfully. Path: /api/Book/all
+2025-03-30 12:32:43.929 +01:00 [INF] Application is running...
+2025-03-30 12:32:44.197 +01:00 [WRN] Overriding address(es) 'http://localhost:5099'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-03-30 12:32:44.333 +01:00 [INF] Server running on http://[::]:5099
+2025-03-30 12:32:44.335 +01:00 [INF] Server running on https://[::]:7257
+2025-03-30 12:33:07.694 +01:00 [INF] Received Login Request: {"Email":"josephogunsuyi360@gmail.com","Password":"@Test1234","$type":"LoginUser"}
+2025-03-30 12:33:14.462 +01:00 [INF] Request 0HNBFFQI14FLL:00000001 completed successfully. Path: /api/AuthApi/login
+2025-03-30 12:33:15.226 +01:00 [INF] Request 0HNBFFQI14FLL:00000003 completed successfully. Path: /api/Book/all
+2025-03-30 12:34:06.818 +01:00 [INF] Request 0HNBFFQI14FLO:00000001 completed successfully. Path: /api/Book/3d715895-e045-4f2a-a30d-05e4bc807962
+2025-03-30 12:34:07.102 +01:00 [INF] Request 0HNBFFQI14FLO:00000003 completed successfully. Path: /api/Category/all
+2025-03-30 12:34:11.404 +01:00 [INF] Request 0HNBFFQI14FLQ:00000001 completed successfully. Path: /api/Book/all
+2025-03-30 12:34:18.523 +01:00 [INF] Request 0HNBFFQI14FLS:00000001 completed successfully. Path: /api/Category/all
+2025-03-30 12:34:24.191 +01:00 [INF] Request 0HNBFFQI14FLS:00000003 completed successfully. Path: /api/Category/906145fc-7690-4376-6862-08dd6f160c23
+2025-03-30 12:34:26.742 +01:00 [INF] Request 0HNBFFQI14FLS:00000005 completed successfully. Path: /api/Category/all
+2025-03-30 12:34:51.095 +01:00 [INF] Request 0HNBFFQI14FLU:00000001 completed successfully. Path: /api/Category/00000000-0000-0000-0000-000000000001
+2025-03-30 12:35:58.891 +01:00 [INF] Request 0HNBFFQI14FLV:00000009 completed successfully. Path: /api/Book/all
+2025-03-30 12:35:58.977 +01:00 [INF] Request 0HNBFFQI14FLV:0000000B completed successfully. Path: /api/Book/all
+2025-03-30 12:48:48.389 +01:00 [ERR] Request 0HNBFFQI14FM0:00000005 failed with 401. Path: /api/Category/all
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: Unauthorized: Token has expired.
+   at BookLibrary.Server.Infrastructure.DependencyInjection.ServiceContainer.<>c.<AddInfrastructureService>b__0_5(JwtBearerChallengeContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Infrastructure\DependencyInjection\ServiceContainer.cs:line 82
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerEvents.Challenge(JwtBearerChallengeContext context)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BookLibrary.Server.Host.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Middleware\ErrorHandlingMiddleware.cs:line 24
+2025-03-30 12:48:48.421 +01:00 [ERR] Request 0HNBFFQI14FM0:00000007 failed with 401. Path: /api/Category/all
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: Unauthorized: Token has expired.
+   at BookLibrary.Server.Infrastructure.DependencyInjection.ServiceContainer.<>c.<AddInfrastructureService>b__0_5(JwtBearerChallengeContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Infrastructure\DependencyInjection\ServiceContainer.cs:line 82
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerEvents.Challenge(JwtBearerChallengeContext context)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BookLibrary.Server.Host.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Middleware\ErrorHandlingMiddleware.cs:line 24
+2025-03-30 12:48:48.470 +01:00 [ERR] Request 0HNBFFQI14FM0:0000000B failed with 400. Path: /api/AuthApi/RefreshToken
+System.ArgumentNullException: Token is required. (Parameter 'token')
+   at BookLibrary.Server.Application.Services.Implementation.AuthenticationService.RefreshTokenAsync(String token) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Application\Services\Implementation\AuthenticationService.cs:line 100
+   at BookLibrary.Server.Host.Controllers.AuthApiController.RefreshToken() in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Controllers\AuthApiController.cs:line 50
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BookLibrary.Server.Host.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Middleware\ErrorHandlingMiddleware.cs:line 24
+2025-03-30 12:48:48.472 +01:00 [ERR] Request 0HNBFFQI14FM0:0000000D failed with 400. Path: /api/AuthApi/RefreshToken
+System.ArgumentNullException: Token is required. (Parameter 'token')
+   at BookLibrary.Server.Application.Services.Implementation.AuthenticationService.RefreshTokenAsync(String token) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Application\Services\Implementation\AuthenticationService.cs:line 100
+   at BookLibrary.Server.Host.Controllers.AuthApiController.RefreshToken() in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Controllers\AuthApiController.cs:line 50
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BookLibrary.Server.Host.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Middleware\ErrorHandlingMiddleware.cs:line 24
+2025-03-30 13:16:04.121 +01:00 [INF] Received Login Request: {"Email":"josephogunsuyi360@gmail.com","Password":"@Test1234","$type":"LoginUser"}
+2025-03-30 13:16:06.643 +01:00 [INF] Request 0HNBFFQI14FM2:00000001 completed successfully. Path: /api/AuthApi/login
+2025-03-30 13:16:06.816 +01:00 [INF] Request 0HNBFFQI14FM2:00000003 completed successfully. Path: /api/Book/all
+2025-03-30 13:27:11.521 +01:00 [INF] Application is running...
+2025-03-30 13:27:11.748 +01:00 [WRN] Overriding address(es) 'http://localhost:5099'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-03-30 13:27:11.856 +01:00 [INF] Server running on http://[::]:5099
+2025-03-30 13:27:11.858 +01:00 [INF] Server running on https://[::]:7257
+2025-03-30 13:28:03.716 +01:00 [ERR] Request 0HNBFGP875E5S:00000001 failed with 401. Path: /api/Book/all
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: Unauthorized: Token has expired.
+   at BookLibrary.Server.Infrastructure.DependencyInjection.ServiceContainer.<>c.<AddInfrastructureService>b__0_5(JwtBearerChallengeContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Infrastructure\DependencyInjection\ServiceContainer.cs:line 82
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerEvents.Challenge(JwtBearerChallengeContext context)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BookLibrary.Server.Host.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Middleware\ErrorHandlingMiddleware.cs:line 24
+2025-03-30 13:28:04.409 +01:00 [ERR] Request 0HNBFGP875E5S:00000003 failed with 400. Path: /api/AuthApi/RefreshToken
+System.ArgumentNullException: Token is required. (Parameter 'token')
+   at BookLibrary.Server.Application.Services.Implementation.AuthenticationService.RefreshTokenAsync(String token) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Application\Services\Implementation\AuthenticationService.cs:line 100
+   at BookLibrary.Server.Host.Controllers.AuthApiController.RefreshToken() in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Controllers\AuthApiController.cs:line 50
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BookLibrary.Server.Host.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Middleware\ErrorHandlingMiddleware.cs:line 24
+2025-03-30 13:29:01.092 +01:00 [INF] Received Login Request: {"Email":"josephogunsuyi360@gmail.com","Password":"@Test1234","$type":"LoginUser"}
+2025-03-30 13:29:06.779 +01:00 [INF] Request 0HNBFGP875E5U:00000001 completed successfully. Path: /api/AuthApi/login
+2025-03-30 13:29:07.750 +01:00 [INF] Request 0HNBFGP875E5U:00000003 completed successfully. Path: /api/Book/all
+2025-03-30 13:29:15.467 +01:00 [INF] Removing refresh token for user 25623af3-5cf2-414f-be26-57c58ab90569
+2025-03-30 13:29:15.508 +01:00 [INF] Request 0HNBFGP875E61:00000001 completed successfully. Path: /api/AuthApi/logout
+2025-03-30 13:29:33.809 +01:00 [INF] Received Login Request: {"Email":"josephogunsuyi360@gmail.com","Password":"@Test1234","$type":"LoginUser"}
+2025-03-30 13:29:33.982 +01:00 [INF] Request 0HNBFGP875E63:00000001 completed successfully. Path: /api/AuthApi/login
+2025-03-30 13:29:34.193 +01:00 [INF] Request 0HNBFGP875E63:00000003 completed successfully. Path: /api/Book/all
+2025-03-30 13:30:41.052 +01:00 [INF] Application is running...
+2025-03-30 13:30:41.216 +01:00 [WRN] Overriding address(es) 'http://localhost:5099'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-03-30 13:30:41.294 +01:00 [INF] Server running on http://[::]:5099
+2025-03-30 13:30:41.296 +01:00 [INF] Server running on https://[::]:7257
+2025-03-30 13:31:08.482 +01:00 [INF] Request 0HNBFGQTEV9GU:00000001 completed successfully. Path: /api/Book/all
+2025-03-30 13:31:53.398 +01:00 [INF] Request 0HNBFGQTEV9H0:00000001 completed successfully. Path: /api/Category/all
+2025-03-30 13:32:05.402 +01:00 [INF] Request 0HNBFGQTEV9H2:00000001 completed successfully. Path: /api/Book/all
+2025-03-30 13:32:25.334 +01:00 [INF] Request 0HNBFGQTEV9H4:00000001 completed successfully. Path: /api/Category/all
+2025-03-30 13:32:33.991 +01:00 [INF] Request 0HNBFGQTEV9H6:00000001 completed successfully. Path: /api/Book/all
+2025-03-30 13:33:28.799 +01:00 [INF] Request 0HNBFGQTEV9H8:00000001 completed successfully. Path: /api/Category/all
+2025-03-30 13:33:48.399 +01:00 [INF] Request 0HNBFGQTEV9HA:00000001 completed successfully. Path: /api/Book/all
+2025-03-30 13:33:52.847 +01:00 [INF] Request 0HNBFGQTEV9HB:00000001 completed successfully. Path: /api/Book/all
+2025-03-30 13:35:46.721 +01:00 [INF] Request 0HNBFGQTEV9HD:00000001 completed successfully. Path: /api/Book/all
+2025-03-30 13:38:41.106 +01:00 [INF] Request 0HNBFGQTEV9HF:00000001 completed successfully. Path: /api/Category/all
+2025-03-30 13:39:09.753 +01:00 [INF] Request 0HNBFGQTEV9HH:00000001 completed successfully. Path: /api/Book/all
+2025-03-30 13:39:18.133 +01:00 [INF] Request 0HNBFGQTEV9HJ:00000001 completed successfully. Path: /api/Book/11ea50fb-44eb-4bec-9e9d-119f576535ea
+2025-03-30 13:39:30.543 +01:00 [INF] Request 0HNBFGQTEV9HL:00000001 completed successfully. Path: /api/Book/all
+2025-03-30 13:39:32.374 +01:00 [INF] Request 0HNBFGQTEV9HL:00000003 completed successfully. Path: /api/Category/all
+2025-03-30 13:39:36.098 +01:00 [ERR] Request 0HNBFGQTEV9HL:00000005 failed with 401. Path: /api/Category/906145fc-7690-4376-6862-08dd6f160c23
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: Unauthorized: Token has expired.
+   at BookLibrary.Server.Infrastructure.DependencyInjection.ServiceContainer.<>c.<AddInfrastructureService>b__0_5(JwtBearerChallengeContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Infrastructure\DependencyInjection\ServiceContainer.cs:line 82
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerEvents.Challenge(JwtBearerChallengeContext context)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BookLibrary.Server.Host.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Middleware\ErrorHandlingMiddleware.cs:line 24
+2025-03-30 13:39:36.976 +01:00 [INF] Request 0HNBFGQTEV9HL:00000007 completed successfully. Path: /api/AuthApi/RefreshToken
+2025-03-30 13:39:37.127 +01:00 [ERR] Request 0HNBFGQTEV9HL:00000009 failed with 401. Path: /api/Category/906145fc-7690-4376-6862-08dd6f160c23
+System.UnauthorizedAccessException: Unauthorized: Invalid or missing token.
+   at BookLibrary.Server.Infrastructure.DependencyInjection.ServiceContainer.<>c.<AddInfrastructureService>b__0_5(JwtBearerChallengeContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Infrastructure\DependencyInjection\ServiceContainer.cs:line 86
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerEvents.Challenge(JwtBearerChallengeContext context)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BookLibrary.Server.Host.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Middleware\ErrorHandlingMiddleware.cs:line 24
+2025-03-30 13:42:11.841 +01:00 [INF] Received Login Request: {"Email":"josephogunsuyi360@gmail.com","Password":"@Test1234","$type":"LoginUser"}
+2025-03-30 13:42:12.050 +01:00 [INF] Request 0HNBFGQTEV9HN:00000001 completed successfully. Path: /api/AuthApi/login
+2025-03-30 13:42:12.426 +01:00 [INF] Request 0HNBFGQTEV9HN:00000003 completed successfully. Path: /api/Book/all
+2025-03-30 13:42:14.425 +01:00 [INF] Request 0HNBFGQTEV9HN:00000005 completed successfully. Path: /api/Category/all
+2025-03-30 13:45:55.868 +01:00 [ERR] Request 0HNBFGQTEV9HP:00000001 failed with 401. Path: /api/Book/all
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: Unauthorized: Token has expired.
+   at BookLibrary.Server.Infrastructure.DependencyInjection.ServiceContainer.<>c.<AddInfrastructureService>b__0_5(JwtBearerChallengeContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Infrastructure\DependencyInjection\ServiceContainer.cs:line 82
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerEvents.Challenge(JwtBearerChallengeContext context)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BookLibrary.Server.Host.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Middleware\ErrorHandlingMiddleware.cs:line 24
+2025-03-30 13:45:56.051 +01:00 [INF] Request 0HNBFGQTEV9HP:00000003 completed successfully. Path: /api/AuthApi/RefreshToken
+2025-03-30 13:45:56.096 +01:00 [INF] Request 0HNBFGQTEV9HP:00000005 completed successfully. Path: /api/Book/all
+2025-03-30 13:45:58.839 +01:00 [INF] Request 0HNBFGQTEV9HP:00000007 completed successfully. Path: /api/Book/all
+2025-03-30 13:46:02.717 +01:00 [INF] Request 0HNBFGQTEV9HP:00000009 completed successfully. Path: /api/Category/all
+2025-03-30 13:46:04.025 +01:00 [INF] Request 0HNBFGQTEV9HP:0000000B completed successfully. Path: /api/Book/all
+2025-03-30 13:47:57.008 +01:00 [ERR] Request 0HNBFGQTEV9HP:0000000D failed with 401. Path: /api/Book/all
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: Unauthorized: Token has expired.
+   at BookLibrary.Server.Infrastructure.DependencyInjection.ServiceContainer.<>c.<AddInfrastructureService>b__0_5(JwtBearerChallengeContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Infrastructure\DependencyInjection\ServiceContainer.cs:line 82
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerEvents.Challenge(JwtBearerChallengeContext context)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BookLibrary.Server.Host.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Middleware\ErrorHandlingMiddleware.cs:line 24
+2025-03-30 13:47:57.258 +01:00 [INF] Request 0HNBFGQTEV9HP:0000000F completed successfully. Path: /api/AuthApi/RefreshToken
+2025-03-30 13:47:57.537 +01:00 [INF] Request 0HNBFGQTEV9HP:00000011 completed successfully. Path: /api/Book/all
+2025-03-30 13:51:51.543 +01:00 [ERR] Request 0HNBFGQTEV9HR:00000001 failed with 401. Path: /api/Book/all
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: Unauthorized: Token has expired.
+   at BookLibrary.Server.Infrastructure.DependencyInjection.ServiceContainer.<>c.<AddInfrastructureService>b__0_5(JwtBearerChallengeContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Infrastructure\DependencyInjection\ServiceContainer.cs:line 82
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerEvents.Challenge(JwtBearerChallengeContext context)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BookLibrary.Server.Host.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Middleware\ErrorHandlingMiddleware.cs:line 24
+2025-03-30 13:51:51.682 +01:00 [INF] Request 0HNBFGQTEV9HR:00000003 completed successfully. Path: /api/AuthApi/RefreshToken
+2025-03-30 13:51:51.984 +01:00 [INF] Request 0HNBFGQTEV9HR:00000005 completed successfully. Path: /api/Book/all
+2025-03-30 13:54:50.983 +01:00 [ERR] Request 0HNBFGQTEV9HT:00000001 failed with 401. Path: /api/Book/all
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: Unauthorized: Token has expired.
+   at BookLibrary.Server.Infrastructure.DependencyInjection.ServiceContainer.<>c.<AddInfrastructureService>b__0_5(JwtBearerChallengeContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Infrastructure\DependencyInjection\ServiceContainer.cs:line 82
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerEvents.Challenge(JwtBearerChallengeContext context)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BookLibrary.Server.Host.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Middleware\ErrorHandlingMiddleware.cs:line 24
+2025-03-30 13:54:51.093 +01:00 [INF] Request 0HNBFGQTEV9HT:00000003 completed successfully. Path: /api/AuthApi/RefreshToken
+2025-03-30 13:54:51.448 +01:00 [INF] Request 0HNBFGQTEV9HT:00000005 completed successfully. Path: /api/Book/all
+2025-03-30 13:58:42.134 +01:00 [ERR] Request 0HNBFGQTEV9HV:00000001 failed with 401. Path: /api/Book/all
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: Unauthorized: Token has expired.
+   at BookLibrary.Server.Infrastructure.DependencyInjection.ServiceContainer.<>c.<AddInfrastructureService>b__0_5(JwtBearerChallengeContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Infrastructure\DependencyInjection\ServiceContainer.cs:line 82
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerEvents.Challenge(JwtBearerChallengeContext context)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BookLibrary.Server.Host.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Emmijozzy\Desktop\C-sharp\BookLibrary\BookLibrary.Server\BookLibrary.Server.Host\Middleware\ErrorHandlingMiddleware.cs:line 24
+2025-03-30 13:58:42.479 +01:00 [INF] Request 0HNBFGQTEV9HV:00000003 completed successfully. Path: /api/AuthApi/RefreshToken
+2025-03-30 13:58:42.702 +01:00 [INF] Request 0HNBFGQTEV9HV:00000005 completed successfully. Path: /api/Book/all

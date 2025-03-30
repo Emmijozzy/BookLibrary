@@ -1,28 +1,28 @@
 {
   "Version": 1,
-  "Hash": "MYTeG238sGPy8OC5PejU+vVSoRXLr4iJnJs30d9nKfU=",
-  "Source": "BookLibrary.Client.MVC",
-  "BasePath": "_content/BookLibrary.Client.MVC",
+  "Hash": "t6RMI46BvoDTmyp2Y+lEFx0QOHE0Y+oVxddVlFVTfyY=",
+  "Source": "BooKLibrary.Client.MVC",
+  "BasePath": "_content/BooKLibrary.Client.MVC",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "BookLibrary.Client.MVC\\wwwroot",
-      "Source": "BookLibrary.Client.MVC",
+      "Name": "BooKLibrary.Client.MVC\\wwwroot",
+      "Source": "BooKLibrary.Client.MVC",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BookLibrary.Client.MVC.styles.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BooKLibrary.Client.MVC.styles.css",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "BookLibrary.Client.MVC#[.{fingerprint}]?.styles.css",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "BooKLibrary.Client.MVC#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Primary",
@@ -31,19 +31,19 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "f005oxx190",
-      "Integrity": "Txvy2vCwoCNKCw1AYAIpkRbZSCQaLJwkntff/v1sC84=",
+      "Fingerprint": "osl7kofkbn",
+      "Integrity": "GE6bSVtlPXIsTx42sSHFTFDCCtkDHdMMHTJ/tSta5AI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BookLibrary.Client.MVC.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BooKLibrary.Client.MVC.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BookLibrary.Client.MVC.bundle.scp.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BooKLibrary.Client.MVC.bundle.scp.css",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "BookLibrary.Client.MVC#[.{fingerprint}]!.bundle.scp.css",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "BooKLibrary.Client.MVC#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Primary",
@@ -52,18 +52,18 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "f005oxx190",
-      "Integrity": "Txvy2vCwoCNKCw1AYAIpkRbZSCQaLJwkntff/v1sC84=",
+      "Fingerprint": "osl7kofkbn",
+      "Integrity": "GE6bSVtlPXIsTx42sSHFTFDCCtkDHdMMHTJ/tSta5AI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BookLibrary.Client.MVC.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BooKLibrary.Client.MVC.bundle.scp.css"
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\css\\site.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "css/site#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -81,10 +81,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\favicon.ico",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "favicon#[.{fingerprint}]?.ico",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -102,10 +102,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\js\\site.js",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "js/site#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -122,179 +122,11 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap#[.{fingerprint}]?.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "ozu22stjof",
-      "Integrity": "ZMvmWDSU4zY1Z29EQGm5Mubfz/YxF4hiReGqx84o4tA=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css#[.{fingerprint}]?.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "73kdqttayv",
-      "Integrity": "DRvWr0gangj5/5Q3DRn6ttzpcWDzl3OpHoAwAzNDR5Q=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min#[.{fingerprint}]?.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "6gzpyzhau4",
-      "Integrity": "SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css#[.{fingerprint}]?.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "8inm30yfxf",
-      "Integrity": "gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl#[.{fingerprint}]?.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "gjcw7pocpk",
-      "Integrity": "hA1uBYAPgKq7OVoXF7sqU9NtylyP0K7AJn0a4zQcTbg=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css#[.{fingerprint}]?.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "4gxs3k148c",
-      "Integrity": "VFvmi/ZSwQFmjS6Pry9B8zXeZ/GA168TXLyykDhNMZE=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min#[.{fingerprint}]?.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "6l4ir0ityv",
-      "Integrity": "ukKL5IDSyNoXFyp0wkgXeBpBITyM7JsCE6Dp96H1vI8=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css#[.{fingerprint}]?.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "fctod5rc9n",
-      "Integrity": "j7uqK5VoTT4rUHMr911QEU5Sa94lR3uh9E28XBMlzrM=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
-    },
-    {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -312,10 +144,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -333,10 +165,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -354,10 +186,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -375,10 +207,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -396,10 +228,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -417,10 +249,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -438,10 +270,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -459,10 +291,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -480,10 +312,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -501,10 +333,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -522,10 +354,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -543,10 +375,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -564,10 +396,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -585,10 +417,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -606,10 +438,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -627,10 +459,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -648,10 +480,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -669,10 +501,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -690,10 +522,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -711,10 +543,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -732,10 +564,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -753,10 +585,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -774,10 +606,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -794,11 +626,179 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
-      "SourceId": "BookLibrary.Client.MVC",
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ozu22stjof",
+      "Integrity": "ZMvmWDSU4zY1Z29EQGm5Mubfz/YxF4hiReGqx84o4tA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css#[.{fingerprint}]?.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "73kdqttayv",
+      "Integrity": "DRvWr0gangj5/5Q3DRn6ttzpcWDzl3OpHoAwAzNDR5Q=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6gzpyzhau4",
+      "Integrity": "SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css#[.{fingerprint}]?.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8inm30yfxf",
+      "Integrity": "gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gjcw7pocpk",
+      "Integrity": "hA1uBYAPgKq7OVoXF7sqU9NtylyP0K7AJn0a4zQcTbg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css#[.{fingerprint}]?.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4gxs3k148c",
+      "Integrity": "VFvmi/ZSwQFmjS6Pry9B8zXeZ/GA168TXLyykDhNMZE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6l4ir0ityv",
+      "Integrity": "ukKL5IDSyNoXFyp0wkgXeBpBITyM7JsCE6Dp96H1vI8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css#[.{fingerprint}]?.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fctod5rc9n",
+      "Integrity": "j7uqK5VoTT4rUHMr911QEU5Sa94lR3uh9E28XBMlzrM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -816,10 +816,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -837,10 +837,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -858,10 +858,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -879,10 +879,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -900,10 +900,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -921,10 +921,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -942,10 +942,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -963,10 +963,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -984,10 +984,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1005,10 +1005,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1026,10 +1026,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1047,10 +1047,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\LICENSE",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/bootstrap/LICENSE#[.{fingerprint}]?",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1067,200 +1067,11 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.js",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/jquery/dist/jquery#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "7s2n0ol71w",
-      "Integrity": "KSI/3xxCrCexCupdzQJRP1B6Iqg+2NA+X2u38cQdqq8=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "ehgnz7f14e",
-      "Integrity": "zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "5pze98is44",
-      "Integrity": "OZVI+w57FGwS9boYCZpH1ZSpcP7pYhLu4KtIUvPlZ4I=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\LICENSE.txt",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/jquery/LICENSE#[.{fingerprint}]?.txt",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "mlv21k5csn",
-      "Integrity": "hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/jquery-validation/dist/additional-methods#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "ay5nd8zt9x",
-      "Integrity": "4jrcLBsi0Ugm8iLKdqDsAyaCDjkscYZdoGuNH/zqs4E=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/jquery-validation/dist/additional-methods.min#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "9oaff4kq20",
-      "Integrity": "N11IyJpHTgDcSCb3AfX4VrBnpGQeem1NoNzzgcXVyCc=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/jquery-validation/dist/jquery.validate#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "6d0lkjaslc",
-      "Integrity": "5qqb5VxQ2t2a6Zx/neW5uppLLvaGn4nn0NdYp6g8Lyg=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/jquery-validation/dist/jquery.validate.min#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "l1zq2mitth",
-      "Integrity": "6e0N+WJiVKBeTitK1GKSwPi3rbdPpLtuqaiitZjeD2w=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
-      "SourceId": "BookLibrary.Client.MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
-      "RelativePath": "lib/jquery-validation/LICENSE#[.{fingerprint}]?.md",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "x0q3zqp4vz",
-      "Integrity": "geHEkw/WGPdaHQMRq5HuNY9snliNzU/y2OW8ycnhGXw=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
-    },
-    {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1278,10 +1089,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1299,10 +1110,10 @@
     },
     {
       "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
-      "SourceId": "BookLibrary.Client.MVC",
+      "SourceId": "BooKLibrary.Client.MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
-      "BasePath": "_content/BookLibrary.Client.MVC",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1317,12 +1128,201 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/jquery-validation/dist/additional-methods#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ay5nd8zt9x",
+      "Integrity": "4jrcLBsi0Ugm8iLKdqDsAyaCDjkscYZdoGuNH/zqs4E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/jquery-validation/dist/additional-methods.min#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9oaff4kq20",
+      "Integrity": "N11IyJpHTgDcSCb3AfX4VrBnpGQeem1NoNzzgcXVyCc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/jquery-validation/dist/jquery.validate#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6d0lkjaslc",
+      "Integrity": "5qqb5VxQ2t2a6Zx/neW5uppLLvaGn4nn0NdYp6g8Lyg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/jquery-validation/dist/jquery.validate.min#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "l1zq2mitth",
+      "Integrity": "6e0N+WJiVKBeTitK1GKSwPi3rbdPpLtuqaiitZjeD2w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/jquery-validation/LICENSE#[.{fingerprint}]?.md",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "x0q3zqp4vz",
+      "Integrity": "geHEkw/WGPdaHQMRq5HuNY9snliNzU/y2OW8ycnhGXw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/jquery/dist/jquery#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7s2n0ol71w",
+      "Integrity": "KSI/3xxCrCexCupdzQJRP1B6Iqg+2NA+X2u38cQdqq8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ehgnz7f14e",
+      "Integrity": "zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5pze98is44",
+      "Integrity": "OZVI+w57FGwS9boYCZpH1ZSpcP7pYhLu4KtIUvPlZ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Identity": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "SourceId": "BooKLibrary.Client.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\",
+      "BasePath": "_content/BooKLibrary.Client.MVC",
+      "RelativePath": "lib/jquery/LICENSE#[.{fingerprint}]?.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mlv21k5csn",
+      "Integrity": "hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     }
   ],
   "Endpoints": [
     {
-      "Route": "BookLibrary.Client.MVC.bundle.scp.css",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BookLibrary.Client.MVC.bundle.scp.css",
+      "Route": "BooKLibrary.Client.MVC.bundle.scp.css",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BooKLibrary.Client.MVC.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1339,11 +1339,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Txvy2vCwoCNKCw1AYAIpkRbZSCQaLJwkntff/v1sC84=\""
+          "Value": "\"GE6bSVtlPXIsTx42sSHFTFDCCtkDHdMMHTJ/tSta5AI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 15:58:17 GMT"
+          "Value": "Sun, 30 Mar 2025 11:32:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1353,13 +1353,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Txvy2vCwoCNKCw1AYAIpkRbZSCQaLJwkntff/v1sC84="
+          "Value": "sha256-GE6bSVtlPXIsTx42sSHFTFDCCtkDHdMMHTJ/tSta5AI="
         }
       ]
     },
     {
-      "Route": "BookLibrary.Client.MVC.f005oxx190.bundle.scp.css",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BookLibrary.Client.MVC.bundle.scp.css",
+      "Route": "BooKLibrary.Client.MVC.osl7kofkbn.bundle.scp.css",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BooKLibrary.Client.MVC.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1376,11 +1376,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Txvy2vCwoCNKCw1AYAIpkRbZSCQaLJwkntff/v1sC84=\""
+          "Value": "\"GE6bSVtlPXIsTx42sSHFTFDCCtkDHdMMHTJ/tSta5AI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 15:58:17 GMT"
+          "Value": "Sun, 30 Mar 2025 11:32:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1390,21 +1390,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "f005oxx190"
+          "Value": "osl7kofkbn"
         },
         {
           "Name": "label",
-          "Value": "BookLibrary.Client.MVC.bundle.scp.css"
+          "Value": "BooKLibrary.Client.MVC.bundle.scp.css"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Txvy2vCwoCNKCw1AYAIpkRbZSCQaLJwkntff/v1sC84="
+          "Value": "sha256-GE6bSVtlPXIsTx42sSHFTFDCCtkDHdMMHTJ/tSta5AI="
         }
       ]
     },
     {
-      "Route": "BookLibrary.Client.MVC.f005oxx190.styles.css",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BookLibrary.Client.MVC.styles.css",
+      "Route": "BooKLibrary.Client.MVC.osl7kofkbn.styles.css",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BooKLibrary.Client.MVC.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1421,11 +1421,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Txvy2vCwoCNKCw1AYAIpkRbZSCQaLJwkntff/v1sC84=\""
+          "Value": "\"GE6bSVtlPXIsTx42sSHFTFDCCtkDHdMMHTJ/tSta5AI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 15:58:17 GMT"
+          "Value": "Sun, 30 Mar 2025 11:32:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1435,21 +1435,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "f005oxx190"
+          "Value": "osl7kofkbn"
         },
         {
           "Name": "label",
-          "Value": "BookLibrary.Client.MVC.styles.css"
+          "Value": "BooKLibrary.Client.MVC.styles.css"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Txvy2vCwoCNKCw1AYAIpkRbZSCQaLJwkntff/v1sC84="
+          "Value": "sha256-GE6bSVtlPXIsTx42sSHFTFDCCtkDHdMMHTJ/tSta5AI="
         }
       ]
     },
     {
-      "Route": "BookLibrary.Client.MVC.styles.css",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BookLibrary.Client.MVC.styles.css",
+      "Route": "BooKLibrary.Client.MVC.styles.css",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BooKLibrary.Client.MVC.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1466,11 +1466,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Txvy2vCwoCNKCw1AYAIpkRbZSCQaLJwkntff/v1sC84=\""
+          "Value": "\"GE6bSVtlPXIsTx42sSHFTFDCCtkDHdMMHTJ/tSta5AI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 15:58:17 GMT"
+          "Value": "Sun, 30 Mar 2025 11:32:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1480,7 +1480,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Txvy2vCwoCNKCw1AYAIpkRbZSCQaLJwkntff/v1sC84="
+          "Value": "sha256-GE6bSVtlPXIsTx42sSHFTFDCCtkDHdMMHTJ/tSta5AI="
         }
       ]
     },
@@ -1727,662 +1727,6 @@
         {
           "Name": "integrity",
           "Value": "sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.css",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "215356"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ZMvmWDSU4zY1Z29EQGm5Mubfz/YxF4hiReGqx84o4tA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-ZMvmWDSU4zY1Z29EQGm5Mubfz/YxF4hiReGqx84o4tA="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.css.73kdqttayv.map",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "536547"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"DRvWr0gangj5/5Q3DRn6ttzpcWDzl3OpHoAwAzNDR5Q=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "73kdqttayv"
-        },
-        {
-          "Name": "label",
-          "Value": "lib/bootstrap/dist/css/bootstrap.css.map"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-DRvWr0gangj5/5Q3DRn6ttzpcWDzl3OpHoAwAzNDR5Q="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.css.map",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "536547"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"DRvWr0gangj5/5Q3DRn6ttzpcWDzl3OpHoAwAzNDR5Q=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-DRvWr0gangj5/5Q3DRn6ttzpcWDzl3OpHoAwAzNDR5Q="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.min.6gzpyzhau4.css",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "162726"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "6gzpyzhau4"
-        },
-        {
-          "Name": "label",
-          "Value": "lib/bootstrap/dist/css/bootstrap.min.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.min.css",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "162726"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "449111"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "8inm30yfxf"
-        },
-        {
-          "Name": "label",
-          "Value": "lib/bootstrap/dist/css/bootstrap.min.css.map"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.min.css.map",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "449111"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.ozu22stjof.css",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "215356"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ZMvmWDSU4zY1Z29EQGm5Mubfz/YxF4hiReGqx84o4tA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ozu22stjof"
-        },
-        {
-          "Name": "label",
-          "Value": "lib/bootstrap/dist/css/bootstrap.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ZMvmWDSU4zY1Z29EQGm5Mubfz/YxF4hiReGqx84o4tA="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "214999"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"hA1uBYAPgKq7OVoXF7sqU9NtylyP0K7AJn0a4zQcTbg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-hA1uBYAPgKq7OVoXF7sqU9NtylyP0K7AJn0a4zQcTbg="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.4gxs3k148c.map",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "536461"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"VFvmi/ZSwQFmjS6Pry9B8zXeZ/GA168TXLyykDhNMZE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "4gxs3k148c"
-        },
-        {
-          "Name": "label",
-          "Value": "lib/bootstrap/dist/css/bootstrap.rtl.css.map"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-VFvmi/ZSwQFmjS6Pry9B8zXeZ/GA168TXLyykDhNMZE="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "536461"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"VFvmi/ZSwQFmjS6Pry9B8zXeZ/GA168TXLyykDhNMZE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-VFvmi/ZSwQFmjS6Pry9B8zXeZ/GA168TXLyykDhNMZE="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.gjcw7pocpk.css",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "214999"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"hA1uBYAPgKq7OVoXF7sqU9NtylyP0K7AJn0a4zQcTbg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "gjcw7pocpk"
-        },
-        {
-          "Name": "label",
-          "Value": "lib/bootstrap/dist/css/bootstrap.rtl.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-hA1uBYAPgKq7OVoXF7sqU9NtylyP0K7AJn0a4zQcTbg="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.6l4ir0ityv.css",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "162831"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ukKL5IDSyNoXFyp0wkgXeBpBITyM7JsCE6Dp96H1vI8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "6l4ir0ityv"
-        },
-        {
-          "Name": "label",
-          "Value": "lib/bootstrap/dist/css/bootstrap.rtl.min.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ukKL5IDSyNoXFyp0wkgXeBpBITyM7JsCE6Dp96H1vI8="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "162831"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ukKL5IDSyNoXFyp0wkgXeBpBITyM7JsCE6Dp96H1vI8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-ukKL5IDSyNoXFyp0wkgXeBpBITyM7JsCE6Dp96H1vI8="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.fctod5rc9n.map",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "661035"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"j7uqK5VoTT4rUHMr911QEU5Sa94lR3uh9E28XBMlzrM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "fctod5rc9n"
-        },
-        {
-          "Name": "label",
-          "Value": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-j7uqK5VoTT4rUHMr911QEU5Sa94lR3uh9E28XBMlzrM="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "661035"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"j7uqK5VoTT4rUHMr911QEU5Sa94lR3uh9E28XBMlzrM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-j7uqK5VoTT4rUHMr911QEU5Sa94lR3uh9E28XBMlzrM="
         }
       ]
     },
@@ -4355,6 +3699,662 @@
       ]
     },
     {
+      "Route": "lib/bootstrap/dist/css/bootstrap.css",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "215356"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZMvmWDSU4zY1Z29EQGm5Mubfz/YxF4hiReGqx84o4tA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZMvmWDSU4zY1Z29EQGm5Mubfz/YxF4hiReGqx84o4tA="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.css.73kdqttayv.map",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "536547"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DRvWr0gangj5/5Q3DRn6ttzpcWDzl3OpHoAwAzNDR5Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "73kdqttayv"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/bootstrap/dist/css/bootstrap.css.map"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DRvWr0gangj5/5Q3DRn6ttzpcWDzl3OpHoAwAzNDR5Q="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.css.map",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "536547"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DRvWr0gangj5/5Q3DRn6ttzpcWDzl3OpHoAwAzNDR5Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DRvWr0gangj5/5Q3DRn6ttzpcWDzl3OpHoAwAzNDR5Q="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.min.6gzpyzhau4.css",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "162726"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6gzpyzhau4"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/bootstrap/dist/css/bootstrap.min.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.min.css",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "162726"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.min.css.8inm30yfxf.map",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "449111"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8inm30yfxf"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/bootstrap/dist/css/bootstrap.min.css.map"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "449111"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.ozu22stjof.css",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "215356"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZMvmWDSU4zY1Z29EQGm5Mubfz/YxF4hiReGqx84o4tA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ozu22stjof"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/bootstrap/dist/css/bootstrap.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZMvmWDSU4zY1Z29EQGm5Mubfz/YxF4hiReGqx84o4tA="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "214999"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hA1uBYAPgKq7OVoXF7sqU9NtylyP0K7AJn0a4zQcTbg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hA1uBYAPgKq7OVoXF7sqU9NtylyP0K7AJn0a4zQcTbg="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.4gxs3k148c.map",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "536461"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VFvmi/ZSwQFmjS6Pry9B8zXeZ/GA168TXLyykDhNMZE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4gxs3k148c"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VFvmi/ZSwQFmjS6Pry9B8zXeZ/GA168TXLyykDhNMZE="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "536461"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VFvmi/ZSwQFmjS6Pry9B8zXeZ/GA168TXLyykDhNMZE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-VFvmi/ZSwQFmjS6Pry9B8zXeZ/GA168TXLyykDhNMZE="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.gjcw7pocpk.css",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "214999"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hA1uBYAPgKq7OVoXF7sqU9NtylyP0K7AJn0a4zQcTbg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gjcw7pocpk"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/bootstrap/dist/css/bootstrap.rtl.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hA1uBYAPgKq7OVoXF7sqU9NtylyP0K7AJn0a4zQcTbg="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.6l4ir0ityv.css",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "162831"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ukKL5IDSyNoXFyp0wkgXeBpBITyM7JsCE6Dp96H1vI8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6l4ir0ityv"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ukKL5IDSyNoXFyp0wkgXeBpBITyM7JsCE6Dp96H1vI8="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "162831"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ukKL5IDSyNoXFyp0wkgXeBpBITyM7JsCE6Dp96H1vI8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ukKL5IDSyNoXFyp0wkgXeBpBITyM7JsCE6Dp96H1vI8="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.fctod5rc9n.map",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "661035"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"j7uqK5VoTT4rUHMr911QEU5Sa94lR3uh9E28XBMlzrM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fctod5rc9n"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-j7uqK5VoTT4rUHMr911QEU5Sa94lR3uh9E28XBMlzrM="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "661035"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"j7uqK5VoTT4rUHMr911QEU5Sa94lR3uh9E28XBMlzrM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-j7uqK5VoTT4rUHMr911QEU5Sa94lR3uh9E28XBMlzrM="
+        }
+      ]
+    },
+    {
       "Route": "lib/bootstrap/dist/js/bootstrap.1piudyfv7h.js",
       "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "Selectors": [],
@@ -5421,8 +5421,8 @@
       ]
     },
     {
-      "Route": "lib/jquery/dist/jquery.7s2n0ol71w.js",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.03hjc8e09r.js",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5431,7 +5431,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "299461"
+          "Value": "19820"
         },
         {
           "Name": "Content-Type",
@@ -5439,7 +5439,7 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"KSI/3xxCrCexCupdzQJRP1B6Iqg+2NA+X2u38cQdqq8=\""
+          "Value": "\"xJbBMLGhYbXlPrrrddrSVmduyF6KEtbxEsYxw7hYZV4=\""
         },
         {
           "Name": "Last-Modified",
@@ -5453,21 +5453,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "7s2n0ol71w"
+          "Value": "03hjc8e09r"
         },
         {
           "Name": "label",
-          "Value": "lib/jquery/dist/jquery.js"
+          "Value": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-KSI/3xxCrCexCupdzQJRP1B6Iqg+2NA+X2u38cQdqq8="
+          "Value": "sha256-xJbBMLGhYbXlPrrrddrSVmduyF6KEtbxEsYxw7hYZV4="
         }
       ]
     },
     {
-      "Route": "lib/jquery/dist/jquery.js",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5476,7 +5476,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "299461"
+          "Value": "19820"
         },
         {
           "Name": "Content-Type",
@@ -5484,7 +5484,7 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"KSI/3xxCrCexCupdzQJRP1B6Iqg+2NA+X2u38cQdqq8=\""
+          "Value": "\"xJbBMLGhYbXlPrrrddrSVmduyF6KEtbxEsYxw7hYZV4=\""
         },
         {
           "Name": "Last-Modified",
@@ -5498,13 +5498,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-KSI/3xxCrCexCupdzQJRP1B6Iqg+2NA+X2u38cQdqq8="
+          "Value": "sha256-xJbBMLGhYbXlPrrrddrSVmduyF6KEtbxEsYxw7hYZV4="
         }
       ]
     },
     {
-      "Route": "lib/jquery/dist/jquery.min.5pze98is44.map",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.48y08845bh.js",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5513,15 +5513,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "137972"
+          "Value": "5831"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/plain"
+          "Value": "text/javascript"
         },
         {
           "Name": "ETag",
-          "Value": "\"OZVI+w57FGwS9boYCZpH1ZSpcP7pYhLu4KtIUvPlZ4I=\""
+          "Value": "\"RFWFWIIPsjB4DucR4jqwxTWw13ZmtI+s6tVR2LJmZXk=\""
         },
         {
           "Name": "Last-Modified",
@@ -5535,21 +5535,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5pze98is44"
+          "Value": "48y08845bh"
         },
         {
           "Name": "label",
-          "Value": "lib/jquery/dist/jquery.min.map"
+          "Value": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-OZVI+w57FGwS9boYCZpH1ZSpcP7pYhLu4KtIUvPlZ4I="
+          "Value": "sha256-RFWFWIIPsjB4DucR4jqwxTWw13ZmtI+s6tVR2LJmZXk="
         }
       ]
     },
     {
-      "Route": "lib/jquery/dist/jquery.min.ehgnz7f14e.js",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5558,7 +5558,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "89503"
+          "Value": "5831"
         },
         {
           "Name": "Content-Type",
@@ -5566,7 +5566,44 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs=\""
+          "Value": "\"RFWFWIIPsjB4DucR4jqwxTWw13ZmtI+s6tVR2LJmZXk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-RFWFWIIPsjB4DucR4jqwxTWw13ZmtI+s6tVR2LJmZXk="
+        }
+      ]
+    },
+    {
+      "Route": "lib/jquery-validation-unobtrusive/LICENSE.356vix0kms.txt",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1139"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s=\""
         },
         {
           "Name": "Last-Modified",
@@ -5580,21 +5617,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ehgnz7f14e"
+          "Value": "356vix0kms"
         },
         {
           "Name": "label",
-          "Value": "lib/jquery/dist/jquery.min.js"
+          "Value": "lib/jquery-validation-unobtrusive/LICENSE.txt"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs="
+          "Value": "sha256-16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s="
         }
       ]
     },
     {
-      "Route": "lib/jquery/dist/jquery.min.js",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Route": "lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5603,15 +5640,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "89503"
+          "Value": "1139"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/javascript"
+          "Value": "text/plain"
         },
         {
           "Name": "ETag",
-          "Value": "\"zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs=\""
+          "Value": "\"16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s=\""
         },
         {
           "Name": "Last-Modified",
@@ -5625,126 +5662,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs="
-        }
-      ]
-    },
-    {
-      "Route": "lib/jquery/dist/jquery.min.map",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "137972"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"OZVI+w57FGwS9boYCZpH1ZSpcP7pYhLu4KtIUvPlZ4I=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-OZVI+w57FGwS9boYCZpH1ZSpcP7pYhLu4KtIUvPlZ4I="
-        }
-      ]
-    },
-    {
-      "Route": "lib/jquery/LICENSE.mlv21k5csn.txt",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\LICENSE.txt",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1117"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "mlv21k5csn"
-        },
-        {
-          "Name": "label",
-          "Value": "lib/jquery/LICENSE.txt"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk="
-        }
-      ]
-    },
-    {
-      "Route": "lib/jquery/LICENSE.txt",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\LICENSE.txt",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1117"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk="
+          "Value": "sha256-16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s="
         }
       ]
     },
@@ -6159,8 +6077,8 @@
       ]
     },
     {
-      "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.03hjc8e09r.js",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Route": "lib/jquery/dist/jquery.7s2n0ol71w.js",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6169,7 +6087,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19820"
+          "Value": "299461"
         },
         {
           "Name": "Content-Type",
@@ -6177,7 +6095,7 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xJbBMLGhYbXlPrrrddrSVmduyF6KEtbxEsYxw7hYZV4=\""
+          "Value": "\"KSI/3xxCrCexCupdzQJRP1B6Iqg+2NA+X2u38cQdqq8=\""
         },
         {
           "Name": "Last-Modified",
@@ -6191,21 +6109,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "03hjc8e09r"
+          "Value": "7s2n0ol71w"
         },
         {
           "Name": "label",
-          "Value": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+          "Value": "lib/jquery/dist/jquery.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xJbBMLGhYbXlPrrrddrSVmduyF6KEtbxEsYxw7hYZV4="
+          "Value": "sha256-KSI/3xxCrCexCupdzQJRP1B6Iqg+2NA+X2u38cQdqq8="
         }
       ]
     },
     {
-      "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Route": "lib/jquery/dist/jquery.js",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6214,7 +6132,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19820"
+          "Value": "299461"
         },
         {
           "Name": "Content-Type",
@@ -6222,7 +6140,7 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xJbBMLGhYbXlPrrrddrSVmduyF6KEtbxEsYxw7hYZV4=\""
+          "Value": "\"KSI/3xxCrCexCupdzQJRP1B6Iqg+2NA+X2u38cQdqq8=\""
         },
         {
           "Name": "Last-Modified",
@@ -6236,13 +6154,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xJbBMLGhYbXlPrrrddrSVmduyF6KEtbxEsYxw7hYZV4="
+          "Value": "sha256-KSI/3xxCrCexCupdzQJRP1B6Iqg+2NA+X2u38cQdqq8="
         }
       ]
     },
     {
-      "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.48y08845bh.js",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Route": "lib/jquery/dist/jquery.min.5pze98is44.map",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6251,89 +6169,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5831"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"RFWFWIIPsjB4DucR4jqwxTWw13ZmtI+s6tVR2LJmZXk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "48y08845bh"
-        },
-        {
-          "Name": "label",
-          "Value": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-RFWFWIIPsjB4DucR4jqwxTWw13ZmtI+s6tVR2LJmZXk="
-        }
-      ]
-    },
-    {
-      "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5831"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"RFWFWIIPsjB4DucR4jqwxTWw13ZmtI+s6tVR2LJmZXk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-RFWFWIIPsjB4DucR4jqwxTWw13ZmtI+s6tVR2LJmZXk="
-        }
-      ]
-    },
-    {
-      "Route": "lib/jquery-validation-unobtrusive/LICENSE.356vix0kms.txt",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1139"
+          "Value": "137972"
         },
         {
           "Name": "Content-Type",
@@ -6341,7 +6177,7 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s=\""
+          "Value": "\"OZVI+w57FGwS9boYCZpH1ZSpcP7pYhLu4KtIUvPlZ4I=\""
         },
         {
           "Name": "Last-Modified",
@@ -6355,21 +6191,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "356vix0kms"
+          "Value": "5pze98is44"
         },
         {
           "Name": "label",
-          "Value": "lib/jquery-validation-unobtrusive/LICENSE.txt"
+          "Value": "lib/jquery/dist/jquery.min.map"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s="
+          "Value": "sha256-OZVI+w57FGwS9boYCZpH1ZSpcP7pYhLu4KtIUvPlZ4I="
         }
       ]
     },
     {
-      "Route": "lib/jquery-validation-unobtrusive/LICENSE.txt",
-      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Route": "lib/jquery/dist/jquery.min.ehgnz7f14e.js",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6378,15 +6214,60 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1139"
+          "Value": "89503"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/plain"
+          "Value": "text/javascript"
         },
         {
           "Name": "ETag",
-          "Value": "\"16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s=\""
+          "Value": "\"zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ehgnz7f14e"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/jquery/dist/jquery.min.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs="
+        }
+      ]
+    },
+    {
+      "Route": "lib/jquery/dist/jquery.min.js",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "89503"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs=\""
         },
         {
           "Name": "Last-Modified",
@@ -6400,7 +6281,126 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s="
+          "Value": "sha256-zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs="
+        }
+      ]
+    },
+    {
+      "Route": "lib/jquery/dist/jquery.min.map",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "137972"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OZVI+w57FGwS9boYCZpH1ZSpcP7pYhLu4KtIUvPlZ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-OZVI+w57FGwS9boYCZpH1ZSpcP7pYhLu4KtIUvPlZ4I="
+        }
+      ]
+    },
+    {
+      "Route": "lib/jquery/LICENSE.mlv21k5csn.txt",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1117"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mlv21k5csn"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/jquery/LICENSE.txt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk="
+        }
+      ]
+    },
+    {
+      "Route": "lib/jquery/LICENSE.txt",
+      "AssetFile": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1117"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Mar 2025 11:06:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk="
         }
       ]
     }

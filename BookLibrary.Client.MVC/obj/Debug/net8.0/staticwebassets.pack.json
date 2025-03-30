@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BookLibrary.Client.MVC.bundle.scp.css",
-      "PackagePath": "staticwebassets\\BookLibrary.Client.MVC.f005oxx190.bundle.scp.css"
+      "Id": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BooKLibrary.Client.MVC.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BooKLibrary.Client.MVC.osl7kofkbn.bundle.scp.css"
     },
     {
       "Id": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\wwwroot\\css\\site.css",
@@ -245,24 +245,24 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BookLibrary.Client.MVC.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BooKLibrary.Client.MVC.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BookLibrary.Client.MVC.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BooKLibrary.Client.MVC.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BookLibrary.Client.MVC.props",
-      "PackagePath": "build\\BookLibrary.Client.MVC.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BooKLibrary.Client.MVC.props",
+      "PackagePath": "build\\BooKLibrary.Client.MVC.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BookLibrary.Client.MVC.props",
-      "PackagePath": "buildMultiTargeting\\BookLibrary.Client.MVC.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BooKLibrary.Client.MVC.props",
+      "PackagePath": "buildMultiTargeting\\BooKLibrary.Client.MVC.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BookLibrary.Client.MVC.props",
-      "PackagePath": "buildTransitive\\BookLibrary.Client.MVC.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BooKLibrary.Client.MVC.props",
+      "PackagePath": "buildTransitive\\BooKLibrary.Client.MVC.props"
     }
   ],
   "ElementsToRemove": []
