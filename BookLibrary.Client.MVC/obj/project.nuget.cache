@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C9ZqklRk/kM=",
+  "dgSpecHash": "+MM2XSGOUKI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\BooKLibrary.Client.MVC.csproj",
+  "projectFilePath": "C:\\Users\\Emmijozzy\\Desktop\\C-sharp\\BookLibrary\\BookLibrary.Client.MVC\\BookLibrary.Client.MVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Emmijozzy\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Emmijozzy\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

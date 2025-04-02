@@ -15,6 +15,7 @@ builder.Host.UseSerilog((context, services, configuration) => configuration
     .ReadFrom.Services(services)
     .Enrich.FromLogContext());
 
+
 builder.WebHost.ConfigureKestrel(options =>
 {
     options.ListenAnyIP(5099); // HTTP

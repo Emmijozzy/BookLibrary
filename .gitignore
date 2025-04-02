@@ -1,0 +1,76 @@
+### .NET ###
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio cache/options directory
+.vs/
+.vscode/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+*.dll
+*.pdb
+*.exe
+*.cache
+*.ilk
+*.nupkg
+*.msi
+*.msix
+
+# NuGet Packages
+*.nupkg
+packages/
+
+# Local development files
+**/local.settings.json
+**/appsettings.Development.json
+
+# Rider/ReSharper cache
+_ReSharper*/
+*.sln.iml
+
+# MSTest test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUnit, xUnit, and other test frameworks
+**/[Tt]est[Rr]esults/
+*.TestResult.xml
+
+# Code coverage reports
+*.coverage
+*.coveragexml
+
+# Azure Functions
+bin/
+obj/
+func-artifacts/
+
+# Node.js (if using frontend with .NET)
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+
+# IDE-specific files (JetBrains, VS Code)
+.idea/
+*.swp
+*.swo
