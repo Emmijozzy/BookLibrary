@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Client.MVC", "BookLibrary.Client.MVC\BookLibrary.Client.MVC.csproj", "{91AE5E8C-A03B-4EE3-8254-A0921B58F8E4}"
-EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "BookLibrary.Client.React", "BookLibrary.Client.React\BookLibrary.Client.React.esproj", "{7AA2680F-596A-41D4-8F44-75202344C9B9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookLibrary.Server", "BookLibrary.Server", "{2A5A37C9-305E-4C5D-6728-4E771AAC1876}"
@@ -27,18 +25,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{91AE5E8C-A03B-4EE3-8254-A0921B58F8E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91AE5E8C-A03B-4EE3-8254-A0921B58F8E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91AE5E8C-A03B-4EE3-8254-A0921B58F8E4}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{91AE5E8C-A03B-4EE3-8254-A0921B58F8E4}.Debug|x64.Build.0 = Debug|Any CPU
-		{91AE5E8C-A03B-4EE3-8254-A0921B58F8E4}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{91AE5E8C-A03B-4EE3-8254-A0921B58F8E4}.Debug|x86.Build.0 = Debug|Any CPU
-		{91AE5E8C-A03B-4EE3-8254-A0921B58F8E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91AE5E8C-A03B-4EE3-8254-A0921B58F8E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{91AE5E8C-A03B-4EE3-8254-A0921B58F8E4}.Release|x64.ActiveCfg = Release|Any CPU
-		{91AE5E8C-A03B-4EE3-8254-A0921B58F8E4}.Release|x64.Build.0 = Release|Any CPU
-		{91AE5E8C-A03B-4EE3-8254-A0921B58F8E4}.Release|x86.ActiveCfg = Release|Any CPU
-		{91AE5E8C-A03B-4EE3-8254-A0921B58F8E4}.Release|x86.Build.0 = Release|Any CPU
 		{7AA2680F-596A-41D4-8F44-75202344C9B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7AA2680F-596A-41D4-8F44-75202344C9B9}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{7AA2680F-596A-41D4-8F44-75202344C9B9}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -102,5 +88,8 @@ Global
 		{892F4D10-AA2E-4A99-8F7A-7E4FD1346B76} = {2A5A37C9-305E-4C5D-6728-4E771AAC1876}
 		{FD7657CA-58F2-4555-B62A-5DA3384097D8} = {2A5A37C9-305E-4C5D-6728-4E771AAC1876}
 		{671D6464-1E3B-4A9F-B1C2-859761BBD53C} = {2A5A37C9-305E-4C5D-6728-4E771AAC1876}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92980BA2-505D-4DA1-8DA8-B395FEC184B0}
 	EndGlobalSection
 EndGlobal

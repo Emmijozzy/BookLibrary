@@ -6,7 +6,4 @@ nohup dotnet run --project BookLibrary.Server/BookLibrary.Server.Host/BookLibrar
 echo "Starting React Frontend..."
 cd BookLibrary.Client.React && npm install && npm run dev &
 
-echo "Starting .NET MVC Frontend (BooKLibrary.Client.MVC)..."
-nohup dotnet run --project BookLibrary.Client.MVC/BooKLibrary.Client.MVC.csproj > mvc.log 2>&1 &
-
 echo "All projects are now running."
