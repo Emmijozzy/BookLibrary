@@ -12,9 +12,22 @@ namespace BookLibrary.Server.Host.Controllers
     public class BookController(IBookService bookService, ILogger<BookController> logger) : BaseController(logger)
     {
         [HttpPost("add")]
-        public async Task<IActionResult> Create(CreateBook book)
+        public async Task<IActionResult> Create([FromForm] CreateBook bookDto)
         {
-            var serviceResult = await bookService.Create(book);
+            logger.LogInformation("Received CreateBook object: {@CreateBook}", bookDto);
+
+            //if (!ModelState.IsValid)
+            //{
+            //    var errors = ModelState.Values
+            //        .SelectMany(v => v.Errors)
+            //        .Select(e => e.ErrorMessage)
+            //        .ToList();
+
+            //    logger.LogWarning("Model validation failed: {Errors}", string.Join(", ", errors));
+            //    return BadRequest(ModelState);
+            //}
+
+            var serviceResult = await bookService.Create(bookDto);
 
             return serviceResult != null && serviceResult.IsSuccess
                  ? LogAndResponse<Guid>(serviceResult, successStatusCode: StatusCodes.Status201Created)

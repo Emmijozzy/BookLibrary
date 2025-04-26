@@ -13,6 +13,8 @@ const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>()
     const fetchData = useCallback(async <R = T>(url = "", options: FetchOptions): Promise<R> => {
         const { method, data: requestData, config } = options;
 
+        console.log('Fetching data:', { url, method, data: requestData, config });
+
         try {
             setLoading(true);
             setError(null);
@@ -42,6 +44,7 @@ const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>()
 
             // Handle different error scenarios
             if (apiError.data) {
+                console.log('API Error:', apiError.data.code, apiError.data.errors);
                 const errorMessage = apiError.data.message || apiError.data.errors?.join(', ') || 'An error occurred';
                 setError(errorMessage);
                 console.error('API Error:', apiError.data.code, apiError.data.errors);

@@ -1,5 +1,6 @@
 ﻿using BookLibrary.Server.Application.DTOs;
 using FluentValidation;
+using Microsoft.AspNetCore.Http;
 
 namespace BookLibrary.Server.Application.Validation.Book
 {
@@ -25,11 +26,6 @@ namespace BookLibrary.Server.Application.Validation.Book
             RuleFor(book => book.PublicationDate)
                 .NotEmpty().WithMessage("Publication Date is required")
                 .Must(date => date != default(DateTime)).WithMessage("Publication Date is required");
-
-            RuleFor(book => book.ImageUrl)
-                .Matches(@"^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png|gif|bmp|webp)$")
-                .WithMessage("Image URL must be a valid URL and end with a valid image file extension (e.g., .jpg, .png).")
-                .When(book => !string.IsNullOrEmpty(book.ImageUrl));
 
             RuleFor(book => book.NumberOfPage)
                 .GreaterThanOrEqualTo(0).WithMessage("Number of pages must be a positive number");

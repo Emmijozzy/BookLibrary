@@ -13,6 +13,7 @@
         public string? Genre { get; set; }
         public required string Publisher { get; set; }
         public required string Language { get; set; }
+        public string? PdfUrl { get; set; }
         public Category? Category { get; set; }
         public Guid CategoryId { get; set; } = Guid.Parse("00000000-0000-0000-0000-000000000001");
         public DateTime CreatedAt

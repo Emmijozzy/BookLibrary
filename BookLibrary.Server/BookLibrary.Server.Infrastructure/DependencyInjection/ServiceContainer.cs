@@ -1,9 +1,11 @@
 ﻿using BookLibrary.Server.Application.Interface;
 using BookLibrary.Server.Domain.Entities;
+using BookLibrary.Server.Infrastructure.Configurations;
 using BookLibrary.Server.Infrastructure.Data;
 using BookLibrary.Server.Infrastructure.Repository;
 using BookLibrary.Server.Infrastructure.Security;
 using BookLibrary.Server.Infrastructure.Services;
+using CloudinaryDotNet;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -17,14 +19,17 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
     {
         public static IServiceCollection AddInfrastructureService(this IServiceCollection services, IConfiguration configuration)
         {
+            // Database configuration
             services.AddDbContext<AspBookProjectContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
 
+            // Identity configuration
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<AspBookProjectContext>();
 
+            // Authentication configuration
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -43,31 +48,24 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
                     ValidateAudience = false,
                     ValidateIssuer = false,
                     ValidateLifetime = true,
-                    //RequireExpirationTime = true,
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = key,
                     ClockSkew = TimeSpan.Zero,
                 };
                 options.Events = new JwtBearerEvents
                 {
-
-
                     OnMessageReceived = context =>
                     {
                         var authHeader = context.Request.Headers["Authorization"].FirstOrDefault();
                         if (!string.IsNullOrEmpty(authHeader) && authHeader.StartsWith("Bearer "))
                         {
                             context.Token = authHeader.Substring("Bearer ".Length).Trim();
-                            // Console.WriteLine($"Extracted Token: {context.Token}");
                         }
                         return Task.CompletedTask;
                     },
 
                     OnChallenge = context =>
                     {
-                        // Skip the default behavior
-                        //context.HandleResponse();
-
                         Console.WriteLine(context.Error);
                         Console.WriteLine(context);
 
@@ -101,12 +99,30 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
                 };
             });
 
+            // Cloudinary configuration
+            services.Configure<CloudinarySettings>(configuration.GetSection("CloudinarySettings"));
+
+            var cloudinaryConfig = configuration.GetSection("CloudinarySettings").Get<CloudinarySettings>();
+            var account = new Account(
+                cloudinaryConfig.CloudName,
+                cloudinaryConfig.ApiKey,
+                cloudinaryConfig.ApiSecret
+            );
+
+            services.AddSingleton(account);
+            services.AddSingleton(new Cloudinary(account));
+
+            // Other services
             services.AddHttpContextAccessor();
 
+            // Repository registrations
             services.AddScoped<IGenericRepository<Book>, Generic<Book>>();
             services.AddScoped<IGenericRepository<Category>, Generic<Category>>();
+
+            // Service registrations
             services.AddScoped<ITokenManagement, TokenManagement>();
             services.AddScoped<IUserManagement, UserManagement>();
+            services.AddScoped<IFileUploadService, FileUploadService>();
             services.AddTransient<IClientIpAccessor, HttpContextClientIpAccessor>();
 
             return services;
