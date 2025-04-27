@@ -102,7 +102,7 @@ namespace BookLibrary.Server.Host.Controllers
                 // Generate a signed URL
                 string signedUrl = await _fileService.GetSignedUrlAsync(fileUrl);
                 _logger.LogInformation("Generated signed URL: {Url}", signedUrl);
-        
+
                 // Redirect to the signed URL
                 return Redirect(signedUrl);
             }

@@ -5,7 +5,7 @@ import { Book } from "../../Types/book";
 import bookSchema from "../../validation/bookValidation";
 import UseFetch from "../UseFetch";
 
-const UseEdit = () => {
+const useEdit = () => {
     const [dataLoading, setDataLoading] = useState(false);
     const { id } = useParams();
     const navigate = useNavigate()
@@ -67,4 +67,4 @@ const UseEdit = () => {
 
     return { handleChange, handleSubmit, values, errors, dataLoading };
 }
-export default UseEdit
+export default useEdit

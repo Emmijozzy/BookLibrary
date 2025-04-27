@@ -6,7 +6,7 @@ import { Book } from "../../Types/book";
 import bookSchema from "../../validation/bookValidation";
 // import UseFetch from "../UseFetch";
 
-const UseCreate = () => {
+const useCreate = () => {
     const navigate = useNavigate()
     const [initialValues] = useState<Book>({
         title: '',
@@ -90,4 +90,4 @@ const UseCreate = () => {
 
     return { handleChange, handleSubmit, values, errors };
 }
-export default UseCreate
+export default useCreate

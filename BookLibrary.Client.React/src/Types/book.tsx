@@ -13,4 +13,5 @@ export interface Book {
     categoryId?: string;
     pdf?:  File | null;
     image?: File | null;
+    pdfUrl?: string;
 }

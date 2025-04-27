@@ -84,7 +84,9 @@ namespace BookLibrary.Server.Infrastructure.Services
                 var uriBuilder = new UriBuilder(uri);
 
                 // Create a new query string with our parameters
-                var queryString = $"api_key={_apiKey}×tamp={timestamp}&signature={signature}";
+                // Create a new query string with our parameters
+                var queryString = $"api_key={_apiKey}&timestamp={timestamp}&signature={signature}";
+
 
                 // Set the query string (overwriting any existing query)
                 uriBuilder.Query = queryString;
