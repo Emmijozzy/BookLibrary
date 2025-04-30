@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Login } from "../../Auth/authInterface";
 import loginSchema from "../../validation/loginSchema";
 import { useApi } from "../useApi";
-import UseFetch from "../UseFetch";
+import useFetch from "../useFetch";
+import { toast } from "react-toastify"
 
 const initialValues: Login = {
     email: "",
@@ -13,7 +14,7 @@ const initialValues: Login = {
 
 const UserLogin = () => {
     const navigate = useNavigate();
-    const { data, metadata, error, loading, fetchData } = UseFetch();
+    const { data, metadata, error, loading, fetchData, isSuccess } = useFetch();
     const [errorMessage, setErrorMessage] = useState("");
     const { setAuthToken, setAppUser } = useApi();
 
@@ -21,19 +22,20 @@ const UserLogin = () => {
         initialValues,
         validationSchema: loginSchema,
         onSubmit: async (values) => {
-            try {
-                await await fetchData("AuthApi/login", { method: 'post', data: { ...values } });
-            } catch (err) {
-                console.error("Login error:", err);
-            }
+         await fetchData("AuthApi/login", { method: 'post', data: { ...values } });
         },
     });
 
-    // console.log(data, metadata, error);
+    console.log(data, metadata, error);
+    console.log(isSuccess, loading);
 
     useEffect(() => {
         if (error) {
             setErrorMessage(error as string);
+                toast.error(errorMessage, {
+                    closeButton: true,
+                    autoClose: 3000,
+                });
         } else if (metadata?.accessToken) {
             const token = metadata.accessToken as string;
             const email = formik.values.email;
@@ -49,6 +51,10 @@ const UserLogin = () => {
             // Navigate to books page
             navigate("/Books");
         }
+
+        return () => {
+            setErrorMessage("");
+        }
     }, [data, metadata, error, navigate, setAppUser, formik.values.email, setAuthToken]);
 
     return {
@@ -62,5 +68,4 @@ const UserLogin = () => {
         resErrMes: errorMessage
     };
 };
-
 export default UserLogin;

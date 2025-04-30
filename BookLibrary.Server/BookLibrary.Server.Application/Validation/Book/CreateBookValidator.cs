@@ -1,10 +1,20 @@
 ﻿using BookLibrary.Server.Application.DTOs;
 using FluentValidation;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookLibrary.Server.Application.Validation.Book
 {
     public class CreateBookValidator : AbstractValidator<CreateBook>
     {
+        private bool HaveAllowedExtension(IFormFile file, string[] allowedExtensions)
+        {
+            if (file == null) return false;
+
+            var extension = Path.GetExtension(file.FileName);
+            return allowedExtensions.Contains(extension, StringComparer.OrdinalIgnoreCase);
+        }
+
         public CreateBookValidator()
         {
             RuleFor(book => book.Title)
@@ -16,6 +26,7 @@ namespace BookLibrary.Server.Application.Validation.Book
                 .MaximumLength(150).WithMessage("Author name cannot be longer than 150 characters");
 
             RuleFor(book => book.Description)
+                .NotEmpty().WithMessage("Description is required")
                 .MaximumLength(1000).WithMessage("Description cannot be longer than 1000 characters");
 
             RuleFor(book => book.Isbn)
@@ -26,10 +37,16 @@ namespace BookLibrary.Server.Application.Validation.Book
                 .NotEmpty().WithMessage("Publication Date is required")
                 .Must(date => date != default(DateTime)).WithMessage("Publication Date is required");
 
-            RuleFor(book => book.ImageUrl)
-                .Matches(@"^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png|gif|bmp|webp)$")
-                .WithMessage("Image URL must be a valid URL and end with a valid image file extension (e.g., .jpg, .png).")
-                .When(book => !string.IsNullOrEmpty(book.ImageUrl));
+            RuleFor(book => book.CategoryId)
+                .NotEmpty().WithMessage("Category is required");
+
+            RuleFor(book => book.Image)
+                .Must(Image => Image == null || HaveAllowedExtension(Image, new[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp" }))
+                .WithMessage("Image must be a .jpg, .jpeg, .png, .gif, .bmp, or .webp file");
+
+            RuleFor(book => book.Pdf)
+                .Must(pdf => pdf == null || HaveAllowedExtension(pdf, new[] { ".pdf" }))
+                .WithMessage("PDF must be a .pdf file");
 
             RuleFor(book => book.NumberOfPage)
                 .GreaterThanOrEqualTo(0).WithMessage("Number of pages must be a positive number");

@@ -1,6 +1,7 @@
 ﻿using BookLibrary.Server.Application.Common;
 using BookLibrary.Server.Application.DTOs;
 using BookLibrary.Server.Application.DTOs.Book;
+using Microsoft.AspNetCore.Http;
 
 namespace BookLibrary.Server.Application.Services.Interface
 {

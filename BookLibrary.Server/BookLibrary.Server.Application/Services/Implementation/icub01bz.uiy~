@@ -1,0 +1,222 @@
+﻿using AutoMapper;
+using BookLibrary.Server.Application.Common;
+using BookLibrary.Server.Application.DTOs;
+using BookLibrary.Server.Application.DTOs.Book;
+using BookLibrary.Server.Application.Exceptions;
+using BookLibrary.Server.Application.Interface;
+using BookLibrary.Server.Application.Services.Interface;
+using BookLibrary.Server.Domain.Entities;
+using FluentValidation;
+using Microsoft.AspNetCore.Http;
+using System.Linq.Expressions;
+
+namespace BookLibrary.Server.Application.Services.Implementation
+{
+    public class BookService(
+        IGenericRepository<Book> bookInterface,
+        IGenericRepository<Category> categoryInterface,
+        IMapper mapper,
+        IValidationService validationService,
+        IValidator<CreateBook> CreateBookValidator,
+        IValidator<UpdateBook> UpdateBookValidator,
+        IFileUploadService fileService
+        ) : IBookService
+    {
+        public async Task<ServiceResult<Guid>> Create(CreateBook book)
+        {
+            if (book == null) throw new ArgumentNullException(nameof(book), "Book data's are required");
+
+            var validationResult = await validationService.validateAsync<CreateBook>(book, CreateBookValidator);
+
+            if (!validationResult.IsSuccess)
+                return ServiceResult<Guid>.Failure(validationResult.Message, validationResult.Errors ?? new[] { "Validation failed" });
+
+            if (book.Image is not null && IsValidFile(book.Image, new[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp" }))
+            {
+                var imageUrl = await fileService.UploadFileAsync(book.Image, "books/images");
+                book.ImageUrl = imageUrl;
+            }
+
+            if (book.Pdf is not null && IsValidFile(book.Pdf, new[] { ".pdf" }))
+            {
+                var pdfUrl = await fileService.UploadFileAsync(book.Pdf, "books/pdfs");
+                book.PdfUrl = pdfUrl;
+            }
+
+            var category = await categoryInterface.GetByIdAsync(book.CategoryId);
+            if (category == null) throw new NotFoundException("Category not found", category!.GetType());
+
+            var mappedData = mapper.Map<Book>(book);
+            var repoResult = await bookInterface.AddAsync(mappedData);
+
+            if (repoResult.Result == Guid.Empty) throw new BookOperationException("Book creation failed");
+
+            return ServiceResult<Guid>.Success(repoResult.Result, "Book created Successfully.");
+        }
+
+        public async Task<ServiceResult<IEnumerable<GetBook>>> GetAll(GetBooksQuery query)
+        {
+            List<Expression<Func<Book, bool>>> filters = new List<Expression<Func<Book, bool>>>();
+
+            if (!string.IsNullOrEmpty(query.SearchTerm))
+            {
+                string searchTermLower = query.SearchTerm.ToLower();
+                filters.Add(book =>
+                    book.Title.ToLower().Contains(searchTermLower) ||
+                    book.Author.ToLower().Contains(searchTermLower)
+                );
+            }
+
+            if (query.PublishedAfter.HasValue)
+            {
+                filters.Add(book => book.PublicationDate >= query.PublishedAfter.Value);
+            }
+
+            if (!string.IsNullOrEmpty(query.Genre))
+            {
+                filters.Add(book => book.Genre == query.Genre);
+            }
+
+            Func<IQueryable<Book>, IOrderedQueryable<Book>> orderBy = null!;
+
+            if (!string.IsNullOrEmpty(query.SortBy))
+            {
+                orderBy = query.SortBy.ToLower() switch
+                {
+                    "title" => q => q.OrderBy(b => b.Title),
+                    "title_desc" => q => q.OrderByDescending(b => b.Title),
+                    "author" => q => q.OrderBy(b => b.Author),
+                    "author_desc" => q => q.OrderByDescending(b => b.Author),
+                    "published_date" => q => q.OrderBy(b => b.PublicationDate),
+                    "published_date_desc" => q => q.OrderByDescending(b => b.PublicationDate),
+                    _ => q => q.OrderBy(b => b.Title)
+                };
+            }
+
+
+
+            var repoResult = await bookInterface.GetAllAsync(
+                filters,
+                orderBy,
+                pageNumber: query.PageNumber,
+                pageSize: query.PageSize,
+                includeProperties: query.IncludeProperties
+                );
+
+            if (repoResult == null) throw new BookRetrievalException("Error fetching books");
+
+            if (repoResult.Result == null || repoResult.Result.Count() == 0) throw new NotFoundException("No books found", repoResult.Result!.GetType());
+
+            var getBooks = mapper.Map<IEnumerable<GetBook>>(repoResult.Result);
+
+            // Generate signed URLs for each book
+            var booksWithSignedUrls = new List<GetBook>();
+            foreach (var book in getBooks)
+            {
+                if (!string.IsNullOrEmpty(book.ImageUrl))
+                {
+                    try
+                    {
+                        book.ImageUrl = await fileService.GetSignedUrlAsync(book.ImageUrl);
+                    }
+                    catch (Exception)
+                    {
+                        // Log the error but continue processing
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(book.PdfUrl))
+                {
+                    try
+                    {
+                        book.PdfUrl = await fileService.GetSignedUrlAsync(book.PdfUrl);
+                    }
+                    catch (Exception)
+                    {
+                        // Log the error but continue processing
+                    }
+                }
+
+                booksWithSignedUrls.Add(book);
+            }
+
+            return ServiceResult<IEnumerable<GetBook>>.Success(booksWithSignedUrls, "Books fetched successfully");
+        }
+
+        public async Task<ServiceResult<bool>> Delete(Guid id)
+        {
+            if (id == Guid.Empty) throw new ArgumentException("Book ID is required", nameof(id));
+            var repoResult = await bookInterface.DeleteAsync(id);
+
+            if (repoResult.Result == false) throw new BookOperationException("Book deletion failed");
+            return ServiceResult<bool>.Success(repoResult.Result, "Book deleted Successfully");
+        }
+
+        public async Task<ServiceResult<GetBook>> GetById(Guid id, string? includeProperties = null)
+        {
+            if (id == Guid.Empty) throw new ArgumentException("Book ID is required", nameof(id));
+
+            var reposResult = await bookInterface.GetByIdAsync(id, includeProperties);
+            if (!reposResult.IsSuccess && reposResult.Result == null)
+                throw new NotFoundException("Book not found", reposResult.Result!.GetType());
+
+            var mappedData = mapper.Map<GetBook>(reposResult.Result);
+
+            // Generate signed URLs for image and PDF if they exist
+            if (!string.IsNullOrEmpty(mappedData.ImageUrl))
+            {
+                try
+                {
+                    mappedData.ImageUrl = await fileService.GetSignedUrlAsync(mappedData.ImageUrl);
+                }
+                catch (Exception ex)
+                {
+                    // Log the error but don't fail the request
+                    // You might want to set a default image URL here
+                }
+            }
+
+            if (!string.IsNullOrEmpty(mappedData.PdfUrl))
+            {
+                try
+                {
+                    mappedData.PdfUrl = await fileService.GetSignedUrlAsync(mappedData.PdfUrl);
+                }
+                catch (Exception ex)
+                {
+                    // Log the error but don't fail the request
+                }
+            }
+
+            return ServiceResult<GetBook>.Success(mappedData, "Book fetched with ID successfully");
+        }
+
+        public async Task<ServiceResult<bool>> Update(UpdateBook book)
+        {
+            var validationResult = await validationService.validateAsync<UpdateBook>(book, UpdateBookValidator);
+            if (!validationResult.IsSuccess) return ServiceResult<bool>.Failure(validationResult.Message, validationResult.Errors!);
+
+            var existingBook = (await bookInterface.GetByIdAsync(book.Id)).Result;
+            if (existingBook == null)
+                throw new NotFoundException("Book not found", existingBook!.GetType());
+
+            mapper.Map(book, existingBook);
+            existingBook.UpdatedAt = DateTime.Now;
+
+            var repoResult = await bookInterface.UpdateAsync(existingBook);
+            if (!repoResult.Result)
+                throw new BookOperationException("Book update failed");
+
+            return ServiceResult<bool>.Success(true, "Book updated Successfully");
+        }
+
+        private bool IsValidFile(IFormFile file, string[] extensions)
+        {
+            if (file == null || file.Length == 0)
+                return false;
+
+            var extension = Path.GetExtension(file.FileName).ToLower();
+            return extensions.Contains(extension);
+        }
+    }
+}

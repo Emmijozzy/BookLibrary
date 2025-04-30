@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useApi } from "../Hooks/useApi";
-import UseFetch from "../Hooks/UseFetch";
+import useFetch from "../Hooks/useFetch";
 
 type Props = {
   setShowSideBar?: () => void;
@@ -11,7 +11,7 @@ type Props = {
 const Header = ({ setShowSideBar, showSideBar }: Props) => {
   const [logined, setLogined] = useState(false);
   const [logoutErr, setLogoutErr] = useState("")
-  const { data, error, fetchData } = UseFetch();
+  const { data, error, fetchData } = useFetch();
 
   const { appUser, clearAuthToken } = useApi()
 

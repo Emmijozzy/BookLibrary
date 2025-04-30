@@ -7,6 +7,7 @@ using BookLibrary.Server.Application.Interface;
 using BookLibrary.Server.Application.Services.Interface;
 using BookLibrary.Server.Domain.Entities;
 using FluentValidation;
+using Microsoft.Extensions.Logging;
 using System.Linq.Expressions;
 
 namespace BookLibrary.Server.Application.Services.Implementation
@@ -15,9 +16,11 @@ namespace BookLibrary.Server.Application.Services.Implementation
         IGenericRepository<Book> bookInterface,
         IGenericRepository<Category> categoryInterface,
         IMapper mapper,
+        ILogger<BookService> logger,
         IValidationService validationService,
         IValidator<CreateBook> CreateBookValidator,
-        IValidator<UpdateBook> UpdateBookValidator
+        IValidator<UpdateBook> UpdateBookValidator,
+        IFileUploadService fileService
         ) : IBookService
     {
         public async Task<ServiceResult<Guid>> Create(CreateBook book)
@@ -26,17 +29,30 @@ namespace BookLibrary.Server.Application.Services.Implementation
 
             var validationResult = await validationService.validateAsync<CreateBook>(book, CreateBookValidator);
 
-            if (!validationResult.IsSuccess) return ServiceResult<Guid>.Failure(validationResult.Message, validationResult.Errors);
+            if (!validationResult.IsSuccess)
+                return ServiceResult<Guid>.Failure(validationResult.Message, validationResult.Errors ?? new[] { "Validation failed" });
+
+            if (book.Image is not null)
+            {
+                var imageUrl = await fileService.UploadFileAsync(book.Image, "books/images");
+                book.ImageUrl = imageUrl;
+            }
+
+            if (book.Pdf is not null)
+            {
+                var pdfUrl = await fileService.UploadFileAsync(book.Pdf, "books/pdfs");
+                book.PdfUrl = pdfUrl;
+            }
 
             var category = await categoryInterface.GetByIdAsync(book.CategoryId);
-            if (category == null) throw new NotFoundException("Category not found", category.GetType());
+            if (category == null) throw new NotFoundException("Category not found", category!.GetType());
 
             var mappedData = mapper.Map<Book>(book);
             var repoResult = await bookInterface.AddAsync(mappedData);
 
             if (repoResult.Result == Guid.Empty) throw new BookOperationException("Book creation failed");
 
-            return ServiceResult<Guid>.Success(repoResult.Result, "Book created Successfully. ");
+            return ServiceResult<Guid>.Success(repoResult.Result, "Book created Successfully.");
         }
 
         public async Task<ServiceResult<IEnumerable<GetBook>>> GetAll(GetBooksQuery query)
@@ -90,11 +106,29 @@ namespace BookLibrary.Server.Application.Services.Implementation
 
             if (repoResult == null) throw new BookRetrievalException("Error fetching books");
 
-            if (repoResult.Result == null || repoResult.Result.Count() == 0) throw new NotFoundException("No books found", repoResult.Result.GetType());
+            if (repoResult.Result == null || repoResult.Result.Count() == 0) throw new NotFoundException("No books found", repoResult.Result!.GetType());
 
             var getBooks = mapper.Map<IEnumerable<GetBook>>(repoResult.Result);
-            return ServiceResult<IEnumerable<GetBook>>.Success(getBooks, "Book fetched successfully");
 
+            // Generate signed URLs for each book
+            var booksWithSignedUrls = new List<GetBook>();
+            foreach (var book in getBooks)
+            {
+                if (!string.IsNullOrEmpty(book.ImageUrl))
+                {
+                    book.ImageUrl = await fileService.GetSignedUrlAsync(book.ImageUrl);
+                }
+
+                if (!string.IsNullOrEmpty(book.PdfUrl))
+                {
+
+                    book.PdfUrl = await fileService.GetSignedUrlAsync(book.PdfUrl);
+                }
+
+                booksWithSignedUrls.Add(book);
+            }
+
+            return ServiceResult<IEnumerable<GetBook>>.Success(booksWithSignedUrls, "Books fetched successfully");
         }
 
         public async Task<ServiceResult<bool>> Delete(Guid id)
@@ -112,20 +146,32 @@ namespace BookLibrary.Server.Application.Services.Implementation
 
             var reposResult = await bookInterface.GetByIdAsync(id, includeProperties);
             if (!reposResult.IsSuccess && reposResult.Result == null)
-                throw new NotFoundException("Book not found", reposResult.Result.GetType());
+                throw new NotFoundException("Book not found", reposResult.Result!.GetType());
 
             var mappedData = mapper.Map<GetBook>(reposResult.Result);
+
+            // Generate signed URLs for image and PDF if they exist
+            if (!string.IsNullOrEmpty(mappedData.ImageUrl))
+            {
+                mappedData.ImageUrl = await fileService.GetSignedUrlAsync(mappedData.ImageUrl);
+            }
+
+            if (!string.IsNullOrEmpty(mappedData.PdfUrl))
+            {
+                mappedData.PdfUrl = await fileService.GetSignedUrlAsync(mappedData.PdfUrl);
+            }
+
             return ServiceResult<GetBook>.Success(mappedData, "Book fetched with ID successfully");
         }
 
         public async Task<ServiceResult<bool>> Update(UpdateBook book)
         {
             var validationResult = await validationService.validateAsync<UpdateBook>(book, UpdateBookValidator);
-            if (!validationResult.IsSuccess) return ServiceResult<bool>.Failure(validationResult.Message, validationResult.Errors);
+            if (!validationResult.IsSuccess) return ServiceResult<bool>.Failure(validationResult.Message, validationResult.Errors!);
 
             var existingBook = (await bookInterface.GetByIdAsync(book.Id)).Result;
             if (existingBook == null)
-                throw new NotFoundException("Book not found", existingBook.GetType());
+                throw new NotFoundException("Book not found", existingBook!.GetType());
 
             mapper.Map(book, existingBook);
             existingBook.UpdatedAt = DateTime.Now;
@@ -136,5 +182,6 @@ namespace BookLibrary.Server.Application.Services.Implementation
 
             return ServiceResult<bool>.Success(true, "Book updated Successfully");
         }
+
     }
 }

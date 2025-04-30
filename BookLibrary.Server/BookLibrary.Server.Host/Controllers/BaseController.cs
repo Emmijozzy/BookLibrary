@@ -17,6 +17,9 @@ namespace BookLibrary.Server.Host.Controllers
             int failureStatusCode = StatusCodes.Status400BadRequest
             )
         {
+
+            logger.LogInformation("Received ServiceResult: {@ServiceResult}", result); // TODO()
+
             var jsonOptions = new JsonSerializerOptions
             {
                 DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,

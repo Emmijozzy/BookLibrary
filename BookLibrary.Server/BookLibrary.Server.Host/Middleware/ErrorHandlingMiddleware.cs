@@ -21,12 +21,13 @@ namespace BookLibrary.Server.Host.Middleware
         {
             try
             {
+                logger.LogInformation("Request entering ErrorHandlingMiddleware: {Path}", context.Request.Path);
                 await next(context);
+                logger.LogInformation("Response leaving ErrorHandlingMiddleware: {StatusCode}", context.Response.StatusCode);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Exception Type: {ex.GetType().Name}");
-                // Console.WriteLine($"Exception Message: {ex.Message}");
+                logger.LogWarning("Exception caught in ErrorHandlingMiddleware: {ExceptionType}", ex.GetType().Name);
                 await HandleExceptionAsync(context, ex);
             }
         }

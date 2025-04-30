@@ -1,29 +1,15 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { Input } from "../../components/Input";
-import UseCreate from "../../Hooks/Book/UseCreate";
-import UseFetch from "../../Hooks/UseFetch";
-import { Category } from "../../Types/category";
+import { UploadImage } from "../../components/Uploads/UploadImage";
+import { UploadPdf } from "../../components/Uploads/UploadPdf";
+import useCreate from "../../Hooks/Book/useCreate";
+import { useCategories } from "../../Hooks/Category/useCategories";
+import { CategorySelect } from "../../components/CategorySelect";
+import { DescriptionTextarea } from "../../components/DescriptionTextarea";
 
 const Create = () => {
-    const { error, fetchData } = UseFetch()  
-    const { handleChange, handleSubmit, values, errors } = UseCreate();
-    const [categories, setCategories] = useState<Category[]>([]);
-
-      useEffect(() => {
-          const getCategories = async () => {
-              await fetchData("Category/all?includeProperties=Books", { method: 'get' })
-              .then((fetchedData) => {
-                  if (!fetchedData) return;
-                  setCategories(fetchedData as unknown as Category[]);
-              })
-              .catch(err => {
-                  console.log(error)
-                  console.error('There was an error fetching the book!', err);
-              })
-          }
-          getCategories();
-      }, [error, fetchData])
+    const { handleChange, handleSubmit, values, errors, loading } = useCreate();
+    const categories   = useCategories()
 
     const inputFields = [
         { id: "title", name: "title", type: "text", label: "Title", placeholder: "Title" },
@@ -34,63 +20,45 @@ const Create = () => {
         { id: "genre", name: "genre", type: "text", label: "Genre", placeholder: "Genre" },
         { id: "publisher", name: "publisher", type: "text", label: "Publisher", placeholder: "Publisher" },
         { id: "language", name: "language", type: "text", label: "Language", placeholder: "Language" },
-        { id: "imageUrl", name: "imageUrl", type: "file", label: "Image Upload" }
     ];
 
-
     return (
-        <div className="min-h-screen bg-gray-100">
+        <div className="bg-gray-100 min-h-screen">
             <div className="flex-1 p-8">
-                <div className="bg-white rounded-lg shadow-lg p-6">
-                    <div className="flex justify-between items-center mb-6">
-                        <h1 className="text-2xl font-bold text-gray-900">Create New Book</h1>
-                        <Link to="/Books" className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 text-gray-700">Back to List</Link>
+                <div className="bg-white p-8 rounded-xl shadow-2xl border border-gray-200">
+                    <div className="mb-8 flex items-center justify-between">
+                        <h1 className="text-3xl font-extrabold text-gray-900">Create New Book</h1>
+                        <Link to="/Books" className="px-5 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">Back to List</Link>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-6">
+                    <form encType="multipart/form-data" onSubmit={handleSubmit} className="grid grid-cols-2 gap-8">
                         {inputFields.map((field) => (
-                            <Input 
-                                key={field.id} 
-                                field={field} 
-                                handleChange={handleChange} 
-                                values={{...values, numberOfPage: values.numberOfPage || 0}} 
-                                errors={{...errors, numberOfPage: errors.numberOfPage?.toString() || ''}}
+                            <Input
+                                key={field.id}
+                                field={field}
+                                handleChange={handleChange}
+                                values={{ ...values, numberOfPage: values.numberOfPage || 0 }}
+                                errors={{ ...errors, numberOfPage: errors.numberOfPage?.toString() || '' }}
                             />
                         ))}
+ 
+                        <div className="col-span-2">
+                            <CategorySelect categories={categories} selectedCategoryId={values.categoryId || ""} handleChange={handleChange} />
+                        </div>
 
-<div>
-                            <label htmlFor="categoryId" className="block text-sm font-medium text-gray-700">Category</label>
-                            <select
-                                id="categoryId"
-                                name="categoryId"
-                                onChange={handleChange}
-                                value={values.categoryId}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                            >
-                                <option value="">Select Category</option>
-                                {categories &&  categories.map((category) => (
-                                    <option key={category.id} value={category.id}>{category.name}</option>
-                                ))}
-                            </select>
+                        {/* Image Upload */}
+                        <UploadImage handleChange={handleChange} error={errors.image} />
+
+                        {/* PDF Upload */}
+                        <UploadPdf handleChange={handleChange} error={errors.pdf} />
+                
+                        <div className="col-span-2">
+                            <DescriptionTextarea handleChange={handleChange} description={values.description || ''} error={errors.description || ''} />
                         </div>
 
                         <div className="col-span-2">
-                            <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
-                            <textarea
-                                id="description"
-                                name="description"
-                                rows={4}
-                                onChange={handleChange}
-                                value={values.description}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                                placeholder="Description"
-                            ></textarea>
-                            <span className="text-red-600 text-sm">{errors.description}</span>
-                        </div>
-
-                        <div className="col-span-2">
-                            <button type="submit" className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Create Book
+                            <button type="submit" className="bg-indigo-600 text-white py-3 px-6 w-full rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors font-semibold">
+                                {loading ? 'Loading...' : 'Create'}
                             </button>
                         </div>
                     </form>

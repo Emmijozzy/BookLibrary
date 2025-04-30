@@ -16,11 +16,13 @@ import EditCategory from './Pages/Category/EditCategory';
 import ViewCategoryDetails from './Pages/Category/ViewCategory';
 import Home from './Pages/Home';
 import DeleteCategory from './Pages/Category/DeleteCategory';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
     return (
         <>
+            <ToastContainer />
             <Routes>
                 <Route path="/" element={<Layout />} >
                     <Route index element={<Home />} />

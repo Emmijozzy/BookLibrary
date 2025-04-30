@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import camelcaseKeys from "camelcase-keys";
 import { ApiError, ApiResponse, FetchOptions } from "../Types";
 import { useApi } from "./useApi";
 
@@ -8,28 +9,40 @@ const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>()
     const [metadata, setMetadata] = useState<Record<string, unknown> | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
-    const { api } = useApi();
+    const [isSuccess, setIsSuccess] = useState(false);
+    const { api, fileApi } = useApi();
 
-    const fetchData = useCallback(async <R = T>(url = "", options: FetchOptions): Promise<R> => {
+    const fetchData = useCallback(async <R = T>(url = "", options: FetchOptions, apiInstance: "api" | "fileApi" = "api"): Promise<R> => {
         const { method, data: requestData, config } = options;
 
         try {
             setLoading(true);
             setError(null);
 
-            const response = await api({
+            const response = apiInstance == "api" ? await api({
+                method: method.toLowerCase(),
+                url,
+                data: requestData,
+                ...config,
+            }) : await fileApi({
                 method: method.toLowerCase(),
                 url,
                 data: requestData,
                 ...config,
             });
 
-            const responseData = response.data as ApiResponse<R>;
+            if (response.data) {
+                response.data = camelcaseKeys(response.data, { deep: true });
+                console.log('API Response (camelcased):', response.data);
+            }
 
-            // console.log('API Response:', responseData);
+            console.log('API Response:', response);
+
+            const responseData = response.data as ApiResponse<R>;
 
             if (responseData.data) {
                 setData(responseData.data as unknown as T);
+                setIsSuccess(true);
             }
 
             if (responseData.metadata) {
@@ -38,20 +51,21 @@ const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>()
 
             return responseData.data;
         } catch (err) {
-            const apiError = err as ApiError;
-
+            const apiError = camelcaseKeys(err as Record<string, unknown>, {deep: true}) as unknown as ApiError;
+          
+            console.log('API Error:', apiError);
             // Handle different error scenarios
             if (apiError.data) {
-                const errorMessage = apiError.data.message || apiError.data.errors?.join(', ') || 'An error occurred';
+                console.log('API Error:', apiError.data?.code, apiError.data?.errors);
+                const errorMessage = `${apiError.data?.message || 'Error'}: ${apiError?.data?.errors?.join(', ') || 'An unexpected error occurred'}`;
                 setError(errorMessage);
-                console.error('API Error:', apiError.data.code, apiError.data.errors);
                 throw new Error(errorMessage);
             } else {
                 const errorMessage = 'Network error or server unavailable';
                 setError(errorMessage);
                 console.error('Network Error:', err);
                 throw new Error(errorMessage);
-            }
+            }        
         } finally {
             setLoading(false);
         }
@@ -62,11 +76,10 @@ const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>()
         data,
         metadata,
         error,
+        isSuccess,
         loading,
         fetchData,
         clearError: () => setError(null),
         clearData: () => setData(null)
     };
-};
-
-export default useFetch;
+};export default useFetch;
