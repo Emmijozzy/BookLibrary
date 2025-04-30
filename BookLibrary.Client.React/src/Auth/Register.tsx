@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import UserRegister from "../Hooks/Auth/UseRegister";
+import useRegister from "../Hooks/Auth/useRegister";
 
 const Register = () => {
 
@@ -11,7 +11,7 @@ const Register = () => {
     values,
     loading,
     resErrMes,
-  } = UserRegister();
+  } = useRegister();
 
   console.log(errors)
 

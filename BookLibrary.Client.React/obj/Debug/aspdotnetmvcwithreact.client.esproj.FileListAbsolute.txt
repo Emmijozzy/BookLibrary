@@ -1,1 +1,0 @@
-C:\Users\Emmijozzy\Desktop\C-sharp\AspDotNetMVCwithReact\aspdotnetmvcwithreact.client\obj\Debug\aspdotnetmvcwithreact.client.esproj.CoreCompileInputs.cache

@@ -65,7 +65,7 @@ obj/
 func-artifacts/
 
 # Node.js (if using frontend with .NET)
-node_modules/
+**/node_modules/
 dist/
 npm-debug.log
 yarn-error.log
