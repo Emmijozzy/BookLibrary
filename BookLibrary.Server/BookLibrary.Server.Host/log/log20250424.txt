@@ -1,0 +1,8 @@
+2025-04-24 13:47:20.010 +01:00 [INF] Application is running...
+2025-04-24 13:47:20.429 +01:00 [WRN] Overriding address(es) 'https://localhost:7257, http://localhost:5099'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-04-24 13:47:20.695 +01:00 [INF] Server running on http://[::]:5099
+2025-04-24 13:47:20.695 +01:00 [INF] Server running on https://[::]:7257
+2025-04-24 13:50:44.271 +01:00 [INF] Application is running...
+2025-04-24 13:50:44.394 +01:00 [WRN] Overriding address(es) 'http://localhost:5099'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-04-24 13:50:44.463 +01:00 [INF] Server running on http://[::]:5099
+2025-04-24 13:50:44.464 +01:00 [INF] Server running on https://[::]:7257
