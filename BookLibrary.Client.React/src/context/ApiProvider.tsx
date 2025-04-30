@@ -15,14 +15,23 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isInitialized, setIsInitialized] = useState<boolean>(false);
 
-  //Creation of api instance 
-  const apiInstance = useRef(axios.create({
-    baseURL: 'https://localhost:7257/api',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    withCredentials: true,
-  })).current;
+  //Creation of api instances with different content types
+  const api = useRef({
+    json: axios.create({
+      baseURL: 'https://localhost:7257/api',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    }),
+    formData: axios.create({
+      baseURL: 'https://localhost:7257/api',
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      withCredentials: true,
+    })
+  }).current;
     
   //Authenticate the log in user 
   const isAuthenticate = (token: string) => {
@@ -38,7 +47,7 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
   // Token refresh function
   const refreshAuthToken = async (): Promise<{ accessToken: string }> => {
     try {
-      const response = await apiInstance.post<ApiResponse<{ accessToken: string }>>('AuthApi/RefreshToken');
+      const response = await api.json.post<ApiResponse<{ accessToken: string }>>('AuthApi/RefreshToken');
       return response.data.data;
     } catch (error) {
       console.error('Error refreshing token:', error);
@@ -50,12 +59,14 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
   const updateAuthToken = (token: string | null) => {
     if (token) {
       localStorage.setItem('authToken', token);
-      apiInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      api.json.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      api.formData.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       localStorage.setItem('isAuthenticated', JSON.stringify(isAuthenticate(token)));
       setIsAuthenticated(isAuthenticate(token));
     } else {
       localStorage.removeItem('authToken');
-      delete apiInstance.defaults.headers.common['Authorization'];
+      delete api.json.defaults.headers.common['Authorization'];
+      delete api.formData.defaults.headers.common['Authorization'];
       setAppUser(null);
       localStorage.setItem('isAuthenticated', JSON.stringify(false));
       setIsAuthenticated(false);
@@ -65,52 +76,65 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
   
   // Initialize the API instance
   useEffect(() => {
-    // Set up camelCase conversion interceptor
-    apiInstance.interceptors.response.use((response) => {
-      if (response.data) {
-        response.data = camelcaseKeys(response.data, { deep: true });
-      }
-      return response;
+    // console.log("Initialize the API instance");
+    // Set up camelCase conversion interceptor for both instances
+    [api.json, api.formData].forEach(instance => {
+      instance.interceptors.response.use((response) => {
+        // console.log("Original response:", response);
+        
+        if (response.data) {
+          // Make sure we're properly converting all properties to camelCase
+          response.data = camelcaseKeys(response.data, { 
+            deep: true,
+            pascalCase: false
+          });
+          
+          // console.log("Camelcased response:", response.data);
+        }
+        return response;
+      });
     });
     
-    // Set up token refresh interceptor
-    const interceptor = apiInstance.interceptors.response.use(
-      (response) => response,
-      async (error) => {
-        const originalRequest = error.config;
-        
-        if (error.response?.status === 401 &&
-            error.response?.data?.code === 'EXPIRED_TOKEN' &&
-            !originalRequest._retry) {
+    // Set up token refresh interceptor for both instances
+    const interceptors = [api.json, api.formData].map(instance =>
+      instance.interceptors.response.use(
+        (response) => response,
+        async (error) => {
+          const originalRequest = error.config;
           
-          originalRequest._retry = true;
-          
-          try {
-            const data = await refreshAuthToken();
+          if (error.response?.status === 401 &&
+              error.response?.data?.code === 'EXPIRED_TOKEN' &&
+              !originalRequest._retry) {
             
-            // console.log('New token:', data.accessToken, "whole data",  data);
-            if (data.accessToken) {       
-            const newAuthToken = data.accessToken;
-            updateAuthToken(newAuthToken);
-            originalRequest.headers['Authorization'] = `Bearer ${newAuthToken}`;
-            } else {
-              throw new Error('Failed to refresh token');
-            }        
-            return apiInstance(originalRequest);
-          } catch (refreshError) {
-            console.error('Error refreshing token:', refreshError);
-            updateAuthToken(null);
-            return Promise.reject(refreshError);
+            originalRequest._retry = true;
+            
+            try {
+              const data = await refreshAuthToken();
+              
+              if (data.accessToken) {       
+                const newAuthToken = data.accessToken;
+                updateAuthToken(newAuthToken);
+                originalRequest.headers['Authorization'] = `Bearer ${newAuthToken}`;
+              } else {
+                throw new Error('Failed to refresh token');
+              }        
+              return instance(originalRequest);
+            } catch (refreshError) {
+              console.error('Error refreshing token:', refreshError);
+              updateAuthToken(null);
+              return Promise.reject(refreshError);
+            }
           }
+          
+          return Promise.reject(error.response || error);
         }
-        
-        return Promise.reject(error.response || error);
-      }
+      )
     );
     
     // Set initial auth token if available
     if (authToken) {
-      apiInstance.defaults.headers.common['Authorization'] = `Bearer ${authToken}`;
+      api.json.defaults.headers.common['Authorization'] = `Bearer ${authToken}`;
+      api.formData.defaults.headers.common['Authorization'] = `Bearer ${authToken}`;
       localStorage.setItem('isAuthenticated', JSON.stringify(isAuthenticate(authToken)));
       setIsAuthenticated(isAuthenticate(authToken));
     }
@@ -118,13 +142,15 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
     setIsInitialized(true);
     
     return () => {
-      apiInstance.interceptors.response.eject(interceptor);
+      interceptors.forEach((interceptor, index) => {
+        [api.json, api.formData][index].interceptors.response.eject(interceptor);
+      });
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  
+  }, []);  
   const contextValue: ApiContextType = {
-    api: apiInstance,
+    api: api.json,
+    fileApi: api.formData,
     setAuthToken: (token: string) => updateAuthToken(token),
     setAppUser,
     appUser,

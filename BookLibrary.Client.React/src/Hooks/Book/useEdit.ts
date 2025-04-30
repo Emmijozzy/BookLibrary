@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Book } from "../../Types/book";
 import bookSchema from "../../validation/bookValidation";
-import UseFetch from "../UseFetch";
+import useFetch from "../useFetch";
 
 const useEdit = () => {
     const [dataLoading, setDataLoading] = useState(false);
@@ -21,7 +21,7 @@ const useEdit = () => {
         language: ''
     });
 
-    const { error, fetchData } = UseFetch()
+    const { error, fetchData } = useFetch()
 
     useEffect(() => {
         const fetchInitial = async () => {

@@ -20,7 +20,6 @@ type Props = {
 export const Input = ({ field, handleChange, values, errors, className = "", bodyClassName = "" }: Props) => {
   const isFileInput = field.type === 'file';
 
-  console.log(values);
   return (
     <div key={field.id} className={bodyClassName}>
       <label htmlFor={field.id} className="block text-sm font-medium text-gray-700">{field.label}</label>

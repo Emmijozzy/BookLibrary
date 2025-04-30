@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Book } from "../../../Types/book";
-import UseFetch from "../../UseFetch";
+import useFetch from "../../useFetch";
 
 export const useBookData = (id: string | undefined) => {
   const [dataLoading, setDataLoading] = useState(false);
@@ -19,7 +19,7 @@ export const useBookData = (id: string | undefined) => {
     pdfUrl: ''
   });
 
-  const { error, fetchData } = UseFetch();
+  const { error, fetchData } = useFetch();
 
   useEffect(() => {
     const getBook = async () => {

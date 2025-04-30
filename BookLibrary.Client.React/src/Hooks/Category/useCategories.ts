@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Category } from "../../Types/category";
-import UseFetch from "../UseFetch";
+import useFetch from "../useFetch";
 
 export const useCategories = () => {
   const [categories, setCategories] = useState<Category[]>([]);
-  const { error, fetchData } = UseFetch();
+  const { error, fetchData } = useFetch();
   
   useEffect(() => {
     const getCategories = async () => {

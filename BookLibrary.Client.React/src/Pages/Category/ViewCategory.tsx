@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import UseFetch from '../../Hooks/UseFetch';
+import useFetch from '../../Hooks/useFetch';
 import { Category } from '../../Types/category';
 
   const ViewCategoryDetails = () => {
       const { id } = useParams();
       const navigate = useNavigate();
-      const { data, error, fetchData } = UseFetch();
+      const { data, error, fetchData } = useFetch();
       const [loading, setLoading] = useState(false);
       const [searchTerm, setSearchTerm] = useState('');
 

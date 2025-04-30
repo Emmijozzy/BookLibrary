@@ -84,9 +84,7 @@ namespace BookLibrary.Server.Infrastructure.Services
                 var uriBuilder = new UriBuilder(uri);
 
                 // Create a new query string with our parameters
-                // Create a new query string with our parameters
                 var queryString = $"api_key={_apiKey}&timestamp={timestamp}&signature={signature}";
-
 
                 // Set the query string (overwriting any existing query)
                 uriBuilder.Query = queryString;
@@ -98,13 +96,6 @@ namespace BookLibrary.Server.Infrastructure.Services
                 Console.WriteLine($"Error generating signed URL: {ex.Message}");
                 return url; // Return the original URL if there's an error
             }
-        }
-
-        public async Task<string> GetFileUrlAsync(Guid id, string type)
-        {
-            // This method would typically query your database to get the file URL
-            // For this example, we'll return a placeholder
-            throw new NotImplementedException("This method needs to be implemented to retrieve file URLs from your database");
         }
 
         private string ExtractPublicIdFromUrl(string url)
@@ -204,17 +195,5 @@ namespace BookLibrary.Server.Infrastructure.Services
             }
         }
 
-
-        //private string GenerateSignature(string publicId, int timestamp)
-        //{
-        //    var apiSecret = configuration["Cloudinary:ApiSecret"];
-        //    var stringToSign = $"public_id={publicId}×tamp={timestamp}{apiSecret}";
-
-        //    using (var sha1 = System.Security.Cryptography.SHA1.Create())
-        //    {
-        //        var hash = sha1.ComputeHash(System.Text.Encoding.UTF8.GetBytes(stringToSign));
-        //        return BitConverter.ToString(hash).Replace("-", "").ToLower();
-        //    }
-        //}
     }
 }

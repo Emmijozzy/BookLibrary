@@ -6,7 +6,7 @@ type HttpMethod = 'post' | 'get' | 'put' | 'delete' | 'patch' | 'POST' | 'GET' |
 
 export interface FetchOptions {
     method: HttpMethod;
-    data?: Record<string, unknown> | Book;
+    data?: Record<string, unknown> | Book | FormData;
     config?: AxiosRequestConfig;
 }
 

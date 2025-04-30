@@ -4,7 +4,7 @@ import BookIcon from "../assets/BookIcon";
 import CollectionICon from "../assets/CollectionICon";
 import LogOutIcon from "../assets/LogOutIcon";
 import { useApi } from "../Hooks/useApi";
-import UseFetch from "../Hooks/UseFetch";
+import useFetch from "../Hooks/useFetch";
 import NavItem from "./NavItem";
 
   type Props = {
@@ -13,7 +13,7 @@ import NavItem from "./NavItem";
   }
   
   const SideBar = ({ onNavigate, showSideBar }: Props) => {
-    const { data, error, fetchData } = UseFetch();
+    const { data, error, fetchData } = useFetch();
     const { clearAuthToken } = useApi();
     const navigate = useNavigate();
 

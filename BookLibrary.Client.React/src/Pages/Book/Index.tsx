@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaList, FaThLarge } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import UseFetch from "../../Hooks/UseFetch";
+import useFetch from "../../Hooks/useFetch";
 import { Book } from "../../Types/book";
 import BodyRow from "../../components/BodyRow";
 import BookCard from "../../components/BookCard";
@@ -9,7 +9,7 @@ import HeadRow from "../../components/HeadRow";
 import SearchBook from "../../components/SearchBook";
 
 const Index = () => {
-    const { data, error, fetchData } = UseFetch()
+    const { data, error, fetchData } = useFetch()
     const [loading, setLoading] = useState(false)
     const [viewMode, setViewMode] = useState('carpet')
     const [searchTerm, setSearchTerm] = useState('')

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { FaList, FaThLarge } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import SearchBook from '../../components/SearchBook'
-import UseFetch from '../../Hooks/UseFetch'
-import { Category } from '../../Types/category'
 import Loading from '../../components/Loading'
+import SearchBook from '../../components/SearchBook'
+import useFetch from '../../Hooks/useFetch'
+import { Category } from '../../Types/category'
 
 const ByCategory = () => {
-  const { data, error, fetchData } = UseFetch()
+  const { data, error, fetchData } = useFetch()
   const [loading, setLoading] = useState(false)
   const [viewMode, setViewMode] = useState('carpet')
   const [searchTerm, setSearchTerm] = useState('')

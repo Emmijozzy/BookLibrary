@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import UseFetch from "../../Hooks/UseFetch";
+import useFetch from "../../Hooks/useFetch";
 import { Category } from "../../Types/category";
 import ErrorMsg from "../../components/ErrorMsg";
 
@@ -13,7 +13,7 @@ const DeleteCategory = () => {
     description: "",
   });
 
-  const  {error, fetchData, } = UseFetch()
+  const  {error, fetchData, } = useFetch()
 
   useEffect(() => {
     const getCategory = async () => {

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Category } from "../../Types/category";
 import { categorySchema } from "../../validation/categorySchema";
-import useFetch from "../UseFetch";
+import useFetch from "../useFetch";
 
 const initialValues: Category = {
   name: "",

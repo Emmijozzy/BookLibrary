@@ -3,6 +3,7 @@ import { createContext } from 'react';
 
 export interface ApiContextType {
   api: AxiosInstance;
+  fileApi: AxiosInstance;
   setAuthToken: (token: string) => void;
   setAppUser: React.Dispatch<React.SetStateAction<string | null>>;
   appUser: string | null;

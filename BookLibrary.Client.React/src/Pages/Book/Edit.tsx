@@ -7,8 +7,7 @@ import { ImagePreview } from "../../components/ImagePreview";
 import { LoadingSpinner } from "../../components/LoadingSpinner";
 import { PdfPreview } from "../../components/PdfPreview";
 import { UploadImage } from "../../components/Uploads/UploadImage";
-import { UploadPdf } from "../../components/Uploads/UpLoadPdf";
-import UseEdit from "../../Hooks/Book/useEdit";
+import { UploadPdf } from "../../components/Uploads/UploadPdf";import UseEdit from "../../Hooks/Book/useEdit";
 import { useCategories } from "../../Hooks/Category/useCategories";
 
 const Edit = () => {

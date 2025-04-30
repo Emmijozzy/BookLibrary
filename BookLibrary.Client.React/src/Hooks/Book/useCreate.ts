@@ -1,10 +1,11 @@
-import axios from "axios";
+// import axios from "axios";
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Book } from "../../Types/book";
 import bookSchema from "../../validation/bookValidation";
-// import UseFetch from "../UseFetch";
+import useFetch from "../useFetch";
+import { toast } from "react-toastify";
 
 const useCreate = () => {
     const navigate = useNavigate()
@@ -19,26 +20,9 @@ const useCreate = () => {
         publisher: '',
         language: '',
         categoryId: '',
-        //image: null,
-        //pdf: null
     });
 
-    // const { fetchData } = UseFetch()
-
-    // const formik = useFormik({
-    //     enableReinitialize: true,
-    //     validationSchema: bookSchema,
-    //     initialValues: initialValues,
-    //     onSubmit: values => {
-    //         fetchData<Book>("/Book/add", { method: 'post', data: values })
-    //             .then(() => {
-    //                 navigate("/books")
-    //             })
-    //             .catch(error => {
-    //                 console.error('There was an error updating the book!', error);
-    //             });
-    //     },
-    // });
+    const { fetchData, loading, error } = useFetch()
 
     const formik = useFormik({
         enableReinitialize: true,
@@ -65,29 +49,30 @@ const useCreate = () => {
                 formData.append('pdf', values.pdf);
             }
             
-            const token = localStorage.getItem('authToken');
-            
-            axios.post('https://localhost:7257/api/Book/add', formData, {
-                headers: {
-                    'Authorization': `Bearer ${token || ''}`
-                }
-            })
+            fetchData<Book>("/Book/add", { method: 'post', data: formData }, "fileApi")
             .then(() => {
                 navigate("/books");
             })
-            .catch(error => {
+            .catch(() => {
                 console.error('There was an error creating the book!', error);
-                if (error.response) {
-                    console.error('Error response:', error.response.data);
-                }
-            });
+            })
         },
     });
+
+    useEffect ( () => {
+        if (error && loading === false) {
+            toast.error(error);
+        }
+
+        if (loading === false) {
+            toast.clearWaitingQueue();
+        }       
+    }, [error, loading]);
 
     const { handleChange, handleSubmit, values, errors } = formik;
 
 
 
-    return { handleChange, handleSubmit, values, errors };
+    return { handleChange, handleSubmit, values, errors, loading };
 }
 export default useCreate

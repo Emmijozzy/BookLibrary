@@ -19,7 +19,8 @@
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.3.0",
-    "tailwindcss": "^4.0.14",
+    "react-toastify": "^11.0.5",
+    "tailwindcss": "^4.1.4",
     "yup": "^1.6.1",
     "yup-password": "^0.4.0"
   },

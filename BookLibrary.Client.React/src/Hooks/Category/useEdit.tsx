@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Category } from "../../Types/category";
 import { categorySchema } from "../../validation/categorySchema";
-import UseFetch from "../UseFetch";
+import useFetch from "../useFetch";
 
 export const useEdit = () => {
   const { id } = useParams();
@@ -17,7 +17,7 @@ export const useEdit = () => {
   });
 
 
-  const { error, fetchData } = UseFetch()
+  const { error, fetchData } = useFetch()
 
   useEffect(() => {
       const fetchInitial = async () => {

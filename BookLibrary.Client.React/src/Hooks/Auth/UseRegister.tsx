@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Register } from "../../Auth/authInterface";
 import { registrationSchema } from "../../validation/registrationSchema";
-import UseFetch from "../UseFetch";
+import useFetch from "../useFetch";
 
 const initialValues: Register  = {
   fullName: "",
@@ -18,7 +18,7 @@ const UserRegister = () => {
 
   const navigate = useNavigate();
   
-  const { data, error, loading, fetchData }  = UseFetch();
+  const { data, error, loading, fetchData }  = useFetch();
 
   const formik = useFormik({
     initialValues,

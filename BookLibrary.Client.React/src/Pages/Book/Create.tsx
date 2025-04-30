@@ -1,14 +1,14 @@
 ﻿import { Link } from "react-router-dom";
 import { Input } from "../../components/Input";
 import { UploadImage } from "../../components/Uploads/UploadImage";
-import { UploadPdf } from "../../components/Uploads/UpLoadPdf";
+import { UploadPdf } from "../../components/Uploads/UploadPdf";
 import useCreate from "../../Hooks/Book/useCreate";
 import { useCategories } from "../../Hooks/Category/useCategories";
 import { CategorySelect } from "../../components/CategorySelect";
 import { DescriptionTextarea } from "../../components/DescriptionTextarea";
 
 const Create = () => {
-    const { handleChange, handleSubmit, values, errors } = useCreate();
+    const { handleChange, handleSubmit, values, errors, loading } = useCreate();
     const categories   = useCategories()
 
     const inputFields = [
@@ -58,7 +58,7 @@ const Create = () => {
 
                         <div className="col-span-2">
                             <button type="submit" className="bg-indigo-600 text-white py-3 px-6 w-full rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors font-semibold">
-                                Create Book
+                                {loading ? 'Loading...' : 'Create'}
                             </button>
                         </div>
                     </form>

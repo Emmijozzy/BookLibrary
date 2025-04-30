@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import UseFetch from "../../Hooks/UseFetch";
+import useFetch from "../../Hooks/useFetch";
 import { Book } from "../../Types/book";
 import ErrorMsg from "../../components/ErrorMsg";
 
@@ -21,7 +21,7 @@ const Delete = () => {
       language: ''
   });
 
-  const  {error, fetchData } = UseFetch()
+  const  {error, fetchData } = useFetch()
 
   useEffect(() => {
     const getBook = async () => {

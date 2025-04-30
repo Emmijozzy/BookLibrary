@@ -7,7 +7,6 @@ using BookLibrary.Server.Application.Interface;
 using BookLibrary.Server.Application.Services.Interface;
 using BookLibrary.Server.Domain.Entities;
 using FluentValidation;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Linq.Expressions;
 
@@ -117,15 +116,8 @@ namespace BookLibrary.Server.Application.Services.Implementation
             {
                 if (!string.IsNullOrEmpty(book.ImageUrl))
                 {
-                    try
-                    {
                         book.ImageUrl = await fileService.GetSignedUrlAsync(book.ImageUrl);
                     }
-                    catch (Exception)
-                    {
-                        // Log the error but continue processing
-                    }
-                }
 
                 if (!string.IsNullOrEmpty(book.PdfUrl))
                 {
@@ -133,11 +125,6 @@ namespace BookLibrary.Server.Application.Services.Implementation
                     {
                         book.PdfUrl = await fileService.GetSignedUrlAsync(book.PdfUrl);
                     }
-                    catch (Exception)
-                    {
-                        // Log the error but continue processing
-                    }
-                }
 
                 booksWithSignedUrls.Add(book);
             }
@@ -167,29 +154,13 @@ namespace BookLibrary.Server.Application.Services.Implementation
             // Generate signed URLs for image and PDF if they exist
             if (!string.IsNullOrEmpty(mappedData.ImageUrl))
             {
-                try
-                {
                     mappedData.ImageUrl = await fileService.GetSignedUrlAsync(mappedData.ImageUrl);
-                    logger.LogInformation("Signed URL generated for image: {ImageUrl}", mappedData.ImageUrl);
                 }
-                catch (Exception ex)
-                {
-                    // Log the error but don't fail the request
-                    // You might want to set a default image URL here
-                }
-            }
 
             if (!string.IsNullOrEmpty(mappedData.PdfUrl))
             {
-                try
-                {
                     mappedData.PdfUrl = await fileService.GetSignedUrlAsync(mappedData.PdfUrl);
                 }
-                catch (Exception ex)
-                {
-                    // Log the error but don't fail the request
-                }
-            }
 
             return ServiceResult<GetBook>.Success(mappedData, "Book fetched with ID successfully");
         }
@@ -213,13 +184,5 @@ namespace BookLibrary.Server.Application.Services.Implementation
             return ServiceResult<bool>.Success(true, "Book updated Successfully");
         }
 
-        private bool IsValidFile(IFormFile file, string[] extensions)
-        {
-            if (file == null || file.Length == 0)
-                return false;
-
-            var extension = Path.GetExtension(file.FileName).ToLower();
-            return extensions.Contains(extension);
-        }
     }
 }
