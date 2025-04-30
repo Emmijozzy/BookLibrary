@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import UserLogin from "../Hooks/Auth/UseLogin";
+import useLogin from "../Hooks/Auth/useLogin";
 
 const Login = () => {
   
@@ -13,7 +13,7 @@ const Login = () => {
     values,
     loading,
     resErrMes
-  } = UserLogin();
+  } = useLogin();
 
 
 

@@ -12,7 +12,7 @@ const initialValues: Register  = {
   confirmPassword: ""
 };
 
-const UserRegister = () => {
+const useRegister = () => {
   const effectRan = useRef(false);
   const [resErrMes, setResErrMes] = useState("")
 
@@ -60,4 +60,4 @@ const UserRegister = () => {
    resErrMes
   };
 };
-export default UserRegister;
+export default useRegister;

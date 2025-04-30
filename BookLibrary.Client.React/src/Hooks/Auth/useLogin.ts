@@ -1,20 +1,20 @@
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Login } from "../../Auth/authInterface";
 import loginSchema from "../../validation/loginSchema";
 import { useApi } from "../useApi";
 import useFetch from "../useFetch";
-import { toast } from "react-toastify"
 
 const initialValues: Login = {
     email: "",
     password: "",
 };
 
-const UserLogin = () => {
+const useLogin = () => {
     const navigate = useNavigate();
-    const { data, metadata, error, loading, fetchData, isSuccess } = useFetch();
+    const { data, metadata, error, loading, fetchData } = useFetch();
     const [errorMessage, setErrorMessage] = useState("");
     const { setAuthToken, setAppUser } = useApi();
 
@@ -25,9 +25,6 @@ const UserLogin = () => {
          await fetchData("AuthApi/login", { method: 'post', data: { ...values } });
         },
     });
-
-    console.log(data, metadata, error);
-    console.log(isSuccess, loading);
 
     useEffect(() => {
         if (error) {
@@ -55,7 +52,7 @@ const UserLogin = () => {
         return () => {
             setErrorMessage("");
         }
-    }, [data, metadata, error, navigate, setAppUser, formik.values.email, setAuthToken]);
+    }, [data, metadata, error, navigate, setAppUser, formik.values.email, setAuthToken, errorMessage]);
 
     return {
         handleSubmit: formik.handleSubmit,
@@ -68,4 +65,4 @@ const UserLogin = () => {
         resErrMes: errorMessage
     };
 };
-export default UserLogin;
+export default useLogin;
