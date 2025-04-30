@@ -32,13 +32,13 @@ namespace BookLibrary.Server.Application.Services.Implementation
             if (!validationResult.IsSuccess)
                 return ServiceResult<Guid>.Failure(validationResult.Message, validationResult.Errors ?? new[] { "Validation failed" });
 
-            if (book.Image is not null && IsValidFile(book.Image, new[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp" }))
+            if (book.Image is not null)
             {
                 var imageUrl = await fileService.UploadFileAsync(book.Image, "books/images");
                 book.ImageUrl = imageUrl;
             }
 
-            if (book.Pdf is not null && IsValidFile(book.Pdf, new[] { ".pdf" }))
+            if (book.Pdf is not null)
             {
                 var pdfUrl = await fileService.UploadFileAsync(book.Pdf, "books/pdfs");
                 book.PdfUrl = pdfUrl;
@@ -116,15 +116,14 @@ namespace BookLibrary.Server.Application.Services.Implementation
             {
                 if (!string.IsNullOrEmpty(book.ImageUrl))
                 {
-                        book.ImageUrl = await fileService.GetSignedUrlAsync(book.ImageUrl);
-                    }
+                    book.ImageUrl = await fileService.GetSignedUrlAsync(book.ImageUrl);
+                }
 
                 if (!string.IsNullOrEmpty(book.PdfUrl))
                 {
-                    try
-                    {
-                        book.PdfUrl = await fileService.GetSignedUrlAsync(book.PdfUrl);
-                    }
+
+                    book.PdfUrl = await fileService.GetSignedUrlAsync(book.PdfUrl);
+                }
 
                 booksWithSignedUrls.Add(book);
             }
@@ -154,13 +153,13 @@ namespace BookLibrary.Server.Application.Services.Implementation
             // Generate signed URLs for image and PDF if they exist
             if (!string.IsNullOrEmpty(mappedData.ImageUrl))
             {
-                    mappedData.ImageUrl = await fileService.GetSignedUrlAsync(mappedData.ImageUrl);
-                }
+                mappedData.ImageUrl = await fileService.GetSignedUrlAsync(mappedData.ImageUrl);
+            }
 
             if (!string.IsNullOrEmpty(mappedData.PdfUrl))
             {
-                    mappedData.PdfUrl = await fileService.GetSignedUrlAsync(mappedData.PdfUrl);
-                }
+                mappedData.PdfUrl = await fileService.GetSignedUrlAsync(mappedData.PdfUrl);
+            }
 
             return ServiceResult<GetBook>.Success(mappedData, "Book fetched with ID successfully");
         }

@@ -1,6 +1,7 @@
 using BookLibrary.Server.Application.DependencyInjection;
 using BookLibrary.Server.Host.Middleware;
 using BookLibrary.Server.Infrastructure.DependencyInjection;
+using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -51,6 +52,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructureService(builder.Configuration);
 builder.Services.AddApplicationService();
+//disable automatic model validation
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
+
 
 
 try
@@ -78,11 +85,11 @@ try
 
     app.UseCors("AllowReactVite");
     // Add this after your CORS configuration
-    app.Use(async (context, next) =>
-    {
-        Console.WriteLine($"Request from: {context.Request.Headers["Origin"]}");
-        await next.Invoke();
-    });
+    //app.Use(async (context, next) =>
+    //{
+    //    Console.WriteLine($"Request from: {context.Request.Headers["Origin"]}");
+    //    await next.Invoke();
+    //});
     app.UseMiddleware<ErrorHandlingMiddleware>();
     app.UseAuthentication();
     app.UseAuthorization();

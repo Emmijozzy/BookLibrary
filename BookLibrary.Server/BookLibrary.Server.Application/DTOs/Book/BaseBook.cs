@@ -1,4 +1,5 @@
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
+
 
 namespace BookLibrary.Server.Application.DTOs.Book
 {
@@ -32,4 +33,5 @@ namespace BookLibrary.Server.Application.DTOs.Book
 
         public string Language { get; set; } = string.Empty;
     }
+}
 

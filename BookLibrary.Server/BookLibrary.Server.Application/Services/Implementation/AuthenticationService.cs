@@ -51,7 +51,7 @@ namespace BookLibrary.Server.Application.Services.Implementation
             if (!isSuccess) return ServiceResult<UserDto>.Failure(message!, errors!);
 
             var (success, userFromDb, errorMsg) = await userManagement.GetUserByEmail(user.Email);
-            if (!success || userFromDb == null) throw new NotFoundException($"User with email '{user.Email}' not found.", userFromDb!.GetType());
+            if (!success || userFromDb == null) throw new NotFoundException($"User with email '{user.Email}' not found.", user.GetType());
 
             var passwordCheck = await userManagement.CheckPassword(userFromDb, user.Password);
             if (!passwordCheck) throw new InvalidPasswordException("Invalid password.");

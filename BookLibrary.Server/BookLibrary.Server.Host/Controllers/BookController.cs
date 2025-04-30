@@ -12,16 +12,15 @@ namespace BookLibrary.Server.Host.Controllers
     public class BookController(IBookService bookService, ILogger<BookController> logger) : BaseController(logger)
     {
         [HttpPost("add")]
-        public async Task<IActionResult> Create([FromForm] CreateBook bookDto)
+        public async Task<IActionResult> Create(CreateBook book)
         {
-            logger.LogInformation("Received CreateBook object: {@CreateBook}", bookDto);
-
-            var serviceResult = await bookService.Create(bookDto);
+            var serviceResult = await bookService.Create(book);
 
             return serviceResult != null && serviceResult.IsSuccess
                  ? LogAndResponse<Guid>(serviceResult, successStatusCode: StatusCodes.Status201Created)
-                 : LogAndResponse<Guid>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+                 : LogAndResponse<Guid>(serviceResult!, failureStatusCode: StatusCodes.Status400BadRequest);
         }
+
 
         [HttpGet("all")]
         public async Task<IActionResult> GetAll([FromQuery] GetBooksQuery query)
@@ -30,7 +29,7 @@ namespace BookLibrary.Server.Host.Controllers
 
             return serviceResult != null && serviceResult.IsSuccess
                 ? LogAndResponse<IEnumerable<GetBook>>(serviceResult, successStatusCode: StatusCodes.Status200OK)
-                : LogAndResponse<IEnumerable<GetBook>>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+                : LogAndResponse<IEnumerable<GetBook>>(serviceResult!, failureStatusCode: StatusCodes.Status400BadRequest);
 
         }
 
@@ -41,7 +40,7 @@ namespace BookLibrary.Server.Host.Controllers
 
             return serviceResult != null && serviceResult.IsSuccess
                ? LogAndResponse<GetBook>(serviceResult, successStatusCode: StatusCodes.Status200OK)
-               : LogAndResponse<GetBook>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+               : LogAndResponse<GetBook>(serviceResult!, failureStatusCode: StatusCodes.Status400BadRequest);
         }
 
         [HttpPut("update")]
@@ -51,7 +50,7 @@ namespace BookLibrary.Server.Host.Controllers
 
             return serviceResult != null && serviceResult.IsSuccess
                ? LogAndResponse<bool>(serviceResult, successStatusCode: StatusCodes.Status200OK)
-               : LogAndResponse<bool>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+               : LogAndResponse<bool>(serviceResult!, failureStatusCode: StatusCodes.Status400BadRequest);
 
         }
 
@@ -62,7 +61,7 @@ namespace BookLibrary.Server.Host.Controllers
 
             return serviceResult != null && serviceResult.IsSuccess
                ? LogAndResponse<bool>(serviceResult, successStatusCode: StatusCodes.Status200OK)
-               : LogAndResponse<bool>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+               : LogAndResponse<bool>(serviceResult!, failureStatusCode: StatusCodes.Status400BadRequest);
         }
     }
 }

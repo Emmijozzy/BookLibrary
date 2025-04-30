@@ -3,6 +3,7 @@ using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using System.Net;
 
 namespace BookLibrary.Server.Infrastructure.Services
@@ -14,15 +15,17 @@ namespace BookLibrary.Server.Infrastructure.Services
         private readonly string _cloudName;
         private readonly string _apiKey;
         private readonly string _apiSecret;
+        private readonly ILogger<FileUploadService> _logger;
 
-        public FileUploadService(IConfiguration configuration)
+        public FileUploadService(IConfiguration configuration, ILogger<FileUploadService> logger)
         {
             _configuration = configuration;
+            _logger = logger;
 
             // Get Cloudinary configuration
-            _cloudName = _configuration["CloudinarySettings:CloudName"];
-            _apiKey = _configuration["CloudinarySettings:ApiKey"];
-            _apiSecret = _configuration["CloudinarySettings:ApiSecret"];
+            _cloudName = _configuration["CloudinarySettings:CloudName"]!;
+            _apiKey = _configuration["CloudinarySettings:ApiKey"]!;
+            _apiSecret = _configuration["CloudinarySettings:ApiSecret"]!;
 
             // Validate configuration
             if (string.IsNullOrEmpty(_cloudName) || string.IsNullOrEmpty(_apiKey) || string.IsNullOrEmpty(_apiSecret))
@@ -37,23 +40,32 @@ namespace BookLibrary.Server.Infrastructure.Services
 
         public async Task<string> UploadFileAsync(IFormFile file, string folder)
         {
-            if (file == null || file.Length == 0)
-                throw new ArgumentException("File is required", nameof(file));
-
-            await using var stream = file.OpenReadStream();
-            var uploadParams = new ImageUploadParams
+            try
             {
-                Folder = folder,
-                File = new FileDescription(file.FileName, stream)
-            };
+                if (file == null || file.Length == 0)
+                    throw new ArgumentException("File is required", nameof(file));
 
-            var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+                await using var stream = file.OpenReadStream();
+                var uploadParams = new ImageUploadParams
+                {
+                    Folder = folder,
+                    File = new FileDescription(file.FileName, stream)
+                };
 
-            if (uploadResult.StatusCode != HttpStatusCode.OK)
-                throw new Exception($"Cloudinary upload failed: {uploadResult.Error?.Message}");
+                var uploadResult = await _cloudinary.UploadAsync(uploadParams);
 
-            Console.WriteLine("File uploaded to Cloudinary: " + uploadResult.SecureUrl.ToString());
-            return uploadResult.SecureUrl.ToString();
+                if (uploadResult.StatusCode != HttpStatusCode.OK)
+                    throw new Exception($"Cloudinary upload failed: {uploadResult.Error?.Message}");
+
+                _logger.LogInformation("File uploaded to Cloudinary: " + uploadResult.SecureUrl.ToString());
+                return uploadResult.SecureUrl.ToString();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error uploading file to Cloudinary");
+                throw;
+            }
+
         }
 
         public async Task<string> GetSignedUrlAsync(string url)
@@ -93,7 +105,7 @@ namespace BookLibrary.Server.Infrastructure.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error generating signed URL: {ex.Message}");
+                _logger.LogError(ex, "Error generating signed URL");
                 return url; // Return the original URL if there's an error
             }
         }
@@ -131,69 +143,68 @@ namespace BookLibrary.Server.Infrastructure.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error extracting public ID: {ex.Message}");
+                _logger.LogError(ex, "Error extracting public ID");
                 // Return the original URL as a fallback
                 return url;
             }
         }
 
+        //public async Task<byte[]> FetchCloudinaryFileAsync(string url)
+        //{
+        //    if (string.IsNullOrEmpty(url))
+        //        throw new ArgumentNullException(nameof(url), "URL cannot be null or empty");
 
-        public async Task<byte[]> FetchCloudinaryFileAsync(string url)
-        {
-            if (string.IsNullOrEmpty(url))
-                throw new ArgumentNullException(nameof(url), "URL cannot be null or empty");
+        //    try
+        //    {
+        //        // For PDFs, we need to use a different approach since they're stored as "raw" files in Cloudinary
+        //        bool isPdf = url.Contains(".pdf", StringComparison.OrdinalIgnoreCase);
 
-            try
-            {
-                // For PDFs, we need to use a different approach since they're stored as "raw" files in Cloudinary
-                bool isPdf = url.Contains(".pdf", StringComparison.OrdinalIgnoreCase);
+        //        if (isPdf)
+        //        {
+        //            // For PDFs, we'll use the Cloudinary API directly
+        //            // Extract the public ID from the URL
+        //            string publicId = ExtractPublicIdFromUrl(url);
 
-                if (isPdf)
-                {
-                    // For PDFs, we'll use the Cloudinary API directly
-                    // Extract the public ID from the URL
-                    string publicId = ExtractPublicIdFromUrl(url);
+        //            // Use Cloudinary's GetResourceAsync method to get the file
+        //            var getResourceParams = new GetResourceParams(publicId)
+        //            {
+        //                ResourceType = ResourceType.Raw
+        //            };
 
-                    // Use Cloudinary's GetResourceAsync method to get the file
-                    var getResourceParams = new GetResourceParams(publicId)
-                    {
-                        ResourceType = ResourceType.Raw
-                    };
+        //            var resource = await _cloudinary.GetResourceAsync(getResourceParams);
 
-                    var resource = await _cloudinary.GetResourceAsync(getResourceParams);
+        //            // Download the file from the secure URL
+        //            using (var httpClient = new HttpClient())
+        //            {
+        //                return await httpClient.GetByteArrayAsync(resource.SecureUrl);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            // For images, we can use the signed URL approach
+        //            string signedUrl = await GetSignedUrlAsync(url);
 
-                    // Download the file from the secure URL
-                    using (var httpClient = new HttpClient())
-                    {
-                        return await httpClient.GetByteArrayAsync(resource.SecureUrl);
-                    }
-                }
-                else
-                {
-                    // For images, we can use the signed URL approach
-                    string signedUrl = await GetSignedUrlAsync(url);
+        //            using (var httpClient = new HttpClient())
+        //            {
+        //                // Add API key and secret to the request headers
+        //                var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
+        //                var signature = _cloudinary.Api.SignParameters(
+        //                    new Dictionary<string, object> { { "timestamp", timestamp } }
+        //                );
 
-                    using (var httpClient = new HttpClient())
-                    {
-                        // Add API key and secret to the request headers
-                        var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
-                        var signature = _cloudinary.Api.SignParameters(
-                            new Dictionary<string, object> { { "timestamp", timestamp } }
-                        );
+        //                httpClient.DefaultRequestHeaders.Add("X-Cloudinary-API-Key", _apiKey);
+        //                httpClient.DefaultRequestHeaders.Add("X-Cloudinary-API-Secret", _apiSecret);
 
-                        httpClient.DefaultRequestHeaders.Add("X-Cloudinary-API-Key", _apiKey);
-                        httpClient.DefaultRequestHeaders.Add("X-Cloudinary-API-Secret", _apiSecret);
-
-                        return await httpClient.GetByteArrayAsync(signedUrl);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error fetching file from Cloudinary: {ex.Message}");
-                throw new HttpRequestException($"Failed to fetch file from Cloudinary: {ex.Message}", ex);
-            }
-        }
+        //                return await httpClient.GetByteArrayAsync(signedUrl);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine($"Error fetching file from Cloudinary: {ex.Message}");
+        //        throw new HttpRequestException($"Failed to fetch file from Cloudinary: {ex.Message}", ex);
+        //    }
+        //}
 
     }
 }
