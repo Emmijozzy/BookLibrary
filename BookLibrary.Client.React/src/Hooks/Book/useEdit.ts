@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Book } from "../../Types/book";
 import bookSchema from "../../validation/bookValidation";
 import useFetch from "../useFetch";
+import { toast } from "react-toastify";
 
 const useEdit = () => {
     const [dataLoading, setDataLoading] = useState(false);
@@ -21,7 +22,9 @@ const useEdit = () => {
         language: ''
     });
 
-    const { error, fetchData } = useFetch()
+
+
+    const { error, fetchData, loading } = useFetch()
 
     useEffect(() => {
         const fetchInitial = async () => {
@@ -51,7 +54,24 @@ const useEdit = () => {
         validationSchema: bookSchema,
         initialValues: initialValues,
         onSubmit: values => {
-            fetchData<Book>("Book/update", { method: 'put', data: values })
+            const formData = new FormData();
+
+            Object.keys(values).forEach((key) => {
+                const typedKey = key as keyof Book;
+                if (typedKey !== 'image' && typedKey !== 'pdf' && values[typedKey] !== undefined && values[typedKey] !== null) {
+                    formData.append(typedKey, values[typedKey].toString());
+                }
+            });
+
+            if (values.image instanceof File) {
+                formData.append('image', values.image);
+            }
+
+            if (values.pdf instanceof File) {
+                formData.append('pdf', values.pdf);
+            }
+            
+            fetchData<Book>("Book/update", { method: 'put', data: values }, "fileApi")
                 .then(() => {
                     navigate("/books")
                 })
@@ -63,8 +83,14 @@ const useEdit = () => {
 
     const { handleChange, handleSubmit, values, errors } = formik;
 
+    useEffect(() => {
+        if (error && loading === false) {
+            toast.error(error);
+        }
+    }, [error, loading]);
 
 
-    return { handleChange, handleSubmit, values, errors, dataLoading };
+
+    return { handleChange, handleSubmit, values, errors, dataLoading, loading };
 }
 export default useEdit

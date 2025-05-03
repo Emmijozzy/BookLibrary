@@ -50,12 +50,12 @@ const useCreate = () => {
             }
             
             fetchData<Book>("/Book/add", { method: 'post', data: formData }, "fileApi")
-            .then(() => {
-                navigate("/books");
-            })
-            .catch(() => {
-                console.error('There was an error creating the book!', error);
-            })
+                .then(() => {
+                    navigate("/books");
+                })
+                .catch(() => {
+                    console.error('There was an error creating the book!', error);
+                })
         },
     });
 

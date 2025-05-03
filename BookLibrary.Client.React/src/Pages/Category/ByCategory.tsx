@@ -26,7 +26,7 @@ const ByCategory = () => {
 
   const filterCategories = (categories: Category[]) => {
       return categories.filter(category => {
-          const value = category[searchField as keyof Category];
+          const value = category[searchField.toLowerCase() as keyof Category];
           if (typeof value === 'string') {
               return value.toLowerCase().includes(searchTerm.toLowerCase());
           }
@@ -43,7 +43,7 @@ const ByCategory = () => {
       const filteredCategories = filterCategories(categories);
       content = (
           <>
-              <div className="mt-2 flex flex-col sm:flex-row justify-between items-center gap-6 bg-white p-6 rounded-lg shadow-sm">
+              <div className="mt-2 flex flex-col sm:flex-row justify-between items-center gap-6 bg-white p-6 rounded-lg shadow-sm mb-2">
                   <div className="flex items-center gap-3">
                       <h1 className="text-2xl font-bold text-slate-900">Categories</h1>
                       <span className="px-3 py-1 bg-slate-100 rounded-full text-sm text-slate-600">Library Categories</span>
@@ -74,7 +74,7 @@ const ByCategory = () => {
                       </Link>
                   </div>
               </div>
-              <SearchBook setSearchTerm={setSearchTerm} setSearchField={setSearchField} searchTerm={searchTerm} searchField={searchField} />
+              <SearchBook setSearchTerm={setSearchTerm} setSearchField={setSearchField} searchTerm={searchTerm} searchField={searchField} searchOptions={[ "Name", "Description"]} />
 
               {viewMode === 'carpet' ? (
                   <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mb-4">

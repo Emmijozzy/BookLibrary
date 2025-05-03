@@ -11,11 +11,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
 // Configure Serilog
-builder.Host.UseSerilog((context, services, configuration) => configuration
+if (builder.Environment.IsDevelopment())
+{
+    builder.Host.UseSerilog((context, services, configuration) => configuration
     .ReadFrom.Configuration(context.Configuration)
     .ReadFrom.Services(services)
-    .Enrich.FromLogContext());
-
+    .Enrich.FromLogContext()
+    .Enrich.FromLogContext()
+    .MinimumLevel.Warning());
+}
 
 builder.WebHost.ConfigureKestrel(options =>
 {

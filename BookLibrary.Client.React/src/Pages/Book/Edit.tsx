@@ -11,7 +11,7 @@ import { UploadPdf } from "../../components/Uploads/UploadPdf";import UseEdit fr
 import { useCategories } from "../../Hooks/Category/useCategories";
 
 const Edit = () => {
-    const { handleChange, handleSubmit, values, errors, dataLoading } = UseEdit();
+    const { handleChange, handleSubmit, values, errors, dataLoading, loading } = UseEdit();
     const categories = useCategories();
   
     // Define form fields configuration
@@ -66,7 +66,7 @@ const Edit = () => {
                   handleChange={handleChange} 
                 />
 
-                <SubmitButton />
+                <SubmitButton isLoading={loading} />
               </form>
             </div>           
           </div>

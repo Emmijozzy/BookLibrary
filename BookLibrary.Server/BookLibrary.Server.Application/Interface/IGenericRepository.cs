@@ -16,5 +16,6 @@ namespace BookLibrary.Server.Application.Interface
         public Task<RepositoryResult<Guid>> AddAsync(TEntity entity);
         public Task<RepositoryResult<bool>> UpdateAsync(TEntity entity);
         public Task<RepositoryResult<bool>> DeleteAsync(Guid id);
+        public Task<RepositoryResult<int>> CountAsync(IEnumerable<Expression<Func<TEntity, bool>>>? filters = null);
     }
 }

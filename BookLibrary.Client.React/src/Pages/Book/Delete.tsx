@@ -21,7 +21,7 @@ const Delete = () => {
       language: ''
   });
 
-  const  {error, fetchData } = useFetch()
+  const  {error, fetchData, loading } = useFetch()
 
   useEffect(() => {
     const getBook = async () => {
@@ -98,7 +98,13 @@ const Delete = () => {
 
                 <div className="col-span-2">
                     <button onClick={handleDelete} className="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                        Confirm Delete
+                        {loading ? (
+                            <div className="flex items-center justify-center">
+                                <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white"></div>
+                            </div>
+                        ) : (
+                            'Delete'
+                        )}
                     </button>
                 </div>
             </div>

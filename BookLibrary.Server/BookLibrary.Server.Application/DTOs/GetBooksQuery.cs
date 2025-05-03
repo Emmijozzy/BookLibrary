@@ -3,6 +3,7 @@
     public class GetBooksQuery
     {
         public string? SearchTerm { get; set; }
+        public string? SearchBy { get; set; }
         public DateTime? PublishedAfter { get; set; }
         public string? Genre { get; set; }
         public string? SortBy { get; set; }

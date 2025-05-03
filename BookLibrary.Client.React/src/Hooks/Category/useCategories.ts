@@ -9,7 +9,7 @@ export const useCategories = () => {
   useEffect(() => {
     const getCategories = async () => {
       try {
-        const fetchedData = await fetchData("Category/all?includeProperties=Books", { method: 'get' });
+        const fetchedData = await fetchData("Category/all", { method: 'get' });
         if (fetchedData) {
           setCategories(fetchedData as unknown as Category[]);
         }

@@ -33,10 +33,10 @@ const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>()
 
             if (response.data) {
                 response.data = camelcaseKeys(response.data, { deep: true });
-                console.log('API Response (camelcased):', response.data);
+                // console.log('API Response (camelcased):', response.data);
             }
 
-            console.log('API Response:', response);
+            // console.log('API Response:', response);
 
             const responseData = response.data as ApiResponse<R>;
 
@@ -53,7 +53,7 @@ const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>()
         } catch (err) {
             const apiError = camelcaseKeys(err as Record<string, unknown>, {deep: true}) as unknown as ApiError;
           
-            console.log('API Error:', apiError);
+            // console.log('API Error:', apiError);
             // Handle different error scenarios
             if (apiError.data) {
                 console.log('API Error:', apiError.data?.code, apiError.data?.errors);

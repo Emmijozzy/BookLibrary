@@ -175,5 +175,28 @@ namespace BookLibrary.Server.Infrastructure.Repository
 
             return RepositoryResult<Guid>.Success(entityId.Value);
         }
+
+        public async Task<RepositoryResult<int>> CountAsync(IEnumerable<Expression<Func<TEntity, bool>>>? filters = null)
+        {
+            try
+            {
+                IQueryable<TEntity> query = dbSet;
+
+                if (filters != null)
+                {
+                    foreach (var filter in filters)
+                    {
+                        query = query.Where(filter);
+                    }
+                }
+
+                return RepositoryResult<int>.Success(await query.CountAsync());
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Unexpected error counting {EntityType}", typeof(TEntity).Name);
+                throw new DatabaseOperationException("An error occurred while counting the entities.", ex);
+            }
+        }
     }
 }

@@ -1,10 +1,19 @@
 ﻿using BookLibrary.Server.Application.DTOs.Book;
 using FluentValidation;
+using Microsoft.AspNetCore.Http;
 
 namespace BookLibrary.Server.Application.Validation.Book
 {
     public class UpdateBookValidator : AbstractValidator<UpdateBook>
     {
+        private bool HaveAllowedExtension(IFormFile file, string[] allowedExtensions)
+        {
+            if (file == null) return false;
+
+            var extension = Path.GetExtension(file.FileName);
+            return allowedExtensions.Contains(extension, StringComparer.OrdinalIgnoreCase);
+        }
+
         public UpdateBookValidator()
         {
             RuleFor(book => book.Id)
@@ -29,10 +38,13 @@ namespace BookLibrary.Server.Application.Validation.Book
                 .NotEmpty().WithMessage("Publication Date is required")
                 .Must(date => date != default(DateTime)).WithMessage("Publication Date is required");
 
-            RuleFor(book => book.ImageUrl)
-                .Matches(@"^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png|gif|bmp|webp)$")
-                .WithMessage("Image URL must be a valid URL and end with a valid image file extension (e.g., .jpg, .png).")
-                .When(book => !string.IsNullOrEmpty(book.ImageUrl));
+            RuleFor(book => book.Image)
+                .Must(Image => Image == null || HaveAllowedExtension(Image, new[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp" }))
+                .WithMessage("Image must be a .jpg, .jpeg, .png, .gif, .bmp, or .webp file");
+
+            RuleFor(book => book.Pdf)
+                .Must(pdf => pdf == null || HaveAllowedExtension(pdf, new[] { ".pdf" }))
+                .WithMessage("PDF must be a .pdf file");
 
             RuleFor(book => book.NumberOfPage)
                 .GreaterThanOrEqualTo(0).WithMessage("Number of pages must be a positive number");

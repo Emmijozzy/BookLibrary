@@ -110,6 +110,45 @@ namespace BookLibrary.Server.Infrastructure.Services
             }
         }
 
+        public async Task<Boolean> DeleteFileAsync(string url)
+        {
+            if (string.IsNullOrEmpty(url))
+                throw new ArgumentNullException(nameof(url), "URL to delete file cannot be null or empty");
+
+            try
+            {
+                // Extract the public ID from the URL
+                string publicId = ExtractPublicIdFromUrl(url);
+
+                _logger.LogInformation($"Attempting to delete file with extracted public ID: {publicId}");
+
+                // Determine if it's an Image or raw file like PDF
+                bool isPdf = url.Contains(".pdf", StringComparison.OrdinalIgnoreCase);
+                var resourceType = isPdf ? ResourceType.Raw : ResourceType.Image;
+
+                // Use Cloudinary's DestroyAsync method to delete the file
+                var deleteParams = new DeletionParams(publicId)
+                {
+                    ResourceType = resourceType
+                };
+
+                // Execute the deletion
+                var result = await _cloudinary.DestroyAsync(deleteParams);
+
+                _logger.LogInformation($"Cloudinary delete response - Result: {result.Result}, Status: {result.StatusCode}, Error: {result.Error?.Message}");
+
+                if (result.StatusCode != HttpStatusCode.OK)
+                    throw new Exception($"Cloudinary delete failed: {result.Error?.Message}");
+
+                return result.Result == "ok";
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting file from Cloudinary");
+                throw;
+            }
+        }
+
         private string ExtractPublicIdFromUrl(string url)
         {
             try
@@ -120,10 +159,39 @@ namespace BookLibrary.Server.Infrastructure.Services
                 // Split the path segments
                 var segments = uri.AbsolutePath.TrimStart('/').Split('/');
 
-                // For PDFs, the format is typically: /[resource_type]/[delivery_type]/v[version]/[public_id].[extension]
-                // For example: /raw/upload/v1234567890/folder/file.pdf
+                // The public ID should not include "upload" or version number
+                // For Cloudinary, the public ID is typically everything after the version number
 
-                // Skip resource_type and delivery_type
+                // Find the index of the version segment (starts with 'v' followed by numbers)
+                int versionIndex = -1;
+                for (int i = 0; i < segments.Length; i++)
+                {
+                    if (segments[i].StartsWith("v") && segments[i].Length > 1 &&
+                        segments[i].Substring(1).All(char.IsDigit))
+                    {
+                        versionIndex = i;
+                        break;
+                    }
+                }
+
+                // If we found a version segment, the public ID starts after it
+                if (versionIndex >= 0 && versionIndex < segments.Length - 1)
+                {
+                    var publicIdSegments = segments.Skip(versionIndex + 1).ToArray();
+                    string publicId = string.Join("/", publicIdSegments);
+
+                    // Remove file extension if present
+                    if (publicId.Contains("."))
+                    {
+                        string extension = Path.GetExtension(publicId);
+                        publicId = publicId.Substring(0, publicId.Length - extension.Length);
+                    }
+
+                    _logger.LogInformation($"Extracted public ID: {publicId} from URL: {url}");
+                    return publicId;
+                }
+
+                // Fallback: use the original extraction method
                 var remainingPath = string.Join("/", segments.Skip(2));
 
                 // Remove version number if present (v1234567890/)
@@ -136,18 +204,21 @@ namespace BookLibrary.Server.Infrastructure.Services
                 if (remainingPath.Contains("."))
                 {
                     string extension = Path.GetExtension(remainingPath);
-                    return remainingPath.Substring(0, remainingPath.Length - extension.Length);
+                    remainingPath = remainingPath.Substring(0, remainingPath.Length - extension.Length);
                 }
 
+                _logger.LogInformation($"Extracted public ID (fallback method): {remainingPath} from URL: {url}");
                 return remainingPath;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error extracting public ID");
-                // Return the original URL as a fallback
+                _logger.LogError(ex, $"Error extracting public ID from URL: {url}");
+                // Return just the URL as a fallback
                 return url;
             }
         }
+
+
 
         //public async Task<byte[]> FetchCloudinaryFileAsync(string url)
         //{
