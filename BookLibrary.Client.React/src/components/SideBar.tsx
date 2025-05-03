@@ -8,11 +8,10 @@ import useFetch from "../Hooks/useFetch";
 import NavItem from "./NavItem";
 
   type Props = {
-    onNavigate : (path: string) => void;
     showSideBar: boolean;
   }
   
-  const SideBar = ({ onNavigate, showSideBar }: Props) => {
+  const SideBar = ({ showSideBar }: Props) => {
     const { data, error, fetchData } = useFetch();
     const { clearAuthToken } = useApi();
     const navigate = useNavigate();
@@ -44,18 +43,16 @@ import NavItem from "./NavItem";
           clearAuthToken();
           navigate("/");
         }
-    
-        console.log(error)
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+          // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [data, error, navigate])
 
 
     return (
-      <div className={`absolute flex flex-col card w-72 bg-white p-5 shadow-md shadow-purple-200/50 rounded-md h-[calc(100vh-95px)] ${showSideBar ? 'translate-x-0' : '-translate-x-full'} transition-all duration-300 ease-in-out md:translate-x-0`}>
+      <div className={`absolute flex flex-col border-r border-gray-200 card w-72 bg-white p-5 h-[calc(100vh-120px)] ${showSideBar ? 'translate-x-0' : '-translate-x-full'} transition-all duration-300 ease-in-out md:translate-x-0`}>
         <ul className="w-full h-full flex flex-col gap-2">
           {
             navItems.map((item, index) => (
-              <NavItem onNavigate={onNavigate} key={index} navItem={item.name} Icon={item.icon} path={item.path} />
+              <NavItem key={index} navItem={item.name} Icon={item.icon} path={item.path} />
             ))
           }
 
