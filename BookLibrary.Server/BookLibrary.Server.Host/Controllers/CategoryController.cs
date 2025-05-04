@@ -19,6 +19,7 @@ namespace BookLibrary.Server.Host.Controllers
                 : LogAndResponse<Guid>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
         }
 
+
         [HttpGet("all")]
         public async Task<IActionResult> GetAll([FromQuery] int pageNumber, int pageSize, string? includeProperties = null)
         {
