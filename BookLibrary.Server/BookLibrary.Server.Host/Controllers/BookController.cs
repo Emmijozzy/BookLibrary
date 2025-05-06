@@ -36,6 +36,12 @@ namespace BookLibrary.Server.Host.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id, [FromQuery] string IncludeProperties = null!)
         {
+            var userId = User.FindFirst("Id")?.Value;
+            var fullName = User.FindFirst("FullName")?.Value;
+
+            logger.LogInformation("User ID: {UserId}, Full Name: {FullName} logger control", userId, fullName);
+            Console.WriteLine($"User ID: {userId}, Full Name: {fullName} console control");
+
             var serviceResult = await bookService.GetById(id, IncludeProperties);
 
             return serviceResult != null && serviceResult.IsSuccess

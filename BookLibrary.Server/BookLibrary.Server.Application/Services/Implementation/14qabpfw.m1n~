@@ -22,33 +22,11 @@ namespace BookLibrary.Server.Application.Services.Implementation
         IValidator<CreateBook> CreateBookValidator,
         IValidator<UpdateBook> UpdateBookValidator,
         IFileUploadService fileService,
-        IHttpContextAccessor httpContextAccessor,
-        IUserManagement userManagement
+        IHttpContextAccessor httpContextAccessor
         ) : IBookService
     {
-
-        private async Task<(Guid userId, ApplicationUser user)> GetUserEssential()
-        {
-            var userIdStr = httpContextAccessor.HttpContext?.User?.FindFirst("Id")?.Value;
-            logger.LogInformation("User ID: {UserId} at Create Book service", userIdStr);
-
-            if (string.IsNullOrEmpty(userIdStr))
-                throw new PermissionDeniedException("Unauthorized: User ID is missing.");
-
-            Guid userId = Guid.TryParse(userIdStr, out Guid userIdGuid) ? userIdGuid : throw new PermissionDeniedException("Unauthorized: User ID is invalid.");
-
-            var (_, user, _) = await userManagement.GetUserById(userIdStr!);
-            if (user == null) throw new NotFoundException("User not found", user!.GetType());
-
-            return (userId, user);
-        }
-
         public async Task<ServiceResult<Guid>> Create(CreateBook book)
         {
-            var (userId, user) = await GetUserEssential();
-
-            book.CreatedBy = userId;
-
             if (book == null) throw new ArgumentNullException(nameof(book), "Book data's are required");
 
             var validationResult = await validationService.validateAsync<CreateBook>(book, CreateBookValidator);
@@ -82,18 +60,6 @@ namespace BookLibrary.Server.Application.Services.Implementation
         public async Task<ServiceResult<IEnumerable<GetBook>>> GetAll(GetBooksQuery query)
         {
             List<Expression<Func<Book, bool>>> filters = new List<Expression<Func<Book, bool>>>();
-
-            var (userId, _) = await GetUserEssential();
-
-            //CreatedBy filter
-            if (userId != Guid.Empty)
-            {
-                filters.Add(book => book.CreatedBy == userId);
-            }
-            if (userId == Guid.Empty) throw new PermissionDeniedException("Unauthorized: User ID is missing.");
-
-            // Search by CreatedBy filter
-            filters.Add(book => book.CreatedBy == userId);
 
             // Add search term filter if provided
             if (!string.IsNullOrEmpty(query.SearchTerm))
@@ -252,15 +218,10 @@ namespace BookLibrary.Server.Application.Services.Implementation
 
         public async Task<ServiceResult<bool>> Delete(Guid id)
         {
-            var (userId, _) = await GetUserEssential();
-
             if (id == Guid.Empty) throw new ArgumentException("Book ID is required", nameof(id));
 
             var fetchedBook = (await bookInterface.GetByIdAsync(id)).Result;
             if (fetchedBook == null) throw new NotFoundException("Book not found", fetchedBook!.GetType());
-
-            //Allow to delete only your own books
-            if (fetchedBook.CreatedBy != userId) throw new PermissionDeniedException("You can only delete your own books.");
 
             if (fetchedBook.ImageUrl is not null)
             {
@@ -280,16 +241,17 @@ namespace BookLibrary.Server.Application.Services.Implementation
 
         public async Task<ServiceResult<GetBook>> GetById(Guid id, string? includeProperties = null)
         {
-            var (userId, _) = await GetUserEssential();
+            var userId = httpContextAccessor.HttpContext?.User?.FindFirst("Id")?.Value;
+            var fullName = httpContextAccessor.HttpContext?.User?.FindFirst("FullName")?.Value;
+
+            logger.LogInformation("User ID: {UserId}, Full Name: {FullName} logger", userId, fullName);
+            Console.WriteLine($"User ID: {userId}, Full Name: {fullName} console");
 
             if (id == Guid.Empty) throw new ArgumentException("Book ID is required", nameof(id));
 
             var reposResult = await bookInterface.GetByIdAsync(id, includeProperties);
             if (!reposResult.IsSuccess && reposResult.Result == null)
                 throw new NotFoundException("Book not found", reposResult.Result!.GetType());
-
-            //Allow to fetch only your own books
-            if (reposResult.Result!.CreatedBy != userId) throw new PermissionDeniedException("You can only fetch your own books.");
 
             var mappedData = mapper.Map<GetBook>(reposResult.Result);
 
@@ -309,17 +271,12 @@ namespace BookLibrary.Server.Application.Services.Implementation
 
         public async Task<ServiceResult<bool>> Update(UpdateBook book)
         {
-            var (userId, _) = await GetUserEssential();
-
             var validationResult = await validationService.validateAsync<UpdateBook>(book, UpdateBookValidator);
             if (!validationResult.IsSuccess) return ServiceResult<bool>.Failure(validationResult.Message, validationResult.Errors! ?? new[] { "Validation failed" });
 
             var existingBook = (await bookInterface.GetByIdAsync(book.Id)).Result;
             if (existingBook is null)
                 throw new NotFoundException("Book not found", typeof(Book));
-
-            // Allow to update only your own books
-            if (existingBook.CreatedBy != userId) throw new PermissionDeniedException("You can only update your own books.");
 
             mapper.Map(book, existingBook);
 

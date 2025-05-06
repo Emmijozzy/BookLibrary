@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BookLibrary.Server.Domain.Entities;
+using Microsoft.AspNetCore.Http;
 
 
 namespace BookLibrary.Server.Application.DTOs.Book
@@ -32,6 +33,8 @@ namespace BookLibrary.Server.Application.DTOs.Book
         public string Publisher { get; set; } = string.Empty;
 
         public string Language { get; set; } = string.Empty;
+
+        public Guid? CreatedBy { get; set; }
     }
 }
 

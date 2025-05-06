@@ -51,6 +51,9 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = key,
                     ClockSkew = TimeSpan.Zero,
+
+                    NameClaimType = "sub",
+                    RoleClaimType = "role"
                 };
                 options.Events = new JwtBearerEvents
                 {
@@ -124,6 +127,7 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
             services.AddScoped<IUserManagement, UserManagement>();
             services.AddScoped<IFileUploadService, FileUploadService>();
             services.AddTransient<IClientIpAccessor, HttpContextClientIpAccessor>();
+
 
             return services;
         }

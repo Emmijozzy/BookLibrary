@@ -72,6 +72,10 @@ namespace BookLibrary.Server.Host.Middleware
                     StatusCodes.Status401Unauthorized,
                     CreateErrorResponse("UNAUTHORIZED", invalidePasswordEx)),
 
+                PermissionDeniedException permissionDeniedEx => (
+                    StatusCodes.Status403Forbidden,
+                    CreateErrorResponse("PERMISSION_DENIED", permissionDeniedEx)),
+
                 UserNotFoundException notFoundEx => (
                     StatusCodes.Status404NotFound,
                     CreateErrorResponse("NOT_FOUND", notFoundEx)),

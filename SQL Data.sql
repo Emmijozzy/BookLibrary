@@ -311,3 +311,7 @@ VALUES
 UPDATE Books
 SET CategoryId = '00000000-0000-0000-0000-000000000001' -- Replace with a valid CategoryId
 WHERE CategoryId is null;
+
+UPDATE Books  
+SET CreatedBy = '25623af3-5cf2-414f-be26-57c58ab90569'  
+WHERE CreatedBy = '00000000-0000-0000-0000-000000000000';

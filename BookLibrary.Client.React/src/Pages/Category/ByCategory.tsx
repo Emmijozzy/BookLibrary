@@ -7,8 +7,7 @@ import useFetch from '../../Hooks/useFetch'
 import { Category } from '../../Types/category'
 
 const ByCategory = () => {
-  const { data, error, fetchData } = useFetch()
-  const [loading, setLoading] = useState(false)
+  const { data, error, fetchData, loading } = useFetch()
   const [viewMode, setViewMode] = useState('carpet')
   const [searchTerm, setSearchTerm] = useState('')
   const [searchField, setSearchField] = useState('name')
@@ -17,9 +16,8 @@ const ByCategory = () => {
 
   useEffect(() => {
       const getCategories = async () => {
-          setLoading(true)
-          await fetchData("Category/all?includeProperties=Books", { method: 'get' })
-          setLoading(false)
+        //   await fetchData("Category/all?includeProperties=Books", { method: 'get' })
+          await fetchData("Category/all-with-user-books", { method: 'get' })
       }
       getCategories();
   }, [fetchData])
