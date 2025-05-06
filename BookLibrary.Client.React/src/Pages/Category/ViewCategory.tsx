@@ -13,7 +13,7 @@ import { Category } from '../../Types/category';
       useEffect(() => {
           const getCategory = async () => {
               setLoading(true);
-              await fetchData(`Category/${id}?includeProperties=Books`, { method: 'get' });
+              await fetchData(`Category/${id}/user-books`, { method: 'get' });
               setLoading(false);
           };
           getCategory();

@@ -18,7 +18,8 @@ if (builder.Environment.IsDevelopment())
     .ReadFrom.Services(services)
     .Enrich.FromLogContext()
     .Enrich.FromLogContext()
-    .MinimumLevel.Warning());
+    //.MinimumLevel.Warning()
+    );
 }
 
 builder.WebHost.ConfigureKestrel(options =>

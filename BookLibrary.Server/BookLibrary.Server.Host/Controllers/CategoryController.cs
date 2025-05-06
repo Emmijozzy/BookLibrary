@@ -29,10 +29,28 @@ namespace BookLibrary.Server.Host.Controllers
                : LogAndResponse<IEnumerable<GetCategory>>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
         }
 
+        [HttpGet("all-with-user-books")]
+        public async Task<IActionResult> GetAllWithUserBooks(int pageNumber, int pageSize)
+        {
+            var serviceResult = await categoryService.GetAllWithUserBooks(pageNumber, pageSize);
+            return serviceResult != null && serviceResult.IsSuccess
+               ? LogAndResponse<IEnumerable<GetCategory>>(serviceResult, successStatusCode: StatusCodes.Status200OK)
+               : LogAndResponse<IEnumerable<GetCategory>>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id, [FromQuery] string? includeProperties = null)
         {
             var serviceResult = await categoryService.GetById(id, includeProperties);
+            return serviceResult != null && serviceResult.IsSuccess
+                ? LogAndResponse<GetCategory>(serviceResult, successStatusCode: StatusCodes.Status200OK)
+                : LogAndResponse<GetCategory>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+        }
+
+        [HttpGet("{id}/user-books")]
+        public async Task<IActionResult> GetWithUserBooks(Guid userId_Books, Guid id, [FromQuery] string? includeProperties = null)
+        {
+            var serviceResult = await categoryService.GetByIdWithUserBooks(id);
             return serviceResult != null && serviceResult.IsSuccess
                 ? LogAndResponse<GetCategory>(serviceResult, successStatusCode: StatusCodes.Status200OK)
                 : LogAndResponse<GetCategory>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
