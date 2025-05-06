@@ -8,7 +8,6 @@ using BookLibrary.Server.Domain.Entities;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using System.Security.Claims;
 
 namespace BookLibrary.Server.Application.Services.Implementation
 {
@@ -72,7 +71,7 @@ namespace BookLibrary.Server.Application.Services.Implementation
             var repoResult = await categoryInterface.GetAllAsync(
                 pageNumber: pageNumber,
                 pageSize: pageSize,
-                includeProperties: "Books,Books.User"
+                includeProperties: "Booksgi"
             );
 
             if (repoResult == null || !repoResult.IsSuccess)
@@ -137,7 +136,7 @@ namespace BookLibrary.Server.Application.Services.Implementation
             // Get current user ID
             var userId = await GetCurrentUserId();
 
-            var reposResult = await categoryInterface.GetByIdAsync(id, "Books,Books.User");
+            var reposResult = await categoryInterface.GetByIdAsync(id, "Books");
             if (reposResult == null) throw new CategoryOperationException("Error while fetching Category");
 
             if (!reposResult.IsSuccess && reposResult.Result == null) throw new NotFoundException("Category not found", reposResult.Result.GetType());
