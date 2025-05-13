@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { FaList, FaThLarge } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Loading from '../../components/Loading'
-import SearchBook from '../../components/SearchBook'
+import SearchBar from '../../components/SearchBar'
 import useFetch from '../../Hooks/useFetch'
 import { Category } from '../../Types/category'
 
@@ -72,7 +72,7 @@ const ByCategory = () => {
                       </Link>
                   </div>
               </div>
-              <SearchBook setSearchTerm={setSearchTerm} setSearchField={setSearchField} searchTerm={searchTerm} searchField={searchField} searchOptions={[ "Name", "Description"]} />
+              <SearchBar setSearchTerm={setSearchTerm} setSearchField={setSearchField} searchTerm={searchTerm} searchField={searchField} searchOptions={[ "Name", "Description"]} />
 
               {viewMode === 'carpet' ? (
                   <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mb-4">

@@ -10,7 +10,7 @@ type Props = {
     searchOptions: string[];
 }
 
-const SearchBook = ({searchField, searchTerm, setSearchField, setSearchTerm, onSearch, searchOptions}: Props) => {
+const SearchBar = ({searchField, searchTerm, setSearchField, setSearchTerm, onSearch, searchOptions}: Props) => {
     const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm);
 
     const handleSearch = () => {
@@ -41,7 +41,7 @@ const SearchBook = ({searchField, searchTerm, setSearchField, setSearchTerm, onS
             <select 
               value={searchField}
               onChange={(e) => setSearchField(e.target.value)}
-              className="w-full rounded border border-slate-300 px-3 py-2 bg-white focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+              className="w-full rounded border border-slate-300 px-3 py-2 bg-white focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 capitalize"
               aria-label="Search field"
             >
               {
@@ -105,4 +105,4 @@ const SearchBook = ({searchField, searchTerm, setSearchField, setSearchTerm, onS
     );
 };
 
-export default SearchBook;
+export default SearchBar;

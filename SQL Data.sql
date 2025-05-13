@@ -300,6 +300,8 @@ DEALLOCATE TableCursor
 
 select * from Books
 
+select * from users
+
 select * from Categories
 
 INSERT INTO Categories (Id, Name, CreatedAt, UpdatedAt)
@@ -313,5 +315,36 @@ SET CategoryId = '00000000-0000-0000-0000-000000000001' -- Replace with a valid 
 WHERE CategoryId is null;
 
 UPDATE Books  
-SET CreatedBy = '25623af3-5cf2-414f-be26-57c58ab90569'  
-WHERE CreatedBy = '00000000-0000-0000-0000-000000000000';
+set CreatedBy = 'e91619ed-464b-468c-9511-f69130e97f5b'
+where CreatedBy = '25623af3-5cf2-414f-be26-57c58ab90569';  
+
+SELECT * FROM ASPNETUSERS
+
+UPDATE ASPNETUSERS  
+SET ID = NEWID()  
+WHERE USERNAME = 'admin@booklibrary.com';
+
+
+-- The error occurs because the `UserId` in the `AspNetUsers` table is referenced by the `AspNetUserRoles` table through a foreign key constraint.  
+-- To resolve this, you need to update or delete the related records in the `AspNetUserRoles` table before updating the `AspNetUsers` table.  
+
+-- Step 1: Update or delete related records in AspNetUserRoles  
+DELETE FROM AspNetUserRoles  
+WHERE UserId = (SELECT Id FROM AspNetUsers WHERE UserName = 'admin@booklibrary.com');  
+
+-- Step 2: Update the UserId in AspNetUsers  
+UPDATE AspNetUsers  
+SET Id = NEWID()  
+WHERE UserName = 'admin@booklibrary.com';  
+
+-- Step 3: Reinsert the updated UserId into AspNetUserRoles if necessary  
+INSERT INTO AspNetUserRoles (UserId, RoleId)  
+VALUES  
+((SELECT Id FROM AspNetUsers WHERE UserName = 'admin@booklibrary.com'), '1');
+
+select * from refreshtokens
+
+INSERT INTO AspNetUserRoles (UserId, RoleId)  
+VALUES  
+('e91619ed-464b-468c-9511-f69130e97f5b', 'c6da810a-10f5-4dda-863d-1bc8d59dc69d');
+

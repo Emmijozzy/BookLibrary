@@ -1,0 +1,211 @@
+﻿using AutoMapper;
+using BookLibrary.Server.Application.Common;
+using BookLibrary.Server.Application.DTOs;
+using BookLibrary.Server.Application.DTOs.User;
+using BookLibrary.Server.Application.Exceptions;
+using BookLibrary.Server.Application.Interface;
+using BookLibrary.Server.Application.Services.Interface;
+using BookLibrary.Server.Domain.Entities;
+using System.Linq.Expressions;
+
+namespace BookLibrary.Server.Application.Services.Implementation
+{
+    public class UserService(IUserManagement userInterface, IMapper mapper) : IUserService
+    {
+        public async Task<ServiceResult<UserDto>> GetUserById(string id, string? includeProperties = null)
+        {
+            if (string.IsNullOrEmpty(id))
+                throw new ArgumentNullException(nameof(id), "User ID is required.");
+
+            //// Try to parse as Guid if possible
+            //Guid.TryParse(id, out Guid userId);
+
+            //if (userId == Guid.Empty)
+            //    throw new ArgumentException("User ID is invalid.");
+
+            // Use the updated GetUserById method that accepts a Guid
+            var userResult = await userInterface.GetUserById(id, "");
+
+            if (!userResult.IsSuccess || userResult.Result == null)
+                throw new NotFoundException("User not found", typeof(ApplicationUser));
+
+            var user = mapper.Map<UserDto>(userResult.Result);
+
+            // Get user roles
+            var rolesResult = await userInterface.GetUserRoles(userResult.Result);
+            if (rolesResult.IsSuccess && rolesResult.Result != null)
+            {
+                user.Roles = rolesResult.Result;
+            }
+
+            return ServiceResult<UserDto>.Success(user, "User fetched successfully");
+        }
+
+        public async Task<ServiceResult<ICollection<UserDto>>> GetUsers(GetUsersQuery query)
+        {
+            //I want to see the whole qury comming
+            logger.LogInformation("Query: {Query}", query);
+
+            // Create filters based on search term if provided
+            List<Expression<Func<ApplicationUser, bool>>> filters = new List<Expression<Func<ApplicationUser, bool>>>();
+
+            if (!string.IsNullOrEmpty(query.SearchTerm))
+            {
+                string searchTermLower = query.SearchTerm.ToLower();
+                filters.Add(user =>
+                    user.Email!.ToLower().Contains(searchTermLower) ||
+                    user.FullName.ToLower().Contains(searchTermLower) ||
+                    user.UserName!.ToLower().Contains(searchTermLower)
+                );
+            }
+
+            // Configure default ordering
+            //Func<IQueryable<ApplicationUser>, IOrderedQueryable<ApplicationUser>> orderBy =
+            //    q => q.OrderBy(u => u.FullName);
+
+            Func<IQueryable<ApplicationUser>, IOrderedQueryable<ApplicationUser>> orderBy = null!;
+
+            if (string.IsNullOrEmpty(query.SortBy))
+            {
+                switch (query.SortBy!.ToLower())
+                {
+                    case "name":
+                        orderBy = q => q.OrderBy(u => u.FullName);
+                        break;
+                    case "name_desc":
+                        orderBy = q => q.OrderByDescending(u => u.FullName);
+                        break;
+                    case "email":
+                        orderBy = q => q.OrderBy(u => u.Email);
+                        break;
+                    case "email_desc":
+                        orderBy = q => q.OrderByDescending(u => u.Email);
+                        break;
+                    default:
+                        orderBy = q => q.OrderBy(u => u.FullName);
+                        break;
+                }
+            }
+
+            // Get users with pagination and filters
+            var usersResult = await userInterface.GetAllUsers(
+                filters,
+                orderBy,
+                pageNumber: query.PageNumber,
+                pageSize: query.PageSize,
+                includeProperties: query.IncludeProperties
+            );
+
+            if (!usersResult.IsSuccess || usersResult.Result == null)
+                throw new NotFoundException("Users not found", typeof(ApplicationUser));
+
+            var users = mapper.Map<ICollection<UserDto>>(usersResult.Result);
+
+            // Get roles for each user
+            foreach (var user in usersResult.Result)
+            {
+                var rolesResult = await userInterface.GetUserRoles(user);
+                if (rolesResult.IsSuccess && rolesResult.Result != null)
+                {
+                    var userDto = users.FirstOrDefault(x => x.Id == user.Id);
+                    if (userDto != null)
+                    {
+                        userDto.Roles = rolesResult.Result;
+                    }
+                }
+            }
+
+            return ServiceResult<ICollection<UserDto>>.Success(users, "Users fetched successfully");
+        }
+
+
+
+        public Task<ServiceResult<UserDto>> CreateUser(UserDto user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ServiceResult<UserDto>> DeleteUser(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<ServiceResult<UserDto>> UpdateUser(string id, UpdateUserDto user)
+        {
+            if (user == null) throw new ArgumentNullException(nameof(user), "User data is required.");
+
+            if (id == null) throw new ArgumentNullException(nameof(id), "User ID is required.");
+
+            var userResult = await userInterface.GetUserById(id, "");
+            if (!userResult.IsSuccess || userResult.Result == null)
+                throw new NotFoundException("User not found", typeof(ApplicationUser));
+
+            var updatedUser = mapper.Map(user, userResult.Result);
+
+            var updatedUserResult = await userInterface.UpdateUser(updatedUser);
+            if (!updatedUserResult.IsSuccess || updatedUserResult.Result == null)
+                throw new UserOperationException("User update failed");
+
+            var mappedUser = mapper.Map<UserDto>(updatedUserResult.Result);
+            return ServiceResult<UserDto>.Success(mappedUser, "User updated successfully");
+
+        }
+
+        //UpdateUserRoles
+        public async Task<ServiceResult<UserDto>> UpdateUserRoles(string id, UpdateUserRolesDto userRoles)
+        {
+            // Input validation
+            if (userRoles == null) throw new ArgumentNullException(nameof(userRoles), "User roles data is required.");
+            if (id == null) throw new ArgumentNullException(nameof(id), "User ID is required.");
+
+            // Get user
+            var userResult = await userInterface.GetUserById(id, "");
+            if (!userResult.IsSuccess || userResult.Result == null)
+                throw new NotFoundException("User not found", typeof(ApplicationUser));
+
+            // Update roles
+            var userRoleResult = await userInterface.UpdateUserRoles(userResult.Result, userRoles.Roles);
+            if (!userRoleResult.IsSuccess)
+                throw new UserOperationException($"User roles update failed: {userRoleResult.ErrorMessage}");
+
+            // Map to DTO
+            var mappedUser = mapper.Map<UserDto>(userResult.Result);
+            mappedUser.Roles = userRoleResult.Result!;
+
+            return ServiceResult<UserDto>.Success(mappedUser, "User roles updated successfully");
+        }
+
+        public async Task<ServiceResult<bool>> LockUser(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                throw new ArgumentNullException(nameof(id), "User ID is required.");
+
+            var userResult = await userInterface.GetUserById(id, "");
+            if (!userResult.IsSuccess || userResult.Result == null)
+                throw new NotFoundException("User not found", typeof(ApplicationUser));
+
+            var lockedUserResult = await userInterface.LockUser(userResult.Result);
+            if (!lockedUserResult.IsSuccess)
+                throw new UserOperationException($"User lock failed: {lockedUserResult.ErrorMessage}");
+
+            return ServiceResult<bool>.Success(true, "User locked successfully");
+        }
+
+        public async Task<ServiceResult<bool>> UnlockUser(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                throw new ArgumentNullException(nameof(id), "User ID is required.");
+
+            var userResult = await userInterface.GetUserById(id, "");
+            if (!userResult.IsSuccess || userResult.Result == null)
+                throw new NotFoundException("User not found", typeof(ApplicationUser));
+
+            var unlockedUserResult = await userInterface.UnlockUser(userResult.Result);
+            if (!unlockedUserResult.IsSuccess)
+                throw new UserOperationException($"User unlock failed: {unlockedUserResult.ErrorMessage}");
+
+            return ServiceResult<bool>.Success(true, "User unlocked successfully");
+        }
+
+    }
+}

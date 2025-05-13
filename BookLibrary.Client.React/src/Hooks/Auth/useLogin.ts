@@ -37,6 +37,11 @@ const useLogin = () => {
             const token = metadata.accessToken as string;
             const email = formik.values.email;
 
+            if (data && typeof data === 'object' && 'locked' in data && data.locked) {
+                navigate("/account-restricted");
+                return;
+            }
+
             // Store auth data
             localStorage.setItem('authToken', token);
             localStorage.setItem('appUser', email);
@@ -52,9 +57,7 @@ const useLogin = () => {
         return () => {
             setErrorMessage("");
         }
-    }, [data, metadata, error, navigate, setAppUser, formik.values.email, setAuthToken, errorMessage]);
-
-    return {
+    }, [data, metadata, error, navigate, setAppUser, formik.values.email, setAuthToken, errorMessage]);    return {
         handleSubmit: formik.handleSubmit,
         handleBlur: formik.handleBlur,
         handleChange: formik.handleChange,
@@ -64,5 +67,4 @@ const useLogin = () => {
         resData: data,
         resErrMes: errorMessage
     };
-};
-export default useLogin;
+};export default useLogin;

@@ -28,7 +28,7 @@ const Home = () => {
 
         <Link className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:bg-blue-500 hover:text-blue-100 active:bg-blue-700 active:text-blue-300 focus-visible:outline-blue-600 animate-fade-in-left"
            to="Auth/Login">
-            <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24"
+            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24"
                  aria-hidden="true" className="h-3 w-3 flex-none" height="1em" width="1em"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M10 9V6.414L4.707 11.707a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L4 9.586 8.293 5.293A1 1 0 0 1 9 6v3h11a1 1 0 1 1 0 2H9v3.586l-3.293-3.293a1 1 0 0 1 0-1.414l6-6zM17 3h-6a3 3 0 0 0-3 3v4H7V6a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5h-6a3 3 0 0 0-3 3v4h2v-4a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v4a5 5 0 0 1-5 5h-6a5 5 0 0 1-5-5V6a3 3 0 0 0-3-3h6a3 3 0 0 1 3 3v4h-1V6a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5h-6a3 3 0 0 0-3 3v4H4v4h14v-4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v4h-2v4a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-4a3 3 0 0 0-3-3h-6a3 3 0 0 0-3 3v4H6v-4a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v4a5 5 0 0 1-5 5h-6a5 5 0 0 1-5-5V6a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a1 1 0 0 1-1 1H4V6a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5h-6a1 1 0 0 1-1-1v-4a3 3 0 0 0-3-3H4a3 3 0 0 0-3 3V4h1v5a1 1 0 0 1 1 1h1V4a1 1 0 0 1 1-1h6V6h1V4a1 1 0 0 1 1-1z"></path>
@@ -38,7 +38,7 @@ const Home = () => {
 
         <Link className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-green-600 text-white hover:bg-green-500 hover:text-green-100 active:bg-green-700 active:text-green-300 focus-visible:outline-green-600 animate-fade-in-right"
            to="Auth/Register">
-            <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24"
+            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24"
                  aria-hidden="true" className="h-3 w-3 flex-none" height="1em" width="1em"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0-7C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-18a8 8 0 1 0 0 16 8 8 0 0 0 0-16z"></path>

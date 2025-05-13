@@ -22,6 +22,53 @@ namespace BookLibrary.Server.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("BookLibrary.Server.Domain.Entities.ApplicationRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "c6da810a-10f5-4dda-863d-1bc8d59dc69d",
+                            Description = "Administrator role with full access",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "47029514-1de4-4807-8043-3dcd4dafe6c7",
+                            Description = "Standard user role with limited access",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
+                });
+
             modelBuilder.Entity("BookLibrary.Server.Domain.Entities.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -89,6 +136,25 @@ namespace BookLibrary.Server.Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "99dd87f0-a0bd-4a97-8511-0995c825b611",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "cb704a49-5f57-4f98-9dfa-e21eb5643263",
+                            Email = "admin@booklibrary.com",
+                            EmailConfirmed = true,
+                            FullName = "System Administrator",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@BOOKLIBRARY.COM",
+                            NormalizedUserName = "ADMIN@BOOKLIBRARY.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDVHFO7qJ9EtS5hPjVy2Du5C0ahiTbXyx5Wi5wQeQtc0U2GYqV0fjVk8KDirLqBQbg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "c01fabfc-ec46-4675-bfdf-ae60dbc55038",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@booklibrary.com"
+                        });
                 });
 
             modelBuilder.Entity("BookLibrary.Server.Domain.Entities.Book", b =>
@@ -211,33 +277,6 @@ namespace BookLibrary.Server.Infrastructure.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("AspNetRoles", (string)null);
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -323,6 +362,13 @@ namespace BookLibrary.Server.Infrastructure.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "99dd87f0-a0bd-4a97-8511-0995c825b611",
+                            RoleId = "c6da810a-10f5-4dda-863d-1bc8d59dc69d"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -357,7 +403,7 @@ namespace BookLibrary.Server.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("BookLibrary.Server.Domain.Entities.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -384,7 +430,7 @@ namespace BookLibrary.Server.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("BookLibrary.Server.Domain.Entities.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -11,11 +11,15 @@ namespace BookLibrary.Server.Application.Interface
             int? pageNumber = null!,
             int? pageSize = null!,
             string? includeProperties = null
-            );
+         );
         public Task<RepositoryResult<TEntity>> GetByIdAsync(Guid id, string? includeProperties = null);
         public Task<RepositoryResult<Guid>> AddAsync(TEntity entity);
         public Task<RepositoryResult<bool>> UpdateAsync(TEntity entity);
         public Task<RepositoryResult<bool>> DeleteAsync(Guid id);
         public Task<RepositoryResult<int>> CountAsync(IEnumerable<Expression<Func<TEntity, bool>>>? filters = null);
+        public Task<RepositoryResult<bool>> DeleteByPropertyAsync<TProperty>(
+            Expression<Func<TEntity, TProperty>> propertySelector,
+            TProperty propertyValue
+        );
     }
 }

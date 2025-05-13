@@ -1,5 +1,6 @@
-import { FaEdit, FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { handleBack } from "../../Utils/handleBack";
 
 export const BookActions = ({ bookId }: { bookId: string }) => (
   <div className="flex space-x-6">
@@ -11,12 +12,12 @@ export const BookActions = ({ bookId }: { bookId: string }) => (
       Edit Book
     </Link>
   
-    <Link 
-      to="/Books"
+    <button 
+      onClick={handleBack}
       className="w-full py-3 px-4 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 shadow-md flex items-center justify-center"
     >
       <FaArrowLeft className="mr-2" />
       Back to List
-    </Link>
+    </button>
   </div>
 );

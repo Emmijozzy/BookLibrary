@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import ErrorMsg from "../../components/ErrorMsg";
 import useFetch from "../../Hooks/useFetch";
 import { Book } from "../../Types/book";
-import ErrorMsg from "../../components/ErrorMsg";
+import { handleBack } from "../../Utils/handleBack";
 
 const Delete = () => {
   const [dataLoading, setDataLoading] = useState(false);
@@ -71,7 +72,7 @@ const Delete = () => {
         <div className="bg-white rounded-lg shadow-lg p-6">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl font-bold text-red-600">Delete Book</h1>
-                <Link to="/Books" className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 text-gray-700">Back to List</Link>
+                <button onClick={handleBack} className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 text-gray-700">Back to List</button>
             </div>
 
             {error && (

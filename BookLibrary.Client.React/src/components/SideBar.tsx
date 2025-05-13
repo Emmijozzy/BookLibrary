@@ -1,10 +1,8 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import BookIcon from "../assets/BookIcon";
 import CollectionICon from "../assets/CollectionICon";
 import LogOutIcon from "../assets/LogOutIcon";
-import { useApi } from "../Hooks/useApi";
-import useFetch from "../Hooks/useFetch";
+import useLogout from "../Hooks/Auth/useLogout";
+import { useApp } from "../Hooks/useApp";
 import NavItem from "./NavItem";
 
   type Props = {
@@ -12,9 +10,9 @@ import NavItem from "./NavItem";
   }
   
   const SideBar = ({ showSideBar }: Props) => {
-    const { data, error, fetchData } = useFetch();
-    const { clearAuthToken } = useApi();
-    const navigate = useNavigate();
+    const { currentRole } = useApp();
+    const isAdmin = currentRole === "Admin";  
+    const {handlerLogout} = useLogout()
 
     const navItems = [
       {
@@ -27,33 +25,49 @@ import NavItem from "./NavItem";
         icon: <CollectionICon />,
         path: 'categories',
       },
+      {
+        name: 'Profile',
+        icon: <CollectionICon />,
+        path: 'profile',
+      }
     ]
 
-    const handlerLogout = () => {
-      const authToken = localStorage.getItem("authToken") as string
-      const values = {
-        token: authToken
+    const navItemsAdmin = [
+      {
+        name: 'Books',
+        icon: <BookIcon />,
+        path: 'books',
+      },
+      {
+        name: 'Categories',
+        icon: <CollectionICon />,
+        path: 'categories',
+      },
+      {
+        name: 'Users',
+        icon: <CollectionICon />,
+        path: 'users',
+      },
+      {
+        name: 'Profile',
+        icon: <CollectionICon />,
+        path: 'profile',
       }
-       fetchData("AuthApi/logout", {method: 'post', data: {...values}});
-    }
-
-      useEffect(() => {
-        if(data) {
-          localStorage.removeItem("authToken");
-          clearAuthToken();
-          navigate("/");
-        }
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [data, error, navigate])
+    ]
 
 
     return (
       <div className={`absolute flex flex-col border-r border-gray-200 card w-72 bg-white p-5 h-[calc(100vh-120px)] ${showSideBar ? 'translate-x-0' : '-translate-x-full'} transition-all duration-300 ease-in-out md:translate-x-0`}>
         <ul className="w-full h-full flex flex-col gap-2">
           {
-            navItems.map((item, index) => (
-              <NavItem key={index} navItem={item.name} Icon={item.icon} path={item.path} />
-            ))
+            isAdmin 
+              ?  navItemsAdmin.map((item, index) => (
+                  <NavItem key={index} navItem={item.name} Icon={item.icon} path={item.path} />
+                ))
+
+              :  navItems.map((item, index) => (
+                  <NavItem key={index} navItem={item.name} Icon={item.icon} path={item.path} />
+                ))
           }
 
           <li className="flex-center cursor-pointer p-16-semibold w-full whitespace-nowrap mt-auto">

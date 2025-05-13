@@ -21,9 +21,9 @@ namespace BookLibrary.Server.Application.DependencyInjection
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IValidationService, ValidationService>();
             services.AddValidatorsFromAssemblyContaining<CreateBookValidator>();
-
 
             return services;
         }

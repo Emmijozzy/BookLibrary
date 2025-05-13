@@ -1,8 +1,8 @@
-import { Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom";
 
 const Main = () => {
   return (
-    <main role="main" className="mx-[2rem] md:mx-[5rem] lg:mx-[8rem]">
+    <main role="main" className="block w-full h-[calc(100vh-120px)] px-4">
         <Outlet />
     </main>
   )

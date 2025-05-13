@@ -3,6 +3,7 @@ using BookLibrary.Server.Application.DTOs.Book;
 using BookLibrary.Server.Application.Services.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BookLibrary.Server.Host.Controllers
 {
@@ -31,6 +32,28 @@ namespace BookLibrary.Server.Host.Controllers
                 ? LogAndResponse<IEnumerable<GetBook>>(serviceResult, successStatusCode: StatusCodes.Status200OK)
                 : LogAndResponse<IEnumerable<GetBook>>(serviceResult!, failureStatusCode: StatusCodes.Status400BadRequest);
 
+        }
+
+        [HttpGet("all-users-books")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetAllUsersBooks([FromQuery] GetBooksQuery query)
+        {
+            var serviceResult = await bookService.GetAllUsersBooks(query);
+
+            return serviceResult != null && serviceResult.IsSuccess
+                ? LogAndResponse<IEnumerable<GetBook>>(serviceResult, successStatusCode: StatusCodes.Status200OK)
+                : LogAndResponse<IEnumerable<GetBook>>(serviceResult!, failureStatusCode: StatusCodes.Status400BadRequest);
+        }
+
+        //user-books
+        [HttpGet("user-books/{userId}")]
+        public async Task<IActionResult> GetAllUserBooks(Guid userId, [FromQuery] GetBooksQuery query)
+        {
+            var serviceResult = await bookService.GetAllUserBooks(userId, query);
+
+            return serviceResult != null && serviceResult.IsSuccess
+                ? LogAndResponse<IEnumerable<GetBook>>(serviceResult, successStatusCode: StatusCodes.Status200OK)
+                : LogAndResponse<IEnumerable<GetBook>>(serviceResult!, failureStatusCode: StatusCodes.Status400BadRequest);
         }
 
         [HttpGet("{id}")]

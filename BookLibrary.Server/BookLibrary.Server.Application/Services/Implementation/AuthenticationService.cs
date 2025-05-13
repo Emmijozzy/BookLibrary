@@ -73,6 +73,7 @@ namespace BookLibrary.Server.Application.Services.Implementation
                 FullName = userFromDb.FullName,
                 Id = userFromDb.Id,
                 isAuthenticated = true,
+                Locked = userFromDb.LockoutEnd != null
             }, "Login successfully", new { accessToken });
         }
 

@@ -1,4 +1,5 @@
-import { useState, useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import useFetch from "../useFetch";
 
 interface BookQuery {
@@ -73,6 +74,17 @@ const useBook = () => {
             setTotalItems(metadata.totalCount as number || 0);
         }
     }, [metadata]);
+
+    // Notify for error 
+    useEffect ( () => {
+        if (error && loading === false) {
+            toast.error(error);
+        }
+
+        if (loading === false) {
+            toast.clearWaitingQueue();
+        }       
+    }, [error, loading]);
 
     // Handle page change
     const handlePageChange = useCallback((newPage: number) => {

@@ -1,9 +1,10 @@
 import axios from "axios";
 import camelcaseKeys from "camelcase-keys";
 import { jwtDecode } from "jwt-decode";
-import { ReactNode, useEffect, useState, useRef } from "react";
-import { ApiResponse } from "../Types";
+import { ReactNode, useEffect, useRef, useState } from "react";
+import { ApiResponse, JwtDecode } from "../Types";
 import { ApiContext, ApiContextType } from "./ApiContext";
+import { useApp } from "../Hooks/useApp";
 
 interface ApiProviderProps {
   children: ReactNode;
@@ -14,6 +15,8 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
   const [appUser, setAppUser] = useState<string | null>(localStorage.getItem('appUser'));
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isInitialized, setIsInitialized] = useState<boolean>(false);
+  const [userRoles, setUserRoles] = useState<string[]>([]);
+  const { setCurrentRole, currentRole } = useApp();
 
   //Creation of api instances with different content types
   const api = useRef({
@@ -33,10 +36,11 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
     })
   }).current;
     
-  //Authenticate the log in user 
+  //Authenticate the log in user  // ahm trying to save the userRole in state but it keep disturbing the whole app so i comment it out
   const isAuthenticate = (token: string) => {
     try {
-      const decode = jwtDecode(token as string);
+      const decode = jwtDecode(token as string) as JwtDecode;
+      // console.log("Decoded Token:", decode);
       return (decode.sub === appUser);
     } catch (error) {
       console.error('Error decoding token:', error);
@@ -61,14 +65,14 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
       localStorage.setItem('authToken', token);
       api.json.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       api.formData.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      localStorage.setItem('isAuthenticated', JSON.stringify(isAuthenticate(token)));
+      // localStorage.setItem('isAuthenticated', JSON.stringify(isAuthenticate(token)));
       setIsAuthenticated(isAuthenticate(token));
     } else {
       localStorage.removeItem('authToken');
       delete api.json.defaults.headers.common['Authorization'];
       delete api.formData.defaults.headers.common['Authorization'];
       setAppUser(null);
-      localStorage.setItem('isAuthenticated', JSON.stringify(false));
+      // localStorage.setItem('isAuthenticated', JSON.stringify(false));
       setIsAuthenticated(false);
     }
     setAuthToken(token);
@@ -147,7 +151,31 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
       });
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);  
+  }, []); 
+  
+  
+  //initialize User Roles
+  useEffect(() => {
+    try {
+      if (authToken) {
+        const decode = jwtDecode(authToken as string) as JwtDecode;
+        if (decode.Roles) {
+          setUserRoles(decode.Roles);
+          if (!currentRole) {
+            setCurrentRole(Array.isArray(decode.Roles) ? decode.Roles[0] as "User" | "Admin" : decode.Roles as "User" | "Admin");
+            localStorage.setItem('currentRole', decode.Roles[0] as "User" | "Admin");
+          }
+        }
+        else {
+          setUserRoles(["User"]);
+          setCurrentRole("User");
+          localStorage.setItem('currentRole', "User");
+        }
+      }
+    } catch(e) {
+      console.error("Error decoding JWT:", e);
+    }
+  }, [authToken, currentRole, setCurrentRole])  
   const contextValue: ApiContextType = {
     api: api.json,
     fileApi: api.formData,
@@ -156,7 +184,8 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
     appUser,
     clearAuthToken: () => updateAuthToken(null),
     isAuthenticated,
-    isInitialized
+    isInitialized,
+    userRoles
   };
   
   // Only render children when initialization is complete

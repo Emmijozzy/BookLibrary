@@ -4,12 +4,13 @@ import { ApiError, ApiResponse, FetchOptions } from "../Types";
 import { useApi } from "./useApi";
 
 
-const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>() => {
+const useFetch = <T = unknown>() => {
     const [data, setData] = useState<T | null>(null);
     const [metadata, setMetadata] = useState<Record<string, unknown> | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [message, setMessage] = useState<string | null>(null);
     const { api, fileApi } = useApi();
 
     const fetchData = useCallback(async <R = T>(url = "", options: FetchOptions, apiInstance: "api" | "fileApi" = "api"): Promise<R> => {
@@ -36,9 +37,11 @@ const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>()
                 // console.log('API Response (camelcased):', response.data);
             }
 
-            // console.log('API Response:', response);
-
             const responseData = response.data as ApiResponse<R>;
+
+            if (responseData.message) {
+                setMessage(responseData.message);
+            }
 
             if (responseData.data) {
                 setData(responseData.data as unknown as T);
@@ -78,6 +81,7 @@ const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>()
         error,
         isSuccess,
         loading,
+        message,
         fetchData,
         clearError: () => setError(null),
         clearData: () => setData(null)

@@ -24,6 +24,12 @@ namespace BookLibrary.Server.Host.Middleware
                 logger.LogInformation("Request entering ErrorHandlingMiddleware: {Path}", context.Request.Path);
                 await next(context);
                 logger.LogInformation("Response leaving ErrorHandlingMiddleware: {StatusCode}", context.Response.StatusCode);
+
+                if (context.Response.StatusCode == StatusCodes.Status403Forbidden)
+                {
+                    await HandleExceptionAsync(context, new PermissionDeniedException("You do not have sufficient permissions to access this resource"));
+                }
+
             }
             catch (Exception ex)
             {
@@ -133,6 +139,20 @@ namespace BookLibrary.Server.Host.Middleware
             {
                 metadata.Additional["StackTrace"] = ex!.StackTrace!;
                 metadata.Additional["Source"] = ex.Source!;
+            }
+
+            // Add custom details for permission denied errors
+            if (ex is PermissionDeniedException)
+            {
+                metadata.Additional["RequiredPermission"] = "Admin";
+                metadata.Additional["ResourceType"] = "Book";
+
+                return ApiResponse<object>.Failure(
+                    "Access Denied",
+                    code,
+                    new[] { "You do not have sufficient permissions to access this resource", "This operation requires administrator privileges" },
+                    metadata
+                );
             }
 
             return ApiResponse<object>.Failure(

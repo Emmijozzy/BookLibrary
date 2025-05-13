@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Text;
 
 namespace BookLibrary.Server.Infrastructure.DependencyInjection
@@ -25,8 +26,7 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
 
-            // Identity configuration
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<AspBookProjectContext>();
 
             // Authentication configuration
@@ -53,7 +53,7 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
                     ClockSkew = TimeSpan.Zero,
 
                     NameClaimType = "sub",
-                    RoleClaimType = "role"
+                    RoleClaimType = ClaimTypes.Role,
                 };
                 options.Events = new JwtBearerEvents
                 {

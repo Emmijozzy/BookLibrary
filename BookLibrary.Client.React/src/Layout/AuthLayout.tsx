@@ -1,11 +1,12 @@
 import Footer from "../components/Footer"
-import Header from "../components/Header"
 import Main from "../components/Main"
+import AuthHeader from "../components/AuthHeader"
+
 
 const AuthLayout = () => {
   return (
     <div className='w-full min-h-screen flex flex-col'>
-      <Header />
+      <AuthHeader />
       <Main />
       <Footer />
     </div>

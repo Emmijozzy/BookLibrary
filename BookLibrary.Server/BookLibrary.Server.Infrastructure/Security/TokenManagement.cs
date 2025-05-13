@@ -147,7 +147,7 @@ namespace BookLibrary.Server.Infrastructure.Security
                 if (userId == null) throw new ArgumentNullException("User id can not be null");
 
                 var refreshToken = context.RefreshTokens.FirstOrDefault(r => r.UserId == userId);
-                if (refreshToken == null) 
+                if (refreshToken == null)
                 {
                     // logger.LogWarning($"Refresh token not found for user {userId}");
                     throw new KeyNotFoundException("Refresh token not found");

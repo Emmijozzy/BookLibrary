@@ -1,11 +1,11 @@
-﻿import { Link } from "react-router-dom";
+﻿import { CategorySelect } from "../../components/CategorySelect";
+import { DescriptionTextarea } from "../../components/DescriptionTextarea";
 import { Input } from "../../components/Input";
 import { UploadImage } from "../../components/Uploads/UploadImage";
 import { UploadPdf } from "../../components/Uploads/UploadPdf";
 import useCreate from "../../Hooks/Book/useCreate";
 import { useCategories } from "../../Hooks/Category/useCategories";
-import { CategorySelect } from "../../components/CategorySelect";
-import { DescriptionTextarea } from "../../components/DescriptionTextarea";
+import { handleBack } from "../../Utils/handleBack";
 
 const Create = () => {
     const { handleChange, handleSubmit, values, errors, loading } = useCreate();
@@ -28,7 +28,7 @@ const Create = () => {
                 <div className="bg-white p-8 rounded-xl shadow-2xl border border-gray-200">
                     <div className="mb-8 flex items-center justify-between">
                         <h1 className="text-3xl font-extrabold text-gray-900">Create New Book</h1>
-                        <Link to="/Books" className="px-5 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">Back to List</Link>
+                        <button onClick={handleBack} className="px-5 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">Back to List</button>
                     </div>
 
                     <form encType="multipart/form-data" onSubmit={handleSubmit} className="grid grid-cols-2 gap-8">

@@ -249,6 +249,235 @@ namespace BookLibrary.Server.Application.Services.Implementation
             );
         }
 
+        public async Task<ServiceResult<IEnumerable<GetBook>>> GetAllUsersBooks(GetBooksQuery query)
+        {
+            List<Expression<Func<Book, bool>>> filters = new List<Expression<Func<Book, bool>>>();
+
+            //Filter Book by userId if exist in query
+            if (query.UserId is not null)
+            {
+                Guid.TryParse(query.UserId, out Guid userId);
+
+                if (userId != Guid.Empty)
+                {
+                    filters.Add(book => book.CreatedBy == userId);
+                }
+            }
+
+            // Add search term filter if provided
+            if (!string.IsNullOrEmpty(query.SearchTerm))
+            {
+                string searchTermLower = query.SearchTerm.ToLower();
+
+                // Replace Contains with EF Core compatible version
+                if (!string.IsNullOrEmpty(query.SearchBy))
+                {
+                    string searchBy = query.SearchBy.ToLower();
+
+                    if (searchBy == "title")
+                    {
+                        filters.Add(book => book.Title.ToLower().Contains(searchTermLower));
+                    }
+                    else if (searchBy == "author")
+                    {
+                        filters.Add(book => book.Author.ToLower().Contains(searchTermLower));
+                    }
+                    else if (searchBy == "genre")
+                    {
+                        filters.Add(book => book.Genre!.ToLower().Contains(searchTermLower));
+                    }
+                    else if (searchBy == "description")
+                    {
+                        filters.Add(book => book.Description.ToLower().Contains(searchTermLower));
+                    }
+                    else if (searchBy == "isbn")
+                    {
+                        filters.Add(book => book.Isbn.ToLower().Contains(searchTermLower));
+                    }
+                    else if (searchBy == "language")
+                    {
+                        filters.Add(book => book.Language.ToLower().Contains(searchTermLower));
+                    }
+                    else if (searchBy == "publisher")
+                    {
+                        filters.Add(book => book.Publisher.ToLower().Contains(searchTermLower));
+                    }
+                    else
+                    {
+                        // Default: search across all fields
+                        filters.Add(book =>
+                            book.Title.ToLower().Contains(searchTermLower) ||
+                            book.Author.ToLower().Contains(searchTermLower) ||
+                            (book.Genre != null && book.Genre.ToLower().Contains(searchTermLower)) ||
+                            book.Isbn.ToLower().Contains(searchTermLower) ||
+                            book.Description.ToLower().Contains(searchTermLower) ||
+                            book.Language.ToLower().Contains(searchTermLower) ||
+                            book.Publisher.ToLower().Contains(searchTermLower)
+                        );
+                    }
+                }
+                else
+                {
+                    // If no search field specified, search across all fields
+                    filters.Add(book =>
+                        book.Title.ToLower().Contains(searchTermLower) ||
+                        book.Author.ToLower().Contains(searchTermLower) ||
+                        (book.Genre != null && book.Genre.ToLower().Contains(searchTermLower)) ||
+                        book.Description.ToLower().Contains(searchTermLower) ||
+                        book.Language.ToLower().Contains(searchTermLower) ||
+                        book.Publisher.ToLower().Contains(searchTermLower)
+                    );
+                }
+            }
+
+            // Add publication date filter if provided
+            if (query.PublishedAfter.HasValue)
+            {
+                filters.Add(book => book.PublicationDate >= query.PublishedAfter.Value);
+            }
+
+            // Add genre filter if provided
+            if (!string.IsNullOrEmpty(query.Genre))
+            {
+                filters.Add(book => book.Genre.ToLower() == query.Genre.ToLower());
+            }
+
+            // Configure sorting
+            Func<IQueryable<Book>, IOrderedQueryable<Book>>? orderBy = null;
+
+            if (!string.IsNullOrEmpty(query.SortBy))
+            {
+                string sortBy = query.SortBy.ToLower();
+
+                if (sortBy == "title")
+                    orderBy = q => q.OrderBy(b => b.Title);
+                else if (sortBy == "title_desc")
+                    orderBy = q => q.OrderByDescending(b => b.Title);
+                else if (sortBy == "author")
+                    orderBy = q => q.OrderBy(b => b.Author);
+                else if (sortBy == "author_desc")
+                    orderBy = q => q.OrderByDescending(b => b.Author);
+                else if (sortBy == "published_date")
+                    orderBy = q => q.OrderBy(b => b.PublicationDate);
+                else if (sortBy == "published_date_desc")
+                    orderBy = q => q.OrderByDescending(b => b.PublicationDate);
+                else
+                    orderBy = q => q.OrderBy(b => b.Title); // Default sorting
+            }
+
+            // Get books with pagination and filters
+            var repoResult = await bookInterface.GetAllAsync(
+                filters,
+                orderBy,
+                pageNumber: query.PageNumber,
+                pageSize: query.PageSize,
+                includeProperties: query.IncludeProperties
+            );
+
+            if (repoResult == null)
+                throw new BookRetrievalException("Error fetching books");
+
+            if (repoResult.Result == null || !repoResult.Result.Any())
+                return ServiceResult<IEnumerable<GetBook>>.Success(
+                    Enumerable.Empty<GetBook>(),
+                    "No books found matching the criteria",
+                    new { TotalPages = 0, TotalCount = 0 }
+                );
+
+            var getBooks = mapper.Map<IEnumerable<GetBook>>(repoResult.Result);
+
+            // Generate signed URLs for each book
+            var booksWithSignedUrls = new List<GetBook>();
+            foreach (var book in getBooks)
+            {
+                if (!string.IsNullOrEmpty(book.ImageUrl))
+                {
+                    book.ImageUrl = await fileService.GetSignedUrlAsync(book.ImageUrl);
+                }
+
+                if (!string.IsNullOrEmpty(book.PdfUrl))
+                {
+                    book.PdfUrl = await fileService.GetSignedUrlAsync(book.PdfUrl);
+                }
+
+                booksWithSignedUrls.Add(book);
+            }
+
+            // Get total count for pagination
+            var resultCount = await bookInterface.CountAsync(filters);
+            if (resultCount == null)
+                throw new BookRetrievalException("Error fetching book count");
+
+            var totalCount = resultCount.Result;
+            var totalPages = Math.Ceiling((double)totalCount / query.PageSize);
+
+            return ServiceResult<IEnumerable<GetBook>>.Success(
+                booksWithSignedUrls,
+                "Books fetched successfully",
+                new { TotalPages = totalPages, TotalCount = totalCount }
+            );
+        }
+
+        public async Task<ServiceResult<IEnumerable<GetBook>>> GetAllUserBooks(Guid userId, GetBooksQuery query)
+        {
+            List<Expression<Func<Book, bool>>> filters = new List<Expression<Func<Book, bool>>>();
+
+            if (userId != Guid.Empty)
+            {
+                filters.Add(book => book.CreatedBy == userId);
+            }
+
+            var repoResult = await bookInterface.GetAllAsync(
+                filters,
+                null,
+                pageNumber: query.PageNumber,
+                pageSize: query.PageSize,
+                includeProperties: query.IncludeProperties
+            );
+
+            if (repoResult == null)
+                throw new BookRetrievalException("Error fetching books");
+
+            if (repoResult.Result == null || !repoResult.Result.Any())
+                return ServiceResult<IEnumerable<GetBook>>.Success(
+                    Enumerable.Empty<GetBook>(),
+                    "No books found matching the criteria",
+                    new { TotalPages = 0, TotalCount = 0 }
+                );
+
+            var getBooks = mapper.Map<IEnumerable<GetBook>>(repoResult.Result);
+
+            // Generate signed URLs for each book
+            var booksWithSignedUrls = new List<GetBook>();
+            foreach (var book in getBooks)
+            {
+                if (!string.IsNullOrEmpty(book.ImageUrl))
+                {
+                    book.ImageUrl = await fileService.GetSignedUrlAsync(book.ImageUrl);
+                }
+
+                if (!string.IsNullOrEmpty(book.PdfUrl))
+                {
+                    book.PdfUrl = await fileService.GetSignedUrlAsync(book.PdfUrl);
+                }
+
+                booksWithSignedUrls.Add(book);
+            }
+
+            // Get total count for pagination
+            var resultCount = await bookInterface.CountAsync(filters);
+            if (resultCount == null)
+                throw new BookRetrievalException("Error fetching book count");
+
+            var totalCount = resultCount.Result;
+
+            return ServiceResult<IEnumerable<GetBook>>.Success(
+                booksWithSignedUrls,
+                "Books fetched successfully",
+                new { TotalCount = totalCount }
+            );
+        }
+
 
         public async Task<ServiceResult<bool>> Delete(Guid id)
         {
