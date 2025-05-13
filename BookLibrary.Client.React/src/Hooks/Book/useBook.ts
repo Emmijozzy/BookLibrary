@@ -11,11 +11,11 @@ interface BookQuery {
   pageNumber: number;
   pageSize: number;
   includeProperties?: string;
+  isPrivate?: boolean;
 }
 
-const useBook = () => {
-  const { data, error, fetchData, metadata } = useFetch();
-    const [loading, setLoading] = useState(false);
+const useBook = (userId?: string) => {
+  const { data, error, fetchData, loading, metadata } = useFetch();
     const [viewMode, setViewMode] = useState('carpet');
     const [searchTerm, setSearchTerm] = useState('');
     const [searchField, setSearchField] = useState('title');
@@ -27,9 +27,7 @@ const useBook = () => {
     const [totalItems, setTotalItems] = useState(0);
 
     // Function to fetch books with query parameters
-    const fetchBooks = useCallback(async (queryParams: BookQuery) => {
-        setLoading(true);
-        
+    const fetchBooks = useCallback(async (queryParams: BookQuery) => {        
         // Convert query object to URL parameters
         const params = new URLSearchParams();
         Object.entries(queryParams).forEach(([key, value]) => {
@@ -39,11 +37,10 @@ const useBook = () => {
         });
         
         const queryString = params.toString();
-        const endpoint = `Book/all${queryString ? `?${queryString}` : ''}`;
+        const endpoint = userId ?  `Book/user-books/${userId}${queryString ? `?${queryString}` : ''}`:  `Book/all-public-books${queryString ? `?${queryString}` : ''}`;
         
         await fetchData(endpoint, { method: 'get' });
-        setLoading(false);
-    }, [fetchData]);
+    }, [fetchData, userId]);
 
     // Update query when search term or field changes
     useEffect(() => {

@@ -21,6 +21,7 @@ namespace BookLibrary.Server.Host.Controllers
 
 
         [HttpGet("all")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAll([FromQuery] int pageNumber, int pageSize, string? includeProperties = null)
         {
             var serviceResult = await categoryService.GetAll(pageNumber, pageSize, includeProperties);
@@ -38,7 +39,28 @@ namespace BookLibrary.Server.Host.Controllers
                : LogAndResponse<IEnumerable<GetCategory>>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
         }
 
+        [HttpGet("all-with-users-books")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetAllWithUsersBooks(int pageNumber, int pageSize)
+        {
+            var serviceResult = await categoryService.GetAllWithUsersBooks(pageNumber, pageSize);
+            return serviceResult != null && serviceResult.IsSuccess
+               ? LogAndResponse<IEnumerable<GetCategory>>(serviceResult, successStatusCode: StatusCodes.Status200OK)
+               : LogAndResponse<IEnumerable<GetCategory>>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+        }
+
+        [HttpGet("all-with-users-public-books")]
+        public async Task<IActionResult> GetAllWithUsersPublicBooks(int pageNumber, int pageSize)
+        {
+            var serviceResult = await categoryService.GetAllWithUsersPublicBooks(pageNumber, pageSize);
+            return serviceResult != null && serviceResult.IsSuccess
+               ? LogAndResponse<IEnumerable<GetCategory>>(serviceResult, successStatusCode: StatusCodes.Status200OK)
+               : LogAndResponse<IEnumerable<GetCategory>>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+        }
+
+
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Get(Guid id, [FromQuery] string? includeProperties = null)
         {
             var serviceResult = await categoryService.GetById(id, includeProperties);
@@ -51,6 +73,15 @@ namespace BookLibrary.Server.Host.Controllers
         public async Task<IActionResult> GetWithUserBooks(Guid userId_Books, Guid id, [FromQuery] string? includeProperties = null)
         {
             var serviceResult = await categoryService.GetByIdWithUserBooks(id);
+            return serviceResult != null && serviceResult.IsSuccess
+                ? LogAndResponse<GetCategory>(serviceResult, successStatusCode: StatusCodes.Status200OK)
+                : LogAndResponse<GetCategory>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+        }
+
+        [HttpGet("{id}/users-public-books")]
+        public async Task<IActionResult> GetByIdWithUsersPublicBooks(Guid userId_Books, Guid id, [FromQuery] string? includeProperties = null)
+        {
+            var serviceResult = await categoryService.GetByIdWithUsersPublicBooks(id);
             return serviceResult != null && serviceResult.IsSuccess
                 ? LogAndResponse<GetCategory>(serviceResult, successStatusCode: StatusCodes.Status200OK)
                 : LogAndResponse<GetCategory>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);

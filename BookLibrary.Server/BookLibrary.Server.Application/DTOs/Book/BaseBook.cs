@@ -35,6 +35,7 @@ namespace BookLibrary.Server.Application.DTOs.Book
         public string Language { get; set; } = string.Empty;
 
         public Guid? CreatedBy { get; set; }
+        public bool IsPrivate { get; set; } = false;
     }
 }
 

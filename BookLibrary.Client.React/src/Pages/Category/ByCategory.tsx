@@ -5,22 +5,30 @@ import Loading from '../../components/Loading'
 import SearchBar from '../../components/SearchBar'
 import useFetch from '../../Hooks/useFetch'
 import { Category } from '../../Types/category'
+import { useApp } from '../../Hooks/useApp'
 
 const ByCategory = () => {
   const { data, error, fetchData, loading } = useFetch()
   const [viewMode, setViewMode] = useState('carpet')
   const [searchTerm, setSearchTerm] = useState('')
   const [searchField, setSearchField] = useState('name')
+  const { currentRole } = useApp()
+
+  const isAdmin = currentRole === 'Admin'
 
   let content;
 
   useEffect(() => {
       const getCategories = async () => {
         //   await fetchData("Category/all?includeProperties=Books", { method: 'get' })
-          await fetchData("Category/all-with-user-books", { method: 'get' })
+        if (isAdmin) {
+            await fetchData("Category/all-with-users-books", { method: 'get' })
+        } else {
+            await fetchData("Category/all-with-users-public-books", { method: 'get' })
+        }
       }
       getCategories();
-  }, [fetchData])
+  }, [fetchData, isAdmin])
 
   const filterCategories = (categories: Category[]) => {
       return categories.filter(category => {
@@ -61,15 +69,19 @@ const ByCategory = () => {
                               <FaList className="text-lg" /> Table View
                           </button>
                       </div>
-                      <Link 
-                          to="/categories/create" 
-                          className="inline-flex items-center justify-center rounded-lg py-2.5 px-5 text-sm font-medium transition-all duration-200 ease-in-out bg-indigo-600 text-white hover:bg-indigo-700 active:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                      >
-                          <span className="mr-2">Add New Category</span>
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"/>
-                          </svg>
-                      </Link>
+                      {
+                        isAdmin && (
+                            <Link 
+                                to="/categories/create" 
+                                className="inline-flex items-center justify-center rounded-lg py-2.5 px-5 text-sm font-medium transition-all duration-200 ease-in-out bg-indigo-600 text-white hover:bg-indigo-700 active:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            >
+                                <span className="mr-2">Add New Category</span>
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"/>
+                                </svg>
+                            </Link>
+                        )
+                      }
                   </div>
               </div>
               <SearchBar setSearchTerm={setSearchTerm} setSearchField={setSearchField} searchTerm={searchTerm} searchField={searchField} searchOptions={[ "Name", "Description"]} />
@@ -84,9 +96,15 @@ const ByCategory = () => {
                               <p className="text-sm text-gray-500 mt-2">Books: {category.books?.length}</p>
                             </div>
                             <div className="mt-4 flex gap-3">
+                                {
+                                    isAdmin && (
+                                        <>
+                                            <Link to={`/categories/edit/${category.id}`} className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">Edit</Link>
+                                            <Link to={`/categories/Delete/${category.id}`} className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</Link>
+                                        </>
+                                    )
+                                }
                                 <Link to={`/categories/Details/${category.id}`}  className="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">Details</Link>
-                                <Link to={`/categories/edit/${category.id}`} className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">Edit</Link>
-                                <Link to={`/categories/Delete/${category.id}`} className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</Link>
                             </div>
                           </div>
                       ))}
@@ -109,10 +127,16 @@ const ByCategory = () => {
                                               <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">{category.name}</td>
                                               {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">{category.description}</td> */}
                                               <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">{category.books?.length}</td>
-                                              <td className="flex gap-3 px-6 py-4 whitespace-nowrap text-sm text-slate-500">                                              
-                                                <Link to={`/categories/Details/${category.id}`} className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">Edit</Link>
+                                              <td className="flex gap-3 px-6 py-4 whitespace-nowrap text-sm text-slate-500">
+                                                {
+                                                    isAdmin && (
+                                                        <>
+                                                            <Link to={`/categories/Details/${category.id}`} className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">Edit</Link>
+                                                            <Link to={`/categories/Delete/${category.id}`} className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</Link>
+                                                        </>
+                                                    )
+                                                }                                            
                                                 <Link to={`/categories/Details/${category.id}`}  className="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">Details</Link>
-                                                <Link to={`/categories/Delete/${category.id}`} className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</Link>
                                             </td>
                                           </tr>
                                       ))}

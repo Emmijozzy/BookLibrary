@@ -62,6 +62,44 @@ namespace BookLibrary.Server.Application.Services.Implementation
             return ServiceResult<IEnumerable<GetCategory>>.Success(mappedData, "Categories fetched Successfully");
         }
 
+        //GetAllWithUsersPublicBooks
+        public async Task<ServiceResult<IEnumerable<GetCategory>>> GetAllWithUsersPublicBooks(int? pageNumber, int? pageSize)
+        {
+            // Get current user ID
+            var userId = await GetCurrentUserId();
+            // Include Books in the query
+            var repoResult = await categoryInterface.GetAllAsync(
+                pageNumber: pageNumber,
+                pageSize: pageSize,
+                includeProperties: "Books"
+            );
+
+            if (repoResult == null || !repoResult.IsSuccess)
+                throw new CategoryOperationException("Error while fetching categories");
+
+            if (!repoResult.Result!.Any())
+                throw new NotFoundException("No categories found", repoResult.Result!.GetType());
+
+            // Filter books by isPrivate = false for each category
+            var filteredCategories = repoResult.Result!.Select(category =>
+            {
+                // Create a new category with the same properties
+                var filteredCategory = new Category
+                {
+                    Id = category.Id,
+                    Name = category.Name,
+                    Description = category.Description,
+                    CreatedAt = category.CreatedAt,
+                    UpdatedAt = category.UpdatedAt,
+                    Books = category.Books?.Where(book => book.IsPrivate == false || book.CreatedBy == userId).ToList()
+                };
+                return filteredCategory;
+            }).ToList();
+
+            var mappedData = mapper.Map<IEnumerable<GetCategory>>(filteredCategories);
+            return ServiceResult<IEnumerable<GetCategory>>.Success(mappedData, "Categories fetched Successfully");
+        }
+
         public async Task<ServiceResult<IEnumerable<GetCategory>>> GetAllWithUserBooks(int? pageNumber, int? pageSize)
         {
             // Get current user ID
@@ -77,11 +115,11 @@ namespace BookLibrary.Server.Application.Services.Implementation
             if (repoResult == null || !repoResult.IsSuccess)
                 throw new CategoryOperationException("Error while fetching categories");
 
-            if (!repoResult.Result.Any())
-                throw new NotFoundException("No categories found", repoResult.Result.GetType());
+            if (!repoResult.Result!.Any())
+                throw new NotFoundException("No categories found", repoResult.Result!.GetType());
 
             // Filter books by user ID for each category
-            var filteredCategories = repoResult.Result.Select(category =>
+            var filteredCategories = repoResult.Result!.Select(category =>
             {
                 // Create a new category with the same properties
                 var filteredCategory = new Category
@@ -100,12 +138,33 @@ namespace BookLibrary.Server.Application.Services.Implementation
             return ServiceResult<IEnumerable<GetCategory>>.Success(mappedData, "Categories with user books fetched successfully");
         }
 
+        public async Task<ServiceResult<IEnumerable<GetCategory>>> GetAllWithUsersBooks(int? pageNumber, int? pageSize)
+        {
+
+            // Include Books in the query
+            var repoResult = await categoryInterface.GetAllAsync(
+                pageNumber: pageNumber,
+                pageSize: pageSize,
+                includeProperties: "Books"
+            );
+
+            if (repoResult == null || !repoResult.IsSuccess)
+                throw new CategoryOperationException("Error while fetching categories");
+
+            if (!repoResult.Result.Any())
+                throw new NotFoundException("No categories found", repoResult.Result.GetType());
+
+
+            var mappedData = mapper.Map<IEnumerable<GetCategory>>(repoResult.Result);
+            return ServiceResult<IEnumerable<GetCategory>>.Success(mappedData, "Categories with user books fetched successfully");
+        }
+
         public async Task<ServiceResult<bool>> Delete(Guid id)
         {
             if (id == Guid.Empty) throw new ArgumentException("Category ID is required", nameof(id));
 
             var fetchedCategory = (await categoryInterface.GetByIdAsync(id, "Books")).Result;
-            if (fetchedCategory == null) throw new NotFoundException("Category not found", fetchedCategory.GetType());
+            if (fetchedCategory == null) throw new NotFoundException("Category not found", fetchedCategory!.GetType());
 
             if (fetchedCategory.Books.Any()) throw new CategoryOperationException("Category contains books");
 
@@ -122,7 +181,7 @@ namespace BookLibrary.Server.Application.Services.Implementation
             var reposResult = await categoryInterface.GetByIdAsync(id, includeProperties);
             if (reposResult == null) throw new CategoryOperationException("Error while fetching Category");
 
-            if (!reposResult.IsSuccess && reposResult.Result == null) throw new NotFoundException("Category not found", reposResult.Result.GetType());
+            if (!reposResult.IsSuccess && reposResult.Result == null) throw new NotFoundException("Category not found", reposResult.Result!.GetType());
 
             var mappedData = mapper.Map<GetCategory>(reposResult.Result);
             return ServiceResult<GetCategory>.Success(mappedData, "Category fetched with ID successfully");
@@ -139,11 +198,31 @@ namespace BookLibrary.Server.Application.Services.Implementation
             var reposResult = await categoryInterface.GetByIdAsync(id, "Books");
             if (reposResult == null) throw new CategoryOperationException("Error while fetching Category");
 
-            if (!reposResult.IsSuccess && reposResult.Result == null) throw new NotFoundException("Category not found", reposResult.Result.GetType());
+            if (!reposResult.IsSuccess && reposResult.Result == null) throw new NotFoundException("Category not found", reposResult.Result!.GetType());
 
             // Filter books by user ID
             var category = reposResult.Result;
             category.Books = category.Books?.Where(book => book.CreatedBy == userId).ToList();
+
+            var mappedData = mapper.Map<GetCategory>(category);
+            return ServiceResult<GetCategory>.Success(mappedData, "Category with user books fetched successfully");
+        }
+        //GetByIdWithUsersPublicBooks
+        public async Task<ServiceResult<GetCategory>> GetByIdWithUsersPublicBooks(Guid id)
+        {
+            // Get current user ID
+            var userId = await GetCurrentUserId();
+
+            if (id == Guid.Empty) throw new ArgumentException("Category ID is required", nameof(id));
+
+            var reposResult = await categoryInterface.GetByIdAsync(id, "Books");
+            if (reposResult == null) throw new CategoryOperationException("Error while fetching Category");
+
+            if (!reposResult.IsSuccess && reposResult.Result == null) throw new NotFoundException("Category not found", reposResult.Result!.GetType());
+
+            // Filter books by isPrivate = false
+            var category = reposResult.Result;
+            category.Books = category.Books?.Where(book => book.IsPrivate == false || book.CreatedBy == userId).ToList();
 
             var mappedData = mapper.Map<GetCategory>(category);
             return ServiceResult<GetCategory>.Success(mappedData, "Category with user books fetched successfully");
@@ -154,10 +233,10 @@ namespace BookLibrary.Server.Application.Services.Implementation
             if (category == null) throw new ArgumentNullException(nameof(category), "Category data's are required");
 
             var validationResult = await validationService.validateAsync<UpdateCategory>(category, UpdateCategoryValidator);
-            if (!validationResult.IsSuccess) return ServiceResult<bool>.Failure(validationResult.Message, validationResult.Errors);
+            if (!validationResult.IsSuccess) return ServiceResult<bool>.Failure(validationResult.Message, validationResult.Errors!);
 
             var existingCategory = (await categoryInterface.GetByIdAsync(category.Id)).Result;
-            if (existingCategory == null) throw new NotFoundException("Category not found", existingCategory.GetType());
+            if (existingCategory == null) throw new NotFoundException("Category not found", existingCategory!.GetType());
 
             mapper.Map(category, existingCategory);
             existingCategory.UpdatedAt = DateTime.UtcNow;

@@ -6,6 +6,8 @@ import { Login } from "../../Auth/authInterface";
 import loginSchema from "../../validation/loginSchema";
 import { useApi } from "../useApi";
 import useFetch from "../useFetch";
+import { useApp } from "../useApp";
+import { User } from "../../Types/User";
 
 const initialValues: Login = {
     email: "",
@@ -14,9 +16,10 @@ const initialValues: Login = {
 
 const useLogin = () => {
     const navigate = useNavigate();
-    const { data, metadata, error, loading, fetchData } = useFetch();
+    const { data, metadata, error, loading, fetchData } = useFetch<User>();
     const [errorMessage, setErrorMessage] = useState("");
     const { setAuthToken, setAppUser } = useApi();
+    const { setAppUserId } = useApp()
 
     const formik = useFormik({
         initialValues,
@@ -45,10 +48,12 @@ const useLogin = () => {
             // Store auth data
             localStorage.setItem('authToken', token);
             localStorage.setItem('appUser', email);
+            localStorage.setItem('appUserId', data?.id as string);
 
             // Update app context
             setAppUser(email);
             setAuthToken(token);
+            setAppUserId(data?.id as string);
 
             // Navigate to books page
             navigate("/Books");
@@ -57,7 +62,7 @@ const useLogin = () => {
         return () => {
             setErrorMessage("");
         }
-    }, [data, metadata, error, navigate, setAppUser, formik.values.email, setAuthToken, errorMessage]);    return {
+    }, [data, metadata, error, navigate, setAppUser, formik.values.email, setAuthToken, errorMessage, setAppUserId]);    return {
         handleSubmit: formik.handleSubmit,
         handleBlur: formik.handleBlur,
         handleChange: formik.handleChange,

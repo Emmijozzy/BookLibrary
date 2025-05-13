@@ -79,21 +79,11 @@ namespace BookLibrary.Server.Application.Services.Implementation
             return ServiceResult<Guid>.Success(repoResult.Result, "Book created Successfully.");
         }
 
-        public async Task<ServiceResult<IEnumerable<GetBook>>> GetAll(GetBooksQuery query)
+        public async Task<ServiceResult<IEnumerable<GetBook>>> GetBooks(GetBooksQuery query)
         {
             List<Expression<Func<Book, bool>>> filters = new List<Expression<Func<Book, bool>>>();
 
             var (userId, _) = await GetUserEssential();
-
-            //CreatedBy filter
-            if (userId != Guid.Empty)
-            {
-                filters.Add(book => book.CreatedBy == userId);
-            }
-            if (userId == Guid.Empty) throw new PermissionDeniedException("Unauthorized: User ID is missing.");
-
-            // Search by CreatedBy filter
-            filters.Add(book => book.CreatedBy == userId);
 
             // Add search term filter if provided
             if (!string.IsNullOrEmpty(query.SearchTerm))
@@ -132,6 +122,10 @@ namespace BookLibrary.Server.Application.Services.Implementation
                     else if (searchBy == "publisher")
                     {
                         filters.Add(book => book.Publisher.ToLower().Contains(searchTermLower));
+                    }
+                    else if (searchBy == "isPrivate")
+                    {
+                        filters.Add(book => book.IsPrivate == (query.IsPrivate ?? false));
                     }
                     else
                     {
@@ -249,9 +243,12 @@ namespace BookLibrary.Server.Application.Services.Implementation
             );
         }
 
-        public async Task<ServiceResult<IEnumerable<GetBook>>> GetAllUsersBooks(GetBooksQuery query)
+        public async Task<ServiceResult<IEnumerable<GetBook>>> GetAllUsersPublicBooks(GetBooksQuery query)
         {
             List<Expression<Func<Book, bool>>> filters = new List<Expression<Func<Book, bool>>>();
+            //Filter out books that are not public
+            filters.Add(book => book.IsPrivate == false);
+
 
             //Filter Book by userId if exist in query
             if (query.UserId is not null)
@@ -301,6 +298,10 @@ namespace BookLibrary.Server.Application.Services.Implementation
                     else if (searchBy == "publisher")
                     {
                         filters.Add(book => book.Publisher.ToLower().Contains(searchTermLower));
+                    }
+                    else if (searchBy == "isPrivate")
+                    {
+                        filters.Add(book => book.IsPrivate == (query.IsPrivate ?? false));
                     }
                     else
                     {
@@ -426,6 +427,10 @@ namespace BookLibrary.Server.Application.Services.Implementation
             {
                 filters.Add(book => book.CreatedBy == userId);
             }
+            if (query.IsPrivate.HasValue)
+            {
+                filters.Add(book => book.IsPrivate == (query.IsPrivate ?? false));
+            }
 
             var repoResult = await bookInterface.GetAllAsync(
                 filters,
@@ -481,6 +486,10 @@ namespace BookLibrary.Server.Application.Services.Implementation
 
         public async Task<ServiceResult<bool>> Delete(Guid id)
         {
+            var userIdStr = httpContextAccessor.HttpContext?.User?.FindFirst("Id")?.Value;
+            // get roles too and check if in array and Admin is included or is string and is Admin 
+            var isAdmin = httpContextAccessor.HttpContext?.User?.IsInRole("Admin") ?? false;
+
             var (userId, _) = await GetUserEssential();
 
             if (id == Guid.Empty) throw new ArgumentException("Book ID is required", nameof(id));
@@ -489,7 +498,7 @@ namespace BookLibrary.Server.Application.Services.Implementation
             if (fetchedBook == null) throw new NotFoundException("Book not found", fetchedBook!.GetType());
 
             //Allow to delete only your own books
-            if (fetchedBook.CreatedBy != userId) throw new PermissionDeniedException("You can only delete your own books.");
+            if (!isAdmin && fetchedBook.CreatedBy != userId) throw new PermissionDeniedException("You can only delete your own books.");
 
             if (fetchedBook.ImageUrl is not null)
             {
@@ -509,16 +518,12 @@ namespace BookLibrary.Server.Application.Services.Implementation
 
         public async Task<ServiceResult<GetBook>> GetById(Guid id, string? includeProperties = null)
         {
-            var (userId, _) = await GetUserEssential();
 
             if (id == Guid.Empty) throw new ArgumentException("Book ID is required", nameof(id));
 
             var reposResult = await bookInterface.GetByIdAsync(id, includeProperties);
             if (!reposResult.IsSuccess && reposResult.Result == null)
                 throw new NotFoundException("Book not found", reposResult.Result!.GetType());
-
-            //Allow to fetch only your own books
-            if (reposResult.Result!.CreatedBy != userId) throw new PermissionDeniedException("You can only fetch your own books.");
 
             var mappedData = mapper.Map<GetBook>(reposResult.Result);
 

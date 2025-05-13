@@ -150,7 +150,7 @@ namespace BookLibrary.Server.Host.Middleware
                 return ApiResponse<object>.Failure(
                     "Access Denied",
                     code,
-                    new[] { "You do not have sufficient permissions to access this resource", "This operation requires administrator privileges" },
+                    new[] { "You do not have sufficient permissions to access this resource" },
                     metadata
                 );
             }

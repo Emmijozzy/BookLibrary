@@ -14,4 +14,7 @@ export interface Book {
     pdf?:  File | null;
     image?: File | null;
     pdfUrl?: string;
+    isPrivate: boolean;
+    createdBy?: string; 
+    createdAt?: string
 }

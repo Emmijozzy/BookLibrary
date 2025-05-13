@@ -3,7 +3,6 @@ using BookLibrary.Server.Application.DTOs.Book;
 using BookLibrary.Server.Application.Services.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace BookLibrary.Server.Host.Controllers
 {
@@ -23,10 +22,10 @@ namespace BookLibrary.Server.Host.Controllers
         }
 
 
-        [HttpGet("all")]
-        public async Task<IActionResult> GetAll([FromQuery] GetBooksQuery query)
+        [HttpGet("all-public-books")]
+        public async Task<IActionResult> GetAllUsersPublicBooks([FromQuery] GetBooksQuery query)
         {
-            var serviceResult = await bookService.GetAll(query);
+            var serviceResult = await bookService.GetAllUsersPublicBooks(query);
 
             return serviceResult != null && serviceResult.IsSuccess
                 ? LogAndResponse<IEnumerable<GetBook>>(serviceResult, successStatusCode: StatusCodes.Status200OK)
@@ -34,11 +33,11 @@ namespace BookLibrary.Server.Host.Controllers
 
         }
 
-        [HttpGet("all-users-books")]
+        [HttpGet("all")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetAllUsersBooks([FromQuery] GetBooksQuery query)
+        public async Task<IActionResult> GetBooks([FromQuery] GetBooksQuery query)
         {
-            var serviceResult = await bookService.GetAllUsersBooks(query);
+            var serviceResult = await bookService.GetBooks(query);
 
             return serviceResult != null && serviceResult.IsSuccess
                 ? LogAndResponse<IEnumerable<GetBook>>(serviceResult, successStatusCode: StatusCodes.Status200OK)
@@ -59,11 +58,6 @@ namespace BookLibrary.Server.Host.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id, [FromQuery] string IncludeProperties = null!)
         {
-            var userId = User.FindFirst("Id")?.Value;
-            var fullName = User.FindFirst("FullName")?.Value;
-
-            logger.LogInformation("User ID: {UserId}, Full Name: {FullName} logger control", userId, fullName);
-            Console.WriteLine($"User ID: {userId}, Full Name: {fullName} console control");
 
             var serviceResult = await bookService.GetById(id, IncludeProperties);
 

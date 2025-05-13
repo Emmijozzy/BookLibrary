@@ -38,7 +38,7 @@ const useAdminBook = () => {
         });
         
         const queryString = params.toString();
-        const endpoint = `Book/all-users-books${queryString ? `?${queryString}` : ''}`;
+        const endpoint = `Book/all${queryString ? `?${queryString}` : ''}`;
         
         await fetchData(endpoint, { method: 'get' });
     }, [fetchData]);

@@ -25,6 +25,7 @@ import UserProfile from './Pages/Profile/UserProfile';
 import User from './Pages/User/User';
 import UserDetails from './Pages/User/UserDetails';
 import AccountRestrictedPage from './Pages/AccountRestrictedPage';
+import MyBooks from './Pages/Book/MyBooks';
 
 function App() {
     const {currentRole} = useApp()
@@ -42,15 +43,17 @@ function App() {
                     <Route path="/account-restricted" element={<AccountRestrictedPage />} />
                 </Route>
                 {
-                    
-                    currentRole !== "Admin" ?
-                        (<Route path='/' element={<HomeLayout />} >
+                    currentRole !== "Admin" ? (
+                        <Route path='/' element={<HomeLayout />} >
                             <Route path='/Books' element={<VerifyAuth />}>
                                 <Route index element ={<Index />} />
                                 <Route path='Edit/:id' element={<Edit />} />
                                 <Route path='Create' element={<Create />} />
                                 <Route path='Delete/:id' element={<Delete />} /> 
                                 <Route path='Details/:id' element={<Details />} />
+                            </Route>
+                            <Route path='/mybooks' element={<VerifyAuth />}>
+                                <Route index element ={<MyBooks />} />
                             </Route>
                             <Route path='/categories' element={<VerifyAuth />}>
                                 <Route index element ={<ByCategory />} />
@@ -59,15 +62,18 @@ function App() {
                             <Route path='/profile' element={<VerifyAuth />}>
                                 <Route index element ={<UserProfile />} />
                             </Route>
-                        </Route>)    
-                        :
-                        (<Route path='/' element={<AdminLayout />} >
+                        </Route>
+                    ) : (
+                        <Route path='/' element={<AdminLayout />} >
                             <Route path='/Books' element={<VerifyAuth />}>
                                 <Route index element ={<Book />} />
                                 <Route path='Edit/:id' element={<Edit />} />
                                 <Route path='Create' element={<Create />} />
                                 <Route path='Delete/:id' element={<Delete />} /> 
                                 <Route path='Details/:id' element={<Details />} />
+                            </Route>
+                            <Route path='/mybooks' element={<VerifyAuth />}>
+                                <Route index element ={<MyBooks />} />
                             </Route>
                             <Route path='/categories' element={<VerifyAuth />}>
                                 <Route index element ={<ByCategory />} />
@@ -83,14 +89,11 @@ function App() {
                             <Route path='/profile' element={<VerifyAuth />}>
                                 <Route index element ={<UserProfile />} />
                             </Route>
-                        </Route>)                  
-                }
+                        </Route>
+                    )}
                 <Route path='*' element={<NotFound />} />
             </Routes>       
         </>
     )
-
-
 }
-
 export default App;

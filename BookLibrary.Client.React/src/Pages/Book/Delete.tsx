@@ -4,6 +4,8 @@ import ErrorMsg from "../../components/ErrorMsg";
 import useFetch from "../../Hooks/useFetch";
 import { Book } from "../../Types/book";
 import { handleBack } from "../../Utils/handleBack";
+import AccessDenied2 from "../../components/AccessDenied2";
+import { useApp } from "../../Hooks/useApp";
 
 const Delete = () => {
   const [dataLoading, setDataLoading] = useState(false);
@@ -19,8 +21,11 @@ const Delete = () => {
       numberOfPage: 0,
       genre: '',
       publisher: '',
-      language: ''
-  });
+      language: '',
+      isPrivate: false,
+    });
+    const { appUserId, currentRole } = useApp();
+    const isAdmin = currentRole === 'Admin';
 
   const  {error, fetchData, loading } = useFetch()
 
@@ -58,6 +63,7 @@ const Delete = () => {
     deleteBook();
 
   };
+  
   if (dataLoading) {
     return (
         <div className="min-h-screen bg-gray-100 flex items-center justify-center">
@@ -65,6 +71,12 @@ const Delete = () => {
         </div>
     );
   }
+
+  if(!isAdmin && book.createdBy !== appUserId) {
+    return (
+        <AccessDenied2 message="You are not authorized to edit this book. Only the creator can make changes." />
+    );
+}
 
   return (
     <div className="min-h-screen bg-gray-100">

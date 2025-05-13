@@ -1,5 +1,5 @@
-import BookIcon from "../assets/BookIcon";
-import CollectionICon from "../assets/CollectionICon";
+import { BiBook, BiUser } from "react-icons/bi";
+import { HiCollection } from "react-icons/hi";
 import LogOutIcon from "../assets/LogOutIcon";
 import useLogout from "../Hooks/Auth/useLogout";
 import { useApp } from "../Hooks/useApp";
@@ -17,17 +17,22 @@ import NavItem from "./NavItem";
     const navItems = [
       {
         name: 'Books',
-        icon: <BookIcon />,
+        icon: <BiBook className="w-6 h-6" />,
         path: 'books',
       },
       {
+        name: 'My Books',
+        icon: <BiBook className="w-6 h-6" />,
+        path: 'mybooks',
+      },
+      {
         name: 'Categories',
-        icon: <CollectionICon />,
+        icon: <HiCollection className="w-6 h-6" />,
         path: 'categories',
       },
       {
         name: 'Profile',
-        icon: <CollectionICon />,
+        icon: <BiUser className="w-6 h-6" />,
         path: 'profile',
       }
     ]
@@ -35,29 +40,34 @@ import NavItem from "./NavItem";
     const navItemsAdmin = [
       {
         name: 'Books',
-        icon: <BookIcon />,
+        icon: <BiBook className="w-6 h-6" />,
         path: 'books',
       },
       {
+        name: 'My Books',
+        icon: <BiBook className="w-6 h-6" />,
+        path: 'mybooks',
+      },
+      {
         name: 'Categories',
-        icon: <CollectionICon />,
+        icon: <HiCollection className="w-6 h-6" />,
         path: 'categories',
       },
       {
         name: 'Users',
-        icon: <CollectionICon />,
+        icon: <BiUser className="w-6 h-6" />,
         path: 'users',
       },
       {
         name: 'Profile',
-        icon: <CollectionICon />,
+        icon: <BiUser className="w-6 h-6" />,
         path: 'profile',
       }
     ]
 
 
     return (
-      <div className={`absolute flex flex-col border-r border-gray-200 card w-72 bg-white p-5 h-[calc(100vh-120px)] ${showSideBar ? 'translate-x-0' : '-translate-x-full'} transition-all duration-300 ease-in-out md:translate-x-0`}>
+      <div className={`absolute flex flex-col border-r border-gray-200 card w-72 bg-white p-5 h-[calc(100vh-120px)] ${showSideBar ? 'translate-x-0' : '-translate-x-full'} transition-all duration-300 ease-in-out md:translate-x-0`} style={{ zIndex: 1000 }}>
         <ul className="w-full h-full flex flex-col gap-2">
           {
             isAdmin 

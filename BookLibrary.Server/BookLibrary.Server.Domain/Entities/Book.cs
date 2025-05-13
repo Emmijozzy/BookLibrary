@@ -19,5 +19,6 @@
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         public Guid CreatedBy { get; set; }
+        public bool IsPrivate { get; set; } = false;
     }
 }

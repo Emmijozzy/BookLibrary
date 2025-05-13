@@ -8,9 +8,10 @@ type Props = {
 
 const NavItem = ({ Icon, navItem, path}: Props) => {
   const location = useLocation();
+  const pathWithoutSlash = location.pathname.toLowerCase().replace('/', '');
   
   const isActive = () => {
-    return location.pathname.toLowerCase().includes(path.toLowerCase());
+    return pathWithoutSlash == path.toLowerCase() || pathWithoutSlash.startsWith(path.toLowerCase());
   }
 
   return (
