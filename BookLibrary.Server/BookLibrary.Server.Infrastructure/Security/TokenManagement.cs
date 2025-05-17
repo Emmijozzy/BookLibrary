@@ -1,10 +1,12 @@
 ﻿
 
 using BookLibrary.Server.Application.Common;
+using BookLibrary.Server.Application.DTOs.Auth;
 using BookLibrary.Server.Application.Interface;
 using BookLibrary.Server.Domain.Entities;
 using BookLibrary.Server.Infrastructure.Data;
 using BookLibrary.Server.Infrastructure.Exceptions;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -15,7 +17,12 @@ using System.Text;
 
 namespace BookLibrary.Server.Infrastructure.Security
 {
-    public class TokenManagement(AspBookProjectContext context, IConfiguration configuration, ILogger<TokenManagement> logger) : ITokenManagement
+    public class TokenManagement(
+        AspBookProjectContext context,
+        UserManager<ApplicationUser> userManager,
+        IConfiguration configuration,
+        ILogger<TokenManagement> logger
+    ) : ITokenManagement
     {
         public string GenerateSignedRefreshToken(string userId)
         {
@@ -51,10 +58,11 @@ namespace BookLibrary.Server.Infrastructure.Security
                     throw new KeyNotFoundException("User not found");
                 }
 
-                var refreshTokenFromDb = await context.RefreshTokens.FirstOrDefaultAsync(r => r.UserId == user.UserId);
-                if (refreshTokenFromDb != null)
+                // With this safer approach:
+                var refreshTokens = context.RefreshTokens.Where(r => r.UserId == user.UserId);
+                if (await refreshTokens.AnyAsync())
                 {
-                    context.RefreshTokens.Remove(refreshTokenFromDb);
+                    context.RefreshTokens.RemoveRange(refreshTokens);
                     await context.SaveChangesAsync();
                 }
 
@@ -226,5 +234,108 @@ namespace BookLibrary.Server.Infrastructure.Security
             };
         }
 
+        public async Task<RepositoryResult<string>> GenerateResetPasswordToken(RequestResetDto request)
+        {
+            if (string.IsNullOrEmpty(request.Email)) throw new ArgumentNullException("Email is required");
+
+            var user = await userManager.FindByEmailAsync(request.Email);
+            if (user == null) throw new KeyNotFoundException("User not found");
+
+            // Generate password reset token
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+            logger.LogInformation($"Token Generated: {token}");
+            if (string.IsNullOrEmpty(token)) throw new Exception("Failed to generate password reset token");
+
+
+            return RepositoryResult<string>.Success(token);
+
+        }
+
+        public async Task<RepositoryResult<bool>> ChangePassword(ResetPasswordDto changePassword, string userId)
+        {
+            try
+            {
+                if (changePassword == null) throw new ArgumentNullException(nameof(changePassword));
+                if (string.IsNullOrEmpty(changePassword.Password)) throw new ArgumentNullException(nameof(changePassword.Password), "Password is required");
+                if (string.IsNullOrEmpty(changePassword.Token)) throw new ArgumentNullException(nameof(changePassword.Token), "Token is required");
+                if (string.IsNullOrEmpty(userId)) throw new ArgumentNullException(nameof(userId), "User id is required");
+
+                logger.LogInformation("Attempting to reset password for user ID: {UserId}", userId);
+                logger.LogDebug("Original token: {Token}", changePassword.Token);
+
+                var user = await userManager.FindByIdAsync(userId);
+                if (user == null)
+                {
+                    logger.LogWarning("User not found with ID: {UserId}", userId);
+                    throw new KeyNotFoundException("User not found");
+                }
+
+                logger.LogInformation("Found user: {UserEmail}", user.Email);
+
+                // Try multiple token decoding approaches
+                string decodedToken = changePassword.Token;
+
+                // Log the token details for debugging
+                logger.LogDebug("Token before decoding: {Token}", decodedToken);
+
+                var result = await userManager.ResetPasswordAsync(user, decodedToken, changePassword.Password);
+
+                if (result.Succeeded)
+                {
+                    logger.LogInformation("Password reset successful for user: {UserEmail}", user.Email);
+                    return RepositoryResult<bool>.Success(true);
+                }
+
+                if (result.Errors.Any())
+                {
+                    var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                    logger.LogWarning("Password reset failed: {Errors}", errors);
+
+                    // Log each error individually for better debugging
+                    foreach (var error in result.Errors)
+                    {
+                        logger.LogError("Error code: {Code}, Description: {Description}",
+                            error.Code, error.Description);
+                    }
+
+                    return RepositoryResult<bool>.Failure(errors);
+                }
+
+                logger.LogWarning("Unknown error occurred while changing password");
+                return RepositoryResult<bool>.Failure("Unknown error occurred while changing password");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Exception during password reset");
+                throw;
+            }
+        }
+
+        public Task<RepositoryResult<string>> GenerateEmailConfirmationToken(ApplicationUser user)
+        {
+            if (user == null) throw new ArgumentNullException(nameof(user), "User is required");
+
+            var token = userManager.GenerateEmailConfirmationTokenAsync(user);
+            if (token == null) throw new Exception("Failed to generate email confirmation token");
+
+            logger.LogInformation($"Token Generated: {token.Result}");
+
+            return Task.FromResult(RepositoryResult<string>.Success(token.Result));
+        }
+
+        public async Task<RepositoryResult<bool>> ConfirmEmail(string token, ApplicationUser user)
+        {
+            if (string.IsNullOrEmpty(token)) throw new ArgumentNullException(nameof(token), "Token is required");
+            if (user == null) throw new ArgumentNullException(nameof(user), "User is required");
+
+            logger.LogInformation($"Attempting to confirm email for user: {user.Email}, Token: {token}");
+
+            //confirm email
+            var userFound = await userManager.ConfirmEmailAsync(user, token);
+            if (userFound.Succeeded) return RepositoryResult<bool>.Success(true);
+
+            var errors = string.Join(", ", userFound.Errors.Select(e => e.Description));
+            return RepositoryResult<bool>.Failure(errors);
+        }
     }
 }

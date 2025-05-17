@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ArrowLeftIcon, BookOpenIcon, CalendarIcon, LockClosedIcon, LockOpenIcon, UserIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";

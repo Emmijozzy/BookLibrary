@@ -1,4 +1,5 @@
 ﻿using BookLibrary.Server.Application.Common;
+using BookLibrary.Server.Application.DTOs.Auth;
 using BookLibrary.Server.Domain.Entities;
 using System.Security.Claims;
 
@@ -15,5 +16,9 @@ namespace BookLibrary.Server.Application.Interface
         List<Claim> GetUserClaimsFromToken(string token);
         string GenerateToken(List<Claim> claims);
         public ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
+        Task<RepositoryResult<string>> GenerateResetPasswordToken(RequestResetDto request);
+        Task<RepositoryResult<bool>> ChangePassword(ResetPasswordDto changePassword, string userId);
+        Task<RepositoryResult<string>> GenerateEmailConfirmationToken(ApplicationUser user);
+        Task<RepositoryResult<bool>> ConfirmEmail(string token, ApplicationUser user);
     }
 }

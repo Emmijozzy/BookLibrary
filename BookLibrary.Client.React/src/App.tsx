@@ -1,19 +1,23 @@
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
+import ForgotPassword from './Auth/ForgotPassword';
 import Login from './Auth/Login';
 import Register from './Auth/Register';
+import ResetPassword from './Auth/ResetPassword';
 import VerifyAuth from './Auth/VerifyAuth';
 import { useApp } from './Hooks/useApp';
 import AdminLayout from './Layout/AdminLayout';
 import Layout from './Layout/AuthLayout';
 import HomeLayout from './Layout/HomeLayout';
+import AccountRestrictedPage from './Pages/AccountRestrictedPage';
 import Book from './Pages/Book/Admin/Book';
 import Create from './Pages/Book/Create';
 import Delete from './Pages/Book/Delete';
 import Details from './Pages/Book/Details';
 import Edit from './Pages/Book/Edit';
 import Index from './Pages/Book/Index';
+import MyBooks from './Pages/Book/MyBooks';
 import ByCategory from './Pages/Category/ByCategory';
 import CreateCategory from './Pages/Category/CreateCategory';
 import DeleteCategory from './Pages/Category/DeleteCategory';
@@ -24,8 +28,7 @@ import NotFound from './Pages/NotFound';
 import UserProfile from './Pages/Profile/UserProfile';
 import User from './Pages/User/User';
 import UserDetails from './Pages/User/UserDetails';
-import AccountRestrictedPage from './Pages/AccountRestrictedPage';
-import MyBooks from './Pages/Book/MyBooks';
+import EmailVerificationSuccess from './Auth/EmailVerificationSuccess';
 
 function App() {
     const {currentRole} = useApp()
@@ -39,6 +42,9 @@ function App() {
                     <Route path='Auth' >
                         <Route path='login' element={<Login />} />
                         <Route path='Register' element={<Register />} />
+                        <Route path="forgot-password" element={<ForgotPassword />} />
+                        <Route path="reset-password" element={<ResetPassword />} />
+                        <Route path="verify-email" element={<EmailVerificationSuccess />} />
                     </Route>
                     <Route path="/account-restricted" element={<AccountRestrictedPage />} />
                 </Route>

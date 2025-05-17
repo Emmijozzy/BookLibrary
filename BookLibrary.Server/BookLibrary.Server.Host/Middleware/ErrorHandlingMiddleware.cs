@@ -82,6 +82,10 @@ namespace BookLibrary.Server.Host.Middleware
                     StatusCodes.Status403Forbidden,
                     CreateErrorResponse("PERMISSION_DENIED", permissionDeniedEx)),
 
+                EmailNotConfirmedException emailNotConfirmedEx => (
+                    StatusCodes.Status403Forbidden,
+                    CreateErrorResponse("EMAIL_NOT_CONFIRMED", emailNotConfirmedEx)),
+
                 UserNotFoundException notFoundEx => (
                     StatusCodes.Status404NotFound,
                     CreateErrorResponse("NOT_FOUND", notFoundEx)),

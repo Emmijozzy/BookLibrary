@@ -10,6 +10,8 @@ const useFetch = <T = unknown>() => {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [resCode, setResCode] = useState<string | null>(null);
+    const [status, setStatus] = useState<number | null>(null);
     const [message, setMessage] = useState<string | null>(null);
     const { api, fileApi } = useApi();
 
@@ -39,6 +41,8 @@ const useFetch = <T = unknown>() => {
 
             const responseData = response.data as ApiResponse<R>;
 
+            const status = response.status;
+
             if (responseData.message) {
                 setMessage(responseData.message);
             }
@@ -46,6 +50,10 @@ const useFetch = <T = unknown>() => {
             if (responseData.data) {
                 setData(responseData.data as unknown as T);
                 setIsSuccess(true);
+            }
+
+            if (status) {
+                setStatus(status);
             }
 
             if (responseData.metadata) {
@@ -58,8 +66,18 @@ const useFetch = <T = unknown>() => {
           
             // console.log('API Error:', apiError);
             // Handle different error scenarios
+
+            console.log('API Error:', apiError);
             if (apiError.data) {
-                console.log('API Error:', apiError.data?.code, apiError.data?.errors);
+                console.log('API Error:', apiError.data?.code, apiError.data?.errors, apiError.data?.message, apiError?.status);
+                if (apiError.data?.code) {
+                    setResCode(apiError.data.code);
+                }
+
+                if (apiError?.status){
+                    setStatus(apiError.status);
+                }
+
                 const errorMessage = `${apiError.data?.message || 'Error'}: ${apiError?.data?.errors?.join(', ') || 'An unexpected error occurred'}`;
                 setError(errorMessage);
                 throw new Error(errorMessage);
@@ -82,6 +100,8 @@ const useFetch = <T = unknown>() => {
         isSuccess,
         loading,
         message,
+        resCode,
+        status,
         fetchData,
         clearError: () => setError(null),
         clearData: () => setData(null)

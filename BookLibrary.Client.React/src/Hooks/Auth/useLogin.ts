@@ -16,8 +16,9 @@ const initialValues: Login = {
 
 const useLogin = () => {
     const navigate = useNavigate();
-    const { data, metadata, error, loading, fetchData } = useFetch<User>();
+    const { data, metadata, error, loading, fetchData, status, resCode } = useFetch<User>();
     const [errorMessage, setErrorMessage] = useState("");
+    const [requireConfirmEmail, setRequireConfirmEmail] = useState(false);
     const { setAuthToken, setAppUser } = useApi();
     const { setAppUserId } = useApp()
 
@@ -28,6 +29,8 @@ const useLogin = () => {
          await fetchData("AuthApi/login", { method: 'post', data: { ...values } });
         },
     });
+    
+    console.log(status, resCode);
 
     useEffect(() => {
         if (error) {
@@ -36,6 +39,11 @@ const useLogin = () => {
                     closeButton: true,
                     autoClose: 3000,
                 });
+
+            if (status === 403 && resCode === "EMAIL_NOT_CONFIRMED" ) {
+                    setRequireConfirmEmail(true);
+                    return;
+                }
         } else if (metadata?.accessToken) {
             const token = metadata.accessToken as string;
             const email = formik.values.email;
@@ -62,7 +70,9 @@ const useLogin = () => {
         return () => {
             setErrorMessage("");
         }
-    }, [data, metadata, error, navigate, setAppUser, formik.values.email, setAuthToken, errorMessage, setAppUserId]);    return {
+    }, [data, metadata, error, navigate, setAppUser, formik.values.email, setAuthToken, errorMessage, setAppUserId, status, resCode]);    
+    
+    return {
         handleSubmit: formik.handleSubmit,
         handleBlur: formik.handleBlur,
         handleChange: formik.handleChange,
@@ -70,6 +80,7 @@ const useLogin = () => {
         values: formik.values,
         loading,
         resData: data,
-        resErrMes: errorMessage
+        resErrMes: errorMessage,
+        requireConfirmEmail,
     };
 };export default useLogin;
