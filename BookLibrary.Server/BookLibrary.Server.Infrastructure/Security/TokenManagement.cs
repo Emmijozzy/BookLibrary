@@ -1,10 +1,12 @@
 ﻿
 
 using BookLibrary.Server.Application.Common;
+using BookLibrary.Server.Application.DTOs.Auth;
 using BookLibrary.Server.Application.Interface;
 using BookLibrary.Server.Domain.Entities;
 using BookLibrary.Server.Infrastructure.Data;
 using BookLibrary.Server.Infrastructure.Exceptions;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -15,7 +17,7 @@ using System.Text;
 
 namespace BookLibrary.Server.Infrastructure.Security
 {
-    public class TokenManagement(AspBookProjectContext context, IConfiguration configuration, ILogger<TokenManagement> logger) : ITokenManagement
+    public class TokenManagement(AspBookProjectContext context, UserManager<ApplicationUser> userManager, IConfiguration configuration, ILogger<TokenManagement> logger) : ITokenManagement
     {
         public string GenerateSignedRefreshToken(string userId)
         {
@@ -49,13 +51,6 @@ namespace BookLibrary.Server.Infrastructure.Security
                 if (user == null)
                 {
                     throw new KeyNotFoundException("User not found");
-                }
-
-                var refreshTokenFromDb = await context.RefreshTokens.FirstOrDefaultAsync(r => r.UserId == user.UserId);
-                if (refreshTokenFromDb != null)
-                {
-                    context.RefreshTokens.Remove(refreshTokenFromDb);
-                    await context.SaveChangesAsync();
                 }
 
                 context.RefreshTokens.Add(new RefreshToken()
@@ -143,25 +138,40 @@ namespace BookLibrary.Server.Infrastructure.Security
         {
             try
             {
-                logger.LogInformation($"Removing refresh token for user {userId}");
+                logger.LogInformation($"Removing all refresh tokens for user {userId}");
                 if (userId == null) throw new ArgumentNullException("User id can not be null");
 
-                var refreshToken = context.RefreshTokens.FirstOrDefault(r => r.UserId == userId);
-                if (refreshToken == null) 
+                // Find all refresh tokens that belong to the user
+                var refreshTokens = await context.RefreshTokens
+                    .Where(r => r.UserId == userId)
+                    .ToListAsync();
+
+                if (refreshTokens == null || refreshTokens.Count == 0)
                 {
-                    // logger.LogWarning($"Refresh token not found for user {userId}");
-                    throw new KeyNotFoundException("Refresh token not found");
+                    logger.LogWarning($"No refresh tokens found for user {userId}");
+                    return RepositoryResult<bool>.Success(true);
                 }
-                // logger.LogInformation($"Refresh token found for user {refreshToken.UserId}");
 
-                context.RefreshTokens.Remove(refreshToken);
-                await context.SaveChangesAsync();
+                logger.LogInformation($"Found {refreshTokens.Count} refresh token(s) for user {userId}");
+
+                context.RefreshTokens.RemoveRange(refreshTokens);
+                try
+                {
+                    await context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    logger.LogError(ex, "Optimistic concurrency exception occurred while removing refresh tokens");
+                    // Reload the refresh tokens and try again
+                    context.RefreshTokens.Load();
+                    context.RefreshTokens.RemoveRange(refreshTokens);
+                    await context.SaveChangesAsync();
+                }
                 return RepositoryResult<bool>.Success(true);
-
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, "Unexpected error removing refresh token");
+                logger.LogError(ex, "Unexpected error removing refresh tokens");
                 throw new SecurityOperationException(ex.Message, ex);
             }
         }
@@ -175,7 +185,7 @@ namespace BookLibrary.Server.Infrastructure.Security
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(15),
+                expires: DateTime.Now.AddMinutes(20),
                 signingCredentials: creds);
             var tokenHandler = new JwtSecurityTokenHandler();
             var generatedToken = tokenHandler.WriteToken(token);
@@ -224,6 +234,97 @@ namespace BookLibrary.Server.Infrastructure.Security
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)), // Signing key
                 ClockSkew = TimeSpan.Zero
             };
+        }
+
+        public async Task<RepositoryResult<string>> GenerateResetPasswordToken(RequestResetDto request)
+        {
+            if (string.IsNullOrEmpty(request.Email)) throw new ArgumentNullException("Email is required");
+
+            var user = await userManager.FindByEmailAsync(request.Email);
+            if (user == null) throw new KeyNotFoundException("User not found");
+
+            // Generate password reset token
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+            logger.LogInformation($"Token Generated: {token}");
+            if (string.IsNullOrEmpty(token)) throw new Exception("Failed to generate password reset token");
+
+
+            return RepositoryResult<string>.Success(token);
+
+        }
+
+        public async Task<RepositoryResult<bool>> ChangePassword(ResetPasswordDto changePassword, string userId)
+        {
+            try
+            {
+                if (changePassword == null) throw new ArgumentNullException(nameof(changePassword));
+                if (string.IsNullOrEmpty(changePassword.Password)) throw new ArgumentNullException(nameof(changePassword.Password), "Password is required");
+                if (string.IsNullOrEmpty(changePassword.Token)) throw new ArgumentNullException(nameof(changePassword.Token), "Token is required");
+                if (string.IsNullOrEmpty(userId)) throw new ArgumentNullException(nameof(userId), "User id is required");
+
+                logger.LogInformation("Attempting to reset password for user ID: {UserId}", userId);
+                logger.LogDebug("Token length: {TokenLength}", changePassword.Token.Length);
+
+                var user = await userManager.FindByIdAsync(userId);
+                if (user == null)
+                {
+                    logger.LogWarning("User not found with ID: {UserId}", userId);
+                    throw new KeyNotFoundException("User not found");
+                }
+
+                logger.LogInformation("Found user: {UserEmail}", user.Email);
+
+
+                var result = await userManager.ResetPasswordAsync(user, changePassword.Token, changePassword.Password);
+
+                if (result.Succeeded)
+                {
+                    logger.LogInformation("Password reset successful for user: {UserEmail}", user.Email);
+                    return RepositoryResult<bool>.Success(true);
+                }
+
+                if (result.Errors.Any())
+                {
+                    var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                    logger.LogWarning("Password reset failed: {Errors}", errors);
+                    return RepositoryResult<bool>.Failure(errors);
+                }
+
+                logger.LogWarning("Unknown error occurred while changing password");
+                return RepositoryResult<bool>.Failure("Unknown error occurred while changing password");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Exception during password reset");
+                throw;
+            }
+        }
+
+        public Task<RepositoryResult<string>> GenerateEmailConfirmationToken(ApplicationUser user)
+        {
+            if (user == null) throw new ArgumentNullException(nameof(user), "User is required");
+
+            var token = userManager.GenerateEmailConfirmationTokenAsync(user);
+            if (token == null) throw new Exception("Failed to generate email confirmation token");
+
+            logger.LogInformation($"Token Generated: {token.Result}");
+
+            return Task.FromResult(RepositoryResult<string>.Success(token.Result));
+        }
+
+        public async Task<RepositoryResult<bool>> ConfirmEmail(string token, ApplicationUser user)
+        {
+            if (string.IsNullOrEmpty(token)) throw new ArgumentNullException(nameof(token), "Token is required");
+            if (user == null) throw new ArgumentNullException(nameof(user), "User is required");
+
+            logger.LogInformation($"Attempting to confirm email for user: {user.Email}, Token: {token}");
+
+            //confirm email
+            var userFound = await userManager.ConfirmEmailAsync(user, token);
+            if (userFound.Succeeded) return RepositoryResult<bool>.Success(true);
+
+            var errors = string.Join(", ", userFound.Errors.Select(e => e.Description));
+            return RepositoryResult<bool>.Failure(errors);
         }
 
     }
