@@ -7,16 +7,16 @@ interface PaginationProps {
     onPageSizeChange: (size: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({
+const Pagination = ({
     currentPage,
     totalPages,
     totalItems,
     pageSize,
     onPageChange,
     onPageSizeChange
-}) => {
+}: PaginationProps) => {
     return (
-        <div className="mt-6 flex flex-col md:flex-row justify-between items-center mb-3 space-y-3 md:space-y-0">
+        <div className="mt-auto flex flex-col md:flex-row justify-between items-center py-3 space-y-3 md:space-y-0">
             <div className="text-sm text-slate-600">
                 Showing {((currentPage - 1) * pageSize) + 1} to {Math.min(currentPage * pageSize, totalItems)} of {totalItems} books
             </div>

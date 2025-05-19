@@ -19,7 +19,8 @@ const useEdit = () => {
         numberOfPage: 0,
         genre: '',
         publisher: '',
-        language: ''
+        language: '',
+        isPrivate: false,
     });
 
 
@@ -91,6 +92,6 @@ const useEdit = () => {
 
 
 
-    return { handleChange, handleSubmit, values, errors, dataLoading, loading };
+    return { handleChange, handleSubmit, values, errors, dataLoading, loading, error };
 }
 export default useEdit

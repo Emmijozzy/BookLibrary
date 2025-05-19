@@ -10,5 +10,9 @@ namespace BookLibrary.Server.Application.Services.Interface
         Task<ServiceResult<UserDto>> RegisterAsync(RegisterUser user);
         Task<ServiceResult<bool>> LogoutAsync(string token);
         Task<ServiceResult<AuthResponseDto>> RefreshTokenAsync(string token);
+        Task<ServiceResult<bool>> RequestReset(RequestResetDto requestResetDto);
+        Task<ServiceResult<bool>> ResetPassword(ResetPasswordDto resetPasswordDto);
+        Task<ServiceResult<bool>> VerifyEmail(VerifyEmailDto verifyEmailDto);
+        Task<ServiceResult<bool>> ResendConfirmationEmail(string email);
     }
 }

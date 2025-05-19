@@ -20,6 +20,7 @@ const useCreate = () => {
         publisher: '',
         language: '',
         categoryId: '',
+        isPrivate: false,
     });
 
     const { fetchData, loading, error } = useFetch()

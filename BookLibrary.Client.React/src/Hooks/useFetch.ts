@@ -4,12 +4,15 @@ import { ApiError, ApiResponse, FetchOptions } from "../Types";
 import { useApi } from "./useApi";
 
 
-const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>() => {
+const useFetch = <T = unknown>() => {
     const [data, setData] = useState<T | null>(null);
     const [metadata, setMetadata] = useState<Record<string, unknown> | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [resCode, setResCode] = useState<string | null>(null);
+    const [status, setStatus] = useState<number | null>(null);
+    const [message, setMessage] = useState<string | null>(null);
     const { api, fileApi } = useApi();
 
     const fetchData = useCallback(async <R = T>(url = "", options: FetchOptions, apiInstance: "api" | "fileApi" = "api"): Promise<R> => {
@@ -36,13 +39,21 @@ const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>()
                 // console.log('API Response (camelcased):', response.data);
             }
 
-            // console.log('API Response:', response);
-
             const responseData = response.data as ApiResponse<R>;
+
+            const status = response.status;
+
+            if (responseData.message) {
+                setMessage(responseData.message);
+            }
 
             if (responseData.data) {
                 setData(responseData.data as unknown as T);
                 setIsSuccess(true);
+            }
+
+            if (status) {
+                setStatus(status);
             }
 
             if (responseData.metadata) {
@@ -55,8 +66,18 @@ const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>()
           
             // console.log('API Error:', apiError);
             // Handle different error scenarios
+
+            console.log('API Error:', apiError);
             if (apiError.data) {
-                console.log('API Error:', apiError.data?.code, apiError.data?.errors);
+                console.log('API Error:', apiError.data?.code, apiError.data?.errors, apiError.data?.message, apiError?.status);
+                if (apiError.data?.code) {
+                    setResCode(apiError.data.code);
+                }
+
+                if (apiError?.status){
+                    setStatus(apiError.status);
+                }
+
                 const errorMessage = `${apiError.data?.message || 'Error'}: ${apiError?.data?.errors?.join(', ') || 'An unexpected error occurred'}`;
                 setError(errorMessage);
                 throw new Error(errorMessage);
@@ -78,6 +99,9 @@ const useFetch = <T extends Record<string, unknown> = Record<string, unknown>>()
         error,
         isSuccess,
         loading,
+        message,
+        resCode,
+        status,
         fetchData,
         clearError: () => setError(null),
         clearData: () => setData(null)

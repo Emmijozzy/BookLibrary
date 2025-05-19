@@ -1,43 +1,24 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FiMenu, FiSettings, FiX } from "react-icons/fi";
+import { Link, useLocation } from "react-router-dom";
 import { useApi } from "../Hooks/useApi";
-import useFetch from "../Hooks/useFetch";
+import { useApp } from "../Hooks/useApp";
+import useLogout from "../Hooks/Auth/useLogout";
 
 type Props = {
-  setShowSideBar?: () => void;
-  showSideBar?: boolean;
+  setShowSideBar: () => void;
+  showSideBar: boolean;
+  setShowRightSideBar: () => void;
+  showRightSideBar: boolean;
 }
 
-const Header = ({ setShowSideBar, showSideBar }: Props) => {
+const Header = ({ setShowSideBar, showSideBar, setShowRightSideBar, showRightSideBar }: Props) => {
   const [logined, setLogined] = useState(false);
-  const [logoutErr, setLogoutErr] = useState("")
-  const { data, error, fetchData } = useFetch();
-
-  const { appUser, clearAuthToken } = useApi()
-
-  const navigate = useNavigate();
+  const { currentRole } = useApp()
+  const { appUser } = useApi()
   const location = useLocation();
 
-  const handlerLogout = () => {
-    const authToken = localStorage.getItem("authToken") as string
-    const values = {
-      token: authToken
-    }
-    fetchData("AuthApi/logout", {method: 'post', data: {...values}});
-  }
-
-  useEffect(() => {
-    if(data) {
-      localStorage.removeItem("authToken");
-      clearAuthToken();
-      navigate("/");
-    }
-
-    if (error) {
-      setLogoutErr("Error logging out")
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, error, navigate])
+  const {handlerLogout, logoutErr} = useLogout()
   
   useEffect(() => {
     const path = location.pathname;
@@ -50,8 +31,8 @@ const Header = ({ setShowSideBar, showSideBar }: Props) => {
 
   return (
     <>
-      <header className="bg-white border-b border-gray-200 fixed w-full h-[60px] top-0 z-[999]">
-        <nav className="container mx-auto px-4 py-4">
+      <header className="bg-white border-b border-gray-200 fixed w-screen h-[60px] top-0">
+        <nav className=" md:w-[96%] mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <button 
@@ -60,23 +41,19 @@ const Header = ({ setShowSideBar, showSideBar }: Props) => {
                 aria-label="Toggle sidebar"
               >
                 {showSideBar ? (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  <FiX className="w-6 h-6" />
                 ) : (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
+                  <FiMenu className="w-6 h-6" />
                 )}
               </button>
               <Link to="/" className="text-xl md:text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors">
-                Book Library
+                Book Library { currentRole == "Admin" && <span>({currentRole})</span> }
               </Link>
             </div>
 
             <div className="flex items-center space-x-4">
               {logined && appUser && (
-                <div className="relative">
+                <div className="relative flex items-center gap-4">
                   <div className="flex items-center gap-4">
                     <span className="hidden md:block text-gray-600">Welcome, {appUser}</span>
                     <button
@@ -86,6 +63,17 @@ const Header = ({ setShowSideBar, showSideBar }: Props) => {
                       Logout
                     </button>
                   </div>
+                  <button
+                    className="focus:outline-none"
+                    onClick={() => setShowRightSideBar()}
+                    aria-label="Toggle settings"
+                  >
+                    {showRightSideBar ? (
+                      <FiX className="w-6 h-6" />
+                    ) : (
+                      <FiSettings className="w-6 h-6" />
+                    )}
+                  </button>
                 </div>
               )}
             </div>

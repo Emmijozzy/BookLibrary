@@ -10,6 +10,7 @@ export interface ApiContextType {
   clearAuthToken: () => void;
   isAuthenticated: boolean;
   isInitialized: boolean;
+  userRoles: string[];
 }
 
 export const ApiContext = createContext<ApiContextType | undefined>(undefined);

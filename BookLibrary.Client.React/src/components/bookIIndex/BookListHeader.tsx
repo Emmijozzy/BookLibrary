@@ -4,15 +4,17 @@ import { Link } from "react-router-dom";
 export const BookListHeader = ({ 
   totalItems, 
   viewMode, 
-  setViewMode 
+  setViewMode,
+  headerTitle = "Book List",
 }: { 
   totalItems: number, 
   viewMode: string, 
   setViewMode: (mode: string) => void 
+  headerTitle?: string
 }) => (
   <div className="mt-2 flex flex-col sm:flex-row justify-between items-center gap-6 bg-white p-6 rounded-lg shadow-sm">
       <div className="flex items-center gap-3">
-          <h1 className="text-2xl font-bold text-slate-900">Book List</h1>
+          <h1 className="text-2xl font-bold text-slate-900">{headerTitle}</h1>
           <span className="px-3 py-1 bg-slate-100 rounded-full text-sm text-slate-600">
               Library Collection ({totalItems} books)
           </span>

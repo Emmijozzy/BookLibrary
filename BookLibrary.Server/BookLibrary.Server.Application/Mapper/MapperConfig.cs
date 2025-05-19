@@ -25,7 +25,17 @@ namespace BookLibrary.Server.Application.Mapper
                 .PreserveReferences();
 
             CreateMap<ApplicationUser, UserDto>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id)); // Map User>
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id)) // Map User>
+                .ForMember(dest => dest.Locked, opt => opt.MapFrom(src => src.LockoutEnd != null));                                                                //update locked with lockoutend
+
+            CreateMap<UpdateUserDto, ApplicationUser>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
+                .ForMember(dest => dest.NormalizedEmail, opt => opt.MapFrom(src => src.Email != null ? src.Email.ToUpper() : null))
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email))
+                .ForMember(dest => dest.NormalizedUserName, opt => opt.MapFrom(src => src.Email != null ? src.Email.ToUpper() : null));
+            // Preserve other mappings
+            //.ForAllOtherMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
         }
     }
 }

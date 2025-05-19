@@ -1,4 +1,7 @@
-﻿using BookLibrary.Server.Application.Interface;
+﻿using BookLibrary.Server.Application.Common;
+using BookLibrary.Server.Application.Exceptions;
+using BookLibrary.Server.Application.Interface;
+using BookLibrary.Server.Domain.Entities;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
@@ -11,40 +14,38 @@ namespace BookLibrary.Server.Infrastructure.Services
     public class FileUploadService : IFileUploadService
     {
         private readonly Cloudinary _cloudinary;
-        private readonly IConfiguration _configuration;
-        private readonly string _cloudName;
-        private readonly string _apiKey;
-        private readonly string _apiSecret;
         private readonly ILogger<FileUploadService> _logger;
+        private readonly IGenericRepository<Book> _bookRepository;
+        private readonly string[] _validImageExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp" };
 
-        public FileUploadService(IConfiguration configuration, ILogger<FileUploadService> logger)
+        public FileUploadService(IConfiguration configuration, ILogger<FileUploadService> logger, IGenericRepository<Book> bookRepository)
         {
-            _configuration = configuration;
             _logger = logger;
+            _bookRepository = bookRepository;
 
             // Get Cloudinary configuration
-            _cloudName = _configuration["CloudinarySettings:CloudName"]!;
-            _apiKey = _configuration["CloudinarySettings:ApiKey"]!;
-            _apiSecret = _configuration["CloudinarySettings:ApiSecret"]!;
+            var cloudName = configuration["CloudinarySettings:CloudName"];
+            var apiKey = configuration["CloudinarySettings:ApiKey"];
+            var apiSecret = configuration["CloudinarySettings:ApiSecret"];
 
             // Validate configuration
-            if (string.IsNullOrEmpty(_cloudName) || string.IsNullOrEmpty(_apiKey) || string.IsNullOrEmpty(_apiSecret))
+            if (string.IsNullOrEmpty(cloudName) || string.IsNullOrEmpty(apiKey) || string.IsNullOrEmpty(apiSecret))
             {
                 throw new InvalidOperationException("Cloudinary configuration is missing or incomplete. Please check your appsettings.json file.");
             }
 
             // Initialize Cloudinary
-            var account = new Account(_cloudName, _apiKey, _apiSecret);
+            var account = new Account(cloudName, apiKey, apiSecret);
             _cloudinary = new Cloudinary(account);
         }
 
         public async Task<string> UploadFileAsync(IFormFile file, string folder)
         {
+            if (file == null || file.Length == 0)
+                throw new ArgumentException("File is required", nameof(file));
+
             try
             {
-                if (file == null || file.Length == 0)
-                    throw new ArgumentException("File is required", nameof(file));
-
                 await using var stream = file.OpenReadStream();
                 var uploadParams = new ImageUploadParams
                 {
@@ -57,7 +58,7 @@ namespace BookLibrary.Server.Infrastructure.Services
                 if (uploadResult.StatusCode != HttpStatusCode.OK)
                     throw new Exception($"Cloudinary upload failed: {uploadResult.Error?.Message}");
 
-                _logger.LogInformation("File uploaded to Cloudinary: " + uploadResult.SecureUrl.ToString());
+                _logger.LogInformation("File uploaded to Cloudinary: {Url}", uploadResult.SecureUrl.ToString());
                 return uploadResult.SecureUrl.ToString();
             }
             catch (Exception ex)
@@ -65,7 +66,6 @@ namespace BookLibrary.Server.Infrastructure.Services
                 _logger.LogError(ex, "Error uploading file to Cloudinary");
                 throw;
             }
-
         }
 
         public async Task<string> GetSignedUrlAsync(string url)
@@ -77,7 +77,10 @@ namespace BookLibrary.Server.Infrastructure.Services
             {
                 // Extract the public ID from the URL
                 string publicId = ExtractPublicIdFromUrl(url);
-
+                
+                // Get API key from Cloudinary instance
+                var apiKey = _cloudinary.Api.Account.ApiKey;
+                
                 // Generate timestamp (valid for 1 hour)
                 var timestamp = DateTimeOffset.UtcNow.AddHours(1).ToUnixTimeSeconds().ToString();
 
@@ -96,7 +99,7 @@ namespace BookLibrary.Server.Infrastructure.Services
                 var uriBuilder = new UriBuilder(uri);
 
                 // Create a new query string with our parameters
-                var queryString = $"api_key={_apiKey}&timestamp={timestamp}&signature={signature}";
+                var queryString = $"api_key={apiKey}&timestamp={timestamp}&signature={signature}";
 
                 // Set the query string (overwriting any existing query)
                 uriBuilder.Query = queryString;
@@ -110,7 +113,7 @@ namespace BookLibrary.Server.Infrastructure.Services
             }
         }
 
-        public async Task<Boolean> DeleteFileAsync(string url)
+        public async Task<bool> DeleteFileAsync(string url)
         {
             if (string.IsNullOrEmpty(url))
                 throw new ArgumentNullException(nameof(url), "URL to delete file cannot be null or empty");
@@ -119,7 +122,6 @@ namespace BookLibrary.Server.Infrastructure.Services
             {
                 // Extract the public ID from the URL
                 string publicId = ExtractPublicIdFromUrl(url);
-
                 _logger.LogInformation($"Attempting to delete file with extracted public ID: {publicId}");
 
                 // Determine if it's an Image or raw file like PDF
@@ -134,8 +136,7 @@ namespace BookLibrary.Server.Infrastructure.Services
 
                 // Execute the deletion
                 var result = await _cloudinary.DestroyAsync(deleteParams);
-
-                _logger.LogInformation($"Cloudinary delete response - Result: {result.Result}, Status: {result.StatusCode}, Error: {result.Error?.Message}");
+                _logger.LogInformation($"Cloudinary delete response - Result: {result.Result}, Status: {result.StatusCode}");
 
                 if (result.StatusCode != HttpStatusCode.OK)
                     throw new Exception($"Cloudinary delete failed: {result.Error?.Message}");
@@ -158,9 +159,6 @@ namespace BookLibrary.Server.Infrastructure.Services
 
                 // Split the path segments
                 var segments = uri.AbsolutePath.TrimStart('/').Split('/');
-
-                // The public ID should not include "upload" or version number
-                // For Cloudinary, the public ID is typically everything after the version number
 
                 // Find the index of the version segment (starts with 'v' followed by numbers)
                 int versionIndex = -1;
@@ -218,7 +216,60 @@ namespace BookLibrary.Server.Infrastructure.Services
             }
         }
 
+        public async Task<ServiceResult<string>> UploadFile(IFormFile file, string folder)
+        {
+            if (file == null || file.Length == 0)
+                throw new ArgumentException("No file uploaded");
 
+            // Validate file type based on folder
+            string extension = Path.GetExtension(file.FileName).ToLower();
+            
+            if (folder.Contains("images") && !IsValidImageExtension(extension))
+            {
+                throw new ArgumentException($"Invalid image file type. Allowed types: {string.Join(", ", _validImageExtensions)}");
+            }
+            else if (folder.Contains("pdfs") && extension != ".pdf")
+            {
+                throw new ArgumentException("Invalid file type. Only PDF files are allowed.");
+            }
+
+            // Upload the file to Cloudinary
+            string url = await UploadFileAsync(file, folder);
+            _logger.LogInformation("File uploaded successfully: {Url}", url);
+
+            return ServiceResult<string>.Success(url, "File uploaded successfully");
+        }
+
+        public async Task<ServiceResult<string>> GetFileUrl(Guid id, string type = "pdf")
+        {
+            _logger.LogInformation("Getting file URL for book ID: {Id}, type: {Type}", id, type);
+
+            if (id == Guid.Empty)
+                throw new ArgumentException("Invalid book ID");
+
+            // Get the book to find the file URL
+            var bookResult = await _bookRepository.GetByIdAsync(id);
+
+            if (!bookResult.IsSuccess || bookResult.Result == null)
+                throw new NotFoundException("Book not found", typeof(Book));
+
+            // Get the appropriate URL based on the type
+            string fileUrl = type.ToLower() == "pdf" ? bookResult.Result.PdfUrl : bookResult.Result.ImageUrl;
+            
+            if (string.IsNullOrEmpty(fileUrl))
+                throw new NotFoundException($"{type.ToUpper()} file not found for this book", typeof(Book));
+
+            // Generate a signed URL
+            string signedUrl = await GetSignedUrlAsync(fileUrl);
+            _logger.LogInformation("Generated signed URL: {Url}", signedUrl);
+
+            return ServiceResult<string>.Success(signedUrl, "File URL generated successfully");
+        }
+
+        private bool IsValidImageExtension(string extension)
+        {
+            return _validImageExtensions.Contains(extension);
+        }
 
         //public async Task<byte[]> FetchCloudinaryFileAsync(string url)
         //{
@@ -276,6 +327,5 @@ namespace BookLibrary.Server.Infrastructure.Services
         //        throw new HttpRequestException($"Failed to fetch file from Cloudinary: {ex.Message}", ex);
         //    }
         //}
-
     }
 }

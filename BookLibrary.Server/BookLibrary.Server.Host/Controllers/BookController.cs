@@ -22,10 +22,10 @@ namespace BookLibrary.Server.Host.Controllers
         }
 
 
-        [HttpGet("all")]
-        public async Task<IActionResult> GetAll([FromQuery] GetBooksQuery query)
+        [HttpGet("all-public-books")]
+        public async Task<IActionResult> GetAllUsersPublicBooks([FromQuery] GetBooksQuery query)
         {
-            var serviceResult = await bookService.GetAll(query);
+            var serviceResult = await bookService.GetAllUsersPublicBooks(query);
 
             return serviceResult != null && serviceResult.IsSuccess
                 ? LogAndResponse<IEnumerable<GetBook>>(serviceResult, successStatusCode: StatusCodes.Status200OK)
@@ -33,9 +33,32 @@ namespace BookLibrary.Server.Host.Controllers
 
         }
 
+        [HttpGet("all")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetBooks([FromQuery] GetBooksQuery query)
+        {
+            var serviceResult = await bookService.GetBooks(query);
+
+            return serviceResult != null && serviceResult.IsSuccess
+                ? LogAndResponse<IEnumerable<GetBook>>(serviceResult, successStatusCode: StatusCodes.Status200OK)
+                : LogAndResponse<IEnumerable<GetBook>>(serviceResult!, failureStatusCode: StatusCodes.Status400BadRequest);
+        }
+
+        //user-books
+        [HttpGet("user-books/{userId}")]
+        public async Task<IActionResult> GetAllUserBooks(Guid userId, [FromQuery] GetBooksQuery query)
+        {
+            var serviceResult = await bookService.GetAllUserBooks(userId, query);
+
+            return serviceResult != null && serviceResult.IsSuccess
+                ? LogAndResponse<IEnumerable<GetBook>>(serviceResult, successStatusCode: StatusCodes.Status200OK)
+                : LogAndResponse<IEnumerable<GetBook>>(serviceResult!, failureStatusCode: StatusCodes.Status400BadRequest);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id, [FromQuery] string IncludeProperties = null!)
         {
+
             var serviceResult = await bookService.GetById(id, IncludeProperties);
 
             return serviceResult != null && serviceResult.IsSuccess

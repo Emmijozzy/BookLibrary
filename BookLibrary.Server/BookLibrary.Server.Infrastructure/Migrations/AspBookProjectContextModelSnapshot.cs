@@ -22,6 +22,53 @@ namespace BookLibrary.Server.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("BookLibrary.Server.Domain.Entities.ApplicationRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1a45afb0-1fc5-4536-a78a-f9233be401b0",
+                            Description = "Administrator role with full access",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "a9beed4b-8fe4-4c36-86b4-645ed543ebae",
+                            Description = "Standard user role with limited access",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
+                });
+
             modelBuilder.Entity("BookLibrary.Server.Domain.Entities.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -89,6 +136,25 @@ namespace BookLibrary.Server.Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "e1dd5284-2a42-4f5a-bbd6-42aa11d043f5",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "5860245a-7046-4611-be59-d878d6f002f8",
+                            Email = "admin@booklibrary.com",
+                            EmailConfirmed = true,
+                            FullName = "System Administrator",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@BOOKLIBRARY.COM",
+                            NormalizedUserName = "ADMIN@BOOKLIBRARY.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIbeiIV5j789zlc7/jAiFzg1a2Vw4XxWkYBd4Udu0OarWiwxXXeLZELiG1Zdv19k9w==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "f82e9cb9-9c52-4851-8b00-b115d899669a",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@booklibrary.com"
+                        });
                 });
 
             modelBuilder.Entity("BookLibrary.Server.Domain.Entities.Book", b =>
@@ -107,6 +173,9 @@ namespace BookLibrary.Server.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -116,6 +185,9 @@ namespace BookLibrary.Server.Infrastructure.Migrations
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsPrivate")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Isbn")
                         .IsRequired()
@@ -208,33 +280,6 @@ namespace BookLibrary.Server.Infrastructure.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("AspNetRoles", (string)null);
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -320,6 +365,13 @@ namespace BookLibrary.Server.Infrastructure.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "e1dd5284-2a42-4f5a-bbd6-42aa11d043f5",
+                            RoleId = "1a45afb0-1fc5-4536-a78a-f9233be401b0"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -354,7 +406,7 @@ namespace BookLibrary.Server.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("BookLibrary.Server.Domain.Entities.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -381,7 +433,7 @@ namespace BookLibrary.Server.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("BookLibrary.Server.Domain.Entities.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)

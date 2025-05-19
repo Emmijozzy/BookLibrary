@@ -2,6 +2,7 @@
 using BookLibrary.Server.Application.DTOs.Auth;
 using BookLibrary.Server.Application.DTOs.User;
 using BookLibrary.Server.Application.Services.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookLibrary.Server.Host.Controllers
@@ -42,6 +43,24 @@ namespace BookLibrary.Server.Host.Controllers
                 : LogAndResponse<bool>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
         }
 
+        [HttpPost("Verify-Email")]
+        public async Task<IActionResult> VerifyEmail(VerifyEmailDto verifyEmailDto)
+        {
+            var serviceResult = await authenticationService.VerifyEmail(verifyEmailDto);
+            return serviceResult != null && serviceResult.IsSuccess
+                ? LogAndResponse<bool>(serviceResult, successStatusCode: StatusCodes.Status200OK)
+                : LogAndResponse<bool>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+        }
+
+        [HttpPost("Resend-Verification-Email")]
+        public async Task<IActionResult> ResendVerificationEmail(ResendVerificationEmailDto resendVerificationEmailDto)
+        {
+            var serviceResult = await authenticationService.ResendConfirmationEmail(resendVerificationEmailDto.Email);
+            return serviceResult != null && serviceResult.IsSuccess
+                ? LogAndResponse<bool>(serviceResult, successStatusCode: StatusCodes.Status200OK)
+                : LogAndResponse<bool>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+        }
+
         [HttpPost("RefreshToken")]
         public async Task<IActionResult> RefreshToken()
         {
@@ -51,6 +70,26 @@ namespace BookLibrary.Server.Host.Controllers
             return serviceResult != null && serviceResult.IsSuccess
                 ? LogAndResponse<AuthResponseDto>(serviceResult, successStatusCode: StatusCodes.Status200OK)
                 : LogAndResponse<AuthResponseDto>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+        }
+
+        [HttpPost("ForgetPassword")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ForgetPassword(RequestResetDto requestResetDto)
+        {
+            var serviceResult = await authenticationService.RequestReset(requestResetDto);
+            return serviceResult != null && serviceResult.IsSuccess
+                ? LogAndResponse<bool>(serviceResult, successStatusCode: StatusCodes.Status200OK)
+                : LogAndResponse<bool>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
+        }
+
+        [HttpPost("ResetPassword")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword([FromForm] ResetPasswordDto resetPasswordDto)
+        {
+            var serviceResult = await authenticationService.ResetPassword(resetPasswordDto);
+            return serviceResult != null && serviceResult.IsSuccess
+                ? LogAndResponse<bool>(serviceResult, successStatusCode: StatusCodes.Status200OK)
+                : LogAndResponse<bool>(serviceResult, failureStatusCode: StatusCodes.Status400BadRequest);
         }
     }
 }

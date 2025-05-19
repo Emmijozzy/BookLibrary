@@ -24,6 +24,12 @@ namespace BookLibrary.Server.Host.Middleware
                 logger.LogInformation("Request entering ErrorHandlingMiddleware: {Path}", context.Request.Path);
                 await next(context);
                 logger.LogInformation("Response leaving ErrorHandlingMiddleware: {StatusCode}", context.Response.StatusCode);
+
+                if (context.Response.StatusCode == StatusCodes.Status403Forbidden)
+                {
+                    await HandleExceptionAsync(context, new PermissionDeniedException("You do not have sufficient permissions to access this resource"));
+                }
+
             }
             catch (Exception ex)
             {
@@ -71,6 +77,14 @@ namespace BookLibrary.Server.Host.Middleware
                 InvalidPasswordException invalidePasswordEx => (
                     StatusCodes.Status401Unauthorized,
                     CreateErrorResponse("UNAUTHORIZED", invalidePasswordEx)),
+
+                PermissionDeniedException permissionDeniedEx => (
+                    StatusCodes.Status403Forbidden,
+                    CreateErrorResponse("PERMISSION_DENIED", permissionDeniedEx)),
+
+                EmailNotConfirmedException emailNotConfirmedEx => (
+                    StatusCodes.Status403Forbidden,
+                    CreateErrorResponse("EMAIL_NOT_CONFIRMED", emailNotConfirmedEx)),
 
                 UserNotFoundException notFoundEx => (
                     StatusCodes.Status404NotFound,
@@ -129,6 +143,20 @@ namespace BookLibrary.Server.Host.Middleware
             {
                 metadata.Additional["StackTrace"] = ex!.StackTrace!;
                 metadata.Additional["Source"] = ex.Source!;
+            }
+
+            // Add custom details for permission denied errors
+            if (ex is PermissionDeniedException)
+            {
+                metadata.Additional["RequiredPermission"] = "Admin";
+                metadata.Additional["ResourceType"] = "Book";
+
+                return ApiResponse<object>.Failure(
+                    "Access Denied",
+                    code,
+                    new[] { "You do not have sufficient permissions to access this resource" },
+                    metadata
+                );
             }
 
             return ApiResponse<object>.Failure(

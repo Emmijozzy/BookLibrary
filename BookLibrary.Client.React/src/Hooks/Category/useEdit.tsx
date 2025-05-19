@@ -17,7 +17,7 @@ export const useEdit = () => {
   });
 
 
-  const { error, fetchData } = useFetch()
+  const { error, fetchData, loading} = useFetch()
 
   useEffect(() => {
       const fetchInitial = async () => {
@@ -47,7 +47,7 @@ export const useEdit = () => {
     onSubmit: async (values) => {
       try {
         setIsSubmitting(true);
-        await fetchData("/Category/add", {method: 'post', data: {...values}});
+        await fetchData("/Category/update", {method: 'put', data: {...values}});
         navigate("/categories")
       } catch (e) {
         const error = e as Error;
@@ -69,6 +69,7 @@ export const useEdit = () => {
     errors,
     resErrMes,
     isSubmitting,
-    dataLoading
+    dataLoading,
+    loading
   }
 }

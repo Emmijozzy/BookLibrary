@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import ErrorMsg from "../../components/ErrorMsg";
 import useFetch from "../../Hooks/useFetch";
 import { Book } from "../../Types/book";
-import ErrorMsg from "../../components/ErrorMsg";
+import { handleBack } from "../../Utils/handleBack";
+import AccessDenied2 from "../../components/AccessDenied2";
+import { useApp } from "../../Hooks/useApp";
 
 const Delete = () => {
   const [dataLoading, setDataLoading] = useState(false);
@@ -18,8 +21,11 @@ const Delete = () => {
       numberOfPage: 0,
       genre: '',
       publisher: '',
-      language: ''
-  });
+      language: '',
+      isPrivate: false,
+    });
+    const { appUserId, currentRole } = useApp();
+    const isAdmin = currentRole === 'Admin';
 
   const  {error, fetchData, loading } = useFetch()
 
@@ -57,6 +63,7 @@ const Delete = () => {
     deleteBook();
 
   };
+  
   if (dataLoading) {
     return (
         <div className="min-h-screen bg-gray-100 flex items-center justify-center">
@@ -65,13 +72,19 @@ const Delete = () => {
     );
   }
 
+  if(!isAdmin && book.createdBy !== appUserId) {
+    return (
+        <AccessDenied2 message="You are not authorized to edit this book. Only the creator can make changes." />
+    );
+}
+
   return (
     <div className="min-h-screen bg-gray-100">
     <div className="flex-1 p-8">
         <div className="bg-white rounded-lg shadow-lg p-6">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl font-bold text-red-600">Delete Book</h1>
-                <Link to="/Books" className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 text-gray-700">Back to List</Link>
+                <button onClick={handleBack} className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 text-gray-700">Back to List</button>
             </div>
 
             {error && (

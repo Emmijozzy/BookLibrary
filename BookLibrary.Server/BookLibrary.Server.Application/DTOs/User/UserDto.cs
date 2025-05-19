@@ -6,5 +6,7 @@
         public required string Email { get; set; }
         public required string FullName { get; set; }
         public bool isAuthenticated { get; set; }
+        public bool Locked { get; set; }
+        public ICollection<string> Roles { get; set; }
     }
 }

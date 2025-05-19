@@ -16,6 +16,7 @@ namespace BookLibrary.Server.Application.Services.Implementation
         IValidationService validationService,
         IValidator<RegisterUser> RegisterValidation,
         IValidator<LoginUser> LoginUserValidator,
+        IEmailService emailService,
         IMapper mapper,
         IClientIpAccessor clientIpAccessor
         ) : IAuthenticationService
@@ -38,6 +39,14 @@ namespace BookLibrary.Server.Application.Services.Implementation
                 throw new UserCreationException(errorMsg!); // Throw a specific exception
             }
 
+            if (result is null) throw new UserCreationException("User creation failed.");
+
+            var tokenResult = await tokenManagement.GenerateEmailConfirmationToken(result);
+            if (!tokenResult.IsSuccess && string.IsNullOrWhiteSpace(tokenResult.Result)) throw new UserCreationException("Error while generating email confirmation token.");
+
+            var emailResult = await emailService.SendEmailVerificationEmail(result.Email!, tokenResult.Result!, result.Id);
+            if (!emailResult.IsSuccess) throw new UserCreationException("Error while sending email confirmation.");
+
             var mappedUser = mapper.Map<UserDto>(result);
             return ServiceResult<UserDto>.Success(mappedUser, "User created successfully.");
         }
@@ -56,6 +65,8 @@ namespace BookLibrary.Server.Application.Services.Implementation
             var passwordCheck = await userManagement.CheckPassword(userFromDb, user.Password);
             if (!passwordCheck) throw new InvalidPasswordException("Invalid password.");
 
+            if (!userFromDb.EmailConfirmed) throw new EmailNotConfirmedException("Email is not confirmed.");
+
             var userClaimResult = await userManagement.GetUserClaims(userFromDb!.Email!);
             if (!userClaimResult.IsSuccess) throw new UserClaimException("Error while retrieving user claims.");
 
@@ -73,6 +84,7 @@ namespace BookLibrary.Server.Application.Services.Implementation
                 FullName = userFromDb.FullName,
                 Id = userFromDb.Id,
                 isAuthenticated = true,
+                Locked = userFromDb.LockoutEnd != null
             }, "Login successfully", new { accessToken });
         }
 
@@ -131,6 +143,9 @@ namespace BookLibrary.Server.Application.Services.Implementation
             var newAccessToken = tokenManagement.GenerateToken(claims.Result!);
             var newRefreshToken = tokenManagement.GenerateSignedRefreshToken(refreshUserId);
 
+            var removeResult = await tokenManagement.RemoveRefreshToken(refreshUserId);
+            if (!removeResult.IsSuccess) throw new TokenOperationException("Error while trying to remove refresh token.");
+
             var newTokenResult = await tokenManagement.AddRefreshToken(newRefreshToken, refreshUserId, currentClientIp);
             if (!newTokenResult.IsSuccess) throw new TokenOperationException("Error while trying to add new refresh token");
 
@@ -141,5 +156,73 @@ namespace BookLibrary.Server.Application.Services.Implementation
 
         }
 
+        public async Task<ServiceResult<bool>> RequestReset(RequestResetDto requestResetDto)
+        {
+            if (requestResetDto == null || string.IsNullOrWhiteSpace(requestResetDto.Email))
+                throw new ArgumentNullException(nameof(requestResetDto.Email), "Email is required.");
+
+            var (userFound, user, userError) = await userManagement.GetUserByEmail(requestResetDto.Email);
+            if (!userFound || user == null)
+                throw new NotFoundException("User not found", typeof(RequestResetDto));
+
+            var tokenResult = await tokenManagement.GenerateResetPasswordToken(requestResetDto);
+            if (!tokenResult.IsSuccess || string.IsNullOrWhiteSpace(tokenResult.Result))
+                throw new TokenGenerationException("Error while generating reset password token.");
+
+            // TODO: Integrate email service to send reset password email with tokenResult.Result
+            await emailService.SendResetPasswordEmail(user.Email, tokenResult.Result, user.UserId);
+
+            return ServiceResult<bool>.Success(true, "Password reset email sent successfully");
+        }
+
+        public async Task<ServiceResult<bool>> ResetPassword(ResetPasswordDto resetPasswordDto)
+        {
+            if (resetPasswordDto == null || string.IsNullOrWhiteSpace(resetPasswordDto.Token) || string.IsNullOrWhiteSpace(resetPasswordDto.Password))
+                throw new ArgumentNullException(nameof(resetPasswordDto), "Token and Password are required.");
+            if (string.IsNullOrWhiteSpace(resetPasswordDto.UserId))
+                throw new ArgumentNullException(nameof(resetPasswordDto.UserId), "User id is required");
+
+            var verifyResult = await tokenManagement.ChangePassword(resetPasswordDto, resetPasswordDto.UserId);
+            if (!verifyResult.IsSuccess || !verifyResult.Result)
+                throw new UnauthorizedAccessException("Unauthorized: Invalid or expired token.");
+
+            return ServiceResult<bool>.Success(true, "Password reset successfully");
+        }
+
+        public async Task<ServiceResult<bool>> VerifyEmail(VerifyEmailDto verifyEmailDto)
+        {
+            if (verifyEmailDto == null || string.IsNullOrWhiteSpace(verifyEmailDto.Token) || string.IsNullOrWhiteSpace(verifyEmailDto.UserId))
+                throw new ArgumentNullException(nameof(verifyEmailDto), "Token and User id are required.");
+            if (string.IsNullOrWhiteSpace(verifyEmailDto.UserId))
+                throw new ArgumentNullException(nameof(verifyEmailDto.UserId), "User id is required");
+
+            var userFound = await userManagement.GetUserById(verifyEmailDto.UserId);
+            if (!userFound.IsSuccess || userFound.Result == null)
+                throw new NotFoundException("User not found", typeof(VerifyEmailDto));
+
+            var verifyResult = await tokenManagement.ConfirmEmail(verifyEmailDto.Token, userFound.Result);
+            if (!verifyResult.IsSuccess || !verifyResult.Result)
+                throw new UnauthorizedAccessException("Unauthorized: Invalid or expired token.");
+
+            return ServiceResult<bool>.Success(true, "Email verified successfully");
+        }
+
+        public async Task<ServiceResult<bool>> ResendConfirmationEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentNullException(nameof(email), "Email is required.");
+
+            var userResult = await userManagement.GetUserByEmail(email);
+            if (!userResult.IsSuccess || userResult.Result == null)
+                throw new NotFoundException("User not found", typeof(VerifyEmailDto));
+
+            var tokenResult = await tokenManagement.GenerateEmailConfirmationToken(userResult.Result);
+            if (!tokenResult.IsSuccess && string.IsNullOrWhiteSpace(tokenResult.Result)) throw new UserCreationException("Error while generating email confirmation token.");
+
+            var emailResult = await emailService.SendEmailVerificationEmail(userResult.Result.Email!, tokenResult.Result!, userResult.Result.Id);
+            if (!emailResult.IsSuccess) throw new UserCreationException("Error while sending email confirmation.");
+
+            return ServiceResult<bool>.Success(true, "Email sent successfully");
+        }
     }
 }

@@ -198,5 +198,44 @@ namespace BookLibrary.Server.Infrastructure.Repository
                 throw new DatabaseOperationException("An error occurred while counting the entities.", ex);
             }
         }
+
+        public async Task<RepositoryResult<bool>> DeleteByPropertyAsync<TProperty>(
+            Expression<Func<TEntity, TProperty>> propertySelector,
+            TProperty propertyValue)
+        {
+            try
+            {
+                // Create a parameter expression for the entity
+                var parameter = Expression.Parameter(typeof(TEntity), "e");
+
+                // Get the property from the selector
+                var memberExpression = (MemberExpression)propertySelector.Body;
+                var property = Expression.Property(parameter, memberExpression.Member.Name);
+
+                // Create an equality comparison
+                var constantValue = Expression.Constant(propertyValue, typeof(TProperty));
+                var equalExpression = Expression.Equal(property, constantValue);
+
+                // Create a lambda expression for the filter
+                var lambda = Expression.Lambda<Func<TEntity, bool>>(equalExpression, parameter);
+
+                // Find all entities matching the filter
+                var entities = await dbSet.Where(lambda).ToListAsync();
+
+                if (entities.Any())
+                {
+                    // Remove all matching entities
+                    dbSet.RemoveRange(entities);
+                    await context.SaveChangesAsync();
+                }
+
+                return RepositoryResult<bool>.Success(true);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Error deleting entities by property {propertySelector}");
+                throw new DatabaseOperationException($"An error occurred while deleting entities by property.", ex);
+            }
+        }
     }
 }

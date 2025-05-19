@@ -3,7 +3,7 @@ import { BookListContent } from "../../components/bookIIndex/BookListContent";
 import { BookListHeader } from "../../components/bookIIndex/BookListHeader";
 import Pagination from "../../components/bookIIndex/Pagination";
 import { LoadingSpinner } from "../../components/LoadingSpinner";
-import SearchBook from "../../components/SearchBook";
+import SearchBar from "../../components/SearchBar";
 import useBook from "../../Hooks/Book/useBook";
 import { Book } from "../../Types/book";
 
@@ -38,7 +38,7 @@ const BookIndex = () => {
     const books = data as unknown as Book[] || [];
 
     return (
-        <>
+        <div className="h-full flex flex-col">
             <BookListHeader 
                 totalItems={totalItems} 
                 viewMode={viewMode} 
@@ -48,7 +48,7 @@ const BookIndex = () => {
             <div className="mt-6 bg-white p-6 rounded-lg shadow-sm">
                 <div className="flex flex-col md:flex-row gap-4">
                     <div className="flex-1">
-                        <SearchBook 
+                        <SearchBar 
                             setSearchTerm={setSearchTerm} 
                             setSearchField={setSearchField} 
                             searchTerm={searchTerm} 
@@ -75,7 +75,7 @@ const BookIndex = () => {
                 onPageChange={handlePageChange}
                 onPageSizeChange={handlePageSizeChange}
             />
-        </>
+        </div>
     );
 };
 
