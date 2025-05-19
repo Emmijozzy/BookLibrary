@@ -138,40 +138,25 @@ namespace BookLibrary.Server.Infrastructure.Security
         {
             try
             {
-                logger.LogInformation($"Removing all refresh tokens for user {userId}");
+                logger.LogInformation($"Removing refresh token for user {userId}");
                 if (userId == null) throw new ArgumentNullException("User id can not be null");
 
-                // Find all refresh tokens that belong to the user
-                var refreshTokens = await context.RefreshTokens
-                    .Where(r => r.UserId == userId)
-                    .ToListAsync();
-
-                if (refreshTokens == null || refreshTokens.Count == 0)
+                var refreshToken = context.RefreshTokens.FirstOrDefault(r => r.UserId == userId);
+                if (refreshToken == null)
                 {
-                    logger.LogWarning($"No refresh tokens found for user {userId}");
-                    return RepositoryResult<bool>.Success(true);
+                    // logger.LogWarning($"Refresh token not found for user {userId}");
+                    throw new KeyNotFoundException("Refresh token not found");
                 }
+                // logger.LogInformation($"Refresh token found for user {refreshToken.UserId}");
 
-                logger.LogInformation($"Found {refreshTokens.Count} refresh token(s) for user {userId}");
-
-                context.RefreshTokens.RemoveRange(refreshTokens);
-                try
-                {
-                    await context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException ex)
-                {
-                    logger.LogError(ex, "Optimistic concurrency exception occurred while removing refresh tokens");
-                    // Reload the refresh tokens and try again
-                    context.RefreshTokens.Load();
-                    context.RefreshTokens.RemoveRange(refreshTokens);
-                    await context.SaveChangesAsync();
-                }
+                context.RefreshTokens.Remove(refreshToken);
+                await context.SaveChangesAsync();
                 return RepositoryResult<bool>.Success(true);
+
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, "Unexpected error removing refresh tokens");
+                logger.LogError(ex, "Unexpected error removing refresh token");
                 throw new SecurityOperationException(ex.Message, ex);
             }
         }
@@ -185,7 +170,7 @@ namespace BookLibrary.Server.Infrastructure.Security
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(20),
+                expires: DateTime.Now.AddMinutes(3),
                 signingCredentials: creds);
             var tokenHandler = new JwtSecurityTokenHandler();
             var generatedToken = tokenHandler.WriteToken(token);
@@ -274,8 +259,9 @@ namespace BookLibrary.Server.Infrastructure.Security
 
                 logger.LogInformation("Found user: {UserEmail}", user.Email);
 
+                string decodedToken = System.Web.HttpUtility.UrlDecode(changePassword.Token);
 
-                var result = await userManager.ResetPasswordAsync(user, changePassword.Token, changePassword.Password);
+                var result = await userManager.ResetPasswordAsync(user, decodedToken, changePassword.Password);
 
                 if (result.Succeeded)
                 {

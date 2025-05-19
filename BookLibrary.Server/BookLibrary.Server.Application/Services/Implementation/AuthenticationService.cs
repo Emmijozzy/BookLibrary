@@ -143,6 +143,9 @@ namespace BookLibrary.Server.Application.Services.Implementation
             var newAccessToken = tokenManagement.GenerateToken(claims.Result!);
             var newRefreshToken = tokenManagement.GenerateSignedRefreshToken(refreshUserId);
 
+            var removeResult = await tokenManagement.RemoveRefreshToken(refreshUserId);
+            if (!removeResult.IsSuccess) throw new TokenOperationException("Error while trying to remove refresh token.");
+
             var newTokenResult = await tokenManagement.AddRefreshToken(newRefreshToken, refreshUserId, currentClientIp);
             if (!newTokenResult.IsSuccess) throw new TokenOperationException("Error while trying to add new refresh token");
 

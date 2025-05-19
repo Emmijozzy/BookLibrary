@@ -10,7 +10,7 @@ const EmailVerificationSuccess = () => {
   const email = searchParams.get('email');
   const userId = searchParams.get('userId');
 
-  const {fetchData, data, loading, isSuccess, message} = useFetch()
+  const {fetchData, message} = useFetch()
   
   const [verifying, setVerifying] = useState(true);
   const [verified, setVerified] = useState(false);
@@ -27,7 +27,6 @@ const EmailVerificationSuccess = () => {
       }
 
       try {
-
         console.log("Token:", token);
 
         await fetchData(`AuthApi/verify-email`, {
@@ -51,7 +50,6 @@ const EmailVerificationSuccess = () => {
   const redirectToLogin = () => {
     navigate('/Auth/login');
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
       <ToastContainer />

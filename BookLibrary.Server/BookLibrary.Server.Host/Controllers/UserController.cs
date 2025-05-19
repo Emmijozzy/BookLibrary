@@ -1,15 +1,18 @@
 ﻿using BookLibrary.Server.Application.DTOs;
 using BookLibrary.Server.Application.DTOs.User;
 using BookLibrary.Server.Application.Services.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookLibrary.Server.Host.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [ApiController]
     public class UserController(IUserService userService, ILogger<UserController> logger) : BaseController(logger)
     {
         [HttpGet("all")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAll([FromQuery] GetUsersQuery query)
         {
             var serviceResult = await userService.GetUsers(query);
@@ -28,6 +31,7 @@ namespace BookLibrary.Server.Host.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateById(string id, UpdateUserDto user)
         {
             var serviceResult = await userService.UpdateUser(id, user);
@@ -37,6 +41,7 @@ namespace BookLibrary.Server.Host.Controllers
         }
 
         [HttpPut("{id}/roles")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateUserRoles(string id, UpdateUserRolesDto userRoles)
         {
             var serviceResult = await userService.UpdateUserRoles(id, userRoles);
@@ -46,6 +51,7 @@ namespace BookLibrary.Server.Host.Controllers
         }
 
         [HttpPut("{id}/lock")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> LockUser(string id)
         {
             var serviceResult = await userService.LockUser(id);
@@ -55,6 +61,7 @@ namespace BookLibrary.Server.Host.Controllers
         }
 
         [HttpPut("{id}/unlock")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UnlockUser(string id)
         {
             var serviceResult = await userService.UnlockUser(id);
@@ -64,6 +71,7 @@ namespace BookLibrary.Server.Host.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUser(string id)
         {
             var serviceResult = await userService.DeleteUser(id);

@@ -185,7 +185,7 @@ namespace BookLibrary.Server.Infrastructure.Security
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(20),
+                expires: DateTime.Now.AddMinutes(2),
                 signingCredentials: creds);
             var tokenHandler = new JwtSecurityTokenHandler();
             var generatedToken = tokenHandler.WriteToken(token);
@@ -274,8 +274,9 @@ namespace BookLibrary.Server.Infrastructure.Security
 
                 logger.LogInformation("Found user: {UserEmail}", user.Email);
 
+                string decodedToken = System.Web.HttpUtility.UrlDecode(changePassword.Token);
 
-                var result = await userManager.ResetPasswordAsync(user, changePassword.Token, changePassword.Password);
+                var result = await userManager.ResetPasswordAsync(user, decodedToken, changePassword.Password);
 
                 if (result.Succeeded)
                 {

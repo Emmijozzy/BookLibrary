@@ -79,6 +79,68 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
   };
   
   // Initialize the API instance
+  const isRefreshing = useRef(false);
+  const refreshQueue = useRef<Array<(token: string) => void>>([]);
+
+  const setupInterceptors = () => {
+    const interceptors = [api.json, api.formData].map(instance =>
+      instance.interceptors.response.use(
+        (response) => response,
+        async (error) => {
+          const originalRequest = error.config;
+          
+          if (error.response?.status === 401 &&
+              error.response?.data?.code === 'EXPIRED_TOKEN' &&
+              !originalRequest._retry) {
+            
+            originalRequest._retry = true;
+            
+            // If already refreshing, add to queue instead of making a new refresh request
+            if (isRefreshing.current) {
+              return new Promise((resolve) => {
+                refreshQueue.current.push((token) => {
+                  originalRequest.headers['Authorization'] = `Bearer ${token}`;
+                  resolve(instance(originalRequest));
+                });
+              });
+            }
+            
+            isRefreshing.current = true;
+            
+            try {
+              const data = await refreshAuthToken();
+              
+              if (data.accessToken) {       
+                const newAuthToken = data.accessToken;
+                updateAuthToken(newAuthToken);
+                originalRequest.headers['Authorization'] = `Bearer ${newAuthToken}`;
+                
+                // Process any queued requests with the new token
+                refreshQueue.current.forEach(callback => callback(newAuthToken));
+                refreshQueue.current = [];
+              } else {
+                throw new Error('Failed to refresh token');
+              }
+              
+              isRefreshing.current = false;
+              return instance(originalRequest);
+            } catch (refreshError) {
+              console.error('Error refreshing token:', refreshError);
+              updateAuthToken(null);
+              isRefreshing.current = false;
+              refreshQueue.current = [];
+              return Promise.reject(refreshError);
+            }
+          }
+          
+          return Promise.reject(error.response || error);
+        }
+      )
+    );
+    
+    return interceptors;
+  };
+
   useEffect(() => {
     // console.log("Initialize the API instance");
     // Set up camelCase conversion interceptor for both instances
@@ -99,41 +161,8 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
       });
     });
     
-    // Set up token refresh interceptor for both instances
-    const interceptors = [api.json, api.formData].map(instance =>
-      instance.interceptors.response.use(
-        (response) => response,
-        async (error) => {
-          const originalRequest = error.config;
-          
-          if (error.response?.status === 401 &&
-              error.response?.data?.code === 'EXPIRED_TOKEN' &&
-              !originalRequest._retry) {
-            
-            originalRequest._retry = true;
-            
-            try {
-              const data = await refreshAuthToken();
-              
-              if (data.accessToken) {       
-                const newAuthToken = data.accessToken;
-                updateAuthToken(newAuthToken);
-                originalRequest.headers['Authorization'] = `Bearer ${newAuthToken}`;
-              } else {
-                throw new Error('Failed to refresh token');
-              }        
-              return instance(originalRequest);
-            } catch (refreshError) {
-              console.error('Error refreshing token:', refreshError);
-              updateAuthToken(null);
-              return Promise.reject(refreshError);
-            }
-          }
-          
-          return Promise.reject(error.response || error);
-        }
-      )
-    );
+    // Set up token refresh interceptor with queue pattern
+    const interceptors = setupInterceptors();
     
     // Set initial auth token if available
     if (authToken) {
