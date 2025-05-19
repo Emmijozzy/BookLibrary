@@ -7,10 +7,12 @@ using BookLibrary.Server.Infrastructure.Security;
 using BookLibrary.Server.Infrastructure.Services;
 using CloudinaryDotNet;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Text;
 
 namespace BookLibrary.Server.Infrastructure.DependencyInjection
@@ -25,9 +27,34 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
 
-            // Identity configuration
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<AspBookProjectContext>();
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+            {
+                // User settings
+                options.User.RequireUniqueEmail = true;
+
+                // Add password settings if needed
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequiredLength = 8;
+            })
+            .AddEntityFrameworkStores<AspBookProjectContext>()
+            .AddDefaultTokenProviders();
+
+            // Configure the default token provider with a longer lifespan
+            // This affects all tokens including password reset tokens
+            services.Configure<DataProtectionTokenProviderOptions>(options =>
+            {
+                options.TokenLifespan = TimeSpan.FromHours(24); // Set token expiration to 24 hours
+            });
+
+            // Configure Identity to use the default email provider for password reset
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Tokens.PasswordResetTokenProvider = TokenOptions.DefaultProvider;
+                options.Tokens.EmailConfirmationTokenProvider = TokenOptions.DefaultProvider;
+            });
 
             // Authentication configuration
             services.AddAuthentication(options =>
@@ -51,6 +78,9 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = key,
                     ClockSkew = TimeSpan.Zero,
+
+                    NameClaimType = "sub",
+                    RoleClaimType = ClaimTypes.Role,
                 };
                 options.Events = new JwtBearerEvents
                 {
@@ -123,7 +153,9 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
             services.AddScoped<ITokenManagement, TokenManagement>();
             services.AddScoped<IUserManagement, UserManagement>();
             services.AddScoped<IFileUploadService, FileUploadService>();
+            services.AddScoped<IEmailService, EmailService>();
             services.AddTransient<IClientIpAccessor, HttpContextClientIpAccessor>();
+
 
             return services;
         }
