@@ -31,15 +31,12 @@
 		<PackageReference Include="Microsoft.IdentityModel.Protocols" Version="8.6.1" />
 		<PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.6.1" />
 		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.6.1" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.6.1" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\BookLibrary.Server.Application\BookLibrary.Server.Application.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="Migrations\" />
 	</ItemGroup>
 
 </Project>

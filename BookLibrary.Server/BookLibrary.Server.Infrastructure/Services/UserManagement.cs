@@ -18,7 +18,7 @@ namespace BookLibrary.Server.Infrastructure.Services
     public class UserManagement(
         UserManager<ApplicationUser> userManager,
         RoleManager<ApplicationRole> roleManager,
-        AspBookProjectContext context,
+        SimplifiedAspBookProjectContext context,
         ILogger<UserManagement> logger
     ) : IUserManagement
     {

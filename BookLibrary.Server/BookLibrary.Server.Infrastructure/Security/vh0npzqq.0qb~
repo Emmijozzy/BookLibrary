@@ -17,7 +17,7 @@ using System.Text;
 
 namespace BookLibrary.Server.Infrastructure.Security
 {
-    public class TokenManagement(AspBookProjectContext context, UserManager<ApplicationUser> userManager, IConfiguration configuration, ILogger<TokenManagement> logger) : ITokenManagement
+    public class TokenManagement(SimplifiedAspBookProjectContext context, UserManager<ApplicationUser> userManager, IConfiguration configuration, ILogger<TokenManagement> logger) : ITokenManagement
     {
         public string GenerateSignedRefreshToken(string userId)
         {

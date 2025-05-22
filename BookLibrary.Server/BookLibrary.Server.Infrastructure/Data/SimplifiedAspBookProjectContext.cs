@@ -1,50 +1,51 @@
-﻿using BookLibrary.Server.Domain.Entities;
+using BookLibrary.Server.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace BookLibrary.Server.Infrastructure.Data
 {
-    public partial class AspBookProjectContext(DbContextOptions<AspBookProjectContext> options) : IdentityDbContext<ApplicationUser, ApplicationRole, string>(options)
+    public class SimplifiedAspBookProjectContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
+        public SimplifiedAspBookProjectContext(DbContextOptions<SimplifiedAspBookProjectContext> options)
+            : base(options)
+        {
+        }
+
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
-        public DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (optionsBuilder == null)
-            {
-                throw new ArgumentNullException(nameof(optionsBuilder));
-            }
-
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=AspBookProject;Integrated Security=true;TrustServerCertificate=true;");
+                optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=booklibrary;Username=postgres;Password=postgres;SSL Mode=Prefer;Trust Server Certificate=true");
             }
+        }
+
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            base.ConfigureConventions(configurationBuilder);
+
+            // Configure DateTime properties to always use UTC
+            configurationBuilder
+                .Properties<DateTime>()
+                .HaveConversion(typeof(UtcValueConverter));
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<ApplicationRole>(entity =>
-            {
-                entity.Property(e => e.Description).HasMaxLength(250);
-            });
+            // Minimal configurations
+            builder.Entity<ApplicationRole>().Property(e => e.Description).HasMaxLength(250);
+            builder.Entity<RefreshToken>().HasKey(r => r.Token);
+            builder.Entity<RefreshToken>().Ignore(r => r.IsExpired).Ignore(r => r.IsActive);
+            builder.Entity<ApplicationUser>().Ignore(u => u.UserId);
 
-            // Seed default roles
-            SeedRoles(builder);
-
-            // Seed admin user
-            SeedAdminUser(builder);
-        }
-
-        private void SeedRoles(ModelBuilder builder)
-        {
+            // Seed roles
             string adminRoleId = Guid.NewGuid().ToString();
             string userRoleId = Guid.NewGuid().ToString();
 
@@ -65,17 +66,8 @@ namespace BookLibrary.Server.Infrastructure.Data
                 }
             );
 
-            // Store role IDs for user assignment
-            _adminRoleId = adminRoleId;
-        }
-
-        private string _adminRoleId;
-
-        private void SeedAdminUser(ModelBuilder builder)
-        {
+            // Seed admin user
             string adminUserId = Guid.NewGuid().ToString();
-
-            // Create admin user
             var adminUser = new ApplicationUser
             {
                 Id = adminUserId,
@@ -99,11 +91,19 @@ namespace BookLibrary.Server.Infrastructure.Data
                 new IdentityUserRole<string>
                 {
                     UserId = adminUserId,
-                    RoleId = _adminRoleId
+                    RoleId = adminRoleId
                 }
             );
         }
+    }
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+    public class SimplifiedAspBookProjectContextFactory : IDesignTimeDbContextFactory<SimplifiedAspBookProjectContext>
+    {
+        public SimplifiedAspBookProjectContext CreateDbContext(string[] args)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<SimplifiedAspBookProjectContext>();
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=booklibrary;Username=postgres;Password=postgres;SSL Mode=Prefer;Trust Server Certificate=true");
+            return new SimplifiedAspBookProjectContext(optionsBuilder.Options);
+        }
     }
 }

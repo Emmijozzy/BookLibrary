@@ -1,3 +1,5 @@
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { BookFilters } from "../../components/bookIIndex/BookFiltersProps";
 import { BookListContent } from "../../components/bookIIndex/BookListContent";
 import { BookListHeader } from "../../components/bookIIndex/BookListHeader";
@@ -39,6 +41,7 @@ const BookIndex = () => {
 
     return (
         <div className="h-full flex flex-col">
+            <ToastContainer />
             <BookListHeader 
                 totalItems={totalItems} 
                 viewMode={viewMode} 

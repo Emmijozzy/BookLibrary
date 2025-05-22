@@ -1,3 +1,5 @@
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import AccessDenied2 from "../../components/AccessDenied2";
 import { CategorySelect } from "../../components/CategorySelect";
 import { DescriptionTextarea } from "../../components/DescriptionTextarea";
@@ -44,6 +46,7 @@ const Edit = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
+      <ToastContainer />
       <div className="flex-1 p-8">
         <div className="bg-white rounded-lg shadow-lg p-6">
           {error && (

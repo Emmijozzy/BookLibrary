@@ -22,9 +22,9 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
         public static IServiceCollection AddInfrastructureService(this IServiceCollection services, IConfiguration configuration)
         {
             // Database configuration
-            services.AddDbContext<AspBookProjectContext>(options =>
+            services.AddDbContext<SimplifiedAspBookProjectContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
             });
 
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
@@ -39,7 +39,7 @@ namespace BookLibrary.Server.Infrastructure.DependencyInjection
                 options.Password.RequireNonAlphanumeric = true;
                 options.Password.RequiredLength = 8;
             })
-            .AddEntityFrameworkStores<AspBookProjectContext>()
+            .AddEntityFrameworkStores<SimplifiedAspBookProjectContext>()
             .AddDefaultTokenProviders();
 
             // Configure the default token provider with a longer lifespan

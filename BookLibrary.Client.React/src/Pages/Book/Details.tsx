@@ -1,4 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { ArrowLeftIcon, BookOpenIcon, CalendarIcon, LockClosedIcon, LockOpenIcon, UserIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -54,6 +56,7 @@ const Details = () => {
 
     return (
       <div className="min-h-screen bg-gray-100">
+        <ToastContainer />
         <div className="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
           <button

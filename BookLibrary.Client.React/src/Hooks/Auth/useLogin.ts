@@ -1,13 +1,12 @@
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { Login } from "../../Auth/authInterface";
+import { User } from "../../Types/User";
 import loginSchema from "../../validation/loginSchema";
 import { useApi } from "../useApi";
-import useFetch from "../useFetch";
 import { useApp } from "../useApp";
-import { User } from "../../Types/User";
+import useFetch from "../useFetch";
 
 const initialValues: Login = {
     email: "",
@@ -35,10 +34,10 @@ const useLogin = () => {
     useEffect(() => {
         if (error) {
             setErrorMessage(error as string);
-                toast.error(errorMessage, {
-                    closeButton: true,
-                    autoClose: 3000,
-                });
+                // toast.error(errorMessage, {
+                //     closeButton: true,
+                //     autoClose: 3000,
+                // });
 
             if (status === 403 && resCode === "EMAIL_NOT_CONFIRMED" ) {
                     setRequireConfirmEmail(true);

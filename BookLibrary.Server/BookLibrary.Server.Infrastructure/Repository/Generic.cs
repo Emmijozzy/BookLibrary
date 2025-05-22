@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 
 namespace BookLibrary.Server.Infrastructure.Repository
 {
-    public class Generic<TEntity>(AspBookProjectContext context, ILogger<Generic<TEntity>> logger)
+    public class Generic<TEntity>(SimplifiedAspBookProjectContext context, ILogger<Generic<TEntity>> logger)
         : IGenericRepository<TEntity> where TEntity : class
     {
         private readonly DbSet<TEntity> dbSet = context.Set<TEntity>();

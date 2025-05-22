@@ -2,7 +2,7 @@
 {
     public class Book
     {
-        public Guid Id { get; set; } = new Guid();
+        public Guid Id { get; set; } = Guid.NewGuid();
         public required string Title { get; set; }
         public required string Author { get; set; }
         public required string Description { get; set; }
@@ -16,8 +16,8 @@
         public string? PdfUrl { get; set; }
         public Category? Category { get; set; }
         public Guid CategoryId { get; set; } = Guid.Parse("00000000-0000-0000-0000-000000000001");
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public DateTime UpdatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
         public Guid CreatedBy { get; set; }
         public bool IsPrivate { get; set; } = false;
     }

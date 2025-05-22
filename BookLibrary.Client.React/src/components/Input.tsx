@@ -19,26 +19,53 @@ type Props = {
 
 export const Input = ({ field, handleChange, values, errors, className = "", bodyClassName = "" }: Props) => {
   const isFileInput = field.type === 'file';
+  const fieldValue = values && field.name in values
+    ? field.type === 'date' && values[field.name as keyof (Book | Category)]
+      ? new Date(values[field.name as keyof (Book | Category)] as string).toISOString().split('T')[0]
+      : values[field.name as keyof (Book | Category)]
+    : '';
+  const errorMessage = errors && field.name in errors ? errors[field.name as keyof (Book | Category)] : '';
 
   return (
-    <div key={field.id} className={bodyClassName}>
-      <label htmlFor={field.id} className="block text-sm font-medium text-gray-700">{field.label}</label>
+    <div key={field.id} className={`${bodyClassName} space-y-1`}>
+      <label 
+        htmlFor={field.id} 
+        className="block text-sm font-medium text-gray-700 mb-1"
+      >
+        {field.label}
+      </label>
       <input
         id={field.id}
         name={field.name}
         type={field.type}
         onChange={handleChange}
-        {...(!isFileInput && {
-          value: values && field.name in values
-            ? field.type === 'date' && values[field.name as keyof (Book | Category)]
-              ? new Date(values[field.name as keyof (Book | Category)] as string).toISOString().split('T')[0]
-              : values[field.name as keyof (Book | Category)]
-            : ''
-        })}
-        className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 ${className}`}
+        {...(!isFileInput && { value: fieldValue })}
+        className={`
+        
+          block 
+          w-full 
+          px-3 
+          py-2 
+          rounded-md 
+          border-gray-300 
+          bg-white
+          shadow-sm 
+          transition-all
+          duration-200
+          focus:border-indigo-500 
+          focus:ring-2
+          focus:ring-indigo-500 
+          focus:ring-opacity-50
+          ${className}
+          ${errorMessage ? 'border-red-300' : ''}
+        `}
         placeholder={field.placeholder}
       />
-      <span className="text-red-600 text-sm">{errors && field.name in errors ? errors[field.name as keyof (Book | Category)] : ''}</span>
+      {errorMessage && (
+        <span className="text-red-600 text-sm block mt-1">
+          {errorMessage}
+        </span>
+      )}
     </div>
   );
 }
