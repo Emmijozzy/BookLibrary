@@ -21,11 +21,19 @@ namespace BookLibrary.Server.Infrastructure.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=booklibrary;Username=postgres;Password=postgres;SSL Mode=Prefer;Trust Server Certificate=true");
+                var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
+            
+                if (environment == "Production")
+                {
+                    optionsBuilder.UseNpgsql(connectionString  ?? throw new Exception("DATABASE_URL environment variable is not set."));
+                }
+                else
+                {
+                    optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=booklibrary;Username=postgres;Password=postgres;SSL Mode=Prefer;Trust Server Certificate=true");
+                }
             }
-        }
-
-        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        }        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {
             base.ConfigureConventions(configurationBuilder);
 
