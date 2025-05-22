@@ -1,7 +1,7 @@
-import { FaExpand, FaCompress, FaTimes } from "react-icons/fa";
+import { FaCompress, FaExpand, FaTimes } from "react-icons/fa";
+import { API_BASE_URL } from "../../constants";
 
 // Constants
-const API_BASE_URL = "https://localhost:7257/api";
 
 // Types
 export interface PdfViewerProps {

@@ -5,6 +5,7 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 import { ApiResponse, JwtDecode } from "../Types";
 import { ApiContext, ApiContextType } from "./ApiContext";
 import { useApp } from "../Hooks/useApp";
+import { API_BASE_URL } from "../constants";
 
 interface ApiProviderProps {
   children: ReactNode;
@@ -18,17 +19,21 @@ export const ApiProvider = ({ children }: ApiProviderProps) => {
   const [userRoles, setUserRoles] = useState<string[]>([]);
   const { setCurrentRole, currentRole } = useApp();
 
+
+  const apiBaseUrl = API_BASE_URL;
+  console.log("API Base URL:", apiBaseUrl);
+
   //Creation of api instances with different content types
   const api = useRef({
     json: axios.create({
-      baseURL: 'https://localhost:7257/api',
+      baseURL: apiBaseUrl,
       headers: {
         'Content-Type': 'application/json',
       },
       withCredentials: true,
     }),
     formData: axios.create({
-      baseURL: 'https://localhost:7257/api',
+      baseURL: apiBaseUrl,
       headers: {
         'Content-Type': 'multipart/form-data',
       },

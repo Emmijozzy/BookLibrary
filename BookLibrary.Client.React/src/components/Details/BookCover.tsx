@@ -1,6 +1,5 @@
 import { Book } from "../../Types/book";
-
-const API_BASE_URL = "https://localhost:7257/api";
+import { API_BASE_URL } from "../../constants";
 
 export const BookCover = ({ book }: { book: Book }) => (
     <div className="w-56 h-72 flex-shrink-0 overflow-hidden rounded-lg shadow-2xl border-4 border-white transform hover:scale-105 transition-transform duration-300">

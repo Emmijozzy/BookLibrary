@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
+import { API_BASE_URL } from "../../constants";
 
 // Constants
-const API_BASE_URL = "https://localhost:7257/api";
-
 export const usePdfViewer = (bookId?: string) => {
   const [pdfPreviewOpen, setPdfPreviewOpen] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
