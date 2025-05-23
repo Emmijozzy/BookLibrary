@@ -580,6 +580,9 @@
   .h-\[calc\(100vh-120px\)\] {
     height: calc(100vh - 120px);
   }
+  .h-auto {
+    height: auto;
+  }
   .h-full {
     height: 100%;
   }
@@ -591,6 +594,9 @@
   }
   .max-h-\[100vh\] {
     max-height: 100vh;
+  }
+  .min-h-16 {
+    min-height: calc(var(--spacing) * 16);
   }
   .min-h-30 {
     min-height: calc(var(--spacing) * 30);
@@ -2396,6 +2402,15 @@
   .sm\:gap-x-6 {
     @media (width >= 40rem) {
       column-gap: calc(var(--spacing) * 6);
+    }
+  }
+  .sm\:space-x-2 {
+    @media (width >= 40rem) {
+      :where(& > :not(:last-child)) {
+        --tw-space-x-reverse: 0;
+        margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse));
+        margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)));
+      }
     }
   }
   .sm\:space-x-4 {

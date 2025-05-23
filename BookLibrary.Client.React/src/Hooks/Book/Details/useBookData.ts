@@ -44,5 +44,4 @@ export const useBookData = (id: string | undefined) => {
   }, [id, error, fetchData]);
 
   return { book, dataLoading };
-
 };
