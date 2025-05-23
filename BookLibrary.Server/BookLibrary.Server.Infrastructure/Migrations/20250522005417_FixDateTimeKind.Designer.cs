@@ -3,6 +3,7 @@ using System;
 using BookLibrary.Server.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BookLibrary.Server.Infrastructure.Migrations.SimplifiedAspBookProject
 {
     [DbContext(typeof(SimplifiedAspBookProjectContext))]
-    partial class SimplifiedAspBookProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20250522005417_FixDateTimeKind")]
+    partial class FixDateTimeKind
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,22 +53,6 @@ namespace BookLibrary.Server.Infrastructure.Migrations.SimplifiedAspBookProject
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "b1cbd368-a90c-4b53-a448-b65fd7dea7fe",
-                            Description = "Administrator role with full access",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "82cf70fc-496c-44ff-a423-33ae755c4445",
-                            Description = "Standard user role with limited access",
-                            Name = "User",
-                            NormalizedName = "USER"
-                        });
                 });
 
             modelBuilder.Entity("BookLibrary.Server.Domain.Entities.ApplicationUser", b =>
@@ -134,25 +121,6 @@ namespace BookLibrary.Server.Infrastructure.Migrations.SimplifiedAspBookProject
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "6b1dd0ae-522a-4c51-bdd2-e9b7bf339ac1",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "e654ed02-f737-40b5-90b2-98053c9e5bc5",
-                            Email = "admin@booklibrary.com",
-                            EmailConfirmed = true,
-                            FullName = "System Administrator",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@BOOKLIBRARY.COM",
-                            NormalizedUserName = "ADMIN@BOOKLIBRARY.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEA8Q2EnJCw/zkUzhLZknWBdN5I/4b7XSHpWy7DXXioQqCe7gcR/h3V2176fj+WwoOA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "ad2ee865-d444-42a4-b779-1c184e367db9",
-                            TwoFactorEnabled = false,
-                            UserName = "admin@booklibrary.com"
-                        });
                 });
 
             modelBuilder.Entity("BookLibrary.Server.Domain.Entities.Book", b =>
@@ -363,13 +331,6 @@ namespace BookLibrary.Server.Infrastructure.Migrations.SimplifiedAspBookProject
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "6b1dd0ae-522a-4c51-bdd2-e9b7bf339ac1",
-                            RoleId = "b1cbd368-a90c-4b53-a448-b65fd7dea7fe"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

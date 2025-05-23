@@ -1,5 +1,4 @@
-using BookLibrary.Server.Domain.Entities;
-using Microsoft.AspNetCore.Identity;
+﻿using BookLibrary.Server.Domain.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
@@ -23,17 +22,18 @@ namespace BookLibrary.Server.Infrastructure.Data
             {
                 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
                 var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
-            
+
                 if (environment == "Production")
                 {
-                    optionsBuilder.UseNpgsql(connectionString  ?? throw new Exception("DATABASE_URL environment variable is not set."));
+                    optionsBuilder.UseNpgsql(connectionString ?? throw new Exception("DATABASE_URL environment variable is not set."));
                 }
                 else
                 {
                     optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=booklibrary;Username=postgres;Password=postgres;SSL Mode=Prefer;Trust Server Certificate=true");
                 }
             }
-        }        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        }
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {
             base.ConfigureConventions(configurationBuilder);
 
@@ -53,55 +53,6 @@ namespace BookLibrary.Server.Infrastructure.Data
             builder.Entity<RefreshToken>().Ignore(r => r.IsExpired).Ignore(r => r.IsActive);
             builder.Entity<ApplicationUser>().Ignore(u => u.UserId);
 
-            // Seed roles
-            string adminRoleId = Guid.NewGuid().ToString();
-            string userRoleId = Guid.NewGuid().ToString();
-
-            builder.Entity<ApplicationRole>().HasData(
-                new ApplicationRole
-                {
-                    Id = adminRoleId,
-                    Name = "Admin",
-                    NormalizedName = "ADMIN",
-                    Description = "Administrator role with full access"
-                },
-                new ApplicationRole
-                {
-                    Id = userRoleId,
-                    Name = "User",
-                    NormalizedName = "USER",
-                    Description = "Standard user role with limited access"
-                }
-            );
-
-            // Seed admin user
-            string adminUserId = Guid.NewGuid().ToString();
-            var adminUser = new ApplicationUser
-            {
-                Id = adminUserId,
-                UserName = "admin@booklibrary.com",
-                NormalizedUserName = "ADMIN@BOOKLIBRARY.COM",
-                Email = "admin@booklibrary.com",
-                NormalizedEmail = "ADMIN@BOOKLIBRARY.COM",
-                EmailConfirmed = true,
-                FullName = "System Administrator",
-                SecurityStamp = Guid.NewGuid().ToString()
-            };
-
-            // Set password hash
-            var passwordHasher = new PasswordHasher<ApplicationUser>();
-            adminUser.PasswordHash = passwordHasher.HashPassword(adminUser, "Admin@123");
-
-            builder.Entity<ApplicationUser>().HasData(adminUser);
-
-            // Assign admin role to admin user
-            builder.Entity<IdentityUserRole<string>>().HasData(
-                new IdentityUserRole<string>
-                {
-                    UserId = adminUserId,
-                    RoleId = adminRoleId
-                }
-            );
         }
     }
 

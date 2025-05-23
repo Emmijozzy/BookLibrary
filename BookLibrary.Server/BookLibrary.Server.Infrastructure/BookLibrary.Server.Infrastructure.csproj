@@ -39,4 +39,9 @@
 		<ProjectReference Include="..\BookLibrary.Server.Application\BookLibrary.Server.Application.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Migrations\SimplifiedAspBookProject\" />
+	  <Folder Include="Models\" />
+	</ItemGroup>
+
 </Project>

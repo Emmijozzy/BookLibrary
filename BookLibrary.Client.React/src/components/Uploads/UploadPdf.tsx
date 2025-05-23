@@ -5,14 +5,15 @@ import { MdCancel } from 'react-icons/md';
 type Props = {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string
+  className?: string;
 }
 
-export const UploadPdf = ({handleChange, error}: Props) => {
+export const UploadPdf = ({handleChange, error, className=""}: Props) => {
 
   const {handleFileChange, pdfPreview, pdfUploadProgress, fileName, handleCanclePdf} = useUpload({handleChange});
 
   return (
-    <div className="flex flex-col gap-4 bg-gray-50 p-4 min-h-30 rounded-lg border border-gray-200">
+    <div className={`flex flex-col gap-4 bg-gray-50 p-4 min-h-30 rounded-lg border border-gray-200 ${className}`}>
       <div className='flex justify-between'>
         <label htmlFor="pdf" className="text-gray-700 block text-sm font-semibold mb-2">PDF Upload </label>
             <input

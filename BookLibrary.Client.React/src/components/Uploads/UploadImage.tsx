@@ -4,14 +4,15 @@ import { useUpload } from "../../Hooks/useUpload";
 type Props = {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string
+  className?: string;
 }
 
-export const UploadImage = ({ handleChange, error }: Props) => {
+export const UploadImage = ({ handleChange, error, className="" }: Props) => {
 
   const {handleFileChange, imagePreview, imageUploadProgress, handleCancleImage } = useUpload({handleChange});
 
   return (
-    <div className="flex flex-col gap-4 bg-gray-50 p-4 min-h-30 rounded-lg border border-gray-200">
+    <div className={`flex flex-col gap-4 bg-gray-50 p-4 min-h-30 rounded-lg border border-gray-200 ${className}`}>
       <div className="flex justify-between">
       <label htmlFor="image" className="text-gray-700 block text-sm font-semibold mb-2">Image Upload</label>
         {imagePreview && <button type='button' onClick={handleCancleImage}><MdCancel  /></button>}

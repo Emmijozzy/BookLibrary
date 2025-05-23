@@ -27,7 +27,7 @@ export const Input = ({ field, handleChange, values, errors, className = "", bod
   const errorMessage = errors && field.name in errors ? errors[field.name as keyof (Book | Category)] : '';
 
   return (
-    <div key={field.id} className={`${bodyClassName} space-y-1`}>
+    <div key={field.id} className={`${bodyClassName} col-span-2 md:col-span-1 space-y-1`}>
       <label 
         htmlFor={field.id} 
         className="block text-sm font-medium text-gray-700 mb-1"

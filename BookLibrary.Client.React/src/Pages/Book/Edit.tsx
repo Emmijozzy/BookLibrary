@@ -65,7 +65,7 @@ const Edit = () => {
                   errors={errors} 
                 />
 
-                <div className="">
+                <div className="col-span-2 md:col-span-1">
                     <CategorySelect 
                     categories={categories} 
                     selectedCategoryId={values.categoryId || ''} 
@@ -74,7 +74,7 @@ const Edit = () => {
                 </div>
                 
                 {/* Privacy Setting */}
-                <div className=" mb-2">
+                <div className="col-span-2 md:col-span-1 mb-2">
                   <div className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg bg-gray-50">
                     <div className="flex items-center h-5">
                       <input
@@ -101,10 +101,10 @@ const Edit = () => {
                 </div>
                 
                 {/* Image Upload */}
-                <UploadImage handleChange={handleChange} error={errors.image} />
+                <UploadImage className='col-span-2 md:col-span-1' handleChange={handleChange} error={errors.image} />
 
                 {/* PDF Upload */}
-                <UploadPdf handleChange={handleChange} error={errors.pdf} />
+                <UploadPdf className='col-span-2 md:col-span-1' handleChange={handleChange} error={errors.pdf} />
                 
                 <DescriptionTextarea 
                   description={values.description} 

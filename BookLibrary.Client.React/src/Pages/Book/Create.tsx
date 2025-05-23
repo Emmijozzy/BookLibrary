@@ -34,7 +34,7 @@ const Create = () => {
                         <button onClick={handleBack} className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-base sm:text-lg">Back to List</button>
                     </div>
 
-                    <form encType="multipart/form-data" onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-1 sm:gap-3 md:gap-5">
+                    <form encType="multipart/form-data" onSubmit={handleSubmit} className="grid grid-cols-2 gap-6">
                         {inputFields.map((field) => (
                             <Input
                                 key={field.id}
@@ -45,7 +45,7 @@ const Create = () => {
                             />
                         ))}
  
-                        <div className="md:col-span-1">
+                        <div className="col-span-2 md:col-span-1">
                             <CategorySelect 
                                 categories={categories} 
                                 selectedCategoryId={values.categoryId || ''} 
@@ -53,7 +53,7 @@ const Create = () => {
                             />
                         </div>
                         
-                        <div className="md:col-span-1 mb-4">
+                        <div className="col-span-2 md:col-span-1 mb-4">
                             <div className="flex items-start sm:items-center space-x-4 p-4 sm:p-6 border border-gray-200 rounded-lg bg-gray-50">
                                 <div className="flex items-center h-6">
                                     <input
@@ -79,19 +79,16 @@ const Create = () => {
                             )}
                         </div>
 
-                        <div className="md:col-span-1">
-                            <UploadImage handleChange={handleChange} error={errors.image} />
-                        </div>
 
-                        <div className="md:col-span-1">
-                            <UploadPdf handleChange={handleChange} error={errors.pdf} />
-                        </div>
+                        <UploadImage className='col-span-2 md:col-span-1' handleChange={handleChange} error={errors.image} />
+
+                        <UploadPdf className='col-span-2 md:col-span-1' handleChange={handleChange} error={errors.pdf} />
                 
-                        <div className="col-span-1 md:col-span-2">
+                        <div className="col-span-2 md:col-span-1">
                             <DescriptionTextarea handleChange={handleChange} description={values.description || ''} error={errors.description || ''} />
                         </div>
 
-                        <div className="col-span-1 md:col-span-2">
+                        <div className="col-span-2 md:col-span-1">
                             <button type="submit" className="bg-indigo-600 text-white py-3 sm:py-4 px-6 sm:px-8 w-full rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors font-semibold text-lg sm:text-xl">
                                 {loading ? 'Loading...' : 'Create'}
                             </button>
