@@ -16,7 +16,7 @@ const HomeLayout = () => {
         <Header setShowSideBar={handleShowSideBar} showSideBar={isOpen} />
       <div className="flex relative">
         <SideBar showSideBar={isOpen} />
-        <div className="flex-1  md:ml-[18rem] mx-auto h-[calc(100vh-120px)] px-4 overflow-y-auto">
+        <div className="flex-1  md:ml-[18rem] mx-auto h-[calc(100vh-120px)] px-2 py-4 overflow-y-auto">
            <Outlet />
         </div>
       </div>

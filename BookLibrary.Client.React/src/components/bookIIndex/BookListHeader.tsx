@@ -20,20 +20,30 @@ export const BookListHeader = ({
           </span>
       </div>
       <div className="flex flex-wrap items-center gap-4">
-          <div className="flex bg-slate-100 p-1 rounded-lg">
-              <button 
-                  onClick={() => setViewMode('carpet')}
-                  className={`px-4 py-2 rounded-md flex items-center gap-2 text-sm font-medium transition-all duration-200 ease-in-out ${viewMode === 'carpet' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
-              >
-                  <FaThLarge className="text-lg" /> Grid View
-              </button>
-              <button 
-                  onClick={() => setViewMode('table')}
-                  className={`px-4 py-2 rounded-md flex items-center gap-2 text-sm font-medium transition-all duration-200 ease-in-out ${viewMode === 'table' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
-              >
-                  <FaList className="text-lg" /> Table View
-              </button>
-          </div>
+            <div className="flex bg-slate-100 p-1 rounded-lg border">
+            <button 
+                onClick={() => setViewMode('grid')}
+                className={`px-4 py-2 rounded-md flex items-center gap-2 text-sm font-medium transition-all duration-200 ${
+                viewMode === 'grid' 
+                    ? 'bg-white text-slate-900 shadow-sm border border-slate-200' 
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                }`}
+            >
+                <FaThLarge className="text-sm" />
+                <span className="hidden sm:inline">Grid</span>
+            </button>
+            <button 
+                onClick={() => setViewMode('table')}
+                className={`px-4 py-2 rounded-md flex items-center gap-2 text-sm font-medium transition-all duration-200 ${
+                viewMode === 'table' 
+                    ? 'bg-white text-slate-900 shadow-sm border border-slate-200' 
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                }`}
+            >
+                <FaList className="text-sm" />
+                <span className="hidden sm:inline">Table</span>
+            </button>
+            </div>
           <Link 
               to="/Books/create" 
               className="inline-flex items-center justify-center rounded-lg py-2.5 px-5 text-sm font-medium transition-all duration-200 ease-in-out bg-indigo-600 text-white hover:bg-indigo-700 active:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
