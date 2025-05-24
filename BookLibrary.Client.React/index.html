@@ -1,10 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#4f46e5" />
+    
+    <!-- SVG Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%234f46e5;stop-opacity:1' /><stop offset='100%25' style='stop-color:%237c3aed;stop-opacity:1' /></linearGradient></defs><rect width='32' height='32' fill='url(%23grad1)' rx='6'/><rect x='6' y='4' width='20' height='24' fill='white' rx='2'/><rect x='6' y='4' width='3' height='24' fill='%23e5e7eb' rx='2'/><rect x='11' y='8' width='12' height='1.5' fill='%234f46e5'/><rect x='11' y='12' width='10' height='1' fill='%239ca3af'/><rect x='11' y='15' width='11' height='1' fill='%239ca3af'/><rect x='11' y='18' width='9' height='1' fill='%239ca3af'/><rect x='11' y='21' width='10' height='1' fill='%239ca3af'/></svg>" type="image/svg+xml">
+    
+    <!-- Primary Meta Tags -->
+    <title>BookLibrary - Digital Book Management System</title>
+    <meta name="title" content="BookLibrary - Digital Book Management System" />
+    <meta name="description" content="A comprehensive digital library management system for organizing, sharing, and discovering books. Create your personal collection, manage categories, and explore a vast catalog of literature." />
+    <meta name="keywords" content="digital library, book management, online library, book catalog, reading list, book collection, literature, ebooks, library system" />
+    <meta name="author" content="Ogunsuyi Joseph (Emmijozzy)" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://booklibrary-fyic.onrender.com/" />
+    <meta property="og:title" content="BookLibrary - Digital Book Management System" />
+    <meta property="og:description" content="A comprehensive digital library management system for organizing, sharing, and discovering books. Create your personal collection, manage categories, and explore a vast catalog of literature." />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="BookLibrary" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://booklibrary-fyic.onrender.com/" />
+    <meta property="twitter:title" content="BookLibrary - Digital Book Management System" />
+    <meta property="twitter:description" content="A comprehensive digital library management system for organizing, sharing, and discovering books. Create your personal collection, manage categories, and explore a vast catalog of literature." />
+    <meta property="twitter:image" content="%PUBLIC_URL%/twitter-image.png" />
+    <meta property="twitter:creator" content="@BookLibraryApp" />
+    
+    <!-- Additional Meta Tags -->
+    <meta name="application-name" content="BookLibrary" />
+    <meta name="apple-mobile-web-app-title" content="BookLibrary" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://picsum.photos" />
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "BookLibrary",
+      "description": "A comprehensive digital library management system for organizing, sharing, and discovering books.",
+      "url": "https://booklibrary-fyic.onrender.com/",
+      "applicationCategory": "EducationApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Ogunsuyi Joseph"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Emmijozzy"
+      }
+    }
+    </script>
   </head>
   <body class="overflow-hidden">
     <div id="root"></div>
