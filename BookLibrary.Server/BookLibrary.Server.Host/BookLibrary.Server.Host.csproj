@@ -3,23 +3,7 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-
-		<!-- Your Vite React project root -->
-		<SpaRoot>..\..\BookLibrary.Client.React\</SpaRoot>
-		<!-- Exclude dist from automatic project inclusion -->
-		<DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)dist\**</DefaultItemExcludes>
 	</PropertyGroup>
-
-	<!-- Find all Vite build output files -->
-	<ItemGroup>
-		<ReactBuildFiles Include="$(SpaRoot)dist\**\*" />
-	</ItemGroup>
-
-	<!-- Build and copy -->
-	<Target Name="PublishReact" AfterTargets="Build">
-		<Exec Command="npm run build" WorkingDirectory="$(SpaRoot)" />
-		<Copy SourceFiles="@(ReactBuildFiles)" DestinationFolder="wwwroot\%(RecursiveDir)" SkipUnchangedFiles="true" />
-	</Target>
 
 	<ItemGroup>
 		<None Update="wwwroot\**\*.*">
@@ -27,12 +11,11 @@
 		</None>
 	</ItemGroup>
 
-	<ItemGroup>
-		<!-- You can remove these 2.x ASP.NET packages if not using them -->
-		<!--<PackageReference Include="Microsoft.AspNetCore" Version="2.3.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.3.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.1" />-->
 
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore" Version="2.3.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.3.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.1" />
 		<PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="8.0.14" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.12">
 			<PrivateAssets>all</PrivateAssets>
@@ -56,4 +39,6 @@
 	<ItemGroup>
 		<Folder Include="wwwroot\" />
 	</ItemGroup>
+
+
 </Project>
