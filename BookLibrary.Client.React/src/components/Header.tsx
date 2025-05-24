@@ -32,7 +32,7 @@ const Header = ({ setShowSideBar, showSideBar }: Props) => {
 
   return (
     <>
-      <header className="bg-white border-b border-gray-200 fixed w-full h-[60px] top-0 z-50 shadow-sm">
+       <header className="bg-white border-b border-gray-200 fixed w-screen h-[63px] top-0">
         <nav className="px-4 sm:px-6 lg:px-8 h-full">
           <div className="flex justify-between items-center h-full">
             <div className="flex items-center">

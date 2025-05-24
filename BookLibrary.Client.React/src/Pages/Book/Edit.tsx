@@ -13,7 +13,7 @@ import { PdfPreview } from "../../components/PdfPreview";
 import { UploadImage } from "../../components/Uploads/UploadImage";
 import { UploadPdf } from "../../components/Uploads/UploadPdf";
 import UseEdit from "../../Hooks/Book/useEdit";
-import { useCategories } from "../../Hooks/Category/useCategories";
+import { useCategories } from "../../Hooks/Category/useFetchCategory";
 import { useApp } from "../../Hooks/useApp";
 
 const Edit = () => {
