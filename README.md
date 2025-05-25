@@ -9,6 +9,7 @@ BookLibrary/
 ├── BookLibrary.Server/                # Backend (.NET 8 API)
 │   ├── BookLibrary.Server.Host/       # API Layer & Entry Point
 │   ├── BookLibrary.Server.Application/# Business Logic & Services
+│   ├── BookLibrary.Server.Domain/     # Entity Models & Interfaces
 │   ├── BookLibrary.Server.Infrastructure/ # Data Access & External Services
 │   └── MigrationBk/                   # Database Migration Backups
 └── BookLibrary.Client/                # Frontend (React + Vite)
