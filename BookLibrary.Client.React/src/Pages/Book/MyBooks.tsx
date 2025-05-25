@@ -4,7 +4,7 @@ import { BookFilters } from "../../components/bookIIndex/BookFiltersProps";
 import { BookListContent } from "../../components/bookIIndex/BookListContent";
 import { BookListHeader } from "../../components/bookIIndex/BookListHeader";
 import Pagination from "../../components/bookIIndex/Pagination";
-import { LoadingSpinner } from "../../components/LoadingSpinner";
+import { LoadingSpinner2 } from '../../components/LoadingSpinner2';
 import SearchBar from "../../components/SearchBar";
 import useBook from "../../Hooks/Book/useBook";
 import { useApp } from "../../Hooks/useApp";
@@ -31,10 +31,6 @@ const MyBooks = () => {
         handleFilterChange,
         handlePageSizeChange,
     } = useBook(appUserId);
-
-    if (loading) {
-        return <LoadingSpinner />;
-    }
 
     if (error) {
         return <div className="p-6 bg-red-50 text-red-700 rounded-lg">Error: {error as string}</div>;
@@ -72,7 +68,13 @@ const MyBooks = () => {
                 </div>
             </div>
 
-            <BookListContent books={books} viewMode={viewMode} />
+            {
+                loading ?  (
+                    <div className="flex justify-center items-center h-full">
+                        <LoadingSpinner2 />
+                    </div>
+                ) :  <BookListContent books={books} viewMode={viewMode} />
+            }
 
             <Pagination 
                 currentPage={query.pageNumber}

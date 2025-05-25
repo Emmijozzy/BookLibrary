@@ -6,7 +6,7 @@ import { Input } from "../../components/Input";
 import { UploadImage } from "../../components/Uploads/UploadImage";
 import { UploadPdf } from "../../components/Uploads/UploadPdf";
 import useCreate from "../../Hooks/Book/useCreate";
-import { useCategories } from "../../Hooks/Category/useCategories";
+import { useCategories } from "../../Hooks/Category/useFetchCategory";
 import { handleBack } from "../../Utils/handleBack";
 
 const Create = () => {

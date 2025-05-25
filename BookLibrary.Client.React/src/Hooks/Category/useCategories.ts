@@ -1,26 +1,35 @@
-import { useEffect, useState } from "react";
-import { Category } from "../../Types/category";
-import useFetch from "../useFetch";
+import { useEffect } from 'react'
+import { Category } from '../../Types/category'
+import { useApp } from '../useApp'
+import useFetch from '../useFetch'
 
 export const useCategories = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
-  const { error, fetchData } = useFetch();
-  
+  const { data, error, fetchData, loading } = useFetch()
+  const { currentRole } = useApp()
+  const isAdmin = currentRole === 'Admin'
+
   useEffect(() => {
     const getCategories = async () => {
-      try {
-        const fetchedData = await fetchData("Category/all", { method: 'get' });
-        if (fetchedData) {
-          setCategories(fetchedData as unknown as Category[]);
-        }
-      } catch (err) {
-        console.log(error);
-        console.error('There was an error fetching the categories!', err);
-      }
-    };
+      const endpoint = isAdmin 
+        ? "Category/all-with-users-books" 
+        : "Category/all-with-users-public-books"
+      
+      await fetchData(endpoint, { method: 'get' })
+    }
     
-    getCategories();
-  }, [error, fetchData]);
-  
-  return categories;
-};
+    getCategories()
+  }, [fetchData, isAdmin])
+
+  const categories = (data as unknown as Category[]) || []
+
+  return {
+    categories,
+    loading,
+    error,
+    isAdmin,
+    refetch: () => fetchData(
+      isAdmin ? "Category/all-with-users-books" : "Category/all-with-users-public-books",
+      { method: 'get' }
+    )
+  }
+}

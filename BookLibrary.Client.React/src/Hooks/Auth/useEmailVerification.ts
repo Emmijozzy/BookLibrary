@@ -11,7 +11,7 @@ const useEmailVerification = ({ email }: UseEmailVerificationProps) => {
   const [resendCount, setResendCount] = useState(0);
   const [resendCooldown, setResendCooldown] = useState(0);
 
-  const { fetchData, error} = useFetch()
+  const { fetchData} = useFetch()
 
   const resendVerificationEmail = async () => {
     if (resendCooldown > 0) return;

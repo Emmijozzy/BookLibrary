@@ -16,7 +16,8 @@ export const useBookData = (id: string | undefined) => {
     publisher: '',
     language: '',
     imageUrl: '',
-    pdfUrl: ''
+    pdfUrl: '',
+    isPrivate: false
   });
 
   const { error, fetchData } = useFetch();
