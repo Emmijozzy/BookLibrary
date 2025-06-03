@@ -2,6 +2,8 @@
 
 A digital book library management system with a .NET 8 backend API and React frontend, featuring user authentication, file management, and book operations.
 
+Live Demo: [https://booklibrary-fyic.onrender.com/](https://booklibrary-fyic.onrender.com/)
+
 ## 🏗️ Architecture Overview
 
 ```
@@ -103,7 +105,7 @@ export const API_BASE_URL = "https://localhost:7257/api";
 
 1. **Clone and Navigate**
 ```bash
-git clone <repository-url>
+git clone https://github.com/Emmijozzy/BookLibrary.git
 cd BookLibrary/BookLibrary.Server
 ```
 
