@@ -537,9 +537,6 @@
   .table {
     display: table;
   }
-  .aspect-\[3\/3\] {
-    aspect-ratio: 3/3;
-  }
   .aspect-\[3\/4\] {
     aspect-ratio: 3/4;
   }
@@ -604,9 +601,6 @@
   .h-\[60px\] {
     height: 60px;
   }
-  .h-\[63px\] {
-    height: 63px;
-  }
   .h-\[calc\(100vh-24rem\)\] {
     height: calc(100vh - 24rem);
   }
@@ -633,12 +627,6 @@
   }
   .min-h-30 {
     min-height: calc(var(--spacing) * 30);
-  }
-  .min-h-\[70\] {
-    min-height: 70;
-  }
-  .min-h-\[70px\] {
-    min-height: 70px;
   }
   .min-h-\[200px\] {
     min-height: 200px;
@@ -1328,9 +1316,6 @@
   }
   .p-0 {
     padding: calc(var(--spacing) * 0);
-  }
-  .p-0\.5 {
-    padding: calc(var(--spacing) * 0.5);
   }
   .p-1 {
     padding: calc(var(--spacing) * 1);
@@ -2180,13 +2165,6 @@
         @supports (color: color-mix(in lab, red, red)) {
           background-color: color-mix(in oklab, var(--color-white) 40%, transparent);
         }
-      }
-    }
-  }
-  .hover\:bg-yellow-600 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-yellow-600);
       }
     }
   }
