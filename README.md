@@ -1,4 +1,21 @@
+![.NET 8](https://img.shields.io/badge/.NET-8.0-blue)
+![React](https://img.shields.io/badge/Frontend-React-blue)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 # BookLibrary - Full Stack Application
+- [Features](#-features)
+- [Tech Stack](#️-technology-stack)
+- [Architecture](#️-architecture-overview)
+- [Getting Started](#-getting-started)
+- [API Endpoints](#-api-endpoints)
+- [Security Features](#-security-features)
+- [File Management](#-file-management)
+- [Database Migrations](#-database-migrations)
+- [Configuration](#-configuration-details)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Support](#-support)
 
 A digital book library management system with a .NET 8 backend API and React frontend, featuring user authentication, file management, and book operations.
 
@@ -396,5 +413,11 @@ For support, please open an issue in the repository.
 ---
 
 **Happy Coding! 🚀**
+
+This project was developed by **Joseph Ogunsuyi** as part of a continuous journey to build scalable, enterprise-grade applications using modern full-stack technologies. It combines real-world system design principles, authentication, and user experience in a production-style application.
+
+- [Portfolio](https://ogunsuyi-joseph.netlify.app)
+- [LinkedIn](https://www.linkedin.com/in/ogunsuyi-joseph-oluwaseun-0josephogunsuyi360@gmail.com8a3312aa/)
+- [Email](mailto:josephogunsuyi360@gmail.com)
 
 For any questions or issues, please don't hesitate to reach out to the development team or create an issue in the repository.
